@@ -1,0 +1,42 @@
+﻿EnumID	Enum_Category	Enum_Group	Enum_Code	Enum_Description	Sort_Order	Inactive
+1	UI	DirFacing	US	photographer facing upstream	1	0
+2	UI	DirFacing	DS	photographer facing downstream	2	0
+3	UI	DirFacing	RR	photographer facing river right	3	0
+4	UI	DirFacing	RL	photographer facing river left	4	0
+5	UI	PhotoType	T	transect photos	1	0
+6	UI	PhotoType	F	feature photos	2	0
+7	UI	PhotoType	O	overview photos	3	0
+8	UI	PhotoType	R	reference photos	4	0
+9	UI	ModWentworth	F	fines (<0.5mm diameter)	1	0
+10	UI	ModWentworth	S	sand (0.5-2mm diameter)	2	0
+11	UI	ModWentworth	G	gravel (>2-16mm diameter)	3	0
+12	UI	ModWentworth	P	pebble (>16-64mm diameter)	4	0
+13	UI	ModWentworth	C	cobble (>65-256mm diameter)	5	0
+14	UI	ModWentworth	BL	boulder (>256-512mm diameter)	6	0
+15	UI	ModWentworth	BR	bedrock, hardpan (>512mm diameter)	7	0
+16	UI	PlotDensity	1/1	plot every 1m	1	0
+17	UI	PlotDensity	1/2	plot every 2m	2	0
+18	UI	PlotDensity	1/4	plot every 4m	3	0
+19	UI	River	GR	green river	1	0
+20	UI	River	LCO	lower colorado river	2	0
+21	UI	River	UCO	upper colorado river	3	0
+22	UI	SlopeChangeCause	V	vegetation	1	0
+23	UI	SlopeChangeCause	G	ground	2	0
+24	UI	SlopeChangeCause	W	water	3	0
+25	UI	SlopeChangeCause	R	rock	4	0
+26	UI	SlopeChangeCause	D	debris	5	0
+27	UI	PinType	LHP	left head pin	1	0
+28	UI	PinType	RHP	right head pin	2	0
+29	UI	PinType	WP	water pin	3	0
+30	UI	PinType	IP	island pin	4	0
+31	UI	OtherPhotoCategory	Animals	animal photos	1	0
+32	UI	OtherPhotoCategory	Plants	plant photos	2	0
+33	UI	OtherPhotoCategory	Cultural	cultural photos	3	0
+34	UI	OtherPhotoCategory	Scenic	scenic photos	4	0
+35	UI	OtherPhotoCategory	Disturbance	disturbance photos	5	0
+36	UI	OtherPhotoCategory	Weather	weather photos	6	0
+37	UI	OtherPhotoCategory	Field work	field work photos	7	0
+38	UI	OtherPhotoCategory	Other	other miscellaneous photos	8	0
+39	File	DataSheet	Photo	photo data sheet	1	0
+40	File	DataSheet	Veg	veg data sheet	2	0
+41	File	DataSheet	VegCont	veg continuation sheet	3	0
