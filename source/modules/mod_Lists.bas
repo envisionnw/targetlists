@@ -451,11 +451,14 @@ On Error GoTo Err_Handler
     Set frm = lbx.Parent
     
     'sort data
+    Dim aryValues As Variant
+    
     Set propValues = frm.Controls(lbx).Properties("RowSource")
     aryValues = Split(propValues, ";")
     
     'iterate
-    For x = LBound(aryValues) To UBound(aryValues) - 1
+    Dim a As Integer
+    For a = LBound(aryValues) To UBound(aryValues) - 1
         
     
     Next
@@ -463,7 +466,7 @@ On Error GoTo Err_Handler
 Dim prp As Property, Ary, hld As String, Pak As String
 Dim x As Integer, y As Integer
    
-   Set prp = Me.ListBoxName.Properties("RowSource")
+   Set prp = lbx.Properties("RowSource") 'Me!ListBoxName.Properties("RowSource")
    Ary = Split(prp, ";")
    
    For x = LBound(Ary) To UBound(Ary) - 1
@@ -656,7 +659,6 @@ On Error GoTo Err_Handler
     
     Next
 
-
     'iterate through items
     For iRow = 0 To ctrl.ListCount - 1
     
@@ -664,11 +666,10 @@ On Error GoTo Err_Handler
             
             strSQL = strSQL & "'" & ctrl.Column(jCol, iRow) & "'"
              
-             
             CurrentDb.Execute strSQL, dbFailOnError
-    
-    Next iRow
-
+            
+            Next
+    Next 'iRow
 
 Exit_Sub:
     Exit Sub

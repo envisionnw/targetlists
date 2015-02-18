@@ -12,8 +12,8 @@ Begin Form
     Width =9000
     DatasheetFontHeight =11
     ItemSuffix =47
-    Right =20460
-    Bottom =9660
+    Right =15975
+    Bottom =12015
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x72574db34b86e440
@@ -159,7 +159,7 @@ Begin Form
             GridlineShade =65.0
         End
         Begin FormHeader
-            Height =5172
+            Height =5175
             Name ="FormHeader"
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
@@ -607,10 +607,10 @@ Begin Form
                     PressedForeColor =6750156
                     PressedForeThemeColorIndex =-1
                     PressedForeTint =100.0
-                    WebImagePaddingLeft =3
-                    WebImagePaddingTop =3
-                    WebImagePaddingRight =2
-                    WebImagePaddingBottom =2
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
                 End
             End
         End
@@ -1165,6 +1165,14 @@ On Error GoTo Err_Handler
             & strWHERE & ";"
             
     MsgBox strSQL, vbOKOnly, "strSQL"
+    
+    'run search
+        Dim rs As DAO.Recordset
+        
+        Set rs = CurrentDb.Execute(strSQL, dbFailOnError)
+        
+        Debug.Print CurrentDb.RecordsAffected
+
             
             'set statusbar notice
             Dim varReturn As Variant
