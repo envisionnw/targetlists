@@ -4,7 +4,6 @@ Begin Form
     RecordSelectors = NotDefault
     NavigationButtons = NotDefault
     DividingLines = NotDefault
-    AllowDesignChanges = NotDefault
     DefaultView =0
     PictureAlignment =2
     DatasheetGridlinesBehavior =3
@@ -13,8 +12,8 @@ Begin Form
     Width =9000
     DatasheetFontHeight =11
     ItemSuffix =47
-    Right =15720
-    Bottom =11760
+    Right =20460
+    Bottom =9660
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x72574db34b86e440
@@ -32,6 +31,7 @@ Begin Form
     FilterOnLoad =0
     ShowPageMargins =0
     DisplayOnSharePointSite =1
+    AllowLayoutView =0
     DatasheetAlternateBackColor =15921906
     DatasheetGridlinesColor12 =0
     FitToScreen =1
@@ -52,6 +52,22 @@ Begin Form
             BorderTint =50.0
             ForeThemeColorIndex =0
             ForeTint =50.0
+            GridlineThemeColorIndex =1
+            GridlineShade =65.0
+        End
+        Begin Rectangle
+            SpecialEffect =3
+            BackStyle =0
+            BorderLineStyle =0
+            BackThemeColorIndex =1
+            BorderThemeColorIndex =1
+            BorderShade =65.0
+            GridlineThemeColorIndex =1
+            GridlineShade =65.0
+        End
+        Begin Line
+            BorderLineStyle =0
+            BorderThemeColorIndex =0
             GridlineThemeColorIndex =1
             GridlineShade =65.0
         End
@@ -143,12 +159,29 @@ Begin Form
             GridlineShade =65.0
         End
         Begin FormHeader
-            Height =3840
+            Height =5172
             Name ="FormHeader"
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
             BackThemeColorIndex =1
             Begin
+                Begin Rectangle
+                    SpecialEffect =0
+                    BackStyle =1
+                    OldBorderStyle =0
+                    OverlapFlags =93
+                    Top =4020
+                    Width =9000
+                    Height =1140
+                    BackColor =14806254
+                    BorderColor =10921638
+                    Name ="boxCurrTgtArea"
+                    GridlineColor =10921638
+                    LayoutCachedTop =4020
+                    LayoutCachedWidth =9000
+                    LayoutCachedHeight =5160
+                    BackThemeColorIndex =3
+                End
                 Begin Label
                     OverlapFlags =85
                     Left =60
@@ -477,6 +510,108 @@ Begin Form
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                 End
+                Begin Label
+                    OverlapFlags =215
+                    Left =120
+                    Top =4140
+                    Width =2448
+                    Height =372
+                    FontSize =14
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblSearchResults"
+                    Caption ="Search Results"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =120
+                    LayoutCachedTop =4140
+                    LayoutCachedWidth =2568
+                    LayoutCachedHeight =4512
+                End
+                Begin Label
+                    OverlapFlags =215
+                    Left =300
+                    Top =4620
+                    Width =6576
+                    Height =300
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblSearchResultInstructions"
+                    Caption ="Double click the species you'd like to add to your target species listing. "
+                    GridlineColor =10921638
+                    LayoutCachedLeft =300
+                    LayoutCachedTop =4620
+                    LayoutCachedWidth =6876
+                    LayoutCachedHeight =4920
+                End
+                Begin Line
+                    BorderWidth =2
+                    OverlapFlags =87
+                    Top =4020
+                    Width =9000
+                    BorderColor =8355711
+                    Name ="lineCurrTgtAreaTop"
+                    GridlineColor =10921638
+                    LayoutCachedTop =4020
+                    LayoutCachedWidth =9000
+                    LayoutCachedHeight =4020
+                    BorderTint =50.0
+                End
+                Begin Line
+                    BorderWidth =2
+                    OverlapFlags =87
+                    Top =5160
+                    Width =9000
+                    BorderColor =8355711
+                    Name ="lineCurrTgtAreaBtm"
+                    GridlineColor =10921638
+                    LayoutCachedTop =5160
+                    LayoutCachedWidth =9000
+                    LayoutCachedHeight =5160
+                    BorderTint =50.0
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =4740
+                    Top =3300
+                    Width =2220
+                    TabIndex =7
+                    ForeColor =16711680
+                    Name ="btnSearch"
+                    Caption ="Search!"
+                    StatusBarText ="Add new target area"
+                    OnClick ="[Event Procedure]"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =4740
+                    LayoutCachedTop =3300
+                    LayoutCachedWidth =6960
+                    LayoutCachedHeight =3660
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
+                    Gradient =0
+                    BackColor =6750156
+                    BackThemeColorIndex =-1
+                    BackTint =100.0
+                    BorderColor =52377
+                    BorderThemeColorIndex =-1
+                    BorderTint =100.0
+                    HoverColor =3407769
+                    HoverThemeColorIndex =-1
+                    HoverTint =100.0
+                    PressedColor =52224
+                    PressedThemeColorIndex =-1
+                    PressedShade =100.0
+                    HoverForeColor =2375487
+                    HoverForeThemeColorIndex =-1
+                    HoverForeTint =100.0
+                    PressedForeColor =6750156
+                    PressedForeThemeColorIndex =-1
+                    PressedForeTint =100.0
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
             End
         End
         Begin Section
@@ -536,7 +671,8 @@ On Error GoTo Err_Handler
     TempVars.Add "speciestype", ""
     
     'disable search until something is entered
-    DisableControl lblSearch
+    btnSearch.Enabled = False
+    DisableControl btnSearch
 
 Exit_Sub:
     Exit Sub
@@ -563,16 +699,22 @@ End Sub
 ' Revisions:
 '   BLC - 2/10/2015 - initial version
 ' ---------------------------------
-
 Private Sub tbxSearchFor_LostFocus()
 On Error GoTo Err_Handler
     
     If Len(tbxSearchFor.Value) > 0 Then
-        'enable the search "button"
-        EnableControl lblSearch, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
+        'check if species list is identified
+        If Len(TempVars.item("speciestype")) > 0 Then
+            'enable the search "button"
+            btnSearch.Enabled = True
+            EnableControl btnSearch, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
+        Else
+            MsgBox "Please choose at least one species list to search.", vbOKOnly, "Oops! Missing Species List to Search"
+        End If
     Else
         'disable the search "button"
-        DisableControl lblSearch
+        btnSearch.Enabled = False
+        DisableControl btnSearch
     End If
     
 Exit_Sub:
@@ -868,7 +1010,8 @@ On Error GoTo Err_Handler
     Dim i As Integer
 
     'ignore if disabled
-    If lblSearch.backColor = TempVars.item("ctrlDisabled") Then GoTo Exit_Sub
+    'If lblSearch.backColor = TempVars.item("ctrlDisabled") Then GoTo Exit_Sub
+    If btnSearch.Enabled = False Then GoTo Exit_Sub
 
     strSearch = Trim(tbxSearchFor.Value)
             
@@ -933,6 +1076,111 @@ Err_Handler:
       Case Else
         MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
             "Error encountered (#" & Err.Number & " - lblSearch_Click[form_frmSpeciesSearch])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          btnSearch_Click
+' Description:  Search for the name or portion of a name in the species/common names listed & return a result list
+' Assumptions:  -
+' Parameters:   XX - XX
+' Returns:      XX - XX
+' Throws:       none
+' References:   none
+' Source/date:
+' http://codevba.com/msaccess/status_bar_and_progress_meter.htm#.VNb9X_lM4_4
+' Adapted:      Bonnie Campbell, February 7, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/7/2015 - initial version
+' ---------------------------------
+Private Sub btnSearch_Click()
+On Error GoTo Err_Handler
+    
+    Dim speciestype As Variant
+    Dim strSearch As String, strSpecies As String, strWHERE As String, strSQL As String
+    Dim i As Integer
+
+    'ignore if disabled
+    If btnSearch.Enabled = False Then GoTo Exit_Sub
+
+    strSearch = Trim(tbxSearchFor.Value)
+            
+    'check strSearch is alpha numeric
+    
+    'check if species list is selected
+    If Len(TempVars.item("speciestype")) > 0 Then
+        'enable the search "button"
+        btnSearch.Enabled = True
+        EnableControl btnSearch, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
+    Else
+        MsgBox "Please choose at least one species list to search.", vbOKOnly, "Oops! Missing Species List to Search"
+        GoTo Exit_Sub
+    End If
+    
+    
+    'determine which areas are to be searched
+    MsgBox TempVars.item("speciestype"), vbOKOnly, "speciestype"
+
+    'perform search
+    strWHERE = " WHERE "
+    
+    'determine which species names to check
+    For Each speciestype In Split(TempVars.item("speciestype"), ";")
+        
+        If Len(speciestype) > 0 Then
+            
+            'If CountInString(speciestype, ";") > 1 Then
+            i = i + 1
+            If i > 1 Then
+                strWHERE = strWHERE & " OR "
+            End If
+        
+            Select Case speciestype
+                Case "CO"   'Colorado
+                    strSpecies = "CO_Species"
+                Case "UT"   'Utah
+                    strSpecies = "UT_Species"
+                Case "WY"   'Wyoming
+                    strSpecies = "WY_Species"
+                Case "ITIS" 'Master
+                    strSpecies = "Master_Species"
+                Case "CMN"  'Common
+                    strSpecies = "Master_Common_Name"
+            End Select
+                    
+            strWHERE = strWHERE & " " & strSpecies & " LIKE '*" & strSearch & "*'"
+            
+        End If
+    Next
+    
+    MsgBox strWHERE, vbOKOnly, "strWHERE"
+    'prep WHERE clause
+    If Len(Replace(strWHERE, "WHERE", "")) = 0 Then strWHERE = ""
+    
+    'build SQL statement
+    strSQL = "SELECT LU_Code, Master_Species, Utah_Species, CO_Species, WY_Species, " _
+            & "Master_Common_Name" _
+            & "FROM tlu_NCPN_Plants" _
+            & strWHERE & ";"
+            
+    MsgBox strSQL, vbOKOnly, "strSQL"
+            
+            'set statusbar notice
+            Dim varReturn As Variant
+            varReturn = SysCmd(acSysCmdSetStatus, "Searching for " & strSearch & "...")
+            
+            'print it
+            MsgBox "Results for search: " & vbCrLf & strSearch, vbOKOnly, "Search Results"
+
+Exit_Sub:
+    Exit Sub
+
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - btnSearch_Click[form_frmSpeciesSearch])"
     End Select
     Resume Exit_Sub
 End Sub

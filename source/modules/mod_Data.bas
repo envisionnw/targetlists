@@ -26,7 +26,7 @@ Public Sub fillList(frm As Form, lbx As ListBox)
 
 On Error GoTo Err_Handler
     
-    Dim Db As DAO.Database
+    Dim db As DAO.Database
     Dim rs As DAO.Recordset
     Dim strQuery As String, strSQL As String
     Dim lbxDest As ListBox
@@ -46,8 +46,8 @@ On Error GoTo Err_Handler
     End Select
 
     'fetch data
-    Set Db = CurrentDb
-    Set rs = Db.OpenRecordset(strSQL)
+    Set db = CurrentDb
+    Set rs = db.OpenRecordset(strSQL)
 
     'set TempVars
     TempVars.Add "strSQL", strSQL

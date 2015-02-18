@@ -5,5 +5,5 @@ CREATE TABLE [tlu_Enumerations] (
   [Enum_Code] VARCHAR (50),
   [Enum_Description] VARCHAR (255),
   [Sort_Order] LONG ,
-  [Inactive] UNSIGNED BYTE 
+  [Inactive] BYTE 
 )

@@ -4,16 +4,15 @@ Begin Form
     RecordSelectors = NotDefault
     NavigationButtons = NotDefault
     DividingLines = NotDefault
-    AllowDesignChanges = NotDefault
-    DefaultView =0
+    ViewsAllowed =1
     PictureAlignment =2
     DatasheetGridlinesBehavior =3
     GridX =24
     GridY =24
     DatasheetFontHeight =11
-    ItemSuffix =5
-    Right =20208
-    Bottom =9660
+    ItemSuffix =12
+    Right =14508
+    Bottom =9408
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0xc1f3db6ed487e440
@@ -30,12 +29,11 @@ Begin Form
     AllowPivotChartView =0
     AllowPivotChartView =0
     FilterOnLoad =0
-    SplitFormOrientation =1
     SplitFormSplitterBar =0
-    SplitFormOrientation =1
     SplitFormSplitterBar =0
     ShowPageMargins =0
     DisplayOnSharePointSite =1
+    AllowLayoutView =0
     DatasheetAlternateBackColor =15921906
     DatasheetGridlinesColor12 =0
     FitToScreen =1
@@ -56,6 +54,22 @@ Begin Form
             BorderTint =50.0
             ForeThemeColorIndex =0
             ForeTint =50.0
+            GridlineThemeColorIndex =1
+            GridlineShade =65.0
+        End
+        Begin Rectangle
+            SpecialEffect =3
+            BackStyle =0
+            BorderLineStyle =0
+            BackThemeColorIndex =1
+            BorderThemeColorIndex =1
+            BorderShade =65.0
+            GridlineThemeColorIndex =1
+            GridlineShade =65.0
+        End
+        Begin Line
+            BorderLineStyle =0
+            BorderThemeColorIndex =0
             GridlineThemeColorIndex =1
             GridlineShade =65.0
         End
@@ -121,12 +135,29 @@ Begin Form
             GridlineShade =65.0
         End
         Begin FormHeader
-            Height =2400
+            Height =3372
             Name ="FormHeader"
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
             BackThemeColorIndex =1
             Begin
+                Begin Rectangle
+                    SpecialEffect =0
+                    BackStyle =1
+                    OldBorderStyle =0
+                    OverlapFlags =93
+                    Top =2220
+                    Width =7200
+                    Height =1140
+                    BackColor =14806254
+                    BorderColor =10921638
+                    Name ="boxCurrTgtArea"
+                    GridlineColor =10921638
+                    LayoutCachedTop =2220
+                    LayoutCachedWidth =7200
+                    LayoutCachedHeight =3360
+                    BackThemeColorIndex =3
+                End
                 Begin Label
                     OverlapFlags =85
                     Left =60
@@ -229,23 +260,10 @@ Begin Form
                     WebImagePaddingBottom =2
                     Overlaps =1
                 End
-            End
-        End
-        Begin Section
-            CanGrow = NotDefault
-            CanShrink = NotDefault
-            Height =7560
-            Name ="Detail"
-            AutoHeight =1
-            AlternateBackColor =15921906
-            AlternateBackThemeColorIndex =1
-            AlternateBackShade =95.0
-            BackThemeColorIndex =1
-            Begin
                 Begin Label
-                    OverlapFlags =85
+                    OverlapFlags =215
                     Left =60
-                    Top =60
+                    Top =2340
                     Width =2448
                     Height =372
                     FontSize =14
@@ -255,14 +273,199 @@ Begin Form
                     Caption ="Current Target Areas"
                     GridlineColor =10921638
                     LayoutCachedLeft =60
-                    LayoutCachedTop =60
+                    LayoutCachedTop =2340
                     LayoutCachedWidth =2508
-                    LayoutCachedHeight =432
+                    LayoutCachedHeight =2712
                 End
+                Begin Label
+                    OverlapFlags =223
+                    Left =300
+                    Top =2820
+                    Width =6576
+                    Height =300
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblCurrentTgtAreas"
+                    Caption ="Current target areas are listed below. Click               to delete a target ar"
+                        "ea. "
+                    GridlineColor =10921638
+                    LayoutCachedLeft =300
+                    LayoutCachedTop =2820
+                    LayoutCachedWidth =6876
+                    LayoutCachedHeight =3120
+                End
+                Begin CommandButton
+                    OverlapFlags =215
+                    Left =4200
+                    Top =2820
+                    Width =420
+                    Height =300
+                    TabIndex =2
+                    ForeColor =4210752
+                    Name ="Command6"
+                    Caption ="Delete Target Area"
+                    ControlTipText ="Delete Record"
+                    GridlineColor =10921638
+                    OnClickEmMacro = Begin
+                        Version =196611
+                        ColumnsShown =10
+                        Begin
+                            Action ="OnError"
+                            Argument ="0"
+                        End
+                        Begin
+                            Action ="GoToControl"
+                            Argument ="=[Screen].[PreviousControl].[Name]"
+                        End
+                        Begin
+                            Action ="ClearMacroError"
+                        End
+                        Begin
+                            Condition ="Not [Form].[NewRecord]"
+                            Action ="RunCommand"
+                            Argument ="223"
+                        End
+                        Begin
+                            Condition ="[Form].[NewRecord] And Not [Form].[Dirty]"
+                            Action ="Beep"
+                        End
+                        Begin
+                            Condition ="[Form].[NewRecord] And [Form].[Dirty]"
+                            Action ="RunCommand"
+                            Argument ="292"
+                        End
+                        Begin
+                            Condition ="[MacroError]<>0"
+                            Action ="MsgBox"
+                            Argument ="=[MacroError].[Description]"
+                            Argument ="-1"
+                            Argument ="0"
+                        End
+                        Begin
+                            Comment ="_AXL:<?xml version=\"1.0\" encoding=\"UTF-16\" standalone=\"no\"?>\015\012<UserI"
+                                "nterfaceMacro For=\"Command6\" xmlns=\"http://schemas.microsoft.com/office/acces"
+                                "sservices/2009/11/application\" xmlns:a=\"http://schemas.microsoft.com/office/ac"
+                                "cessservices/2009/11/forms\"><S"
+                        End
+                        Begin
+                            Comment ="_AXL:tatements><Action Name=\"OnError\"/><Action Name=\"GoToControl\"><Argument "
+                                "Name=\"ControlName\">=[Screen].[PreviousControl].[Name]</Argument></Action><Acti"
+                                "on Name=\"ClearMacroError\"/><ConditionalBlock><If><Condition>Not [Form].[NewRec"
+                                "ord]</Condition><Stat"
+                        End
+                        Begin
+                            Comment ="_AXL:ements><Action Name=\"DeleteRecord\"/></Statements></If></ConditionalBlock>"
+                                "<ConditionalBlock><If><Condition>[Form].[NewRecord] And Not [Form].[Dirty]</Cond"
+                                "ition><Statements><Action Name=\"Beep\"/></Statements></If></ConditionalBlock><C"
+                                "onditionalBlock><"
+                        End
+                        Begin
+                            Comment ="_AXL:If><Condition>[Form].[NewRecord] And [Form].[Dirty]</Condition><Statements>"
+                                "<Action Name=\"UndoRecord\"/></Statements></If></ConditionalBlock><ConditionalBl"
+                                "ock><If><Condition>[MacroError]&lt;&gt;0</Condition><Statements><Action Name=\"M"
+                                "essageBox\"><Argu"
+                        End
+                        Begin
+                            Comment ="_AXL:ment Name=\"Message\">=[MacroError].[Description]</Argument></Action></Stat"
+                                "ements></If></ConditionalBlock></Statements></UserInterfaceMacro>"
+                        End
+                    End
+                    ImageData = Begin
+                        0x2800000010000000100000000100200000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000b0a090ff302010ff302010ff302010ff302010ff302010ff ,
+                        0x302010ff302010ff302010ff302010ff302010ff302010ff302010ff00000000 ,
+                        0x0000000000000000b0a090fffff8f0fffff0f0ffffe8e0fff0e8e0fff0e0d0ff ,
+                        0xf0d8d0fff0d8c0fff0d8c0fff0d8c0fff0d8c0fff0d8c0ff302010ff00000000 ,
+                        0x0000000000000000b0a090ffffffffffe06830ffe06830ffe06830ffd06830ff ,
+                        0xd06830ffd06830ffd06030ffc06030ff904820ffffe0d0ff302010ff00000000 ,
+                        0x0000000000000000b0a090ffffffffffd06830ffffb080ffffa880ffffa070ff ,
+                        0xf09870fff09060ffa0b0f0ff1020e0ffc0c8f0ffffe0d0ff302010ff00000000 ,
+                        0x00000000a0a8f0ffb0a090ffffffffffe06830ffe06830ffe06830ffd06830ff ,
+                        0xd06830ffe0e0f0ff0028ffff1028f0ff4050d0ffffe0d0ff302010ff00000000 ,
+                        0x4050e0ff0010b0ffb0a090ffffffffffffffffffffffffffffffffffffffffff ,
+                        0xfff8f0ffffe8e0ff2048ffff1038ffff1028ffffe0e8f0ff302010ff7088f0ff ,
+                        0x0018c0ff6078f0ffb0a090ffb0a090ffb0a090ffb0a090ffb0a090ffb0a090ff ,
+                        0xb0a090ffb0a090ffe0e0f0ff3050ffff2040ffff8090f0ffb0b8f0ff0028f0ff ,
+                        0x4058f0ff00000000000000000000000000000000000000000000000000000000 ,
+                        0x000000000000000000000000d0d8f0ff4060ffff3050ffff2040ffff3050ffff ,
+                        0xe0e8f0ff00000000000000000000000000000000000000000000000000000000 ,
+                        0x00000000000000000000000000000000c0d0f0ff4068ffff4060ffffc0c8f0ff ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x000000000000000000000000c0c8f0ff6078ffff6078ffff6080ffff5070ffff ,
+                        0xe0e0f0ff00000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000b0b8f0ff6078ffff6078ffffb0c0f0fff0f0f0ff7088ffff ,
+                        0x6078ffffc0d0f0ff000000000000000000000000000000000000000000000000 ,
+                        0x0000000090a0ffff6078ffff6078ffffd0d8f0ff000000000000000000000000 ,
+                        0xb0b8f0ff8098ffff000000000000000000000000000000000000000000000000 ,
+                        0x000000008098ffff6080ffffd0d8f0ff00000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000
+                    End
+
+                    LayoutCachedLeft =4200
+                    LayoutCachedTop =2820
+                    LayoutCachedWidth =4620
+                    LayoutCachedHeight =3120
+                    Gradient =0
+                    BackThemeColorIndex =1
+                    BackTint =100.0
+                    OldBorderStyle =0
+                    BorderColor =14136213
+                    HoverColor =15060409
+                    PressedColor =9592887
+                    HoverForeColor =4210752
+                    PressedForeColor =4210752
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =3
+                    WebImagePaddingBottom =3
+                    Overlaps =1
+                End
+                Begin Line
+                    BorderWidth =2
+                    OverlapFlags =87
+                    Top =2220
+                    Width =7200
+                    BorderColor =8355711
+                    Name ="lineCurrTgtAreaTop"
+                    GridlineColor =10921638
+                    LayoutCachedTop =2220
+                    LayoutCachedWidth =7200
+                    LayoutCachedHeight =2220
+                    BorderTint =50.0
+                End
+                Begin Line
+                    BorderWidth =2
+                    OverlapFlags =87
+                    Top =3360
+                    Width =7200
+                    BorderColor =8355711
+                    Name ="lineCurrTgtAreaBtm"
+                    GridlineColor =10921638
+                    LayoutCachedTop =3360
+                    LayoutCachedWidth =7200
+                    LayoutCachedHeight =3360
+                    BorderTint =50.0
+                End
+            End
+        End
+        Begin Section
+            Height =420
+            Name ="Detail"
+            AlternateBackColor =15921906
+            AlternateBackThemeColorIndex =1
+            AlternateBackShade =95.0
+            BackThemeColorIndex =1
+            Begin
                 Begin CommandButton
                     OverlapFlags =85
                     Left =180
-                    Top =540
+                    Top =60
                     Width =420
                     Height =300
                     ForeColor =4210752
@@ -372,9 +575,9 @@ Begin Form
                     End
 
                     LayoutCachedLeft =180
-                    LayoutCachedTop =540
+                    LayoutCachedTop =60
                     LayoutCachedWidth =600
-                    LayoutCachedHeight =840
+                    LayoutCachedHeight =360
                     Gradient =0
                     BackThemeColorIndex =1
                     BackTint =100.0
@@ -396,7 +599,7 @@ Begin Form
                     BackStyle =0
                     IMESentenceMode =3
                     Left =720
-                    Top =540
+                    Top =60
                     Width =2640
                     Height =300
                     TabIndex =1
@@ -407,14 +610,14 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =720
-                    LayoutCachedTop =540
+                    LayoutCachedTop =60
                     LayoutCachedWidth =3360
-                    LayoutCachedHeight =840
+                    LayoutCachedHeight =360
                 End
             End
         End
         Begin FormFooter
-            Height =360
+            Height =492
             Name ="FormFooter"
             AutoHeight =1
             AlternateBackThemeColorIndex =1
@@ -460,7 +663,6 @@ On Error GoTo Err_Handler
        
     If Len(tbxTgtArea.Value) = 0 Then
         'disable search until something is entered
-        DisableControl lblAddTgtArea
         btnAddTgtArea.Enabled = False
         DisableControl btnAddTgtArea
     End If
@@ -495,11 +697,10 @@ On Error GoTo Err_Handler
     
     If Len(tbxTgtArea.Value) > 0 Then
         'enable the search "button"
-        EnableControl lblAddTgtArea, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
+        EnableControl btnAddTgtArea, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
         btnAddTgtArea.Enabled = True
     Else
         'disable the search "button"
-        DisableControl lblAddTgtArea
         btnAddTgtArea.Enabled = False
         DisableControl btnAddTgtArea
     End If
@@ -534,13 +735,12 @@ On Error GoTo Err_Handler
     
     If Len(tbxTgtArea.Value) > 0 Then
         'enable the search "button"
-        EnableControl lblAddTgtArea, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
+        'EnableControl btnAddTgtArea, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
         btnAddTgtArea.Enabled = True
     Else
         'disable the search "button"
-        DisableControl lblAddTgtArea
         btnAddTgtArea.Enabled = False
-        DisableControl btnAddTgtArea
+        'DisableControl btnAddTgtArea
     End If
     
 Exit_Sub:
@@ -573,12 +773,11 @@ On Error GoTo Err_Handler
     
     If Len(tbxTgtArea.Value) > 0 Then
         'enable the search "button"
-        EnableControl lblAddTgtArea, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
+        'EnableControl lblAddTgtArea, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
         btnAddTgtArea.Enabled = True
         EnableControl btnAddTgtArea, lngLtLime, lngBlue, lngDkLime, lngBrtLime, lngLtGreen, lngDkGray, lngLtLime
     Else
         'disable the search "button"
-        DisableControl lblAddTgtArea
         btnAddTgtArea.Enabled = False
         DisableControl btnAddTgtArea
     End If
@@ -594,8 +793,6 @@ Err_Handler:
     End Select
     Resume Exit_Sub
 End Sub
-
-
 
 ' ---------------------------------
 ' SUB:          lblAddTgtArea_Click
@@ -633,6 +830,9 @@ On Error GoTo Err_Handler
         Set rs = Nothing
         DoCmd.Close
     End If
+    
+    'refresh form
+    DoCmd.OpenForm "frmTgtAreas", acNormal
     
 Exit_Sub:
     Exit Sub
@@ -682,6 +882,11 @@ On Error GoTo Err_Handler
         Set rs = Nothing
         DoCmd.Close
     End If
+    
+    'refresh the target area list
+    'Form.Refresh
+    'refresh form
+    DoCmd.OpenForm "frmTgtAreas", acNormal
     
 Exit_Sub:
     Exit Sub

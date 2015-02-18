@@ -5,6 +5,6 @@ CREATE TABLE [tbl_Target_Species] (
   [Target_Year] SHORT ,
   [Species_Name] VARCHAR (255),
   [Priority] SHORT ,
-  [Transect_Only] UNSIGNED BYTE ,
+  [Transect_Only] BYTE ,
   [Target_Area_ID] SHORT 
 )

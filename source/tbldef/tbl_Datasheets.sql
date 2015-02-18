@@ -7,5 +7,5 @@ CREATE TABLE [tbl_Datasheets] (
   [File_Name] VARCHAR (100),
   [File_Path] VARCHAR (255),
   [Sort_Order] LONG ,
-  [Inactive] UNSIGNED BYTE 
+  [Inactive] BYTE 
 )

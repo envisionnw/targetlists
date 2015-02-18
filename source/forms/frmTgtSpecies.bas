@@ -827,12 +827,12 @@ End Sub
 Private Sub lblAddAll_Click()
 On Error GoTo Err_Handler
     
-    Dim Db As DAO.Database
+    Dim db As DAO.Database
     Dim rs As DAO.Recordset
     
     'fetch recordset
-    Set Db = CurrentDb
-    Set rs = Db.OpenRecordset(TempVars.item("strSQL"))
+    Set db = CurrentDb
+    Set rs = db.OpenRecordset(TempVars.item("strSQL"))
     
     MoveAllItems Me, "lbxSpecies", "lbxTgtSpecies"
 
@@ -863,12 +863,12 @@ End Sub
 ' ---------------------------------
 Private Sub lblRemoveAll_Click()
 On Error GoTo Err_Handler
-    Dim Db As DAO.Database
+    Dim db As DAO.Database
     Dim rs As DAO.Recordset
     
     'fetch recordset
-    Set Db = CurrentDb
-    Set rs = Db.OpenRecordset(TempVars.item("strSQL"))
+    Set db = CurrentDb
+    Set rs = db.OpenRecordset(TempVars.item("strSQL"))
     
     MoveAllItems Me, "lbxTgtSpecies", "lbxSpecies"
 
