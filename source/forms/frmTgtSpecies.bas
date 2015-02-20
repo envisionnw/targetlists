@@ -4,17 +4,16 @@ Begin Form
     RecordSelectors = NotDefault
     NavigationButtons = NotDefault
     DividingLines = NotDefault
-    AllowDesignChanges = NotDefault
     DefaultView =0
     PictureAlignment =2
     DatasheetGridlinesBehavior =3
     GridX =24
     GridY =24
-    Width =10080
+    Width =10935
     DatasheetFontHeight =11
-    ItemSuffix =15
-    Right =15720
-    Bottom =11760
+    ItemSuffix =19
+    Right =20208
+    Bottom =9408
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x72574db34b86e440
@@ -32,6 +31,7 @@ Begin Form
     FilterOnLoad =0
     ShowPageMargins =0
     DisplayOnSharePointSite =1
+    AllowLayoutView =0
     DatasheetAlternateBackColor =15921906
     DatasheetGridlinesColor12 =0
     FitToScreen =1
@@ -98,8 +98,17 @@ Begin Form
             GridlineThemeColorIndex =1
             GridlineShade =65.0
         End
+        Begin Subform
+            BorderLineStyle =0
+            BorderThemeColorIndex =1
+            GridlineThemeColorIndex =1
+            GridlineShade =65.0
+            BorderShade =65.0
+            ShowPageHeaderAndPageFooter =1
+        End
         Begin Section
-            Height =5760
+            CanGrow = NotDefault
+            Height =11220
             Name ="Detail"
             AlternateBackColor =15921906
             AlternateBackThemeColorIndex =1
@@ -427,6 +436,101 @@ Begin Form
                     LayoutCachedWidth =900
                     LayoutCachedHeight =432
                 End
+                Begin Subform
+                    OverlapFlags =85
+                    Left =480
+                    Top =6780
+                    Width =3960
+                    Height =4032
+                    TabIndex =2
+                    BorderColor =10921638
+                    Name ="sfrmSpeciesListbox"
+                    SourceObject ="Form.sfrmSpeciesListbox"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =480
+                    LayoutCachedTop =6780
+                    LayoutCachedWidth =4440
+                    LayoutCachedHeight =10812
+                    Begin
+                        Begin Label
+                            OverlapFlags =85
+                            Left =240
+                            Top =6360
+                            Width =1200
+                            Height =315
+                            BorderColor =8355711
+                            ForeColor =8355711
+                            Name ="lblSpeciesListbox"
+                            Caption ="Species"
+                            GridlineColor =10921638
+                            LayoutCachedLeft =240
+                            LayoutCachedTop =6360
+                            LayoutCachedWidth =1440
+                            LayoutCachedHeight =6675
+                        End
+                    End
+                End
+                Begin Label
+                    FontItalic = NotDefault
+                    OverlapFlags =85
+                    TextAlign =3
+                    Left =2940
+                    Top =780
+                    Width =1440
+                    Height =276
+                    FontSize =10
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblSpeciesCount"
+                    Caption ="species"
+                    ControlTipText ="Number of species in the current list"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =2940
+                    LayoutCachedTop =780
+                    LayoutCachedWidth =4380
+                    LayoutCachedHeight =1056
+                End
+                Begin Label
+                    FontItalic = NotDefault
+                    OverlapFlags =85
+                    TextAlign =3
+                    Left =8340
+                    Top =780
+                    Width =1440
+                    Height =276
+                    FontSize =10
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblTgtSpeciesCount"
+                    Caption ="species"
+                    ControlTipText ="Number of species in the current list"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =8340
+                    LayoutCachedTop =780
+                    LayoutCachedWidth =9780
+                    LayoutCachedHeight =1056
+                End
+                Begin Label
+                    FontItalic = NotDefault
+                    OverlapFlags =85
+                    TextAlign =3
+                    Left =3060
+                    Top =6480
+                    Width =1440
+                    Height =276
+                    FontSize =10
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblSfrmSpeciesCount"
+                    Caption ="species"
+                    ControlTipText ="Number of species in the current list"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =3060
+                    LayoutCachedTop =6480
+                    LayoutCachedWidth =4500
+                    LayoutCachedHeight =6756
+                End
             End
         End
     End
@@ -464,17 +568,30 @@ Private Sub Form_Load()
 
 On Error GoTo Err_Handler
     
+    Initialize
+    
     'prep headers
     lblParkHdr.Caption = TempVars.item("Park")
-    
     lblSpecies.Caption = TempVars.item("state") & " Species"
+    lblSpeciesListbox.Caption = TempVars.item("state") & " Species"
     
     'clear headers
     lbxSpecies.RowSource = ""
     lbxTgtSpecies.RowSource = ""
     
     'initial listbox fill
-    fillList Me, lbxSpecies  '.RowSourceType = "Value List"
+    fillList Me, lbxSpecies, lbxTgtSpecies  '.RowSourceType = "Value List"
+
+    'Enable move items lbls (or not)
+    If lbxSpecies.ListCount > 0 Then
+        lblAddAll.Visible = True
+        lblRemoveAll.Visible = True
+    End If
+    
+    'Set counts
+    lblSpeciesCount.Caption = lbxSpecies.ListCount & " species"
+    lblTgtSpeciesCount.Caption = lbxTgtSpecies.ListCount & " species"
+'    lblLbxSpeciesCount.Caption = Count(sfrm.ListCount) & " species"
 
     'enable > or < *only* if at least one item selected
     'check background / text color, if gray then exit_sub
@@ -552,7 +669,7 @@ On Error GoTo Err_Handler
     Next
 
     'check for selected items --> if present, enable lblAdd
-    If lbxSpecies.ItemsSelected.Count > 0 Then
+    If lbxSpecies.ItemsSelected.count > 0 Then
         If lblAdd.backColor <> TempVars.item("ctrlAddEnabled") Then
             EnableControl lblAdd, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
         End If
@@ -620,7 +737,7 @@ End Sub
 Private Sub lbxSpecies_KeyUp(KeyCode As Integer, Shift As Integer)
 On Error GoTo Err_Handler
 
-    If lbxSpecies.ItemsSelected.Count > 0 And lblAdd.backColor <> TempVars.item("ctrlAddEnabled") Then
+    If lbxSpecies.ItemsSelected.count > 0 And lblAdd.backColor <> TempVars.item("ctrlAddEnabled") Then
         EnableControl lblAdd, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
     End If
     
@@ -662,7 +779,7 @@ On Error GoTo Err_Handler
     Next
 
     'check for selected items --> if present, enable lblRemove
-    If lbxTgtSpecies.ItemsSelected.Count > 0 Then
+    If lbxTgtSpecies.ItemsSelected.count > 0 Then
         If lblRemove.backColor <> TempVars.item("ctrlRemoveEnabled") Then
             EnableControl lblRemove, TempVars.item("ctrlRemoveEnabled"), TempVars.item("textEnabled")
         End If
@@ -729,7 +846,7 @@ End Sub
 Private Sub lbxTgtSpecies_KeyUp(KeyCode As Integer, Shift As Integer)
 On Error GoTo Err_Handler
 
-    If lbxSpecies.ItemsSelected.Count > 0 And lblRemove.backColor <> TempVars.item("ctrlRemoveEnabled") Then
+    If lbxSpecies.ItemsSelected.count > 0 And lblRemove.backColor <> TempVars.item("ctrlRemoveEnabled") Then
         EnableControl lblRemove, TempVars.item("ctrlRemoveEnabled"), TempVars.item("textEnabled")
     End If
     

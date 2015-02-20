@@ -11,9 +11,9 @@ Begin Form
     GridY =24
     Width =11520
     DatasheetFontHeight =11
-    ItemSuffix =80
-    Right =15720
-    Bottom =11760
+    ItemSuffix =87
+    Right =14508
+    Bottom =9408
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0xc1f3db6ed487e440
@@ -71,6 +71,20 @@ Begin Form
         Begin Line
             BorderLineStyle =0
             BorderThemeColorIndex =0
+            GridlineThemeColorIndex =1
+            GridlineShade =65.0
+        End
+        Begin Image
+            BackStyle =0
+            OldBorderStyle =0
+            BorderLineStyle =0
+            SizeMode =3
+            PictureAlignment =2
+            BorderColor =16777215
+            GridlineColor =16777215
+            BackThemeColorIndex =1
+            BorderThemeColorIndex =1
+            BorderShade =65.0
             GridlineThemeColorIndex =1
             GridlineShade =65.0
         End
@@ -153,6 +167,18 @@ Begin Form
             FontName ="Calibri"
             AllowValueListEdits =1
             InheritValueList =1
+            ThemeFontIndex =1
+            BackThemeColorIndex =1
+            BorderThemeColorIndex =1
+            BorderShade =65.0
+            ForeThemeColorIndex =2
+            ForeShade =50.0
+            GridlineThemeColorIndex =1
+            GridlineShade =65.0
+        End
+        Begin UnboundObjectFrame
+            SpecialEffect =2
+            OldBorderStyle =1
             ThemeFontIndex =1
             BackThemeColorIndex =1
             BorderThemeColorIndex =1
@@ -288,7 +314,7 @@ Begin Form
                 Begin TextBox
                     OverlapFlags =215
                     IMESentenceMode =3
-                    Left =660
+                    Left =2160
                     Top =2820
                     Width =4140
                     Height =360
@@ -303,14 +329,14 @@ Begin Form
                     ControlTipText ="Enter photographer location"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =660
+                    LayoutCachedLeft =2160
                     LayoutCachedTop =2820
-                    LayoutCachedWidth =4800
+                    LayoutCachedWidth =6300
                     LayoutCachedHeight =3180
                     Begin
                         Begin Label
                             OverlapFlags =215
-                            Left =300
+                            Left =1800
                             Top =2460
                             Width =2820
                             Height =315
@@ -319,9 +345,9 @@ Begin Form
                             Name ="lblPhotogLoc"
                             Caption ="Enter photographer's location"
                             GridlineColor =10921638
-                            LayoutCachedLeft =300
+                            LayoutCachedLeft =1800
                             LayoutCachedTop =2460
-                            LayoutCachedWidth =3120
+                            LayoutCachedWidth =4620
                             LayoutCachedHeight =2775
                         End
                     End
@@ -364,10 +390,10 @@ Begin Form
                     PressedForeColor =6750156
                     PressedForeThemeColorIndex =-1
                     PressedForeTint =100.0
-                    WebImagePaddingLeft =2
-                    WebImagePaddingTop =2
-                    WebImagePaddingRight =1
-                    WebImagePaddingBottom =1
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
                     Overlaps =1
                 End
                 Begin Label
@@ -467,140 +493,6 @@ Begin Form
                         End
                     End
                 End
-                Begin OptionGroup
-                    OverlapFlags =223
-                    Left =300
-                    Top =1140
-                    Width =6360
-                    Height =900
-                    ColumnOrder =1
-                    TabIndex =3
-                    BorderColor =10921638
-                    Name ="optgRiver"
-                    GridlineColor =10921638
-
-                    LayoutCachedLeft =300
-                    LayoutCachedTop =1140
-                    LayoutCachedWidth =6660
-                    LayoutCachedHeight =2040
-                    Begin
-                        Begin Label
-                            BackStyle =1
-                            OverlapFlags =215
-                            Left =420
-                            Top =1020
-                            Width =870
-                            Height =315
-                            BorderColor =8355711
-                            ForeColor =8355711
-                            Name ="lblRivers"
-                            Caption ="River"
-                            GridlineColor =10921638
-                            LayoutCachedLeft =420
-                            LayoutCachedTop =1020
-                            LayoutCachedWidth =1290
-                            LayoutCachedHeight =1335
-                        End
-                        Begin OptionButton
-                            OverlapFlags =215
-                            Left =720
-                            Top =1620
-                            OptionValue =1
-                            BorderColor =10921638
-                            Name ="optLGR"
-                            GridlineColor =10921638
-
-                            LayoutCachedLeft =720
-                            LayoutCachedTop =1620
-                            LayoutCachedWidth =980
-                            LayoutCachedHeight =1860
-                            Begin
-                                Begin Label
-                                    OverlapFlags =247
-                                    Left =950
-                                    Top =1590
-                                    Width =1260
-                                    Height =315
-                                    BorderColor =8355711
-                                    ForeColor =8355711
-                                    Name ="lblLGR"
-                                    Caption ="Lower Green"
-                                    GridlineColor =10921638
-                                    LayoutCachedLeft =950
-                                    LayoutCachedTop =1590
-                                    LayoutCachedWidth =2210
-                                    LayoutCachedHeight =1905
-                                End
-                            End
-                        End
-                    End
-                End
-                Begin OptionButton
-                    OverlapFlags =215
-                    Left =2520
-                    Top =1590
-                    ColumnOrder =2
-                    TabIndex =4
-                    BorderColor =10921638
-                    Name ="optUC"
-                    GridlineColor =10921638
-
-                    LayoutCachedLeft =2520
-                    LayoutCachedTop =1590
-                    LayoutCachedWidth =2780
-                    LayoutCachedHeight =1830
-                    Begin
-                        Begin Label
-                            OverlapFlags =247
-                            Left =2745
-                            Top =1560
-                            Width =1530
-                            Height =315
-                            BorderColor =8355711
-                            ForeColor =8355711
-                            Name ="lblUCO"
-                            Caption ="Upper Colorado"
-                            GridlineColor =10921638
-                            LayoutCachedLeft =2745
-                            LayoutCachedTop =1560
-                            LayoutCachedWidth =4275
-                            LayoutCachedHeight =1875
-                        End
-                    End
-                End
-                Begin OptionButton
-                    OverlapFlags =215
-                    Left =4680
-                    Top =1590
-                    ColumnOrder =3
-                    TabIndex =5
-                    BorderColor =10921638
-                    Name ="optLC"
-                    GridlineColor =10921638
-
-                    LayoutCachedLeft =4680
-                    LayoutCachedTop =1590
-                    LayoutCachedWidth =4940
-                    LayoutCachedHeight =1830
-                    Begin
-                        Begin Label
-                            OverlapFlags =247
-                            Left =4905
-                            Top =1560
-                            Width =1530
-                            Height =315
-                            BorderColor =8355711
-                            ForeColor =8355711
-                            Name ="lblLCO"
-                            Caption ="Lower Colorado"
-                            GridlineColor =10921638
-                            LayoutCachedLeft =4905
-                            LayoutCachedTop =1560
-                            LayoutCachedWidth =6435
-                            LayoutCachedHeight =1875
-                        End
-                    End
-                End
                 Begin Label
                     OverlapFlags =85
                     Left =300
@@ -625,7 +517,7 @@ Begin Form
                     Width =4140
                     Height =360
                     ColumnOrder =4
-                    TabIndex =6
+                    TabIndex =3
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSubjectLoc"
@@ -664,7 +556,7 @@ Begin Form
                     Width =4140
                     Height =360
                     ColumnOrder =5
-                    TabIndex =7
+                    TabIndex =4
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxPhotoNum"
@@ -703,7 +595,7 @@ Begin Form
                     Width =4140
                     Height =360
                     ColumnOrder =6
-                    TabIndex =8
+                    TabIndex =5
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxComments"
@@ -736,7 +628,7 @@ Begin Form
                 End
                 Begin Label
                     OverlapFlags =215
-                    Left =6660
+                    Left =8160
                     Top =2580
                     Width =3060
                     Height =720
@@ -745,9 +637,9 @@ Begin Form
                     Name ="lblPhotogKey"
                     Caption ="key"
                     GridlineColor =10921638
-                    LayoutCachedLeft =6660
+                    LayoutCachedLeft =8160
                     LayoutCachedTop =2580
-                    LayoutCachedWidth =9720
+                    LayoutCachedWidth =11220
                     LayoutCachedHeight =3300
                 End
                 Begin Label
@@ -773,7 +665,7 @@ Begin Form
                     Width =3060
                     Height =720
                     BorderColor =8355711
-                    ForeColor =8355711
+                    ForeColor =16711680
                     Name ="lblPhotoNumKey"
                     Caption ="key"
                     GridlineColor =10921638
@@ -781,6 +673,8 @@ Begin Form
                     LayoutCachedTop =6720
                     LayoutCachedWidth =9720
                     LayoutCachedHeight =7440
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
                 End
                 Begin OptionGroup
                     OverlapFlags =223
@@ -789,7 +683,7 @@ Begin Form
                     Width =11100
                     Height =780
                     ColumnOrder =7
-                    TabIndex =9
+                    TabIndex =6
                     BorderColor =10921638
                     Name ="optgPhotoType"
                     GridlineColor =10921638
@@ -888,7 +782,7 @@ Begin Form
                     Left =2520
                     Top =5040
                     ColumnOrder =8
-                    TabIndex =10
+                    TabIndex =7
                     BorderColor =10921638
                     Name ="optFeature"
                     GridlineColor =10921638
@@ -921,7 +815,7 @@ Begin Form
                     Left =4680
                     Top =5040
                     ColumnOrder =9
-                    TabIndex =11
+                    TabIndex =8
                     BorderColor =10921638
                     Name ="optOverview"
                     GridlineColor =10921638
@@ -954,7 +848,7 @@ Begin Form
                     Left =8640
                     Top =5040
                     ColumnOrder =10
-                    TabIndex =12
+                    TabIndex =9
                     BorderColor =10921638
                     Name ="optOther"
                     GridlineColor =10921638
@@ -1005,7 +899,7 @@ Begin Form
                     Width =360
                     Height =300
                     ColumnOrder =11
-                    TabIndex =13
+                    TabIndex =10
                     BorderColor =10921638
                     Name ="cbxCloseUp"
                     GridlineColor =10921638
@@ -1040,7 +934,7 @@ Begin Form
                     Width =360
                     Height =300
                     ColumnOrder =12
-                    TabIndex =14
+                    TabIndex =11
                     BorderColor =10921638
                     Name ="cbxReplacement"
                     GridlineColor =10921638
@@ -1070,25 +964,25 @@ Begin Form
                 End
                 Begin OptionGroup
                     OverlapFlags =215
-                    Left =300
+                    Left =1800
                     Top =3480
                     Width =4557
                     Height =663
                     ColumnOrder =13
-                    TabIndex =15
+                    TabIndex =12
                     BorderColor =10921638
                     Name ="optgDirectionFacing"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =300
+                    LayoutCachedLeft =1800
                     LayoutCachedTop =3480
-                    LayoutCachedWidth =4857
+                    LayoutCachedWidth =6357
                     LayoutCachedHeight =4143
                     Begin
                         Begin Label
                             BackStyle =1
                             OverlapFlags =215
-                            Left =420
+                            Left =1920
                             Top =3360
                             Width =1935
                             Height =315
@@ -1097,15 +991,15 @@ Begin Form
                             Name ="lblDirectionFacing"
                             Caption ="Direction Facing"
                             GridlineColor =10921638
-                            LayoutCachedLeft =420
+                            LayoutCachedLeft =1920
                             LayoutCachedTop =3360
-                            LayoutCachedWidth =2355
+                            LayoutCachedWidth =3855
                             LayoutCachedHeight =3675
                             BackThemeColorIndex =-1
                         End
                         Begin ToggleButton
                             OverlapFlags =215
-                            Left =2700
+                            Left =4200
                             Top =3600
                             Width =375
                             Height =360
@@ -1117,9 +1011,9 @@ Begin Form
                             ControlTipText ="Facing Upstream"
                             GridlineColor =10921638
 
-                            LayoutCachedLeft =2700
+                            LayoutCachedLeft =4200
                             LayoutCachedTop =3600
-                            LayoutCachedWidth =3075
+                            LayoutCachedWidth =4575
                             LayoutCachedHeight =3960
                             BackColor =14136213
                             BorderColor =14136213
@@ -1127,15 +1021,15 @@ Begin Form
                             PressedColor =9592887
                             HoverForeColor =4210752
                             PressedForeColor =16777215
-                            WebImagePaddingLeft =2
-                            WebImagePaddingTop =2
-                            WebImagePaddingRight =2
-                            WebImagePaddingBottom =2
+                            WebImagePaddingLeft =3
+                            WebImagePaddingTop =3
+                            WebImagePaddingRight =3
+                            WebImagePaddingBottom =3
                             Overlaps =1
                         End
                         Begin ToggleButton
                             OverlapFlags =215
-                            Left =3240
+                            Left =4740
                             Top =3600
                             Width =375
                             Height =360
@@ -1148,9 +1042,9 @@ Begin Form
                             ControlTipText ="Facing Downstream"
                             GridlineColor =10921638
 
-                            LayoutCachedLeft =3240
+                            LayoutCachedLeft =4740
                             LayoutCachedTop =3600
-                            LayoutCachedWidth =3615
+                            LayoutCachedWidth =5115
                             LayoutCachedHeight =3960
                             BackColor =14136213
                             BorderColor =14136213
@@ -1158,15 +1052,15 @@ Begin Form
                             PressedColor =9592887
                             HoverForeColor =4210752
                             PressedForeColor =16777215
-                            WebImagePaddingLeft =2
-                            WebImagePaddingTop =2
-                            WebImagePaddingRight =2
-                            WebImagePaddingBottom =2
+                            WebImagePaddingLeft =3
+                            WebImagePaddingTop =3
+                            WebImagePaddingRight =3
+                            WebImagePaddingBottom =3
                             Overlaps =1
                         End
                         Begin ToggleButton
                             OverlapFlags =215
-                            Left =3780
+                            Left =5280
                             Top =3600
                             Width =375
                             Height =360
@@ -1179,9 +1073,9 @@ Begin Form
                             ControlTipText ="Facing River Right"
                             GridlineColor =10921638
 
-                            LayoutCachedLeft =3780
+                            LayoutCachedLeft =5280
                             LayoutCachedTop =3600
-                            LayoutCachedWidth =4155
+                            LayoutCachedWidth =5655
                             LayoutCachedHeight =3960
                             BackColor =14136213
                             BorderColor =14136213
@@ -1189,15 +1083,15 @@ Begin Form
                             PressedColor =9592887
                             HoverForeColor =4210752
                             PressedForeColor =16777215
-                            WebImagePaddingLeft =2
-                            WebImagePaddingTop =2
-                            WebImagePaddingRight =2
-                            WebImagePaddingBottom =2
+                            WebImagePaddingLeft =3
+                            WebImagePaddingTop =3
+                            WebImagePaddingRight =3
+                            WebImagePaddingBottom =3
                             Overlaps =1
                         End
                         Begin ToggleButton
                             OverlapFlags =215
-                            Left =4320
+                            Left =5820
                             Top =3600
                             Width =360
                             Height =360
@@ -1210,9 +1104,9 @@ Begin Form
                             ControlTipText ="Facing River Left"
                             GridlineColor =10921638
 
-                            LayoutCachedLeft =4320
+                            LayoutCachedLeft =5820
                             LayoutCachedTop =3600
-                            LayoutCachedWidth =4680
+                            LayoutCachedWidth =6180
                             LayoutCachedHeight =3960
                             BackColor =14136213
                             BorderColor =14136213
@@ -1220,17 +1114,17 @@ Begin Form
                             PressedColor =9592887
                             HoverForeColor =4210752
                             PressedForeColor =16777215
-                            WebImagePaddingLeft =2
-                            WebImagePaddingTop =2
-                            WebImagePaddingRight =2
-                            WebImagePaddingBottom =2
+                            WebImagePaddingLeft =3
+                            WebImagePaddingTop =3
+                            WebImagePaddingRight =3
+                            WebImagePaddingBottom =3
                             Overlaps =1
                         End
                     End
                 End
                 Begin Label
                     OverlapFlags =215
-                    Left =6660
+                    Left =8160
                     Top =3420
                     Width =3060
                     Height =720
@@ -1239,10 +1133,47 @@ Begin Form
                     Name ="lblDirFacingKey"
                     Caption ="key"
                     GridlineColor =10921638
-                    LayoutCachedLeft =6660
+                    LayoutCachedLeft =8160
                     LayoutCachedTop =3420
-                    LayoutCachedWidth =9720
+                    LayoutCachedWidth =11220
                     LayoutCachedHeight =4140
+                End
+                Begin ComboBox
+                    OverlapFlags =215
+                    IMESentenceMode =3
+                    Left =4860
+                    Top =1200
+                    Width =1380
+                    Height =315
+                    TabIndex =13
+                    BorderColor =10921638
+                    ForeColor =4138256
+                    Name ="cbxRiver"
+                    RowSourceType ="Table/Query"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =4860
+                    LayoutCachedTop =1200
+                    LayoutCachedWidth =6240
+                    LayoutCachedHeight =1515
+                    Begin
+                        Begin Label
+                            OverlapFlags =215
+                            Left =4140
+                            Top =1200
+                            Width =540
+                            Height =300
+                            BorderColor =8355711
+                            ForeColor =8355711
+                            Name ="lblRiver"
+                            Caption ="River"
+                            GridlineColor =10921638
+                            LayoutCachedLeft =4140
+                            LayoutCachedTop =1200
+                            LayoutCachedWidth =4680
+                            LayoutCachedHeight =1500
+                        End
+                    End
                 End
             End
         End
@@ -1379,10 +1310,10 @@ Begin Form
                     PressedColor =9592887
                     HoverForeColor =4210752
                     PressedForeColor =4210752
-                    WebImagePaddingLeft =2
-                    WebImagePaddingTop =2
-                    WebImagePaddingRight =2
-                    WebImagePaddingBottom =2
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =3
+                    WebImagePaddingBottom =3
                     Overlaps =1
                 End
                 Begin TextBox
@@ -1454,12 +1385,6 @@ On Error GoTo Err_Handler
     
     'prepare header
     lblPhotoHdr.Caption = TempVars.item("park") & " Photos"
-       
-    'If Len(tbxTgtArea.Value) = 0 Then
-        'disable search until something is entered
-     '   btnAddTgtArea.Enabled = False
-     '   DisableControl btnAddTgtArea
-    'End If
     
 Exit_Sub:
     Exit Sub
@@ -1468,228 +1393,7 @@ Err_Handler:
     Select Case Err.Number
       Case Else
         MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - Form_Load[form_frmTgtAreas])"
-    End Select
-    Resume Exit_Sub
-End Sub
-
-' ---------------------------------
-' SUB:          tbxTgtArea_Change
-' Description:  Actions to take when new target area textbox is not empty
-' Assumptions:  -
-' Parameters:   XX - XX
-' Returns:      XX - XX
-' Throws:       none
-' References:   none
-' Source/date:
-' Adapted:      Bonnie Campbell, February 18, 2015 - for NCPN tools
-' Revisions:
-'   BLC - 2/18/2015 - initial version
-' ---------------------------------
-Private Sub tbxTgtArea_Change()
-On Error GoTo Err_Handler
-    
-    If Len(tbxTgtArea.Value) > 0 Then
-        'enable the search "button"
-        EnableControl btnAddTgtArea, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
-        btnAddTgtArea.Enabled = True
-    Else
-        'disable the search "button"
-        btnAddTgtArea.Enabled = False
-        DisableControl btnAddTgtArea
-    End If
-    
-Exit_Sub:
-    Exit Sub
-
-Err_Handler:
-    Select Case Err.Number
-      Case Else
-        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - tbxTgtArea_Change[Form_frmTgtAreas])"
-    End Select
-    Resume Exit_Sub
-End Sub
-
-' ---------------------------------
-' SUB:          tbxTgtArea_LostFocus
-' Description:  Actions to take when new target area textbox is not empty
-' Assumptions:  -
-' Parameters:   XX - XX
-' Returns:      XX - XX
-' Throws:       none
-' References:   none
-' Source/date:
-' Adapted:      Bonnie Campbell, February 10, 2015 - for NCPN tools
-' Revisions:
-'   BLC - 2/10/2015 - initial version
-' ---------------------------------
-Private Sub tbxTgtArea_LostFocus()
-On Error GoTo Err_Handler
-    
-    If Len(tbxTgtArea.Value) > 0 Then
-        'enable the search "button"
-        'EnableControl btnAddTgtArea, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
-        btnAddTgtArea.Enabled = True
-    Else
-        'disable the search "button"
-        btnAddTgtArea.Enabled = False
-        'DisableControl btnAddTgtArea
-    End If
-    
-Exit_Sub:
-    Exit Sub
-
-Err_Handler:
-    Select Case Err.Number
-      Case Else
-        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - tbxTgtArea_LostFocus[Form_frmTgtAreas])"
-    End Select
-    Resume Exit_Sub
-End Sub
-
-' ---------------------------------
-' SUB:          tbxTgtArea_KeyUp
-' Description:  Actions to take when new target area textbox is not empty
-' Assumptions:  -
-' Parameters:   XX - XX
-' Returns:      XX - XX
-' Throws:       none
-' References:   none
-' Source/date:
-' Adapted:      Bonnie Campbell, February 18, 2015 - for NCPN tools
-' Revisions:
-'   BLC - 2/18/2015 - initial version
-' ---------------------------------
-Private Sub tbxTgtArea_KeyUp(KeyCode As Integer, Shift As Integer)
-On Error GoTo Err_Handler
-    
-    If Len(tbxTgtArea.Value) > 0 Then
-        'enable the search "button"
-        'EnableControl lblAddTgtArea, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
-        btnAddTgtArea.Enabled = True
-        EnableControl btnAddTgtArea, lngLtLime, lngBlue, lngDkLime, lngBrtLime, lngLtGreen, lngDkGray, lngLtLime
-    Else
-        'disable the search "button"
-        btnAddTgtArea.Enabled = False
-        DisableControl btnAddTgtArea
-    End If
-    
-Exit_Sub:
-    Exit Sub
-
-Err_Handler:
-    Select Case Err.Number
-      Case Else
-        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - tbxTgtArea_LostFocus[Form_frmTgtAreas])"
-    End Select
-    Resume Exit_Sub
-End Sub
-
-' ---------------------------------
-' SUB:          lblAddTgtArea_Click
-' Description:  Open add target area form
-' Assumptions:  -
-' Parameters:   N/A
-' Returns:      N/A
-' Throws:       none
-' References:   none
-' Source/date:
-' Adapted:      Bonnie Campbell, February 18, 2015 - for NCPN tools
-' Revisions:
-'   BLC - 2/18/2015 - initial version
-' ---------------------------------
-Private Sub lblAddTgtArea_Click()
-On Error GoTo Err_Handler
-    Dim strTgtArea As String
-    'Dim strSQL As String
-    
-    'strSQL = "INSERT INTO tbl_Target_Areas(Target_Area) VALUES "
-    
-    If ValidateString(tbxTgtArea.Value, "alphaspace") = True Then
-        strTgtArea = Trim(tbxTgtArea.Value)
-        
-        'strSQL = strSQL & "('" & strTgtArea & "')"
-        
-        Dim rs As Recordset
-    
-        Set rs = CurrentDb.OpenRecordset("SELECT * FROM [tbl_Target_Areas]")
-        rs.AddNew
-        
-        rs![Target_Area] = strTgtArea
-        rs.Update
-        rs.Close
-        Set rs = Nothing
-        DoCmd.Close
-    End If
-    
-    'refresh form
-    DoCmd.OpenForm "frmTgtAreas", acNormal
-    
-Exit_Sub:
-    Exit Sub
-    
-Err_Handler:
-    Select Case Err.Number
-      Case Else
-        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - lblAddTgtArea_Click[Form_frmTgtAreas])"
-    End Select
-    Resume Exit_Sub
-End Sub
-
-' ---------------------------------
-' SUB:          btnAddTgtArea_Click
-' Description:  Add target area
-' Assumptions:  -
-' Parameters:   N/A
-' Returns:      N/A
-' Throws:       none
-' References:   none
-' Source/date:
-' Adapted:      Bonnie Campbell, February 18, 2015 - for NCPN tools
-' Revisions:
-'   BLC - 2/18/2015 - initial version
-' ---------------------------------
-Private Sub btnAddTgtArea_Click()
-On Error GoTo Err_Handler
-    Dim strTgtArea As String
-    'Dim strSQL As String
-    
-    'strSQL = "INSERT INTO tbl_Target_Areas(Target_Area) VALUES "
-    
-    If ValidateString(tbxTgtArea.Value, "alphaspace") = True Then
-        strTgtArea = Trim(tbxTgtArea.Value)
-        
-        'strSQL = strSQL & "('" & strTgtArea & "')"
-        
-        Dim rs As Recordset
-    
-        Set rs = CurrentDb.OpenRecordset("SELECT * FROM [tbl_Target_Areas]")
-        rs.AddNew
-        
-        rs![Target_Area] = strTgtArea
-        rs.Update
-        rs.Close
-        Set rs = Nothing
-        DoCmd.Close
-    End If
-    
-    'refresh the target area list
-    'Form.Refresh
-    'refresh form
-    DoCmd.OpenForm "frmTgtAreas", acNormal
-    
-Exit_Sub:
-    Exit Sub
-    
-Err_Handler:
-    Select Case Err.Number
-      Case Else
-        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - btnAddTgtArea_Click[Form_frmTgtAreas])"
+            "Error encountered (#" & Err.Number & " - Form_Load[Form_frmPhotoEntry])"
     End Select
     Resume Exit_Sub
 End Sub

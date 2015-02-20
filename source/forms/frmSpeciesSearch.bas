@@ -4,16 +4,16 @@ Begin Form
     RecordSelectors = NotDefault
     NavigationButtons = NotDefault
     DividingLines = NotDefault
-    DefaultView =0
+    ScrollBars =2
     PictureAlignment =2
     DatasheetGridlinesBehavior =3
     GridX =24
     GridY =24
-    Width =9000
+    Width =13584
     DatasheetFontHeight =11
-    ItemSuffix =47
-    Right =15975
-    Bottom =12015
+    ItemSuffix =61
+    Right =14508
+    Bottom =9408
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x72574db34b86e440
@@ -29,6 +29,8 @@ Begin Form
     AllowPivotChartView =0
     AllowPivotChartView =0
     FilterOnLoad =0
+    OrderByOnLoad =0
+    OrderByOnLoad =0
     ShowPageMargins =0
     DisplayOnSharePointSite =1
     AllowLayoutView =0
@@ -159,26 +161,27 @@ Begin Form
             GridlineShade =65.0
         End
         Begin FormHeader
-            Height =5175
+            Height =5532
             Name ="FormHeader"
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
             BackThemeColorIndex =1
             Begin
                 Begin Rectangle
+                    Visible = NotDefault
                     SpecialEffect =0
                     BackStyle =1
                     OldBorderStyle =0
                     OverlapFlags =93
                     Top =4020
-                    Width =9000
+                    Width =13536
                     Height =1140
                     BackColor =14806254
                     BorderColor =10921638
                     Name ="boxCurrTgtArea"
                     GridlineColor =10921638
                     LayoutCachedTop =4020
-                    LayoutCachedWidth =9000
+                    LayoutCachedWidth =13536
                     LayoutCachedHeight =5160
                     BackThemeColorIndex =3
                 End
@@ -202,7 +205,7 @@ Begin Form
                 Begin OptionGroup
                     SpecialEffect =0
                     OverlapFlags =93
-                    Left =300
+                    Left =840
                     Top =720
                     Width =8154
                     Height =1380
@@ -211,15 +214,15 @@ Begin Form
                     Name ="optgSpeciesType"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =300
+                    LayoutCachedLeft =840
                     LayoutCachedTop =720
-                    LayoutCachedWidth =8454
+                    LayoutCachedWidth =8994
                     LayoutCachedHeight =2100
                     Begin
                         Begin Label
                             BackStyle =1
                             OverlapFlags =215
-                            Left =420
+                            Left =960
                             Top =600
                             Width =1596
                             Height =300
@@ -228,9 +231,9 @@ Begin Form
                             Name ="lblSpeciesTypes"
                             Caption ="What to Search..."
                             GridlineColor =10921638
-                            LayoutCachedLeft =420
+                            LayoutCachedLeft =960
                             LayoutCachedTop =600
-                            LayoutCachedWidth =2016
+                            LayoutCachedWidth =2556
                             LayoutCachedHeight =900
                             BackThemeColorIndex =-1
                         End
@@ -238,7 +241,7 @@ Begin Form
                 End
                 Begin CheckBox
                     OverlapFlags =215
-                    Left =720
+                    Left =1260
                     Top =1620
                     Width =240
                     ColumnOrder =1
@@ -250,14 +253,14 @@ Begin Form
                     ControlTipText ="Utah species"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =720
+                    LayoutCachedLeft =1260
                     LayoutCachedTop =1620
-                    LayoutCachedWidth =960
+                    LayoutCachedWidth =1500
                     LayoutCachedHeight =1860
                     Begin
                         Begin Label
                             OverlapFlags =215
-                            Left =1020
+                            Left =1560
                             Top =1560
                             Width =525
                             Height =315
@@ -267,16 +270,16 @@ Begin Form
                             Caption ="Utah"
                             ControlTipText ="Utah species"
                             GridlineColor =10921638
-                            LayoutCachedLeft =1020
+                            LayoutCachedLeft =1560
                             LayoutCachedTop =1560
-                            LayoutCachedWidth =1545
+                            LayoutCachedWidth =2085
                             LayoutCachedHeight =1875
                         End
                     End
                 End
                 Begin CheckBox
                     OverlapFlags =215
-                    Left =1980
+                    Left =2520
                     Top =1620
                     Width =240
                     ColumnOrder =2
@@ -288,14 +291,14 @@ Begin Form
                     ControlTipText ="Utah species"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =1980
+                    LayoutCachedLeft =2520
                     LayoutCachedTop =1620
-                    LayoutCachedWidth =2220
+                    LayoutCachedWidth =2760
                     LayoutCachedHeight =1860
                     Begin
                         Begin Label
                             OverlapFlags =215
-                            Left =2280
+                            Left =2820
                             Top =1560
                             Width =900
                             Height =300
@@ -305,16 +308,16 @@ Begin Form
                             Caption ="Colorado"
                             ControlTipText ="Colorado species"
                             GridlineColor =10921638
-                            LayoutCachedLeft =2280
+                            LayoutCachedLeft =2820
                             LayoutCachedTop =1560
-                            LayoutCachedWidth =3180
+                            LayoutCachedWidth =3720
                             LayoutCachedHeight =1860
                         End
                     End
                 End
                 Begin CheckBox
                     OverlapFlags =215
-                    Left =3600
+                    Left =4140
                     Top =1620
                     Width =240
                     ColumnOrder =3
@@ -326,14 +329,14 @@ Begin Form
                     ControlTipText ="Wyoming species"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =3600
+                    LayoutCachedLeft =4140
                     LayoutCachedTop =1620
-                    LayoutCachedWidth =3840
+                    LayoutCachedWidth =4380
                     LayoutCachedHeight =1860
                     Begin
                         Begin Label
                             OverlapFlags =215
-                            Left =3960
+                            Left =4500
                             Top =1560
                             Width =936
                             Height =300
@@ -343,16 +346,16 @@ Begin Form
                             Caption ="Wyoming"
                             ControlTipText ="Wyoming species"
                             GridlineColor =10921638
-                            LayoutCachedLeft =3960
+                            LayoutCachedLeft =4500
                             LayoutCachedTop =1560
-                            LayoutCachedWidth =4896
+                            LayoutCachedWidth =5436
                             LayoutCachedHeight =1860
                         End
                     End
                 End
                 Begin CheckBox
                     OverlapFlags =215
-                    Left =5280
+                    Left =5820
                     Top =1620
                     Width =240
                     ColumnOrder =4
@@ -364,14 +367,14 @@ Begin Form
                     ControlTipText ="ITIS species"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =5280
+                    LayoutCachedLeft =5820
                     LayoutCachedTop =1620
-                    LayoutCachedWidth =5520
+                    LayoutCachedWidth =6060
                     LayoutCachedHeight =1860
                     Begin
                         Begin Label
                             OverlapFlags =215
-                            Left =5640
+                            Left =6180
                             Top =1560
                             Width =405
                             Height =315
@@ -380,16 +383,16 @@ Begin Form
                             Name ="lblITIS"
                             Caption ="ITIS"
                             GridlineColor =10921638
-                            LayoutCachedLeft =5640
+                            LayoutCachedLeft =6180
                             LayoutCachedTop =1560
-                            LayoutCachedWidth =6045
+                            LayoutCachedWidth =6585
                             LayoutCachedHeight =1875
                         End
                     End
                 End
                 Begin CheckBox
                     OverlapFlags =215
-                    Left =6540
+                    Left =7080
                     Top =1620
                     Width =240
                     ColumnOrder =5
@@ -401,14 +404,14 @@ Begin Form
                     ControlTipText ="Common name"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =6540
+                    LayoutCachedLeft =7080
                     LayoutCachedTop =1620
-                    LayoutCachedWidth =6780
+                    LayoutCachedWidth =7320
                     LayoutCachedHeight =1860
                     Begin
                         Begin Label
                             OverlapFlags =215
-                            Left =6900
+                            Left =7440
                             Top =1560
                             Width =900
                             Height =300
@@ -418,16 +421,16 @@ Begin Form
                             Caption ="Common"
                             ControlTipText ="Common name"
                             GridlineColor =10921638
-                            LayoutCachedLeft =6900
+                            LayoutCachedLeft =7440
                             LayoutCachedTop =1560
-                            LayoutCachedWidth =7800
+                            LayoutCachedWidth =8340
                             LayoutCachedHeight =1860
                         End
                     End
                 End
                 Begin Label
                     OverlapFlags =215
-                    Left =660
+                    Left =1200
                     Top =1020
                     Width =5700
                     Height =315
@@ -436,15 +439,15 @@ Begin Form
                     Name ="lblChooseSpeciesType"
                     Caption ="Choose at least one species type or common name to search."
                     GridlineColor =10921638
-                    LayoutCachedLeft =660
+                    LayoutCachedLeft =1200
                     LayoutCachedTop =1020
-                    LayoutCachedWidth =6360
+                    LayoutCachedWidth =6900
                     LayoutCachedHeight =1335
                 End
                 Begin TextBox
                     OverlapFlags =85
                     IMESentenceMode =3
-                    Left =660
+                    Left =1200
                     Top =2760
                     Width =6540
                     Height =360
@@ -458,14 +461,14 @@ Begin Form
                     OnChange ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =660
+                    LayoutCachedLeft =1200
                     LayoutCachedTop =2760
-                    LayoutCachedWidth =7200
+                    LayoutCachedWidth =7740
                     LayoutCachedHeight =3120
                     Begin
                         Begin Label
                             OverlapFlags =85
-                            Left =360
+                            Left =900
                             Top =2280
                             Width =4476
                             Height =300
@@ -474,9 +477,9 @@ Begin Form
                             Name ="lblSearchFor"
                             Caption ="Enter the name or portion of name to search for."
                             GridlineColor =10921638
-                            LayoutCachedLeft =360
+                            LayoutCachedLeft =900
                             LayoutCachedTop =2280
-                            LayoutCachedWidth =4836
+                            LayoutCachedWidth =5376
                             LayoutCachedHeight =2580
                         End
                     End
@@ -485,7 +488,7 @@ Begin Form
                     BackStyle =1
                     OverlapFlags =85
                     TextAlign =2
-                    Left =7080
+                    Left =7620
                     Top =3300
                     Width =1618
                     Height =373
@@ -502,19 +505,20 @@ Begin Form
                     OnClick ="[Event Procedure]"
                     ControlTipText ="Search for species"
                     GridlineColor =10921638
-                    LayoutCachedLeft =7080
+                    LayoutCachedLeft =7620
                     LayoutCachedTop =3300
-                    LayoutCachedWidth =8698
+                    LayoutCachedWidth =9238
                     LayoutCachedHeight =3673
                     BackThemeColorIndex =-1
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                 End
                 Begin Label
+                    Visible = NotDefault
                     OverlapFlags =215
                     Left =120
                     Top =4140
-                    Width =2448
+                    Width =1716
                     Height =372
                     FontSize =14
                     BorderColor =8355711
@@ -524,10 +528,11 @@ Begin Form
                     GridlineColor =10921638
                     LayoutCachedLeft =120
                     LayoutCachedTop =4140
-                    LayoutCachedWidth =2568
+                    LayoutCachedWidth =1836
                     LayoutCachedHeight =4512
                 End
                 Begin Label
+                    Visible = NotDefault
                     OverlapFlags =215
                     Left =300
                     Top =4620
@@ -544,34 +549,36 @@ Begin Form
                     LayoutCachedHeight =4920
                 End
                 Begin Line
+                    Visible = NotDefault
                     BorderWidth =2
                     OverlapFlags =87
                     Top =4020
-                    Width =9000
+                    Width =13536
                     BorderColor =8355711
                     Name ="lineCurrTgtAreaTop"
                     GridlineColor =10921638
                     LayoutCachedTop =4020
-                    LayoutCachedWidth =9000
+                    LayoutCachedWidth =13536
                     LayoutCachedHeight =4020
                     BorderTint =50.0
                 End
                 Begin Line
+                    Visible = NotDefault
                     BorderWidth =2
                     OverlapFlags =87
                     Top =5160
-                    Width =9000
+                    Width =13536
                     BorderColor =8355711
                     Name ="lineCurrTgtAreaBtm"
                     GridlineColor =10921638
                     LayoutCachedTop =5160
-                    LayoutCachedWidth =9000
+                    LayoutCachedWidth =13536
                     LayoutCachedHeight =5160
                     BorderTint =50.0
                 End
                 Begin CommandButton
                     OverlapFlags =85
-                    Left =4740
+                    Left =5280
                     Top =3300
                     Width =2220
                     TabIndex =7
@@ -582,9 +589,9 @@ Begin Form
                     OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =4740
+                    LayoutCachedLeft =5280
                     LayoutCachedTop =3300
-                    LayoutCachedWidth =6960
+                    LayoutCachedWidth =7500
                     LayoutCachedHeight =3660
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
@@ -607,28 +614,313 @@ Begin Form
                     PressedForeColor =6750156
                     PressedForeThemeColorIndex =-1
                     PressedForeTint =100.0
-                    WebImagePaddingLeft =2
-                    WebImagePaddingTop =2
-                    WebImagePaddingRight =1
-                    WebImagePaddingBottom =1
+                    WebImagePaddingLeft =3
+                    WebImagePaddingTop =3
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OverlapFlags =93
+                    Left =120
+                    Top =5220
+                    Width =1728
+                    Height =300
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblCodeHdr"
+                    Caption ="Code"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =120
+                    LayoutCachedTop =5220
+                    LayoutCachedWidth =1848
+                    LayoutCachedHeight =5520
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OverlapFlags =93
+                    Left =1920
+                    Top =5220
+                    Width =2304
+                    Height =300
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblITISHdr"
+                    Caption ="ITIS"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =1920
+                    LayoutCachedTop =5220
+                    LayoutCachedWidth =4224
+                    LayoutCachedHeight =5520
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OverlapFlags =93
+                    Left =4260
+                    Top =5220
+                    Width =2304
+                    Height =300
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblUTHdr"
+                    Caption ="UT"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =4260
+                    LayoutCachedTop =5220
+                    LayoutCachedWidth =6564
+                    LayoutCachedHeight =5520
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OverlapFlags =93
+                    Left =6600
+                    Top =5220
+                    Width =2304
+                    Height =300
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblCOHdr"
+                    Caption ="CO"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =6600
+                    LayoutCachedTop =5220
+                    LayoutCachedWidth =8904
+                    LayoutCachedHeight =5520
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OverlapFlags =93
+                    Left =8940
+                    Top =5220
+                    Width =2304
+                    Height =300
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblWYHdr"
+                    Caption ="WY"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =8940
+                    LayoutCachedTop =5220
+                    LayoutCachedWidth =11244
+                    LayoutCachedHeight =5520
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OverlapFlags =93
+                    Left =11280
+                    Top =5220
+                    Width =2304
+                    Height =300
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblCommonHdr"
+                    Caption ="Common"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =11280
+                    LayoutCachedTop =5220
+                    LayoutCachedWidth =13584
+                    LayoutCachedHeight =5520
+                End
+                Begin Line
+                    Visible = NotDefault
+                    BorderWidth =1
+                    OverlapFlags =87
+                    Top =5520
+                    Width =13536
+                    BorderColor =8355711
+                    Name ="lineResultsTop"
+                    GridlineColor =10921638
+                    LayoutCachedTop =5520
+                    LayoutCachedWidth =13536
+                    LayoutCachedHeight =5520
+                    BorderTint =50.0
+                End
+                Begin Label
+                    Visible = NotDefault
+                    FontItalic = NotDefault
+                    OverlapFlags =215
+                    Left =1980
+                    Top =4140
+                    Width =408
+                    Height =372
+                    FontSize =14
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblFor"
+                    Caption ="for"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =1980
+                    LayoutCachedTop =4140
+                    LayoutCachedWidth =2388
+                    LayoutCachedHeight =4512
+                End
+                Begin Label
+                    Visible = NotDefault
+                    OverlapFlags =215
+                    Left =2700
+                    Top =4140
+                    Width =2448
+                    Height =372
+                    FontSize =14
+                    BorderColor =8355711
+                    ForeColor =16737792
+                    Name ="lblSearchForValue"
+                    Caption ="species"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =2700
+                    LayoutCachedTop =4140
+                    LayoutCachedWidth =5148
+                    LayoutCachedHeight =4512
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
                 End
             End
         End
         Begin Section
-            Height =1020
+            CanGrow = NotDefault
+            CanShrink = NotDefault
+            Height =300
             Name ="Detail"
+            AutoHeight =255
             AlternateBackColor =15921906
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
             BackThemeColorIndex =1
+            Begin
+                Begin TextBox
+                    OldBorderStyle =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =120
+                    Width =1728
+                    Height =300
+                    FontSize =9
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxResultCode"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =120
+                    LayoutCachedWidth =1848
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    OldBorderStyle =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =1920
+                    Width =2304
+                    Height =300
+                    FontSize =9
+                    TabIndex =1
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxMasterSpecies"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =1920
+                    LayoutCachedWidth =4224
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    OldBorderStyle =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =4260
+                    Width =2304
+                    Height =300
+                    FontSize =9
+                    TabIndex =2
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUTSpecies"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =4260
+                    LayoutCachedWidth =6564
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    OldBorderStyle =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =6600
+                    Width =2304
+                    Height =300
+                    FontSize =9
+                    TabIndex =3
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxCOSpecies"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =6600
+                    LayoutCachedWidth =8904
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    OldBorderStyle =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =8940
+                    Width =2304
+                    Height =300
+                    FontSize =9
+                    TabIndex =4
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxWYSpecies"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =8940
+                    LayoutCachedWidth =11244
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    OldBorderStyle =0
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =11280
+                    Width =2304
+                    Height =300
+                    FontSize =9
+                    TabIndex =5
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxCmnName"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =11280
+                    LayoutCachedWidth =13584
+                    LayoutCachedHeight =300
+                End
+            End
         End
         Begin FormFooter
-            Height =360
+            Height =300
             Name ="FormFooter"
-            AutoHeight =1
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
             BackThemeColorIndex =1
+            Begin
+                Begin Label
+                    Visible = NotDefault
+                    FontItalic = NotDefault
+                    OverlapFlags =85
+                    Left =5520
+                    Width =2304
+                    Height =300
+                    FontSize =12
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblNoRecords"
+                    Caption ="-- No species found --"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =5520
+                    LayoutCachedWidth =7824
+                    LayoutCachedHeight =300
+                End
+            End
         End
     End
 End
@@ -1055,18 +1347,31 @@ On Error GoTo Err_Handler
     
     'build SQL statement
     strSQL = "SELECT LU_Code, Master_Species, Utah_Species, CO_Species, WY_Species, " _
-            & "Master_Common_Name" _
-            & "FROM tlu_NCPN_Plants" _
+            & "Master_Common_Name " _
+            & "FROM tlu_NCPN_Plants " _
             & strWHERE & ";"
             
-    MsgBox strSQL, vbOKOnly, "strSQL"
-            
-            'set statusbar notice
-            Dim varReturn As Variant
-            varReturn = SysCmd(acSysCmdSetStatus, "Searching for " & strSearch & "...")
-            
-            'print it
-            MsgBox "Results for search: " & vbCrLf & strSearch, vbOKOnly, "Search Results"
+    'fetch data
+    Set db = CurrentDb
+    Set rs = db.OpenRecordset(strSQL)
+
+    'set form results
+    Me.Recordset = rs
+    tbxResultsCode.ControlSource = "LU_Code"
+    tbxResultsMasterSpecies.ControlSource = "Master_Species"
+    tbxResultsUTSpecies.ControlSource = "Utah_Species"
+    tbxResultsCOSpecies.ControlSource = "CO_Species"
+    tbxResultsWYSpecies.ControlSource = "WY_Species"
+    tbxResultsCmnName.ControlSource = "Master_Common_Name"
+    
+'    MsgBox strSQL, vbOKOnly, "strSQL"
+    
+    'set statusbar notice
+    Dim varReturn As Variant
+    varReturn = SysCmd(acSysCmdSetStatus, "Searching for " & strSearch & "...")
+    
+    'print it
+'    MsgBox "Results for search: " & vbCrLf & strSearch, vbOKOnly, "Search Results"
 
 Exit_Sub:
     Exit Sub
@@ -1120,7 +1425,7 @@ On Error GoTo Err_Handler
     
     
     'determine which areas are to be searched
-    MsgBox TempVars.item("speciestype"), vbOKOnly, "speciestype"
+'    MsgBox TempVars.item("speciestype"), vbOKOnly, "speciestype"
 
     'perform search
     strWHERE = " WHERE "
@@ -1140,7 +1445,7 @@ On Error GoTo Err_Handler
                 Case "CO"   'Colorado
                     strSpecies = "CO_Species"
                 Case "UT"   'Utah
-                    strSpecies = "UT_Species"
+                    strSpecies = "Utah_Species"
                 Case "WY"   'Wyoming
                     strSpecies = "WY_Species"
                 Case "ITIS" 'Master
@@ -1154,32 +1459,77 @@ On Error GoTo Err_Handler
         End If
     Next
     
-    MsgBox strWHERE, vbOKOnly, "strWHERE"
+'    MsgBox strWHERE, vbOKOnly, "strWHERE"
     'prep WHERE clause
     If Len(Replace(strWHERE, "WHERE", "")) = 0 Then strWHERE = ""
     
     'build SQL statement
     strSQL = "SELECT LU_Code, Master_Species, Utah_Species, CO_Species, WY_Species, " _
-            & "Master_Common_Name" _
-            & "FROM tlu_NCPN_Plants" _
+            & "Master_Common_Name " _
+            & "FROM tlu_NCPN_Plants " _
             & strWHERE & ";"
             
-    MsgBox strSQL, vbOKOnly, "strSQL"
+'    MsgBox strSQL, vbOKOnly, "strSQL"
     
     'run search
-        Dim rs As DAO.Recordset
-        
-        Set rs = CurrentDb.Execute(strSQL, dbFailOnError)
-        
-        Debug.Print CurrentDb.RecordsAffected
+    Dim rs As DAO.Recordset
+    
+    'Set rs = CurrentDb.Execute(strSQL, dbFailOnError)
+'    Set rs = CurrentDb.OpenRecordset(strSQL, dbOpenSnapshot)
+    
+'    Do Until rs.EOF
+        'debug.Print
+'    Loop
+    
+    'fetch data
+    Set rs = CurrentDb.OpenRecordset(strSQL) ', dbOpenSnapshot)
 
-            
-            'set statusbar notice
-            Dim varReturn As Variant
-            varReturn = SysCmd(acSysCmdSetStatus, "Searching for " & strSearch & "...")
-            
-            'print it
-            MsgBox "Results for search: " & vbCrLf & strSearch, vbOKOnly, "Search Results"
+    'set form results
+    Set Me.Recordset = rs
+    tbxResultCode.ControlSource = "LU_Code"
+    tbxMasterSpecies.ControlSource = "Master_Species"
+    tbxUTSpecies.ControlSource = "Utah_Species"
+    tbxCOSpecies.ControlSource = "CO_Species"
+    tbxWYSpecies.ControlSource = "WY_Species"
+    tbxCmnName.ControlSource = "Master_Common_Name"
+    
+'    MsgBox strSQL, vbOKOnly, "strSQL"
+    ' determine record count
+    Dim count As Integer
+    'rs.MoveLast
+    count = rs.RecordCount
+    'rs.MoveFirst
+    
+    If count = 0 Then
+        lblNoRecords.Visible = True
+    End If
+    
+    'turn fields on
+    lineCurrTgtAreaTop.Visible = True
+    lineCurrTgtAreaBtm.Visible = True
+    boxCurrTgtArea.Visible = True
+    lblSearchResults.Visible = True
+    lblSearchForValue.Visible = True
+    lblSearchResultInstructions.Visible = True
+    lineResultsTop.Visible = True
+    lblCodeHdr.Visible = True
+    lblITISHdr.Visible = True
+    lblUTHdr.Visible = True
+    lblCOHdr.Visible = True
+    lblWYHdr.Visible = True
+    lblCommonHdr.Visible = True
+    lineResultsTop.Visible = True
+    lblFor.Visible = True
+    
+    'set search for caption
+    lblSearchForValue.Caption = """" & strSearch & """"
+    
+    'set statusbar notice
+    Dim varReturn As Variant
+    varReturn = SysCmd(acSysCmdSetStatus, "Searching for " & strSearch & "...")
+    
+    'print it
+'    MsgBox "Results for search: " & vbCrLf & strSearch, vbOKOnly, "Search Results"
 
 Exit_Sub:
     Exit Sub

@@ -34,12 +34,12 @@ On Error GoTo Err_Handler
     Dim intColumnCount As Integer
     
     'check for at *least* one selected item
-    If frm.Controls(strSourceControl).ItemsSelected.Count = 0 Then
+    If frm.Controls(strSourceControl).ItemsSelected.count = 0 Then
         MsgBox "Please select at least one item.", vbExclamation, "Oops!"
         GoTo Exit_Sub
     End If
     
-    If frm.Controls(strSourceControl).ItemsSelected.Count > 1 Then
+    If frm.Controls(strSourceControl).ItemsSelected.count > 1 Then
         MoveSelectedItems frm, strSourceControl, strTargetControl
         GoTo Exit_Sub
     End If
@@ -165,7 +165,7 @@ On Error GoTo Err_Handler
     Dim strItem As String
     
     'check for at *least* one selected item
-    If frm.Controls(strSourceControl).ItemsSelected.Count = 0 Then
+    If frm.Controls(strSourceControl).ItemsSelected.count = 0 Then
         MsgBox "Please select at least one item.", vbExclamation, "Oops!"
         GoTo Exit_Sub
     End If
@@ -256,6 +256,74 @@ End Sub
 
 ' ---------------------------------
 ' SUB:          PopulateListHeaders
+' Description:  Populate the headers for listbox controls
+' Assumptions:  headers are the same as recordset field names
+'               sfrms acting as listboxes have static headers already present
+' Parameters:   ctrl - listbox control
+'               rs   - recordset containing list headers
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, February 6, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/6/2015  - initial version
+'   BLC - 2/19/2015 - converted to generic to handle listbox-like controls & documentation update
+' ---------------------------------
+Public Sub PopulateListHeaders(ctrl As Control, rs As Recordset)
+
+On Error GoTo Err_Handler
+
+    Dim rows As Integer, cols As Integer, i As Integer, j As Integer, matches As Integer
+    Dim frm As Form
+    Dim strItem As String, strColHeads As String, aryColWidths() As String
+
+    'exit if subform control (hdrs are static & present on sfrm)
+    If ctrl.ControlType = 112 Then
+        GoTo Exit_Sub
+    End If
+
+    Set frm = ctrl.Parent
+    
+    rows = rs.RecordCount
+    cols = rs.Fields.count
+    
+    If Nz(rows, 0) = 0 Then
+        MsgBox "Sorry, no records found..."
+        GoTo Exit_Sub
+    End If
+    
+    'fetch column widths
+    aryColWidths = Split(ctrl.ColumnWidths, ";")
+    
+    'populate column names (if desired)
+    If ctrl.ColumnHeads = True Then
+        strColHeads = ""
+        For i = 0 To cols - 1
+            If CInt(aryColWidths(i)) > 0 Then
+                strColHeads = strColHeads & rs.Fields(i).name & ";"
+            End If
+        Next i
+        ctrl.AddItem strColHeads
+    End If
+
+    'save headers
+    TempVars.Add "lbxHdr", strColHeads
+
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - PopulateListHeaders[mod_Lists])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          xPopulateListHeaders
 ' Description:  XX
 ' Assumptions:  -
 ' Parameters:   XX - XX
@@ -267,7 +335,7 @@ End Sub
 ' Revisions:
 '   BLC - 2/6/2015 - initial version
 ' ---------------------------------
-Public Sub PopulateListHeaders(lbx As ListBox, rs As Recordset)
+Public Sub xPopulateListHeaders(lbx As ListBox, rs As Recordset)
 
 On Error GoTo Err_Handler
 
@@ -278,7 +346,7 @@ On Error GoTo Err_Handler
     Set frm = lbx.Parent
     
     rows = rs.RecordCount
-    cols = rs.Fields.Count
+    cols = rs.Fields.count
     
     If Nz(rows, 0) = 0 Then
         MsgBox "Sorry, no records found..."
@@ -316,6 +384,148 @@ End Sub
 
 ' ---------------------------------
 ' SUB:          PopulateList
+' Description:  Populate listbox and similar controls from recordset
+' Assumptions:  -
+' Parameters:   XX - XX
+' Returns:      XX - XX
+' Throws:       none
+' References:   none
+' Source/date:
+' krish KM, Aug. 27, 2014
+' http://stackoverflow.com/questions/25526904/populate-listbox-using-ado-recordset
+' Adapted:      Bonnie Campbell, February 6, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/6/2015 - initial version
+' ---------------------------------
+Public Sub PopulateList(ctrlSource As Control, rs As Recordset, ctrlDest As Control)
+
+On Error GoTo Err_Handler
+
+    Dim frm As Form
+    Dim rows As Integer, cols As Integer, i As Integer, j As Integer, matches As Integer, iZeroes As Integer
+    Dim strItem As String, strColHeads As String, aryColWidths() As String
+
+    Set frm = ctrlSource.Parent
+    
+    rows = rs.RecordCount
+    cols = rs.Fields.count
+    
+    'address no records
+    If Nz(rows, 0) = 0 Then
+        MsgBox "Sorry, no records found..."
+        GoTo Exit_Sub
+    End If
+    
+    'handle sfrm controls (acSubform = 112)
+    If ctrlSource.ControlType = acSubform Then
+        'ctrlSource.Form.Section("detail").Properties("Record Source") = rs
+        'ctrlSource.Parent.Forms(ctrlSource).Form.Recordset = rs 'sfrmSpeciesListbox
+        'ctrlSource.Parent.Controls(ctrlSource).Form.Recordset = rs 'sfrmSpeciesListbox
+        Set ctrlSource.Form.Recordset = rs
+        'Set ctrlSource.Form.Controls("tbxCode") = rs.Fields("Code")
+        'Set ctrlSource.Form.Controls("tbxSpecies") = rs.Fields("Species")
+        'Set ctrlSource.Form.Controls("tbxCode").RowSource = rs.Fields("Code")
+        'Set ctrlSource.Form.Controls("tbxSpecies").RowSource = rs.Fields("Species")
+        'Set ctrlSource.Form.Controls("tbxCode").ControlSource = rs.Fields("Code")
+        'Set ctrlSource.Form.Controls("tbxSpecies").ControlSource = rs.Fields("Species")
+        ctrlSource.Form.Controls("tbxCode").ControlSource = "Code"
+        ctrlSource.Form.Controls("tbxSpecies").ControlSource = "Species"
+        ctrlSource.Form.Controls("tbxMasterCode").ControlSource = "Master_PLANT_Code"
+        
+        'set the initial record count (MoveLast to get full count, MoveFirst to set display to first)
+        rs.MoveLast
+        ctrlSource.Parent.Form.Controls("lblSfrmSpeciesCount").Caption = rs.RecordCount & " species"
+        rs.MoveFirst
+        
+        GoTo Exit_Sub
+    End If
+    
+    'fetch column widths array
+    aryColWidths = Split(ctrlSource.ColumnWidths, ";")
+    
+    'count number of 0 width elements
+    iZeroes = CountArrayValues(aryColWidths, "0")
+    
+'    If Nz(rows, 0) = 0 Then
+'        MsgBox "Sorry, no records found..."
+'        GoTo Exit_Sub
+'    End If
+    
+    'clear out existing values
+    ClearList ctrlSource
+    
+    'populate column names (if desired)
+    If ctrlSource.ColumnHeads = True Then
+        PopulateListHeaders ctrlSource, rs
+        
+        'populate second listbox headers if present
+        If ctrlDest.ColumnHeads = True Then
+            ClearList ctrlDest
+            PopulateListHeaders ctrlDest, rs
+        End If
+    End If
+    
+    'populate data
+    Select Case ctrlSource.RowSourceType
+        Case "Table/Query"
+            Set ctrlSource.Recordset = rs
+        Case "Value List"
+            
+            'initialize
+            i = 0
+            
+            Do Until rs.EOF
+            
+                'initialize item
+                strItem = ""
+                    
+                'generate item
+                For j = 0 To cols - 1
+                    'check if column is displayed width > 0
+                    If CInt(aryColWidths(j)) > 0 Then
+                    
+                        strItem = strItem & rs.Fields(j).Value & ";"
+                    
+                        'determine how many separators there are (";") --> should equal # cols
+                        matches = (Len(strItem) - Len(Replace$(strItem, ";", ""))) / Len(";")
+                        
+                        'add item if not already in list --> # of ; should equal cols - 1
+                        'but # in list should only be # of non-zero columns --> cols - iZeroes
+                        If matches = cols - iZeroes Then
+                            ctrlSource.AddItem strItem
+                            'reset the string
+                            strItem = ""
+                        End If
+                    
+                    End If
+                
+                Next
+                
+                i = i + 1
+                
+                rs.MoveNext
+            Loop
+        Case "Field List"
+    End Select
+
+     MsgBox ctrlSource.ListCount & " in list" & vbCrLf & rs.RecordCount & " in rs", vbOKOnly, "Num in list"
+    'refresh control
+    'lbx.Requery
+
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - PopulateList[mod_Lists])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          XPopulateList
 ' Description:  XX
 ' Assumptions:  -
 ' Parameters:   XX - XX
@@ -329,7 +539,7 @@ End Sub
 ' Revisions:
 '   BLC - 2/6/2015 - initial version
 ' ---------------------------------
-Public Sub PopulateList(lbx As ListBox, rs As Recordset, lbxDest As ListBox)
+Public Sub XPopulateList(lbx As ListBox, rs As Recordset, lbxDest As ListBox)
 
 On Error GoTo Err_Handler
 
@@ -340,7 +550,7 @@ On Error GoTo Err_Handler
     Set frm = lbx.Parent
     
     rows = rs.RecordCount
-    cols = rs.Fields.Count
+    cols = rs.Fields.count
     
     'fetch column widths array
     aryColWidths = Split(lbx.ColumnWidths, ";")

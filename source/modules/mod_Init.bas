@@ -30,8 +30,6 @@ Public Const lngBrtLime As Long = 3407769   '?RGB(153,255,51) #99FF33
 Public Const lngLtGreen As Long = 52224     '?RGB(0,204,0) #00CC00
 Public Const lngDkGray As Long = 2375487      '?RGB(63,63,63) #3F3F3F
 
-
-
 ' ---------------------------------
 ' SUB:          Initialize
 ' Description:  initialize application values
@@ -43,12 +41,14 @@ Public Const lngDkGray As Long = 2375487      '?RGB(63,63,63) #3F3F3F
 ' Source/date:
 ' Adapted:      Bonnie Campbell, February 6, 2015 - for NCPN tools
 ' Revisions:
-'   BLC - 2/6/2015 - initial version
+'   BLC - 2/6/2015  - initial version
+'   BLC - 2/19/2015 - added dynamic getParkState() & standard error handling
 ' ---------------------------------
 Public Sub Initialize()
+On Error GoTo Err_Handler
 
     TempVars.item("Park") = "ARCH"
-    TempVars.item("state") = "UT"
+    TempVars.item("state") = getParkState(TempVars.item("Park"))
 
     '------------------------
     'set standard variables
@@ -60,4 +60,14 @@ Public Sub Initialize()
     TempVars.Add "textEnabled", lngBlue
     TempVars.Add "textDisabled", lngGray
 
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - Initialize[mod_Init])"
+    End Select
+    Resume Exit_Sub
 End Sub

@@ -201,7 +201,7 @@ On Error GoTo Err_Handler
 
     Dim intfile As Long
     Dim fileName As String
-    For i = 0 To dbs.QueryDefs.Count - 1
+    For i = 0 To dbs.QueryDefs.count - 1
          Application.SaveAsText acQuery, dbs.QueryDefs(i).name, Path & "\Queries\" & dbs.QueryDefs(i).name & ".txt"
          fileName = Path & "\Queries(SQL)\" & dbs.QueryDefs(i).name & ".txt"
          intfile = FreeFile()
@@ -244,6 +244,12 @@ End Sub
 ' ---------------------------------
 Public Sub RecreateDatabase()
 On Error GoTo Err_Handler
+    Dim myFile As Object '??
+    Dim folder As Object '??
+    Dim FSO As Object '??
+    Dim objecttype As String, objectname As String
+    Dim WScript As Object '??
+    Dim oApplication As Object '??
     
     For Each myFile In folder.Files
         objecttype = FSO.GetExtensionName(myFile.name)
@@ -369,6 +375,7 @@ On Error Resume Next
     Dim Catalog As AccessObject
     Dim dsc As String
     Dim tbl As AccessObject
+    Dim tabledefs As Collection '??
     
     Set Catalog = CreateObject("ADOX.Catalog")
     Catalog.ActiveConnection = "Provider=Microsoft.Jet.OLEDB.4.0;" & _
@@ -382,7 +389,7 @@ On Error Resume Next
  
     dsc = Catalog.Tables("table_name").Columns("column_name").Properties("Description").Value
  
-    For Each tbl In TableDefs
+    For Each tbl In tabledefs
         Debug.Print tbl.name
     Next
     
@@ -424,7 +431,7 @@ On Error GoTo TableInfoErr
    Dim fld As DAO.Field
    
    Set db = CurrentDb()
-   Set tdf = db.TableDefs(strTableName)
+   Set tdf = db.tabledefs(strTableName)
    Debug.Print "FIELD NAME", "FIELD TYPE", "SIZE", "DESCRIPTION"
    Debug.Print "==========", "==========", "====", "==========="
 

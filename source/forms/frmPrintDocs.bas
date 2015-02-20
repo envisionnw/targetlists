@@ -13,8 +13,8 @@ Begin Form
     Width =10080
     DatasheetFontHeight =11
     ItemSuffix =13
-    Right =15720
-    Bottom =11760
+    Right =14508
+    Bottom =9408
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x72574db34b86e440
@@ -403,16 +403,17 @@ Option Explicit
 
 ' ---------------------------------
 ' SUB:          Form_Load
-' Description:  XX
+' Description:  form loading routine
 ' Assumptions:  -
-' Parameters:   XX - XX
-' Returns:      XX - XX
+' Parameters:   N/A
+' Returns:      N/A
 ' Throws:       none
 ' References:   none
 ' Source/date:
 ' Adapted:      Bonnie Campbell, January 30, 2015 - for NCPN tools
 ' Revisions:
 '   BLC - 1/30/2015 - initial version
+'   BLC - 2/19/2015 - update fillList parameters & documentation
 ' ---------------------------------
 Private Sub Form_Load()
 
@@ -426,7 +427,7 @@ On Error GoTo Err_Handler
     lbxPrintSheets.RowSource = ""
     
     'initial listbox fill
-    fillList Me, lbxDataSheets  '.RowSourceType = "Value List"
+    fillList Me, lbxDataSheets, lbxPrintSheets  '.RowSourceType = "Value List"
 
     'enable > or < *only* if at least one item selected
     'check background / text color, if gray then exit_sub
@@ -462,7 +463,7 @@ End Sub
 ' Revisions:
 '   BLC - 2/6/2015 - initial version
 ' ---------------------------------
-Public Sub xfillList(frm As Form, lbx As ListBox)
+Public Sub XfillList(frm As Form, lbx As ListBox)
 
 On Error GoTo Err_Handler
     
@@ -561,7 +562,7 @@ On Error GoTo Err_Handler
     Next
 
     'check for selected items --> if present, enable lblAdd
-    If lbxDataSheets.ItemsSelected.Count > 0 Then
+    If lbxDataSheets.ItemsSelected.count > 0 Then
         If lblAdd.backColor <> TempVars.item("ctrlAddEnabled") Then
             EnableControl lblAdd, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
         End If
@@ -629,7 +630,7 @@ End Sub
 Private Sub lbxDataSheets_KeyUp(KeyCode As Integer, Shift As Integer)
 On Error GoTo Err_Handler
 
-    If lbxDataSheets.ItemsSelected.Count > 0 And lblAdd.backColor <> TempVars.item("ctrlAddEnabled") Then
+    If lbxDataSheets.ItemsSelected.count > 0 And lblAdd.backColor <> TempVars.item("ctrlAddEnabled") Then
         EnableControl lblAdd, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
     End If
     
@@ -671,7 +672,7 @@ On Error GoTo Err_Handler
     Next
 
     'check for selected items --> if present, enable lblRemove
-    If lbxPrintSheets.ItemsSelected.Count > 0 Then
+    If lbxPrintSheets.ItemsSelected.count > 0 Then
         If lblRemove.backColor <> TempVars.item("ctrlRemoveEnabled") Then
             EnableControl lblRemove, TempVars.item("ctrlRemoveEnabled"), TempVars.item("textEnabled")
         End If
@@ -738,7 +739,7 @@ End Sub
 Private Sub lbxPrintSheets_KeyUp(KeyCode As Integer, Shift As Integer)
 On Error GoTo Err_Handler
 
-    If lbxDataSheets.ItemsSelected.Count > 0 And lblRemove.backColor <> TempVars.item("ctrlRemoveEnabled") Then
+    If lbxDataSheets.ItemsSelected.count > 0 And lblRemove.backColor <> TempVars.item("ctrlRemoveEnabled") Then
         EnableControl lblRemove, TempVars.item("ctrlRemoveEnabled"), TempVars.item("textEnabled")
     End If
     
