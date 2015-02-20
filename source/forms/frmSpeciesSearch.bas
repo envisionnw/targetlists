@@ -11,7 +11,7 @@ Begin Form
     GridY =24
     Width =13584
     DatasheetFontHeight =11
-    ItemSuffix =61
+    ItemSuffix =63
     Right =14508
     Bottom =9408
     DatasheetGridlinesColor =14806254
@@ -161,7 +161,7 @@ Begin Form
             GridlineShade =65.0
         End
         Begin FormHeader
-            Height =5532
+            Height =5535
             Name ="FormHeader"
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
@@ -485,35 +485,6 @@ Begin Form
                     End
                 End
                 Begin Label
-                    BackStyle =1
-                    OverlapFlags =85
-                    TextAlign =2
-                    Left =7620
-                    Top =3300
-                    Width =1618
-                    Height =373
-                    FontWeight =600
-                    LeftMargin =29
-                    TopMargin =29
-                    RightMargin =29
-                    BottomMargin =29
-                    BackColor =13882323
-                    BorderColor =8355711
-                    ForeColor =8224125
-                    Name ="lblSearch"
-                    Caption ="Search!"
-                    OnClick ="[Event Procedure]"
-                    ControlTipText ="Search for species"
-                    GridlineColor =10921638
-                    LayoutCachedLeft =7620
-                    LayoutCachedTop =3300
-                    LayoutCachedWidth =9238
-                    LayoutCachedHeight =3673
-                    BackThemeColorIndex =-1
-                    ForeThemeColorIndex =-1
-                    ForeTint =100.0
-                End
-                Begin Label
                     Visible = NotDefault
                     OverlapFlags =215
                     Left =120
@@ -578,7 +549,7 @@ Begin Form
                 End
                 Begin CommandButton
                     OverlapFlags =85
-                    Left =5280
+                    Left =7320
                     Top =3300
                     Width =2220
                     TabIndex =7
@@ -589,9 +560,9 @@ Begin Form
                     OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =5280
+                    LayoutCachedLeft =7320
                     LayoutCachedTop =3300
-                    LayoutCachedWidth =7500
+                    LayoutCachedWidth =9540
                     LayoutCachedHeight =3660
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
@@ -643,6 +614,7 @@ Begin Form
                     Top =5220
                     Width =2304
                     Height =300
+                    BackColor =15788753
                     BorderColor =8355711
                     ForeColor =8355711
                     Name ="lblITISHdr"
@@ -652,6 +624,7 @@ Begin Form
                     LayoutCachedTop =5220
                     LayoutCachedWidth =4224
                     LayoutCachedHeight =5520
+                    BackThemeColorIndex =-1
                 End
                 Begin Label
                     Visible = NotDefault
@@ -774,6 +747,28 @@ Begin Form
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                 End
+                Begin Label
+                    Visible = NotDefault
+                    FontItalic = NotDefault
+                    OverlapFlags =215
+                    TextAlign =3
+                    Left =5820
+                    Top =4140
+                    Width =2448
+                    Height =372
+                    FontSize =12
+                    BorderColor =8355711
+                    ForeColor =16737792
+                    Name ="lblSpeciesFound"
+                    Caption ="species found"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =5820
+                    LayoutCachedTop =4140
+                    LayoutCachedWidth =8268
+                    LayoutCachedHeight =4512
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
+                End
             End
         End
         Begin Section
@@ -781,13 +776,14 @@ Begin Form
             CanShrink = NotDefault
             Height =300
             Name ="Detail"
-            AutoHeight =255
             AlternateBackColor =15921906
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
             BackThemeColorIndex =1
             Begin
                 Begin TextBox
+                    Locked = NotDefault
+                    AllowAutoCorrect = NotDefault
                     OldBorderStyle =0
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -805,6 +801,7 @@ Begin Form
                     LayoutCachedHeight =300
                 End
                 Begin TextBox
+                    Locked = NotDefault
                     OldBorderStyle =0
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -823,8 +820,9 @@ Begin Form
                     LayoutCachedHeight =300
                 End
                 Begin TextBox
+                    Locked = NotDefault
                     OldBorderStyle =0
-                    OverlapFlags =85
+                    OverlapFlags =93
                     IMESentenceMode =3
                     Left =4260
                     Width =2304
@@ -841,8 +839,9 @@ Begin Form
                     LayoutCachedHeight =300
                 End
                 Begin TextBox
+                    Locked = NotDefault
                     OldBorderStyle =0
-                    OverlapFlags =85
+                    OverlapFlags =93
                     IMESentenceMode =3
                     Left =6600
                     Width =2304
@@ -859,8 +858,9 @@ Begin Form
                     LayoutCachedHeight =300
                 End
                 Begin TextBox
+                    Locked = NotDefault
                     OldBorderStyle =0
-                    OverlapFlags =85
+                    OverlapFlags =93
                     IMESentenceMode =3
                     Left =8940
                     Width =2304
@@ -877,8 +877,9 @@ Begin Form
                     LayoutCachedHeight =300
                 End
                 Begin TextBox
+                    Locked = NotDefault
                     OldBorderStyle =0
-                    OverlapFlags =85
+                    OverlapFlags =93
                     IMESentenceMode =3
                     Left =11280
                     Width =2304
@@ -894,6 +895,38 @@ Begin Form
                     LayoutCachedWidth =13584
                     LayoutCachedHeight =300
                 End
+                Begin Label
+                    Visible = NotDefault
+                    FontItalic = NotDefault
+                    OverlapFlags =247
+                    Left =5520
+                    Width =2304
+                    Height =300
+                    FontSize =12
+                    BorderColor =8355711
+                    ForeColor =16737792
+                    Name ="lblNoRecords"
+                    Caption ="-- No species found --"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =5520
+                    LayoutCachedWidth =7824
+                    LayoutCachedHeight =300
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
+                End
+                Begin Rectangle
+                    OverlapFlags =247
+                    Left =8640
+                    Width =4740
+                    Height =240
+                    BorderColor =10921638
+                    Name ="boxClick"
+                    OnDblClick ="[Event Procedure]"
+                    GridlineColor =10921638
+                    LayoutCachedLeft =8640
+                    LayoutCachedWidth =13380
+                    LayoutCachedHeight =240
+                End
             End
         End
         Begin FormFooter
@@ -902,25 +935,6 @@ Begin Form
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
             BackThemeColorIndex =1
-            Begin
-                Begin Label
-                    Visible = NotDefault
-                    FontItalic = NotDefault
-                    OverlapFlags =85
-                    Left =5520
-                    Width =2304
-                    Height =300
-                    FontSize =12
-                    BorderColor =8355711
-                    ForeColor =8355711
-                    Name ="lblNoRecords"
-                    Caption ="-- No species found --"
-                    GridlineColor =10921638
-                    LayoutCachedLeft =5520
-                    LayoutCachedWidth =7824
-                    LayoutCachedHeight =300
-                End
-            End
         End
     End
 End
@@ -942,16 +956,17 @@ Option Explicit
 
 ' ---------------------------------
 ' SUB:          Form_Load
-' Description:  XX
-' Assumptions:  -
-' Parameters:   XX - XX
-' Returns:      XX - XX
+' Description:  Search form preparation action
+' Assumptions:  none
+' Parameters:   N/A
+' Returns:      N/A
 ' Throws:       none
 ' References:   none
 ' Source/date:
 ' Adapted:      Bonnie Campbell, February 9, 2015 - for NCPN tools
 ' Revisions:
-'   BLC - 2/9/2015 - initial version
+'   BLC - 2/9/2015  - initial version
+'   BLC - 2/20/2015 - cleared selections & updated documentation
 ' ---------------------------------
 Private Sub Form_Load()
 
@@ -965,6 +980,9 @@ On Error GoTo Err_Handler
     'disable search until something is entered
     btnSearch.Enabled = False
     DisableControl btnSearch
+    
+    'clear selections
+    ClearFields Me
 
 Exit_Sub:
     Exit Sub
@@ -1281,111 +1299,6 @@ Err_Handler:
 End Sub
 
 ' ---------------------------------
-' SUB:          lblSearch_Click
-' Description:  Search for the name or portion of a name in the species/common names listed & return a result list
-' Assumptions:  -
-' Parameters:   XX - XX
-' Returns:      XX - XX
-' Throws:       none
-' References:   none
-' Source/date:
-' http://codevba.com/msaccess/status_bar_and_progress_meter.htm#.VNb9X_lM4_4
-' Adapted:      Bonnie Campbell, February 7, 2015 - for NCPN tools
-' Revisions:
-'   BLC - 2/7/2015 - initial version
-' ---------------------------------
-Private Sub lblSearch_Click()
-On Error GoTo Err_Handler
-    
-    Dim speciestype As Variant
-    Dim strSearch As String, strSpecies As String, strWHERE As String, strSQL As String
-    Dim i As Integer
-
-    'ignore if disabled
-    'If lblSearch.backColor = TempVars.item("ctrlDisabled") Then GoTo Exit_Sub
-    If btnSearch.Enabled = False Then GoTo Exit_Sub
-
-    strSearch = Trim(tbxSearchFor.Value)
-            
-    'check strSearch is alpha numeric
-    
-    'determine which areas are to be searched
-    MsgBox TempVars.item("speciestype"), vbOKOnly, "speciestype"
-
-    'perform search
-    strWHERE = "WHERE "
-    
-    'determine which species names to check
-    For Each speciestype In Split(TempVars.item("speciestype"), ";")
-        
-        'If CountInString(speciestype, ";") > 1 Then
-        i = i + 1
-        If i > 1 Then
-            strWHERE = strWHERE & " OR "
-        End If
-    
-        Select Case speciestype
-            Case "CO"   'Colorado
-                strSpecies = "CO_Species"
-            Case "UT"   'Utah
-                strSpecies = "UT_Species"
-            Case "WY"   'Wyoming
-                strSpecies = "WY_Species"
-            Case "ITIS" 'Master
-                strSpecies = "Master_Species"
-            Case "CMN"  'Common
-                strSpecies = "Master_Common_Name"
-        End Select
-                
-        strWHERE = strWHERE & " " & strSpecies & " LIKE '*" & strSearch & "*'"
-
-    Next
-    
-    MsgBox strWHERE, vbOKOnly, "strWHERE"
-    'prep WHERE clause
-    If Len(Replace(strWHERE, "WHERE", "")) = 0 Then strWHERE = ""
-    
-    'build SQL statement
-    strSQL = "SELECT LU_Code, Master_Species, Utah_Species, CO_Species, WY_Species, " _
-            & "Master_Common_Name " _
-            & "FROM tlu_NCPN_Plants " _
-            & strWHERE & ";"
-            
-    'fetch data
-    Set db = CurrentDb
-    Set rs = db.OpenRecordset(strSQL)
-
-    'set form results
-    Me.Recordset = rs
-    tbxResultsCode.ControlSource = "LU_Code"
-    tbxResultsMasterSpecies.ControlSource = "Master_Species"
-    tbxResultsUTSpecies.ControlSource = "Utah_Species"
-    tbxResultsCOSpecies.ControlSource = "CO_Species"
-    tbxResultsWYSpecies.ControlSource = "WY_Species"
-    tbxResultsCmnName.ControlSource = "Master_Common_Name"
-    
-'    MsgBox strSQL, vbOKOnly, "strSQL"
-    
-    'set statusbar notice
-    Dim varReturn As Variant
-    varReturn = SysCmd(acSysCmdSetStatus, "Searching for " & strSearch & "...")
-    
-    'print it
-'    MsgBox "Results for search: " & vbCrLf & strSearch, vbOKOnly, "Search Results"
-
-Exit_Sub:
-    Exit Sub
-
-Err_Handler:
-    Select Case Err.Number
-      Case Else
-        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - lblSearch_Click[form_frmSpeciesSearch])"
-    End Select
-    Resume Exit_Sub
-End Sub
-
-' ---------------------------------
 ' SUB:          btnSearch_Click
 ' Description:  Search for the name or portion of a name in the species/common names listed & return a result list
 ' Assumptions:  -
@@ -1397,7 +1310,8 @@ End Sub
 ' http://codevba.com/msaccess/status_bar_and_progress_meter.htm#.VNb9X_lM4_4
 ' Adapted:      Bonnie Campbell, February 7, 2015 - for NCPN tools
 ' Revisions:
-'   BLC - 2/7/2015 - initial version
+'   BLC - 2/7/2015  - initial version
+'   BLC - 2/20/2015 - added header highlighting
 ' ---------------------------------
 Private Sub btnSearch_Click()
 On Error GoTo Err_Handler
@@ -1423,12 +1337,37 @@ On Error GoTo Err_Handler
         GoTo Exit_Sub
     End If
     
-    
-    'determine which areas are to be searched
-'    MsgBox TempVars.item("speciestype"), vbOKOnly, "speciestype"
-
-    'perform search
+    'determine which species names are to be searched (ITIS, UT, CO, WY, Common)
     strWHERE = " WHERE "
+    
+    'set values
+    Dim Transparent As Integer, Normal As Integer
+    Transparent = 0
+    Normal = 1
+    
+    'reset headers
+    lblCOHdr.BackStyle = Transparent
+    lblUTHdr.BackStyle = Transparent
+    lblWYHdr.BackStyle = Transparent
+    lblCommonHdr.BackStyle = Transparent
+    lblITISHdr.BackStyle = Transparent
+    
+    lblCOHdr.backColor = vbButtonFace
+    lblUTHdr.backColor = vbButtonFace
+    lblWYHdr.backColor = vbButtonFace
+    lblCommonHdr.backColor = vbButtonFace
+    lblITISHdr.backColor = vbButtonFace
+    
+    lblCOHdr.FontBold = False
+    lblUTHdr.FontBold = False
+    lblWYHdr.FontBold = False
+    lblITISHdr.FontBold = False
+    lblCommonHdr.FontBold = False
+    lblCOHdr.foreColor = 8355711 '#7F7F7F rgb(127,127,127)
+    lblUTHdr.foreColor = 8355711 '#7F7F7F rgb(127,127,127)
+    lblWYHdr.foreColor = 8355711 '#7F7F7F rgb(127,127,127)
+    lblITISHdr.foreColor = 8355711 '#7F7F7F rgb(127,127,127)
+    lblCommonHdr.foreColor = 8355711 '#7F7F7F rgb(127,127,127)
     
     'determine which species names to check
     For Each speciestype In Split(TempVars.item("speciestype"), ";")
@@ -1444,14 +1383,34 @@ On Error GoTo Err_Handler
             Select Case speciestype
                 Case "CO"   'Colorado
                     strSpecies = "CO_Species"
+                    lblCOHdr.FontBold = True
+                    lblCOHdr.foreColor = 16737792 '#0066FF rgb(0,102,255)
+                    lblCOHdr.BackStyle = Normal
+                    lblCOHdr.backColor = 15788753 '#D1EAF0 rgb(209,234,240)
                 Case "UT"   'Utah
                     strSpecies = "Utah_Species"
+                    lblUTHdr.FontBold = True
+                    lblUTHdr.foreColor = 16737792 '#0066FF rgb(0,102,255)
+                    lblUTHdr.BackStyle = Normal
+                    lblUTHdr.backColor = 15788753 '#D1EAF0 rgb(209,234,240)
                 Case "WY"   'Wyoming
                     strSpecies = "WY_Species"
+                    lblWYHdr.FontBold = True
+                    lblWYHdr.foreColor = 16737792 '#0066FF rgb(0,102,255)
+                    lblWYHdr.BackStyle = Normal
+                    lblWYHdr.backColor = 15788753 '#D1EAF0 rgb(209,234,240)
                 Case "ITIS" 'Master
                     strSpecies = "Master_Species"
+                    lblITISHdr.FontBold = True
+                    lblITISHdr.foreColor = 16737792 '#0066FF rgb(0,102,255)
+                    lblITISHdr.BackStyle = Normal
+                    lblITISHdr.backColor = 15788753 '#D1EAF0 rgb(209,234,240)
                 Case "CMN"  'Common
                     strSpecies = "Master_Common_Name"
+                    lblCommonHdr.FontBold = True
+                    lblCommonHdr.foreColor = 16737792 '#0066FF rgb(0,102,255)
+                    lblCommonHdr.BackStyle = Normal
+                    lblCommonHdr.backColor = 15788753 '#D1EAF0 rgb(209,234,240)
             End Select
                     
             strWHERE = strWHERE & " " & strSpecies & " LIKE '*" & strSearch & "*'"
@@ -1459,7 +1418,6 @@ On Error GoTo Err_Handler
         End If
     Next
     
-'    MsgBox strWHERE, vbOKOnly, "strWHERE"
     'prep WHERE clause
     If Len(Replace(strWHERE, "WHERE", "")) = 0 Then strWHERE = ""
     
@@ -1468,19 +1426,10 @@ On Error GoTo Err_Handler
             & "Master_Common_Name " _
             & "FROM tlu_NCPN_Plants " _
             & strWHERE & ";"
-            
-'    MsgBox strSQL, vbOKOnly, "strSQL"
-    
+               
     'run search
     Dim rs As DAO.Recordset
-    
-    'Set rs = CurrentDb.Execute(strSQL, dbFailOnError)
-'    Set rs = CurrentDb.OpenRecordset(strSQL, dbOpenSnapshot)
-    
-'    Do Until rs.EOF
-        'debug.Print
-'    Loop
-    
+      
     'fetch data
     Set rs = CurrentDb.OpenRecordset(strSQL) ', dbOpenSnapshot)
 
@@ -1492,15 +1441,19 @@ On Error GoTo Err_Handler
     tbxCOSpecies.ControlSource = "CO_Species"
     tbxWYSpecies.ControlSource = "WY_Species"
     tbxCmnName.ControlSource = "Master_Common_Name"
-    
-'    MsgBox strSQL, vbOKOnly, "strSQL"
+
     ' determine record count
-    Dim count As Integer
-    'rs.MoveLast
-    count = rs.RecordCount
-    'rs.MoveFirst
-    
-    If count = 0 Then
+    Dim Count As Integer
+    If Not rs.EOF Then
+        rs.MoveLast
+        Count = rs.RecordCount
+        rs.MoveFirst
+        
+        'set # species found
+        lblSpeciesFound.Caption = Count & " species found"
+        lblSpeciesFound.Visible = True
+        lblNoRecords.Visible = False
+    Else
         lblNoRecords.Visible = True
     End If
     
@@ -1528,8 +1481,8 @@ On Error GoTo Err_Handler
     Dim varReturn As Variant
     varReturn = SysCmd(acSysCmdSetStatus, "Searching for " & strSearch & "...")
     
-    'print it
-'    MsgBox "Results for search: " & vbCrLf & strSearch, vbOKOnly, "Search Results"
+    'clear fields
+    ClearFields Me
 
 Exit_Sub:
     Exit Sub

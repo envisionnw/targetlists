@@ -34,12 +34,12 @@ On Error GoTo Err_Handler
     Dim intColumnCount As Integer
     
     'check for at *least* one selected item
-    If frm.Controls(strSourceControl).ItemsSelected.count = 0 Then
+    If frm.Controls(strSourceControl).ItemsSelected.Count = 0 Then
         MsgBox "Please select at least one item.", vbExclamation, "Oops!"
         GoTo Exit_Sub
     End If
     
-    If frm.Controls(strSourceControl).ItemsSelected.count > 1 Then
+    If frm.Controls(strSourceControl).ItemsSelected.Count > 1 Then
         MoveSelectedItems frm, strSourceControl, strTargetControl
         GoTo Exit_Sub
     End If
@@ -165,7 +165,7 @@ On Error GoTo Err_Handler
     Dim strItem As String
     
     'check for at *least* one selected item
-    If frm.Controls(strSourceControl).ItemsSelected.count = 0 Then
+    If frm.Controls(strSourceControl).ItemsSelected.Count = 0 Then
         MsgBox "Please select at least one item.", vbExclamation, "Oops!"
         GoTo Exit_Sub
     End If
@@ -286,7 +286,7 @@ On Error GoTo Err_Handler
     Set frm = ctrl.Parent
     
     rows = rs.RecordCount
-    cols = rs.Fields.count
+    cols = rs.Fields.Count
     
     If Nz(rows, 0) = 0 Then
         MsgBox "Sorry, no records found..."
@@ -346,7 +346,7 @@ On Error GoTo Err_Handler
     Set frm = lbx.Parent
     
     rows = rs.RecordCount
-    cols = rs.Fields.count
+    cols = rs.Fields.Count
     
     If Nz(rows, 0) = 0 Then
         MsgBox "Sorry, no records found..."
@@ -408,7 +408,7 @@ On Error GoTo Err_Handler
     Set frm = ctrlSource.Parent
     
     rows = rs.RecordCount
-    cols = rs.Fields.count
+    cols = rs.Fields.Count
     
     'address no records
     If Nz(rows, 0) = 0 Then
@@ -550,7 +550,7 @@ On Error GoTo Err_Handler
     Set frm = lbx.Parent
     
     rows = rs.RecordCount
-    cols = rs.Fields.count
+    cols = rs.Fields.Count
     
     'fetch column widths array
     aryColWidths = Split(lbx.ColumnWidths, ";")

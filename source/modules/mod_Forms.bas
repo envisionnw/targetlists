@@ -32,6 +32,33 @@ Option Explicit
 ' ---------------------------------
 
 ' ---------------------------------
+' SUB:          ClearFields
+' Description:  initialize application values
+' Assumptions:  -
+' Parameters:   XX - XX
+' Returns:      XX - XX
+' Throws:       none
+' References:   none
+' Source/date:  Bonnie Campbell, February 20, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/20/2015  - initial version
+' ---------------------------------
+Public Sub ClearFields(frm As Form)
+
+    Select Case frm.name
+    
+        Case "frmSpeciesSearch"
+            frm.Controls("cbxCO").DefaultValue = False
+            frm.Controls("cbxUT").DefaultValue = False
+            frm.Controls("cbxWY").DefaultValue = False
+            frm.Controls("cbxITIS").DefaultValue = False
+            frm.Controls("cbxCommon").DefaultValue = False
+            frm.Controls("tbxSearchFor").Value = ""
+    End Select
+    
+End Sub
+
+' ---------------------------------
 ' SUB:          AddControl
 ' Description:  initialize application values
 ' Assumptions:  -

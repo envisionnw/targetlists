@@ -12,8 +12,8 @@ Begin Form
     Width =10935
     DatasheetFontHeight =11
     ItemSuffix =19
-    Right =20208
-    Bottom =9408
+    Right =15975
+    Bottom =11760
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x72574db34b86e440
@@ -669,7 +669,7 @@ On Error GoTo Err_Handler
     Next
 
     'check for selected items --> if present, enable lblAdd
-    If lbxSpecies.ItemsSelected.count > 0 Then
+    If lbxSpecies.ItemsSelected.Count > 0 Then
         If lblAdd.backColor <> TempVars.item("ctrlAddEnabled") Then
             EnableControl lblAdd, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
         End If
@@ -737,7 +737,7 @@ End Sub
 Private Sub lbxSpecies_KeyUp(KeyCode As Integer, Shift As Integer)
 On Error GoTo Err_Handler
 
-    If lbxSpecies.ItemsSelected.count > 0 And lblAdd.backColor <> TempVars.item("ctrlAddEnabled") Then
+    If lbxSpecies.ItemsSelected.Count > 0 And lblAdd.backColor <> TempVars.item("ctrlAddEnabled") Then
         EnableControl lblAdd, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
     End If
     
@@ -779,7 +779,7 @@ On Error GoTo Err_Handler
     Next
 
     'check for selected items --> if present, enable lblRemove
-    If lbxTgtSpecies.ItemsSelected.count > 0 Then
+    If lbxTgtSpecies.ItemsSelected.Count > 0 Then
         If lblRemove.backColor <> TempVars.item("ctrlRemoveEnabled") Then
             EnableControl lblRemove, TempVars.item("ctrlRemoveEnabled"), TempVars.item("textEnabled")
         End If
@@ -846,7 +846,7 @@ End Sub
 Private Sub lbxTgtSpecies_KeyUp(KeyCode As Integer, Shift As Integer)
 On Error GoTo Err_Handler
 
-    If lbxSpecies.ItemsSelected.count > 0 And lblRemove.backColor <> TempVars.item("ctrlRemoveEnabled") Then
+    If lbxSpecies.ItemsSelected.Count > 0 And lblRemove.backColor <> TempVars.item("ctrlRemoveEnabled") Then
         EnableControl lblRemove, TempVars.item("ctrlRemoveEnabled"), TempVars.item("textEnabled")
     End If
     

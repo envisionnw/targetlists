@@ -29,16 +29,16 @@ Option Explicit
 ' ---------------------------------
 Public Function CountInString(ByVal strInspect As String, ByVal strFind As String) As Integer
 On Error GoTo Err_Handler:
-     Dim count As Integer
+     Dim Count As Integer
 
     'default
-    count = 0
+    Count = 0
     
     If Len(strInspect) > 0 Then
-        count = UBound(Split(strInspect, strFind))
+        Count = UBound(Split(strInspect, strFind))
     End If
     
-    CountInString = count
+    CountInString = Count
 
 Exit_Function:
     Exit Function
