@@ -563,7 +563,7 @@ On Error GoTo Err_Handler
 
     'check for selected items --> if present, enable lblAdd
     If lbxDataSheets.ItemsSelected.Count > 0 Then
-        If lblAdd.backColor <> TempVars.item("ctrlAddEnabled") Then
+        If lblAdd.backcolor <> TempVars.item("ctrlAddEnabled") Then
             EnableControl lblAdd, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
         End If
     Else
@@ -630,7 +630,7 @@ End Sub
 Private Sub lbxDataSheets_KeyUp(KeyCode As Integer, Shift As Integer)
 On Error GoTo Err_Handler
 
-    If lbxDataSheets.ItemsSelected.Count > 0 And lblAdd.backColor <> TempVars.item("ctrlAddEnabled") Then
+    If lbxDataSheets.ItemsSelected.Count > 0 And lblAdd.backcolor <> TempVars.item("ctrlAddEnabled") Then
         EnableControl lblAdd, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
     End If
     
@@ -673,7 +673,7 @@ On Error GoTo Err_Handler
 
     'check for selected items --> if present, enable lblRemove
     If lbxPrintSheets.ItemsSelected.Count > 0 Then
-        If lblRemove.backColor <> TempVars.item("ctrlRemoveEnabled") Then
+        If lblRemove.backcolor <> TempVars.item("ctrlRemoveEnabled") Then
             EnableControl lblRemove, TempVars.item("ctrlRemoveEnabled"), TempVars.item("textEnabled")
         End If
     Else
@@ -739,7 +739,7 @@ End Sub
 Private Sub lbxPrintSheets_KeyUp(KeyCode As Integer, Shift As Integer)
 On Error GoTo Err_Handler
 
-    If lbxDataSheets.ItemsSelected.Count > 0 And lblRemove.backColor <> TempVars.item("ctrlRemoveEnabled") Then
+    If lbxDataSheets.ItemsSelected.Count > 0 And lblRemove.backcolor <> TempVars.item("ctrlRemoveEnabled") Then
         EnableControl lblRemove, TempVars.item("ctrlRemoveEnabled"), TempVars.item("textEnabled")
     End If
     
@@ -772,7 +772,7 @@ Private Sub lblAdd_Click()
 On Error GoTo Err_Handler
     
     'ignore if 'disabled'
-    If lblAdd.backColor = lngGray Then GoTo Exit_Sub
+    If lblAdd.backcolor = lngGray Then GoTo Exit_Sub
     
     MoveSingleItem Me, "lbxDataSheets", "lbxPrintSheets"
 
@@ -805,7 +805,7 @@ Private Sub lblRemove_Click()
 On Error GoTo Err_Handler
     
     'ignore if 'disabled'
-    If lblRemove.backColor = TempVars.item("ctrlDisabled") Then GoTo Exit_Sub
+    If lblRemove.backcolor = TempVars.item("ctrlDisabled") Then GoTo Exit_Sub
     
     MoveSingleItem Me, "lbxPrintSheets", "lbxDataSheets"
     

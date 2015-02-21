@@ -12,8 +12,8 @@ Begin Form
     Width =13584
     DatasheetFontHeight =11
     ItemSuffix =63
-    Right =14508
-    Bottom =9408
+    Right =20208
+    Bottom =9660
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x72574db34b86e440
@@ -507,16 +507,16 @@ Begin Form
                     OverlapFlags =215
                     Left =300
                     Top =4620
-                    Width =6576
+                    Width =6708
                     Height =300
                     BorderColor =8355711
                     ForeColor =8355711
                     Name ="lblSearchResultInstructions"
-                    Caption ="Double click the species you'd like to add to your target species listing. "
+                    Caption ="Double click the species code you'd like to add to your target species listing. "
                     GridlineColor =10921638
                     LayoutCachedLeft =300
                     LayoutCachedTop =4620
-                    LayoutCachedWidth =6876
+                    LayoutCachedWidth =7008
                     LayoutCachedHeight =4920
                 End
                 Begin Line
@@ -601,6 +601,7 @@ Begin Form
                     ForeColor =8355711
                     Name ="lblCodeHdr"
                     Caption ="Code"
+                    Tag ="*"
                     GridlineColor =10921638
                     LayoutCachedLeft =120
                     LayoutCachedTop =5220
@@ -619,6 +620,7 @@ Begin Form
                     ForeColor =8355711
                     Name ="lblITISHdr"
                     Caption ="ITIS"
+                    Tag ="*"
                     GridlineColor =10921638
                     LayoutCachedLeft =1920
                     LayoutCachedTop =5220
@@ -637,6 +639,7 @@ Begin Form
                     ForeColor =8355711
                     Name ="lblUTHdr"
                     Caption ="UT"
+                    Tag ="*"
                     GridlineColor =10921638
                     LayoutCachedLeft =4260
                     LayoutCachedTop =5220
@@ -654,6 +657,7 @@ Begin Form
                     ForeColor =8355711
                     Name ="lblCOHdr"
                     Caption ="CO"
+                    Tag ="*"
                     GridlineColor =10921638
                     LayoutCachedLeft =6600
                     LayoutCachedTop =5220
@@ -671,6 +675,7 @@ Begin Form
                     ForeColor =8355711
                     Name ="lblWYHdr"
                     Caption ="WY"
+                    Tag ="*"
                     GridlineColor =10921638
                     LayoutCachedLeft =8940
                     LayoutCachedTop =5220
@@ -688,6 +693,7 @@ Begin Form
                     ForeColor =8355711
                     Name ="lblCommonHdr"
                     Caption ="Common"
+                    Tag ="*"
                     GridlineColor =10921638
                     LayoutCachedLeft =11280
                     LayoutCachedTop =5220
@@ -782,7 +788,6 @@ Begin Form
             BackThemeColorIndex =1
             Begin
                 Begin TextBox
-                    Locked = NotDefault
                     AllowAutoCorrect = NotDefault
                     OldBorderStyle =0
                     OverlapFlags =85
@@ -794,6 +799,7 @@ Begin Form
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxResultCode"
+                    OnDblClick ="[Event Procedure]"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =120
@@ -801,7 +807,6 @@ Begin Form
                     LayoutCachedHeight =300
                 End
                 Begin TextBox
-                    Locked = NotDefault
                     OldBorderStyle =0
                     OverlapFlags =85
                     IMESentenceMode =3
@@ -860,7 +865,7 @@ Begin Form
                 Begin TextBox
                     Locked = NotDefault
                     OldBorderStyle =0
-                    OverlapFlags =93
+                    OverlapFlags =85
                     IMESentenceMode =3
                     Left =8940
                     Width =2304
@@ -879,7 +884,7 @@ Begin Form
                 Begin TextBox
                     Locked = NotDefault
                     OldBorderStyle =0
-                    OverlapFlags =93
+                    OverlapFlags =85
                     IMESentenceMode =3
                     Left =11280
                     Width =2304
@@ -913,19 +918,6 @@ Begin Form
                     LayoutCachedHeight =300
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
-                End
-                Begin Rectangle
-                    OverlapFlags =247
-                    Left =8640
-                    Width =4740
-                    Height =240
-                    BorderColor =10921638
-                    Name ="boxClick"
-                    OnDblClick ="[Event Procedure]"
-                    GridlineColor =10921638
-                    LayoutCachedLeft =8640
-                    LayoutCachedWidth =13380
-                    LayoutCachedHeight =240
                 End
             End
         End
@@ -1298,6 +1290,57 @@ Err_Handler:
     Resume Exit_Sub
 End Sub
 
+
+' ---------------------------------
+' SUB:          tbxResultCode_DblClick
+' Description:  Add an item to the listbox if it is not a duplicate of items already listed
+' Assumptions:  Assumes duplicates are not desired in the listbox
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, February 20, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/20/2015 - initial version
+'   BLC - 2/21/2015 - fixed Runtime Error 451: Property let procedure not defined and property get Procedure did not return an object.
+'                     changed from .ListIndex(i) to .Column(2,i) when iterating through list items
+' ---------------------------------
+Private Sub tbxResultCode_DblClick(Cancel As Integer)
+On Error GoTo Err_Handler
+    Dim item As String
+    Dim i As Integer
+    
+    'add components of item (code, species (UT or whatever), & ITIS) to listbox
+
+    'prepare item for listbox value
+    item = tbxResultCode & ";" & tbxUTSpecies & ";" & tbxMasterSpecies
+    
+    'iterate through listbox (use .Column(x,i) vs .ListIndex(i) which results in error 451 property let not defined, property get...)
+    For i = 0 To Forms("frmTgtSpecies").Controls("lbxTgtSpecies").ListCount
+        'check if item exists in listbox
+        If Forms("frmTgtSpecies").Controls("lbxTgtSpecies").Column(2, i) <> tbxMasterSpecies Then
+            'duplicate, so exit
+            GoTo Exit_Sub
+        End If
+    Next
+    
+    'add item if not duplicate
+    Forms("frmTgtSpecies").Controls("lbxTgtSpecies").AddItem item
+    
+Exit_Sub:
+    Exit Sub
+
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - tbxResultCode_DblClick[form_frmSpeciesSearch])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+
 ' ---------------------------------
 ' SUB:          btnSearch_Click
 ' Description:  Search for the name or portion of a name in the species/common names listed & return a result list
@@ -1339,38 +1382,15 @@ On Error GoTo Err_Handler
     
     'determine which species names are to be searched (ITIS, UT, CO, WY, Common)
     strWHERE = " WHERE "
-    
-    'set values
-    Dim Transparent As Integer, Normal As Integer
-    Transparent = 0
-    Normal = 1
-    
+        
     'reset headers
-    lblCOHdr.BackStyle = Transparent
-    lblUTHdr.BackStyle = Transparent
-    lblWYHdr.BackStyle = Transparent
-    lblCommonHdr.BackStyle = Transparent
-    lblITISHdr.BackStyle = Transparent
-    
-    lblCOHdr.backColor = vbButtonFace
-    lblUTHdr.backColor = vbButtonFace
-    lblWYHdr.backColor = vbButtonFace
-    lblCommonHdr.backColor = vbButtonFace
-    lblITISHdr.backColor = vbButtonFace
-    
-    lblCOHdr.FontBold = False
-    lblUTHdr.FontBold = False
-    lblWYHdr.FontBold = False
-    lblITISHdr.FontBold = False
-    lblCommonHdr.FontBold = False
-    lblCOHdr.foreColor = 8355711 '#7F7F7F rgb(127,127,127)
-    lblUTHdr.foreColor = 8355711 '#7F7F7F rgb(127,127,127)
-    lblWYHdr.foreColor = 8355711 '#7F7F7F rgb(127,127,127)
-    lblITISHdr.foreColor = 8355711 '#7F7F7F rgb(127,127,127)
-    lblCommonHdr.foreColor = 8355711 '#7F7F7F rgb(127,127,127)
-    
+    ResetHeaders Me, True, "*", False, 0, 8355711 ', vbWhite '#7F7F7F rgb(127,127,127)
+            
     'determine which species names to check
-    For Each speciestype In Split(TempVars.item("speciestype"), ";")
+    Dim listTypes() As String
+    listTypes = Split(TempVars.item("speciestype"), ";")
+    
+    For Each speciestype In listTypes
         
         If Len(speciestype) > 0 Then
             
@@ -1378,39 +1398,27 @@ On Error GoTo Err_Handler
             i = i + 1
             If i > 1 Then
                 strWHERE = strWHERE & " OR "
+            
             End If
         
+            'forecolor 16737792 '#0066FF rgb(0,102,255)
+            'backcolor 15788753 '#D1EAF0 rgb(209,234,240)
             Select Case speciestype
                 Case "CO"   'Colorado
                     strSpecies = "CO_Species"
-                    lblCOHdr.FontBold = True
-                    lblCOHdr.foreColor = 16737792 '#0066FF rgb(0,102,255)
-                    lblCOHdr.BackStyle = Normal
-                    lblCOHdr.backColor = 15788753 '#D1EAF0 rgb(209,234,240)
+                    ResetHeaders Me, False, "*", True, 1, 16737792, 15788753, lblCOHdr
                 Case "UT"   'Utah
                     strSpecies = "Utah_Species"
-                    lblUTHdr.FontBold = True
-                    lblUTHdr.foreColor = 16737792 '#0066FF rgb(0,102,255)
-                    lblUTHdr.BackStyle = Normal
-                    lblUTHdr.backColor = 15788753 '#D1EAF0 rgb(209,234,240)
+                    ResetHeaders Me, False, "*", True, 1, 16737792, 15788753, lblUTHdr
                 Case "WY"   'Wyoming
                     strSpecies = "WY_Species"
-                    lblWYHdr.FontBold = True
-                    lblWYHdr.foreColor = 16737792 '#0066FF rgb(0,102,255)
-                    lblWYHdr.BackStyle = Normal
-                    lblWYHdr.backColor = 15788753 '#D1EAF0 rgb(209,234,240)
+                    ResetHeaders Me, False, "*", True, 1, 16737792, 15788753, lblWYHdr
                 Case "ITIS" 'Master
                     strSpecies = "Master_Species"
-                    lblITISHdr.FontBold = True
-                    lblITISHdr.foreColor = 16737792 '#0066FF rgb(0,102,255)
-                    lblITISHdr.BackStyle = Normal
-                    lblITISHdr.backColor = 15788753 '#D1EAF0 rgb(209,234,240)
+                    ResetHeaders Me, False, "*", True, 1, 16737792, 15788753, lblITISHdr
                 Case "CMN"  'Common
                     strSpecies = "Master_Common_Name"
-                    lblCommonHdr.FontBold = True
-                    lblCommonHdr.foreColor = 16737792 '#0066FF rgb(0,102,255)
-                    lblCommonHdr.BackStyle = Normal
-                    lblCommonHdr.backColor = 15788753 '#D1EAF0 rgb(209,234,240)
+                    ResetHeaders Me, False, "*", True, 1, 16737792, 15788753, lblCommonHdr
             End Select
                     
             strWHERE = strWHERE & " " & strSpecies & " LIKE '*" & strSearch & "*'"
@@ -1442,6 +1450,10 @@ On Error GoTo Err_Handler
     tbxWYSpecies.ControlSource = "WY_Species"
     tbxCmnName.ControlSource = "Master_Common_Name"
 
+    'turn fields on (includes lblNoRecords, controls w/o & w/ * tags)
+    ShowControls Me, True, "", True
+    ShowControls Me, True, "*", True
+    
     ' determine record count
     Dim Count As Integer
     If Not rs.EOF Then
@@ -1451,28 +1463,28 @@ On Error GoTo Err_Handler
         
         'set # species found
         lblSpeciesFound.Caption = Count & " species found"
-        lblSpeciesFound.Visible = True
+'        lblSpeciesFound.Visible = True
         lblNoRecords.Visible = False
     Else
-        lblNoRecords.Visible = True
+        lblSpeciesFound.Visible = False
+'        lblNoRecords.Visible = True
     End If
     
-    'turn fields on
-    lineCurrTgtAreaTop.Visible = True
-    lineCurrTgtAreaBtm.Visible = True
-    boxCurrTgtArea.Visible = True
-    lblSearchResults.Visible = True
-    lblSearchForValue.Visible = True
-    lblSearchResultInstructions.Visible = True
-    lineResultsTop.Visible = True
-    lblCodeHdr.Visible = True
-    lblITISHdr.Visible = True
-    lblUTHdr.Visible = True
-    lblCOHdr.Visible = True
-    lblWYHdr.Visible = True
-    lblCommonHdr.Visible = True
-    lineResultsTop.Visible = True
-    lblFor.Visible = True
+'    lineCurrTgtAreaTop.Visible = True
+'    lineCurrTgtAreaBtm.Visible = True
+'    boxCurrTgtArea.Visible = True
+'    lblSearchResults.Visible = True
+'    lblSearchForValue.Visible = True
+'    lblSearchResultInstructions.Visible = True
+'    lineResultsTop.Visible = True
+'    lblCodeHdr.Visible = True
+'    lblITISHdr.Visible = True
+'    lblUTHdr.Visible = True
+'    lblCOHdr.Visible = True
+'    lblWYHdr.Visible = True
+'    lblCommonHdr.Visible = True
+'    lineResultsTop.Visible = True
+'    lblFor.Visible = True
     
     'set search for caption
     lblSearchForValue.Caption = """" & strSearch & """"
@@ -1483,6 +1495,8 @@ On Error GoTo Err_Handler
     
     'clear fields
     ClearFields Me
+    
+    TempVars.item("speciestype") = ""
 
 Exit_Sub:
     Exit Sub

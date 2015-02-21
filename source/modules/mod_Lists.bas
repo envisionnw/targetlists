@@ -763,8 +763,8 @@ Public Sub DisableControl(ctrl As Control)
 
 On Error GoTo Err_Handler
     
-    ctrl.backColor = lngLtGray
-    ctrl.foreColor = lngGray
+    ctrl.backcolor = lngLtGray
+    ctrl.forecolor = lngGray
     
     If ctrl.ControlType = acCommandButton Then
         ctrl.borderColor = lngGray
@@ -803,7 +803,7 @@ End Sub
 ' Revisions:
 '   BLC - 2/7/2015 - initial version
 ' ---------------------------------
-Public Function EnableControl(ctrl As Control, backColor As Long, foreColor As Long, _
+Public Function EnableControl(ctrl As Control, backcolor As Long, forecolor As Long, _
                                 Optional borderColor As Long, _
                                 Optional hoverColor As Long, _
                                 Optional pressColor As Long, _
@@ -811,8 +811,8 @@ Public Function EnableControl(ctrl As Control, backColor As Long, foreColor As L
                                 Optional pressedForeColor As Long)
 On Error GoTo Err_Handler
     
-    ctrl.backColor = backColor
-    ctrl.foreColor = foreColor
+    ctrl.backcolor = backcolor
+    ctrl.forecolor = forecolor
     
     If ctrl.ControlType = acCommandButton Then
         ctrl.borderColor = borderColor
