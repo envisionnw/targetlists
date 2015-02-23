@@ -13,8 +13,10 @@ Begin Form
     Width =9480
     DatasheetFontHeight =11
     ItemSuffix =11
-    Right =14508
-    Bottom =9408
+    Left =480
+    Top =6780
+    Right =4170
+    Bottom =10800
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x7693f1cdcb87e440
@@ -30,6 +32,8 @@ Begin Form
     AllowPivotChartView =0
     AllowPivotChartView =0
     FilterOnLoad =0
+    OrderByOnLoad =0
+    OrderByOnLoad =0
     ShowPageMargins =0
     DisplayOnSharePointSite =1
     AllowLayoutView =0
@@ -317,9 +321,22 @@ End Sub
 ' ---------------------------------
 Private Sub tbxCode_DblClick(Cancel As Integer)
 On Error GoTo Err_Handler
+    Dim item As String
 
-MsgBox "clicked", vbOKOnly, "tbxCode_DblClick"
+    'add components of item (code, species (UT or whatever), & ITIS) to listbox
 
+    'prepare item for listbox value
+    item = tbxCode & ";" & tbxSpecies & ";" & tbxMasterCode
+    
+    'check listbox for duplicate & skip if already present
+    If IsListDuplicate(Forms("frmTgtSpecies").Controls("lbxTgtSpecies"), 2, tbxMasterCode) Then
+        'duplicate, so exit
+        GoTo Exit_Sub
+    End If
+
+    'add item if not duplicate
+    Forms("frmTgtSpecies").Controls("lbxTgtSpecies").AddItem item
+    
 Exit_Sub:
     Exit Sub
     
@@ -347,8 +364,21 @@ End Sub
 ' ---------------------------------
 Private Sub tbxSpecies_DblClick(Cancel As Integer)
 On Error GoTo Err_Handler
+    Dim item As String
+    
+    'add components of item (code, species (UT or whatever), & ITIS) to listbox
 
-MsgBox "clicked", vbOKOnly, "tbxSpecies_DblClick"
+    'prepare item for listbox value
+    item = tbxCode & ";" & tbxSpecies & ";" & tbxMasterCode
+    
+    'check listbox for duplicate & skip if already present
+    If IsListDuplicate(Forms("frmTgtSpecies").Controls("lbxTgtSpecies"), 2, tbxMasterCode) Then
+        'duplicate, so exit
+        GoTo Exit_Sub
+    End If
+
+    'add item if not duplicate
+    Forms("frmTgtSpecies").Controls("lbxTgtSpecies").AddItem item
 
 Exit_Sub:
     Exit Sub

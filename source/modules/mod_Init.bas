@@ -49,6 +49,7 @@ On Error GoTo Err_Handler
 
     TempVars.item("Park") = "ARCH"
     TempVars.item("state") = getParkState(TempVars.item("Park"))
+    TempVars.item("tgtYear") = 2013
 
     '------------------------
     'set standard variables

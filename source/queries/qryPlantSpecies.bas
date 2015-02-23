@@ -32,14 +32,14 @@ Begin
         End
     End
     Begin
+        dbText "Name" ="tlu_NCPN_Plants.Master_PLANT_Code"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
         dbText "Name" ="Family"
         dbLong "AggregateType" ="-1"
         dbBinary "GUID" = Begin
             0x66c6f8479133944db940aec66aa2e039
         End
-    End
-    Begin
-        dbText "Name" ="tlu_NCPN_Plants.Master_PLANT_Code"
-        dbLong "AggregateType" ="-1"
     End
 End

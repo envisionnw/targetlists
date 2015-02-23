@@ -508,7 +508,7 @@ On Error GoTo Err_Handler
         Case "Field List"
     End Select
 
-     MsgBox ctrlSource.ListCount & " in list" & vbCrLf & rs.RecordCount & " in rs", vbOKOnly, "Num in list"
+     'MsgBox ctrlSource.ListCount & " in list" & vbCrLf & rs.RecordCount & " in rs", vbOKOnly, "Num in list"
     'refresh control
     'lbx.Requery
 
@@ -713,6 +713,53 @@ Err_Handler:
     End Select
     Resume Exit_Sub
 End Sub
+
+' ---------------------------------
+' FUNCTION:     IsListDuplicate
+' Description:  Check if item is already on the list
+' Assumptions:  -
+' Parameters:   lbx - listbox control to check (listbox object)
+'               col - column which would hold the item being checked (integer)
+'               item - name of item to be checked (string)
+' Returns:      XX - XX
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, February 6, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/6/2015 - initial version
+' ---------------------------------
+Public Function IsListDuplicate(lbx As ListBox, col As Integer, item As String) As Boolean
+On Error GoTo Err_Handler
+    
+    Dim isDupe As Boolean
+    Dim i As Integer
+    
+    'set default
+    isDupe = False
+    
+    'iterate through listbox (use .Column(col,i) vs .ListIndex(i) which results in error 451 property let not defined, property get...)
+    For i = 0 To lbx.ListCount
+        'check if item exists in listbox
+        If lbx.Column(col, i) = item Then
+            'duplicate, so exit
+            isDupe = True
+            GoTo Exit_Function
+        End If
+    Next
+
+Exit_Function:
+    IsListDuplicate = isDupe
+    Exit Function
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - IsListDuplicate[mod_Lists])"
+    End Select
+    Resume Exit_Function
+End Function
 
 ' ---------------------------------
 ' SUB:          ClearList
@@ -926,6 +973,77 @@ On Error GoTo Err_Handler
     End If
     
     CountArrayValues = numItems
+
+Exit_Function:
+    Exit Function
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - CountArrayValues[mod_Lists])"
+    End Select
+    Resume Exit_Function
+End Function
+
+' ---------------------------------
+' FUNCTION:     DisconnectRecordset
+' Description:  XX
+' Assumptions:  -
+' Parameters:   XX - XX
+' Returns:      XX - XX
+' Throws:       none
+' References:   none
+' Source/date:
+' Fionnuala, October 12, 2011
+' http://stackoverflow.com/questions/7738811/access-listbox-based-on-value-list-sorting-on-column
+' Adapted:      Bonnie Campbell, February 7, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/7/2015 - initial version
+' ---------------------------------
+Public Function DisconnectRecordset(valueList As Variant) As Variant
+
+On Error GoTo Err_Handler
+    
+'Dim rs As New adodb.Recordset
+Dim rs As Recordset
+
+'slist = "0,Standard price,1650," _
+'& "14,Bookings made during Oct 2011,3770," _
+'& "15,Minimum Stay 4 Nights - Special Price,2460"
+
+With rs
+ ' .ActiveConnection = Nothing
+ ' .CursorLocation = adUseClient
+ ' .CursorType = adOpenStatic
+ ' .LockType = adLockBatchOptimistic
+ ' With .Fields
+ '   .Append "Field1", adInteger
+ '   .Append "Field2", adVarChar, 200
+ '   .Append "Field3", adInteger
+ ' End With
+ ' .Open
+
+Dim Ary As Variant
+Dim j As Integer, i As Integer
+
+  Ary = Split(valueList, ",")
+
+  For j = 0 To UBound(Ary)
+      .AddNew
+      For i = 0 To 2
+  '        .Fields(i).Value = Ary(j)
+          j = j + 1
+      Next
+      j = j - 1
+
+  Next
+
+  '.Sort = "Field3"
+End With
+
+'slist = rs.GetString(, , ",", ",")
+'slist = Left(slist, Len(slist) - 1)
 
 Exit_Function:
     Exit Function
