@@ -12,8 +12,8 @@ Begin Form
     Width =10935
     DatasheetFontHeight =11
     ItemSuffix =19
-    Right =15720
-    Bottom =11760
+    Right =20208
+    Bottom =9408
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x72574db34b86e440
@@ -573,7 +573,7 @@ On Error GoTo Err_Handler
     Initialize
     
     'prep headers
-    lblParkHdr.Caption = TempVars.item("Park")
+    lblParkHdr.Caption = TempVars.item("park")
     lblSpecies.Caption = TempVars.item("state") & " Species"
     lblSpeciesListbox.Caption = TempVars.item("state") & " Species"
     

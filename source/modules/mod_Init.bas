@@ -47,8 +47,8 @@ Public Const lngDkGray As Long = 2375487      '?RGB(63,63,63) #3F3F3F
 Public Sub Initialize()
 On Error GoTo Err_Handler
 
-    TempVars.item("Park") = "ARCH"
-    TempVars.item("state") = getParkState(TempVars.item("Park"))
+    'TempVars.item("park") = "ARCH"
+    'TempVars.item("state") = getParkState(TempVars.item("park"))
     TempVars.item("tgtYear") = 2013
 
     '------------------------

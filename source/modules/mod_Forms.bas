@@ -9,16 +9,19 @@ Option Explicit
 ' Revisions:    BLC - 2/19/2015 - initial version
 ' =================================
 
+'=================================================================
+'  References
+'=================================================================
 ' ---------------------------------
 '  Access Control Types
 ' ---------------------------------
 ' dbtech1, March 13, 2008
 ' http://www.utteraccess.com/forum/control-type-vba-t1609220.html
-'126 - acAttachment         '119 - acCustomControl  '114 - acObjectFrame    '101 - acRectangle
-'108 - acBoundObjectFrame   '103 - acImage          '105 - acOptionButton   '112 - acSubform
-'106 - acCheckBox           '100 - acLabel          '107 - acOptionGroup    '123 - acTabCtl
-'111 - acComboBox           '102 - acLine           '124 - acPage           '109 - acTextBox
-'104 - acCommandButton      '110 - acListBox        '118 - acPageBreak      '122 - acToggleButton
+' 126 - acAttachment         119 - acCustomControl  114 - acObjectFrame    101 - acRectangle
+' 108 - acBoundObjectFrame   103 - acImage          105 - acOptionButton   112 - acSubform
+' 106 - acCheckBox           100 - acLabel          107 - acOptionGroup    123 - acTabCtl
+' 111 - acComboBox           102 - acLine           124 - acPage           109 - acTextBox
+' 104 - acCommandButton      110 - acListBox        118 - acPageBreak      122 - acToggleButton
 ' ---------------------------------
 
 ' ---------------------------------
@@ -36,6 +39,23 @@ Option Explicit
 ' ---------------------------------
 '  Transparent  0           Normal  1
 ' ---------------------------------
+
+'=================================================================
+'  Declarations
+'=================================================================
+Declare Function IsZoomed Lib "User32" (ByVal hWnd As Long) As _
+     Integer
+Declare Function IsIconic Lib "User32" (ByVal hWnd As Long) As _
+     Integer
+
+'=================================================================
+'  Properties
+'=================================================================
+
+
+'=================================================================
+'  Subroutines & Functions
+'=================================================================
 
 ' ---------------------------------
 ' SUB:          ClearFields
@@ -232,7 +252,6 @@ Err_Handler:
 End Sub
 
 ' ---------------------------------
-
 ' SUB:          AddControl
 ' Description:  initialize application values
 ' Assumptions:  -

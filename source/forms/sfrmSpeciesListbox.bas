@@ -13,14 +13,17 @@ Begin Form
     Width =9480
     DatasheetFontHeight =11
     ItemSuffix =11
-    Left =480
-    Top =6780
-    Right =4170
-    Bottom =10800
+    Left =420
+    Top =1080
+    Right =4116
+    Bottom =5100
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
-        0x7693f1cdcb87e440
+        0x37771cae5d89e440
     End
+    RecordSource ="SELECT Switch(tlu_NCPN_Plants.LU_Code Is Null,\" \",tlu_NCPN_Plants.LU_Code<>\"\""
+        ",tlu_NCPN_Plants.LU_Code) AS Code, tlu_NCPN_Plants.Master_Species AS Species, tl"
+        "u_NCPN_Plants.Master_PLANT_Code\015\012FROM tlu_NCPN_Plants;\015\012"
     DatasheetFontName ="Calibri"
     PrtMip = Begin
         0x6801000068010000680100006801000000000000201c0000e010000001000000 ,
@@ -185,6 +188,7 @@ Begin Form
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxCode"
+                    ControlSource ="Code"
                     OnDblClick ="[Event Procedure]"
                     GridlineColor =10921638
 
@@ -204,6 +208,7 @@ Begin Form
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSpecies"
+                    ControlSource ="Species"
                     OnDblClick ="[Event Procedure]"
                     GridlineColor =10921638
 
@@ -235,6 +240,7 @@ Begin Form
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxMasterCode"
+                    ControlSource ="Master_PLANT_Code"
                     OnDblClick ="[Event Procedure]"
                     GridlineColor =10921638
 
@@ -318,11 +324,13 @@ End Sub
 ' Adapted:      Bonnie Campbell, February 19, 2015 - for NCPN tools
 ' Revisions:
 '   BLC - 2/19/2015 - initial version
+'   BLC - 2/23/2015 - added lblTgtSpeciesCount update
 ' ---------------------------------
 Private Sub tbxCode_DblClick(Cancel As Integer)
 On Error GoTo Err_Handler
     Dim item As String
-
+    Dim lbx As ListBox
+    
     'add components of item (code, species (UT or whatever), & ITIS) to listbox
 
     'prepare item for listbox value
@@ -334,8 +342,19 @@ On Error GoTo Err_Handler
         GoTo Exit_Sub
     End If
 
-    'add item if not duplicate
-    Forms("frmTgtSpecies").Controls("lbxTgtSpecies").AddItem item
+    Set lbx = Forms("frmTgtSpecies").Controls("lbxTgtSpecies")
+    
+    With lbx
+        'add item if not duplicate
+        .AddItem item
+    
+        'update target species count
+        Forms("frmTgtSpecies").Controls("lblTgtSpeciesCount").Caption = .ListCount - 1 & " species"
+        
+        'return to the species list
+        DoCmd.Minimize
+        Forms("frmTgtSpecies").SetFocus
+    End With
     
 Exit_Sub:
     Exit Sub
@@ -361,10 +380,12 @@ End Sub
 ' Adapted:      Bonnie Campbell, February 19, 2015 - for NCPN tools
 ' Revisions:
 '   BLC - 2/19/2015 - initial version
+'   BLC - 2/23/2015 - added lblTgtSpeciesCount update
 ' ---------------------------------
 Private Sub tbxSpecies_DblClick(Cancel As Integer)
 On Error GoTo Err_Handler
     Dim item As String
+    Dim lbx As ListBox
     
     'add components of item (code, species (UT or whatever), & ITIS) to listbox
 
@@ -377,9 +398,16 @@ On Error GoTo Err_Handler
         GoTo Exit_Sub
     End If
 
-    'add item if not duplicate
-    Forms("frmTgtSpecies").Controls("lbxTgtSpecies").AddItem item
-
+    Set lbx = Forms("frmTgtSpecies").Controls("lbxTgtSpecies")
+    
+    With lbx
+        'add item if not duplicate
+        .AddItem item
+    
+        'update target species count
+        Forms("frmTgtSpecies").Controls("lblTgtSpeciesCount").Caption = .ListCount - 1 & " species"
+    End With
+    
 Exit_Sub:
     Exit Sub
     

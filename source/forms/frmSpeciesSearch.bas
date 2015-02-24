@@ -1,6 +1,7 @@
 ﻿Version =20
 VersionRequired =20
 Begin Form
+    PopUp = NotDefault
     RecordSelectors = NotDefault
     NavigationButtons = NotDefault
     DividingLines = NotDefault
@@ -12,12 +13,15 @@ Begin Form
     Width =13584
     DatasheetFontHeight =11
     ItemSuffix =63
-    Right =20208
-    Bottom =9660
+    Left =2580
+    Top =2400
+    Right =17088
+    Bottom =11808
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x72574db34b86e440
     End
+    Caption ="Species Search"
     DatasheetFontName ="Calibri"
     PrtMip = Begin
         0x6801000068010000680100006801000000000000201c0000e010000001000000 ,
@@ -30,7 +34,9 @@ Begin Form
     AllowPivotChartView =0
     FilterOnLoad =0
     OrderByOnLoad =0
+    SplitFormDatasheet =1
     OrderByOnLoad =0
+    SplitFormDatasheet =1
     ShowPageMargins =0
     DisplayOnSharePointSite =1
     AllowLayoutView =0
@@ -507,7 +513,7 @@ Begin Form
                     OverlapFlags =215
                     Left =300
                     Top =4620
-                    Width =6708
+                    Width =7083
                     Height =300
                     BorderColor =8355711
                     ForeColor =8355711
@@ -516,7 +522,7 @@ Begin Form
                     GridlineColor =10921638
                     LayoutCachedLeft =300
                     LayoutCachedTop =4620
-                    LayoutCachedWidth =7008
+                    LayoutCachedWidth =7383
                     LayoutCachedHeight =4920
                 End
                 Begin Line
@@ -922,7 +928,7 @@ Begin Form
             End
         End
         Begin FormFooter
-            Height =300
+            Height =360
             Name ="FormFooter"
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
@@ -946,6 +952,105 @@ Option Explicit
 ' Revisions:    BLC - 2/9/2015 - initial version
 ' =================================
 
+'=================================================================
+'  Properties
+'=================================================================
+' ---------------------------------
+' PROPERTY:     Maximized
+' Description:  Indicates if form is maximized or not by checking IsZoomed()
+' Assumptions:  none
+' Parameters:   N/A
+' Returns:      True(1) - form is maximized
+'               False(0) - form is not maximized
+' Throws:       none
+' References:   none
+' Source/date:
+' http://support2.microsoft.com/?kbid=210190
+' Adapted:      Bonnie Campbell, February 23, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/23/2015  - initial version
+' ---------------------------------
+Public Property Get Maximized() As Boolean
+     Maximized = IsZoomed(Me.hWnd) * 1
+End Property
+
+' ---------------------------------
+' PROPERTY:     Minimized
+' Description:  Indicates if form is minimized or not by checking IsIconic()
+' Assumptions:  none
+' Parameters:   N/A
+' Returns:      True(1) - form is minimized
+'               False(0) - form is not minimized
+' Throws:       none
+' References:   none
+' Source/date:
+' http://support2.microsoft.com/?kbid=210190
+' Adapted:      Bonnie Campbell, February 23, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/23/2015  - initial version
+' ---------------------------------
+Public Property Get Minimized() As Boolean
+     Minimized = IsIconic(Me.hWnd) * 1
+End Property
+
+' ---------------------------------
+' PROPERTY LET: Maximized
+' Description:  Sets custom form property 'Maximized'
+' Assumptions:
+' Note:         The IsMax argument must be defined as the same data type
+'               returned by the corresponding Property Get procedure for
+'               the same custom property.
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' http://support2.microsoft.com/?kbid=210190
+' Adapted:      Bonnie Campbell, February 23, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/23/2015  - initial version
+' ---------------------------------
+Public Property Let Maximized(IsMax As Boolean)
+     If IsMax Then
+         Me.SetFocus
+         DoCmd.Maximize
+     Else
+         Me.SetFocus
+         DoCmd.Restore
+     End If
+End Property
+
+' ---------------------------------
+' PROPERTY LET: Minimized
+' Description:  Sets custom form property 'Minimized'
+' Assumptions:
+' Note:         The IsMin argument must be defined as the same data type
+'               returned by the corresponding Property Get procedure for
+'               the same custom property.
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' http://support2.microsoft.com/?kbid=210190
+' Adapted:      Bonnie Campbell, February 23, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/23/2015  - initial version
+' ---------------------------------
+Public Property Let Minimized(IsMin As Boolean)
+     If IsMin Then
+         Me.SetFocus
+         DoCmd.Minimize
+     Else
+         Me.SetFocus
+         DoCmd.Restore
+     End If
+End Property
+
+'=================================================================
+'  Subroutines & Functions
+'=================================================================
+
 ' ---------------------------------
 ' SUB:          Form_Load
 ' Description:  Search form preparation action
@@ -961,8 +1066,10 @@ Option Explicit
 '   BLC - 2/20/2015 - cleared selections & updated documentation
 ' ---------------------------------
 Private Sub Form_Load()
-
 On Error GoTo Err_Handler
+    
+    'set form caller
+    TempVars.item("originForm") = Forms!frmSpeciesSearch.OpenArgs
     
     Initialize
        
@@ -1305,11 +1412,13 @@ End Sub
 '   BLC - 2/20/2015 - initial version
 '   BLC - 2/21/2015 - fixed Runtime Error 451: Property let procedure not defined and property get Procedure did not return an object.
 '                     changed from .ListIndex(i) to .Column(2,i) when iterating through list items
+'   BLC - 2/23/2015 - added lblTgtSpeciesCount update
 ' ---------------------------------
 Private Sub tbxResultCode_DblClick(Cancel As Integer)
 On Error GoTo Err_Handler
     Dim item As String
     Dim i As Integer
+    Dim lbx As ListBox
     
     'add components of item (code, species (UT or whatever), & ITIS) to listbox
 
@@ -1317,17 +1426,33 @@ On Error GoTo Err_Handler
     item = tbxResultCode & ";" & tbxUTSpecies & ";" & tbxMasterSpecies
     
     'iterate through listbox (use .Column(x,i) vs .ListIndex(i) which results in error 451 property let not defined, property get...)
-    For i = 0 To Forms("frmTgtSpecies").Controls("lbxTgtSpecies").ListCount
-        'check if item exists in listbox
-        If Forms("frmTgtSpecies").Controls("lbxTgtSpecies").Column(2, i) <> tbxMasterSpecies Then
-            'duplicate, so exit
-            GoTo Exit_Sub
-        End If
-    Next
+    If IsListDuplicate(Forms("frmTgtSpecies").Controls("lbxTgtSpecies"), 2, tbxMasterSpecies) Then
+        'duplicate, so exit
+        GoTo Exit_Sub
+    End If
     
-    'add item if not duplicate
-    Forms("frmTgtSpecies").Controls("lbxTgtSpecies").AddItem item
+    Set lbx = Forms("frmTgtSpecies").Controls("lbxTgtSpecies")
     
+    With lbx
+        'add item if not duplicate
+        .AddItem item
+    
+        'update target species count
+        Forms("frmTgtSpecies").Controls("lblTgtSpeciesCount").Caption = .ListCount - 1 & " species"
+
+    End With
+    
+    'minimize search form
+    DoCmd.SelectObject acForm, Me.name, False
+    DoCmd.Minimize
+    
+    'return focus to calling form
+    Dim origin As String
+    origin = TempVars.item("originForm")
+    If Len(origin) > 0 Then
+        DoCmd.SelectObject acForm, origin, False
+        DoCmd.Restore
+    End If
 Exit_Sub:
     Exit Sub
 
@@ -1340,13 +1465,15 @@ Err_Handler:
     Resume Exit_Sub
 End Sub
 
-
 ' ---------------------------------
 ' SUB:          btnSearch_Click
 ' Description:  Search for the name or portion of a name in the species/common names listed & return a result list
-' Assumptions:  -
-' Parameters:   XX - XX
-' Returns:      XX - XX
+' Assumptions:
+' Note:         Returns all species/common names from tlu_NCPN_Plants that contain the search string.
+'               The string may be found at the beginning, middle or end of a name to be included.
+'               Special search strings like "*" (not including quotes) will return ALL species in the table.
+' Parameters:   N/A
+' Returns:      N/A
 ' Throws:       none
 ' References:   none
 ' Source/date:
@@ -1355,6 +1482,7 @@ End Sub
 ' Revisions:
 '   BLC - 2/7/2015  - initial version
 '   BLC - 2/20/2015 - added header highlighting
+'   BLC - 2/23/2015 - fixed duplicate results (SELECT DISTINCT...)
 ' ---------------------------------
 Private Sub btnSearch_Click()
 On Error GoTo Err_Handler
@@ -1430,7 +1558,7 @@ On Error GoTo Err_Handler
     If Len(Replace(strWHERE, "WHERE", "")) = 0 Then strWHERE = ""
     
     'build SQL statement
-    strSQL = "SELECT LU_Code, Master_Species, Utah_Species, CO_Species, WY_Species, " _
+    strSQL = "SELECT DISTINCT LU_Code, Master_Species, Utah_Species, CO_Species, WY_Species, " _
             & "Master_Common_Name " _
             & "FROM tlu_NCPN_Plants " _
             & strWHERE & ";"
@@ -1469,23 +1597,7 @@ On Error GoTo Err_Handler
         lblSpeciesFound.Visible = False
 '        lblNoRecords.Visible = True
     End If
-    
-'    lineCurrTgtAreaTop.Visible = True
-'    lineCurrTgtAreaBtm.Visible = True
-'    boxCurrTgtArea.Visible = True
-'    lblSearchResults.Visible = True
-'    lblSearchForValue.Visible = True
-'    lblSearchResultInstructions.Visible = True
-'    lineResultsTop.Visible = True
-'    lblCodeHdr.Visible = True
-'    lblITISHdr.Visible = True
-'    lblUTHdr.Visible = True
-'    lblCOHdr.Visible = True
-'    lblWYHdr.Visible = True
-'    lblCommonHdr.Visible = True
-'    lineResultsTop.Visible = True
-'    lblFor.Visible = True
-    
+        
     'set search for caption
     lblSearchForValue.Caption = """" & strSearch & """"
     

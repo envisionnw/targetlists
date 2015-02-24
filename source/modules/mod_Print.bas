@@ -45,7 +45,7 @@ Private Const ERROR_BAD_FORMAT = 11&
 ' Revisions:
 '   BLC - 2/7/2015 - initial version
 ' ---------------------------------
-Private Declare PtrSafe Function apiShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hwnd As Long, _
+Private Declare PtrSafe Function apiShellExecute Lib "shell32.dll" Alias "ShellExecuteA" (ByVal hWnd As Long, _
     ByVal lpOperation As String, _
     ByVal lpFile As String, _
     ByVal lpParameters As String, _
