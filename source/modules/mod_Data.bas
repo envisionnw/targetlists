@@ -128,6 +128,70 @@ Err_Handler:
     Resume Exit_Function
 End Function
 
+'Public param As String
+
+' ---------------------------------
+' FUNCTION:     SetParam
+' Description:  Set a parameter value (useful for parameter queries)
+' Assumptions:  Companion GetParam() function exists & param is publicly defined
+' Parameters:   paramValue - parameter name (string)
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, February 24, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/24/2015  - initial version
+' ---------------------------------
+Public Function SetParam(paramValue As Variant)
+
+On Error GoTo Err_Handler
+    
+    param = paramValue
+    
+Exit_Function:
+    Exit Function
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - SetParam[mod_Data])"
+    End Select
+    Resume Exit_Function
+End Function
+
+' ---------------------------------
+' FUNCTION:     SetParam
+' Description:  Set a parameter value (useful for parameter queries)
+' Assumptions:  Companion GetParam() function exists & param is publicly defined
+' Parameters:   paramValue - parameter name (string)
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, February 24, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/24/2015  - initial version
+' ---------------------------------
+Public Function GetParam()
+
+On Error GoTo Err_Handler
+    
+    GetParam = param
+    
+Exit_Function:
+    Exit Function
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - GetParam[mod_Data])"
+    End Select
+    Resume Exit_Function
+End Function
+
 ' ---------------------------------
 ' FUNCTION:     DisconnectRecordset
 ' Description:  Create a disconnected ADO (in-memory) recordset for manipulation
@@ -219,4 +283,40 @@ With rstADO
     .LockType = adLockPessimistic
     .Open
 End With
+End Function
+
+' ---------------------------------
+' FUNCTION:     GetQuerySQL
+' Description:  Get SQL for a query
+' Assumptions:  -
+' Parameters:   qryName - Name of query to fetch SQL for (string)
+' Returns:      qrySQL - full SQL for the query (string)
+' Throws:       none
+' References:   -
+' Source/date:
+' S. Phinney, July 13, 2009
+' http://bytes.com/topic/access/answers/871500-getting-sql-string-query
+' Adapted:      Bonnie Campbell, February 23, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/23/2015 - initial version
+' ---------------------------------
+Private Function GetQuerySQL(qryName As String) As String
+Dim qdf As DAO.QueryDef
+ 
+    'fetch query
+    Set qdf = CurrentDb.QueryDefs(qryName)
+    
+    'return SQL
+    GetQuerySQL = qdf.sql
+ 
+Exit_Function:
+    Exit Function
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - GetQuerySQL[mod_Data])"
+    End Select
+    Resume Exit_Function
 End Function

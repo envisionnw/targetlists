@@ -12,8 +12,8 @@ Begin Form
     GridY =24
     DatasheetFontHeight =11
     ItemSuffix =16
-    Right =14508
-    Bottom =9408
+    Right =15720
+    Bottom =11760
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0xc1f3db6ed487e440
@@ -196,10 +196,10 @@ Begin Form
                     PressedForeColor =6750156
                     PressedForeThemeColorIndex =-1
                     PressedForeTint =100.0
-                    WebImagePaddingLeft =3
-                    WebImagePaddingTop =3
-                    WebImagePaddingRight =2
-                    WebImagePaddingBottom =2
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
                     Overlaps =1
                 End
                 Begin ComboBox
@@ -301,6 +301,9 @@ Private Sub Form_Load()
 
 On Error GoTo Err_Handler
     
+    ' close select park form
+    DoCmd.Close acForm, "frmSelectPark"
+    
     lblActionsHdr.Caption = "Actions for " & TempVars.item("park")
     
 Exit_Sub:
@@ -366,7 +369,7 @@ On Error GoTo Err_Handler
         'determine the selected action
         Select Case cbxAction.Value
             
-            Case "SEL"  'default (non-select option)
+            Case "SEL", ""  'default (non-select option)
                 MsgBox "Please select a task.", vbOKOnly, "Oops! Missing Action"
                 
                 GoTo Exit_Sub

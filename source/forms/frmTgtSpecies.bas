@@ -12,8 +12,8 @@ Begin Form
     Width =10935
     DatasheetFontHeight =11
     ItemSuffix =20
-    Right =14508
-    Bottom =9408
+    Right =15975
+    Bottom =11760
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x72574db34b86e440
@@ -109,7 +109,7 @@ Begin Form
         End
         Begin Section
             CanGrow = NotDefault
-            Height =11220
+            Height =6060
             Name ="Detail"
             AlternateBackColor =15921906
             AlternateBackThemeColorIndex =1
@@ -516,9 +516,15 @@ Private Sub Form_Load()
 On Error GoTo Err_Handler
     
     Initialize
-        
+    
+    ' close select park form
+    DoCmd.Close acForm, "frmSelectYear"
+    
     'set state
     TempVars.item("state") = getParkState(TempVars.item("park"))
+    
+    'set year
+    TempVars.item("tgtYear") = Form.OpenArgs
     
     'prep headers
     lblParkHdr.Caption = TempVars.item("park")
@@ -527,7 +533,6 @@ On Error GoTo Err_Handler
     lblSpeciesListbox.Caption = TempVars.item("state") & " Species"
     
     'clear headers
-    'lbxSpecies.RowSource = ""
     lbxTgtSpecies.RowSource = ""
     
     'initial listbox fill
@@ -906,13 +911,43 @@ On Error GoTo Err_Handler
             CurrentDb.Execute strSQL, dbFailOnError
             
         End If
+        
     Next
     
-    'end SQL statement
-    'strSQL = strSQL & ";"
-    
-    'save full target list (insert values)
-    'CurrentDb.Execute strSQL, dbFailOnError
+
+        'clear temp QueryDef
+        CurrentDb.QueryDefs.Delete "tempTgtSpecies"
+
+        'open target list
+        Dim qdf As QueryDef
+        
+        Set qdf = CurrentDb.QueryDefs("qryTgtSpeciesList")
+        
+        'qdf.Parameters("park") = TempVars.item("park")
+        'qdf.Parameters("tgtYear") = CInt(TempVars.item("tgtYear"))
+        
+        strSQL = qdf.sql
+        
+        'Call SetValue
+        'Set rs = qdf.OpenRecordset
+        
+        strSQL = "SELECT tbl_Target_Species.Park_Code AS Park, " & _
+                 "tbl_Target_Species.Target_Year AS TgtYear, " & _
+                 "Master_Plant_Code_FK, Species_Name, Priority, Transect_Only, Target_Area_ID " & _
+                 "FROM tbl_Target_Species " & _
+                 "WHERE (((tbl_Target_Species.Target_Year) = CInt(tgtYear)) " & _
+                 "And ((LCase([tbl_Target_Species].[Park_Code])) = LCase(park))) " & _
+                 "ORDER BY tbl_Target_Species.Species_Name;"
+        
+        'replace values
+        strSQL = Replace(strSQL, "(park)", "('" & TempVars.item("park") & "')")
+        strSQL = Replace(strSQL, "(tgtYear)", "(" & TempVars.item("tgtYear") & ")")
+        
+        'DoCmd.OpenQuery "qryTgtSpeciesList", acViewNormal, acReadOnly
+        'DoCmd.RunSQL strSQL <=== NO! not on a SELECT...
+        
+        CurrentDb.CreateQueryDef("tempTgtSpecies").sql = strSQL
+        DoCmd.OpenQuery "tempTgtSpecies"
     
     'set statusbar notice
     varReturn = SysCmd(acSysCmdSetStatus, "Targetlist save complete.")
@@ -921,6 +956,7 @@ On Error GoTo Err_Handler
     For i = 0 To 10000
         i = i
     Next i
+    
     'reset status bar
     varReturn = SysCmd(acSysCmdSetStatus, " ")
 

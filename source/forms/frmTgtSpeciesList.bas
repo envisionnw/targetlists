@@ -13,8 +13,8 @@ Begin Form
     Width =16342
     DatasheetFontHeight =11
     ItemSuffix =24
-    Right =6036
-    Bottom =7392
+    Right =15720
+    Bottom =11760
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x06c7dc6ed487e440
@@ -165,9 +165,8 @@ Begin Form
         Begin Section
             CanGrow = NotDefault
             CanShrink = NotDefault
-            Height =7560
+            Height =1140
             Name ="Detail"
-            AutoHeight =1
             AlternateBackColor =15921906
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
@@ -298,10 +297,10 @@ Begin Form
                     PressedColor =9592887
                     HoverForeColor =4210752
                     PressedForeColor =4210752
-                    WebImagePaddingLeft =3
-                    WebImagePaddingTop =3
-                    WebImagePaddingRight =3
-                    WebImagePaddingBottom =3
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
                 End
                 Begin Label
                     OverlapFlags =85
