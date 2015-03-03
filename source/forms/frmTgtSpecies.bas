@@ -11,8 +11,8 @@ Begin Form
     GridY =24
     Width =10935
     DatasheetFontHeight =11
-    ItemSuffix =20
-    Right =15975
+    ItemSuffix =28
+    Right =15720
     Bottom =11760
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
@@ -478,6 +478,365 @@ Begin Form
                     LayoutCachedWidth =7200
                     LayoutCachedHeight =435
                 End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =7560
+                    Top =180
+                    Width =1560
+                    Height =405
+                    TabIndex =2
+                    ForeColor =16711680
+                    Name ="btnLoad"
+                    Caption ="Load List"
+                    StatusBarText ="Continue to choose activities"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =7560
+                    LayoutCachedTop =180
+                    LayoutCachedWidth =9120
+                    LayoutCachedHeight =585
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
+                    Gradient =0
+                    BackColor =6750156
+                    BackThemeColorIndex =-1
+                    BackTint =100.0
+                    BorderColor =52377
+                    BorderThemeColorIndex =-1
+                    BorderTint =100.0
+                    HoverColor =3407769
+                    HoverThemeColorIndex =-1
+                    HoverTint =100.0
+                    PressedColor =52224
+                    PressedThemeColorIndex =-1
+                    PressedShade =100.0
+                    HoverForeColor =2375487
+                    HoverForeThemeColorIndex =-1
+                    HoverForeTint =100.0
+                    PressedForeColor =6750156
+                    PressedForeThemeColorIndex =-1
+                    PressedForeTint =100.0
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =8400
+                    Top =5640
+                    Width =1560
+                    Height =405
+                    TabIndex =3
+                    ForeColor =16711680
+                    Name ="btnSaveList"
+                    Caption ="Save List"
+                    StatusBarText ="Save the current list"
+                    OnClick ="[Event Procedure]"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =8400
+                    LayoutCachedTop =5640
+                    LayoutCachedWidth =9960
+                    LayoutCachedHeight =6045
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
+                    Gradient =0
+                    BackColor =6750156
+                    BackThemeColorIndex =-1
+                    BackTint =100.0
+                    BorderColor =52377
+                    BorderThemeColorIndex =-1
+                    BorderTint =100.0
+                    HoverColor =3407769
+                    HoverThemeColorIndex =-1
+                    HoverTint =100.0
+                    PressedColor =52224
+                    PressedThemeColorIndex =-1
+                    PressedShade =100.0
+                    HoverForeColor =2375487
+                    HoverForeThemeColorIndex =-1
+                    HoverForeTint =100.0
+                    PressedForeColor =6750156
+                    PressedForeThemeColorIndex =-1
+                    PressedForeTint =100.0
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =1380
+                    Top =5640
+                    Width =1560
+                    Height =405
+                    TabIndex =4
+                    ForeColor =16711680
+                    Name ="btnSearch"
+                    Caption ="Find Species"
+                    StatusBarText ="Find a species..."
+                    OnClick ="[Event Procedure]"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =1380
+                    LayoutCachedTop =5640
+                    LayoutCachedWidth =2940
+                    LayoutCachedHeight =6045
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
+                    Gradient =0
+                    BackColor =6750156
+                    BackThemeColorIndex =-1
+                    BackTint =100.0
+                    BorderColor =52377
+                    BorderThemeColorIndex =-1
+                    BorderTint =100.0
+                    HoverColor =3407769
+                    HoverThemeColorIndex =-1
+                    HoverTint =100.0
+                    PressedColor =52224
+                    PressedThemeColorIndex =-1
+                    PressedShade =100.0
+                    HoverForeColor =2375487
+                    HoverForeThemeColorIndex =-1
+                    HoverForeTint =100.0
+                    PressedForeColor =6750156
+                    PressedForeThemeColorIndex =-1
+                    PressedForeTint =100.0
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =4380
+                    Top =5640
+                    Width =1320
+                    Height =405
+                    TabIndex =5
+                    ForeColor =16711680
+                    Name ="btnReset"
+                    Caption ="Reset Lists"
+                    StatusBarText ="Reset lists to their original state"
+                    OnClick ="[Event Procedure]"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =4380
+                    LayoutCachedTop =5640
+                    LayoutCachedWidth =5700
+                    LayoutCachedHeight =6045
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
+                    Gradient =0
+                    BackColor =6750156
+                    BackThemeColorIndex =-1
+                    BackTint =100.0
+                    BorderColor =52377
+                    BorderThemeColorIndex =-1
+                    BorderTint =100.0
+                    HoverColor =3407769
+                    HoverThemeColorIndex =-1
+                    HoverTint =100.0
+                    PressedColor =52224
+                    PressedThemeColorIndex =-1
+                    PressedShade =100.0
+                    HoverForeColor =2375487
+                    HoverForeThemeColorIndex =-1
+                    HoverForeTint =100.0
+                    PressedForeColor =6750156
+                    PressedForeThemeColorIndex =-1
+                    PressedForeTint =100.0
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =4740
+                    Top =600
+                    Width =540
+                    Height =480
+                    FontWeight =600
+                    TabIndex =6
+                    ForeColor =16711680
+                    Name ="btnAddAll"
+                    Caption =">>"
+                    StatusBarText ="Reset lists to their original state"
+                    OnClick ="[Event Procedure]"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =4740
+                    LayoutCachedTop =600
+                    LayoutCachedWidth =5280
+                    LayoutCachedHeight =1080
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
+                    Gradient =0
+                    BackColor =6750156
+                    BackThemeColorIndex =-1
+                    BackTint =100.0
+                    BorderColor =52377
+                    BorderThemeColorIndex =-1
+                    BorderTint =100.0
+                    HoverColor =3407769
+                    HoverThemeColorIndex =-1
+                    HoverTint =100.0
+                    PressedColor =52224
+                    PressedThemeColorIndex =-1
+                    PressedShade =100.0
+                    HoverForeColor =2375487
+                    HoverForeThemeColorIndex =-1
+                    HoverForeTint =100.0
+                    PressedForeColor =6750156
+                    PressedForeThemeColorIndex =-1
+                    PressedForeTint =100.0
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =6300
+                    Top =5220
+                    Width =540
+                    Height =480
+                    FontWeight =600
+                    TabIndex =7
+                    ForeColor =16711680
+                    Name ="btnRemoveAll"
+                    Caption ="<<"
+                    StatusBarText ="Remove all"
+                    OnClick ="[Event Procedure]"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =6300
+                    LayoutCachedTop =5220
+                    LayoutCachedWidth =6840
+                    LayoutCachedHeight =5700
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
+                    Gradient =0
+                    BackColor =52479
+                    BackThemeColorIndex =-1
+                    BackTint =100.0
+                    BorderColor =52377
+                    BorderThemeColorIndex =-1
+                    BorderTint =100.0
+                    HoverColor =3407769
+                    HoverThemeColorIndex =-1
+                    HoverTint =100.0
+                    PressedColor =52224
+                    PressedThemeColorIndex =-1
+                    PressedShade =100.0
+                    HoverForeColor =2375487
+                    HoverForeThemeColorIndex =-1
+                    HoverForeTint =100.0
+                    PressedForeColor =6750156
+                    PressedForeThemeColorIndex =-1
+                    PressedForeTint =100.0
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =4740
+                    Top =3180
+                    Width =540
+                    Height =480
+                    FontWeight =600
+                    TabIndex =8
+                    ForeColor =8224125
+                    Name ="btnRemove"
+                    Caption ="<"
+                    StatusBarText ="Remove all"
+                    OnClick ="[Event Procedure]"
+                    ControlTipText ="Remove selected"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =4740
+                    LayoutCachedTop =3180
+                    LayoutCachedWidth =5280
+                    LayoutCachedHeight =3660
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
+                    Gradient =0
+                    BackColor =13882323
+                    BackThemeColorIndex =-1
+                    BackTint =100.0
+                    OldBorderStyle =0
+                    BorderColor =52377
+                    BorderThemeColorIndex =-1
+                    BorderTint =100.0
+                    HoverColor =3407769
+                    HoverThemeColorIndex =-1
+                    HoverTint =100.0
+                    PressedColor =52224
+                    PressedThemeColorIndex =-1
+                    PressedShade =100.0
+                    HoverForeColor =2375487
+                    HoverForeThemeColorIndex =-1
+                    HoverForeTint =100.0
+                    PressedForeColor =6750156
+                    PressedForeThemeColorIndex =-1
+                    PressedForeTint =100.0
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
+                Begin CommandButton
+                    OverlapFlags =85
+                    Left =4740
+                    Top =2580
+                    Width =540
+                    Height =480
+                    FontWeight =600
+                    TabIndex =9
+                    ForeColor =8224125
+                    Name ="btnAdd"
+                    Caption =">"
+                    StatusBarText ="Remove all"
+                    OnClick ="[Event Procedure]"
+                    ControlTipText ="Add selected"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =4740
+                    LayoutCachedTop =2580
+                    LayoutCachedWidth =5280
+                    LayoutCachedHeight =3060
+                    ForeThemeColorIndex =-1
+                    ForeTint =100.0
+                    Gradient =0
+                    BackColor =13882323
+                    BackThemeColorIndex =-1
+                    BackTint =100.0
+                    OldBorderStyle =0
+                    BorderColor =52377
+                    BorderThemeColorIndex =-1
+                    BorderTint =100.0
+                    HoverColor =3407769
+                    HoverThemeColorIndex =-1
+                    HoverTint =100.0
+                    PressedColor =52224
+                    PressedThemeColorIndex =-1
+                    PressedShade =100.0
+                    HoverForeColor =2375487
+                    HoverForeThemeColorIndex =-1
+                    HoverForeTint =100.0
+                    PressedForeColor =6750156
+                    PressedForeThemeColorIndex =-1
+                    PressedForeTint =100.0
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =2
+                    WebImagePaddingBottom =2
+                End
             End
         End
     End
@@ -566,19 +925,19 @@ Err_Handler:
 End Sub
 
 ' ---------------------------------
-' SUB:          lblReset_Click
-' Description:  XX
+' SUB:          btnReset_Click
+' Description:  Reset lists to their original state
 ' Assumptions:  -
-' Parameters:   XX - XX
-' Returns:      XX - XX
+' Parameters:   N/A
+' Returns:      N/A
 ' Throws:       none
 ' References:   none
 ' Source/date:
-' Adapted:      Bonnie Campbell, February 6, 2015 - for NCPN tools
+' Adapted:      Bonnie Campbell, March 3, 2015 - for NCPN tools
 ' Revisions:
-'   BLC - 2/6/2015 - initial version
+'   BLC - 3/3/2015 - initial version
 ' ---------------------------------
-Private Sub lblReset_Click()
+Private Sub btnReset_Click()
 On Error GoTo Err_Handler
 
     'go back to initial state
@@ -591,7 +950,7 @@ Err_Handler:
     Select Case Err.Number
       Case Else
         MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - lblReset_Click[Form_frmTgtSpecies])"
+            "Error encountered (#" & Err.Number & " - btnReset_Click[Form_frmTgtSpecies])"
     End Select
     Resume Exit_Sub
 End Sub
@@ -707,6 +1066,375 @@ Err_Handler:
 End Sub
 
 ' ---------------------------------
+' SUB:          btnAdd_Click
+' Description:  Add selected items to list
+' Assumptions:  -
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, March 3, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/3/2015 - initial version
+' ---------------------------------
+Private Sub btnAdd_Click()
+On Error GoTo Err_Handler
+    
+    'ignore if 'disabled'
+    If lblAdd.backcolor = lngGray Then GoTo Exit_Sub
+    
+    MoveSingleItem Me, "lbxSpecies", "lbxTgtSpecies"
+
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - btnAdd_Click[Form_frmTgtSpecies])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          btnRemove_Click
+' Description:  Remove selected items from list
+' Assumptions:  -
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, March 3, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/3/2015 - initial version
+' ---------------------------------
+Private Sub btnRemove_Click()
+On Error GoTo Err_Handler
+    
+    'ignore if 'disabled'
+    If lblRemove.backcolor = TempVars.item("ctrlDisabled") Then GoTo Exit_Sub
+    
+    MoveSingleItem Me, "lbxTgtSpecies", "lbxSpecies"
+    
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - btnRemove_Click[Form_frmTgtSpecies])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          btnAddAll_Click
+' Description:  Add all items to list
+' Assumptions:  -
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, March 3, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/3/2015 - initial version
+' ---------------------------------
+Private Sub btnAddAll_Click()
+On Error GoTo Err_Handler
+    
+    Dim db As DAO.Database
+    Dim rs As DAO.Recordset
+    
+    'fetch recordset
+    Set db = CurrentDb
+    Set rs = db.OpenRecordset(TempVars.item("strSQL"))
+    
+    MoveAllItems Me, "lbxSpecies", "lbxTgtSpecies"
+
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - btnAddAll_Click[Form_frmTgtSpecies])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          btnRemoveAll_Click
+' Description:  Remove all items from list
+' Assumptions:  -
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, March 3, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/3/2015 - initial version
+' ---------------------------------
+Private Sub btnRemoveAll_Click()
+On Error GoTo Err_Handler
+    Dim db As DAO.Database
+    Dim rs As DAO.Recordset
+    
+    'fetch recordset
+    Set db = CurrentDb
+    Set rs = db.OpenRecordset(TempVars.item("strSQL"))
+    
+    MoveAllItems Me, "lbxTgtSpecies", "lbxSpecies"
+
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - btnRemoveAll_Click[Form_frmTgtSpecies])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          btnSaveList_Click
+' Description:  Save list items
+' Assumptions:  -
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, March 3, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/3/2015 - initial version
+' ---------------------------------
+Private Sub btnSaveList_Click()
+On Error GoTo Err_Handler
+
+    Dim iRow As Integer, i As Integer
+    Dim strMasterCode As String, strSpecies As String, strSQL As String, strInsert As String
+    Dim varReturn As Variant
+    
+    'start @ row 1 (headers = row 0)
+    For iRow = 1 To lbxTgtSpecies.ListCount - 1
+       
+       ' ---------------------------------------------------
+       '  NOTE: listbox column MUST have a non-zero width to retrieve its value
+       ' ---------------------------------------------------
+        strMasterCode = lbxTgtSpecies.Column(0, iRow) 'column 0 = Master_PLANT_Code
+        strSpecies = lbxTgtSpecies.Column(1, iRow) 'column 1 = Species name
+        
+       ' ---------------------------------------------------
+       '  Check if item exists in tbl_TgtSpecies for Park, Year, Species combo
+       ' ---------------------------------------------------
+        strSQL = "SELECT * FROM tbl_Target_Species " & _
+                 "WHERE Master_PLANT_Code_FK = '" & strMasterCode & _
+                 " ' AND Park_Code = '" & TempVars.item("park") & _
+                 " ' AND Target_Year = " & TempVars.item("TgtYear") & ";"
+        
+        Dim db As DAO.Database
+        Dim rs As DAO.Recordset
+
+        Set rs = CurrentDb.OpenRecordset(strSQL) 'CurrentDb.Execute(strSQL, dbFailOnError) >> doesn't compile expected function or variable
+        
+        'check if there are no records (rs.BOF & rs.EOF are both true)
+        If rs.BOF And rs.EOF Then
+            
+            'set statusbar notice
+            varReturn = SysCmd(acSysCmdSetStatus, "Saving " & strSpecies & "...")
+            
+            'prepare SQL
+            strSQL = "INSERT INTO tbl_Target_Species" _
+                    & "(Master_Plant_Code_FK, Park_Code, Target_Year, Species_Name)" _
+                    & "VALUES "
+    
+            'prepare insert value
+            strInsert = "('" & strMasterCode & "','" & TempVars.item("park") & "'," & TempVars.item("tgtYear") & ",'" & strSpecies & "');"
+            
+            'add comma if more than one row to insert
+            'If (lbxTgtSpecies.ListCount - 1) > 1 And iRow < (lbxTgtSpecies.ListCount - 1) Then strInsert = strInsert & ","
+            
+            'finalize SQL
+            strSQL = strSQL & strInsert
+            
+            'save full target list (insert value) [NOTE: MS Access does not support multiple insert statements, must go 1 @ a time]
+            CurrentDb.Execute strSQL, dbFailOnError
+            
+        End If
+        
+    Next
+    
+
+        'clear temp QueryDef
+        CurrentDb.QueryDefs.Delete "tempTgtSpecies"
+
+        'open target list
+        Dim qdf As QueryDef
+        
+        Set qdf = CurrentDb.QueryDefs("qryTgtSpeciesList")
+        
+        'qdf.Parameters("park") = TempVars.item("park")
+        'qdf.Parameters("tgtYear") = CInt(TempVars.item("tgtYear"))
+        
+        strSQL = qdf.sql
+        
+        'Call SetValue
+        'Set rs = qdf.OpenRecordset
+        
+        strSQL = "SELECT tbl_Target_Species.Park_Code AS Park, " & _
+                 "tbl_Target_Species.Target_Year AS TgtYear, " & _
+                 "Master_Plant_Code_FK, Species_Name, Priority, Transect_Only, Target_Area_ID " & _
+                 "FROM tbl_Target_Species " & _
+                 "WHERE (((tbl_Target_Species.Target_Year) = CInt(tgtYear)) " & _
+                 "And ((LCase([tbl_Target_Species].[Park_Code])) = LCase(park))) " & _
+                 "ORDER BY tbl_Target_Species.Species_Name;"
+        
+        'replace values
+        strSQL = Replace(strSQL, "(park)", "('" & TempVars.item("park") & "')")
+        strSQL = Replace(strSQL, "(tgtYear)", "(" & TempVars.item("tgtYear") & ")")
+        
+        'DoCmd.OpenQuery "qryTgtSpeciesList", acViewNormal, acReadOnly
+        'DoCmd.RunSQL strSQL <=== NO! not on a SELECT...
+        
+        CurrentDb.CreateQueryDef("tempTgtSpecies").sql = strSQL
+        DoCmd.OpenQuery "tempTgtSpecies"
+    
+    'set statusbar notice
+    varReturn = SysCmd(acSysCmdSetStatus, "Targetlist save complete.")
+    
+    'pause to view status bar
+    For i = 0 To 10000
+        i = i
+    Next i
+    
+    'reset status bar
+    varReturn = SysCmd(acSysCmdSetStatus, " ")
+
+Exit_Sub:
+    Exit Sub
+
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - btnSaveList_Click[Form_frmTgtSpecies])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          btnSearch_Click
+' Description:  Opens species search to find species for populating target list
+' Description:  Reset lists to their original state
+' Assumptions:  -
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, March 3, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/3/2015 - initial version
+' ---------------------------------
+Private Sub btnSearch_Click()
+On Error GoTo Err_Handler
+    Dim originForm As String
+    
+    originForm = Me.name
+    
+    'open species search form
+    DoCmd.OpenForm "frmSpeciesSearch", acNormal, , , , acWindowNormal, originForm
+    If Forms("frmSpeciesSearch").Minimized Then DoCmd.Restore
+
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - btnSearch_Click[Form_frmTgtSpecies])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          Form_Close
+' Description:  Actions for closing form
+' Assumptions:  -
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, February 23, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/23/2015 - initial version
+' ---------------------------------
+Private Sub Form_Close()
+On Error GoTo Err_Handler
+
+    'clear tempvars
+    TempVars.Remove ("park")
+    TempVars.Remove ("state")
+
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - Form_Close[Form_frmTgtSpecies])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+'***************************************************************************************
+' Labels As Buttons
+'***************************************************************************************
+
+' ---------------------------------
+' SUB:          lblReset_Click
+' Description:  XX
+' Assumptions:  -
+' Parameters:   XX - XX
+' Returns:      XX - XX
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, February 6, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/6/2015 - initial version
+' ---------------------------------
+Private Sub lblReset_Click()
+On Error GoTo Err_Handler
+
+    'go back to initial state
+    Form_Load
+
+Exit_Sub:
+    Exit Sub
+
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - lblReset_Click[Form_frmTgtSpecies])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
 ' SUB:          lblAdd_Click
 ' Description:  XX
 ' Assumptions:  -
@@ -811,7 +1539,7 @@ End Sub
 
 ' ---------------------------------
 ' SUB:          lblRemoveAll_Click
-' Description:  XX
+' Description:  Remove all selected items from a list
 ' Assumptions:  -
 ' Parameters:   XX - XX
 ' Returns:      XX - XX
@@ -841,6 +1569,18 @@ Err_Handler:
       Case Else
         MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
             "Error encountered (#" & Err.Number & " - lblRemoveAll_Click[Form_frmTgtSpecies])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - lblAdd_Click[Form_frmTgtSpecies])"
     End Select
     Resume Exit_Sub
 End Sub
@@ -1003,39 +1743,6 @@ Err_Handler:
       Case Else
         MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
             "Error encountered (#" & Err.Number & " - lblSearch_Click[Form_frmTgtSpecies])"
-    End Select
-    Resume Exit_Sub
-End Sub
-
-
-' ---------------------------------
-' SUB:          Form_Close
-' Description:  Actions for closing form
-' Assumptions:  -
-' Parameters:   N/A
-' Returns:      N/A
-' Throws:       none
-' References:   none
-' Source/date:
-' Adapted:      Bonnie Campbell, February 23, 2015 - for NCPN tools
-' Revisions:
-'   BLC - 2/23/2015 - initial version
-' ---------------------------------
-Private Sub Form_Close()
-On Error GoTo Err_Handler
-
-    'clear tempvars
-    TempVars.Remove ("park")
-    TempVars.Remove ("state")
-
-Exit_Sub:
-    Exit Sub
-    
-Err_Handler:
-    Select Case Err.Number
-      Case Else
-        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - Form_Close[Form_frmTgtSpecies])"
     End Select
     Resume Exit_Sub
 End Sub
