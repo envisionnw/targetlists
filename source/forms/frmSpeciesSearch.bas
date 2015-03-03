@@ -13,10 +13,10 @@ Begin Form
     Width =13584
     DatasheetFontHeight =11
     ItemSuffix =63
-    Left =2580
-    Top =2400
-    Right =17088
-    Bottom =11808
+    Left =3225
+    Top =2415
+    Right =16815
+    Bottom =12300
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x72574db34b86e440
@@ -554,6 +554,7 @@ Begin Form
                     BorderTint =50.0
                 End
                 Begin CommandButton
+                    Default = NotDefault
                     OverlapFlags =85
                     Left =7320
                     Top =3300
@@ -591,10 +592,10 @@ Begin Form
                     PressedForeColor =6750156
                     PressedForeThemeColorIndex =-1
                     PressedForeTint =100.0
-                    WebImagePaddingLeft =3
-                    WebImagePaddingTop =3
-                    WebImagePaddingRight =2
-                    WebImagePaddingBottom =2
+                    WebImagePaddingLeft =2
+                    WebImagePaddingTop =2
+                    WebImagePaddingRight =1
+                    WebImagePaddingBottom =1
                 End
                 Begin Label
                     Visible = NotDefault
@@ -1485,6 +1486,200 @@ End Sub
 '   BLC - 2/23/2015 - fixed duplicate results (SELECT DISTINCT...)
 ' ---------------------------------
 Private Sub btnSearch_Click()
+On Error GoTo Err_Handler
+    
+    Dim speciestype As Variant
+    Dim strSearch As String, strSpecies As String, strWHERE As String, strSQL As String
+    Dim i As Integer
+
+    'ignore if disabled
+    If btnSearch.Enabled = False Then GoTo Exit_Sub
+
+    strSearch = Trim(tbxSearchFor.Value)
+            
+    'check strSearch is alpha numeric
+    
+    'check if species list is selected
+    If Len(TempVars.item("speciestype")) > 0 Then
+        'enable the search "button"
+        btnSearch.Enabled = True
+        EnableControl btnSearch, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
+    Else
+        MsgBox "Please choose at least one species list to search.", vbOKOnly, "Oops! Missing Species List to Search"
+        GoTo Exit_Sub
+    End If
+    
+    'determine which species names are to be searched (ITIS, UT, CO, WY, Common)
+    strWHERE = " WHERE "
+        
+    'reset headers
+    ResetHeaders Me, True, "*", False, 0, 8355711 ', vbWhite '#7F7F7F rgb(127,127,127)
+            
+    'determine which species names to check
+    Dim listTypes() As String
+    listTypes = Split(TempVars.item("speciestype"), ";")
+    
+    For Each speciestype In listTypes
+        
+        If Len(speciestype) > 0 Then
+            
+            'If CountInString(speciestype, ";") > 1 Then
+            i = i + 1
+            If i > 1 Then
+                strWHERE = strWHERE & " OR "
+            
+            End If
+        
+            'forecolor 16737792 '#0066FF rgb(0,102,255)
+            'backcolor 15788753 '#D1EAF0 rgb(209,234,240)
+            Select Case speciestype
+                Case "CO"   'Colorado
+                    strSpecies = "CO_Species"
+                    ResetHeaders Me, False, "*", True, 1, 16737792, 15788753, lblCOHdr
+                Case "UT"   'Utah
+                    strSpecies = "Utah_Species"
+                    ResetHeaders Me, False, "*", True, 1, 16737792, 15788753, lblUTHdr
+                Case "WY"   'Wyoming
+                    strSpecies = "WY_Species"
+                    ResetHeaders Me, False, "*", True, 1, 16737792, 15788753, lblWYHdr
+                Case "ITIS" 'Master
+                    strSpecies = "Master_Species"
+                    ResetHeaders Me, False, "*", True, 1, 16737792, 15788753, lblITISHdr
+                Case "CMN"  'Common
+                    strSpecies = "Master_Common_Name"
+                    ResetHeaders Me, False, "*", True, 1, 16737792, 15788753, lblCommonHdr
+            End Select
+                    
+            strWHERE = strWHERE & " " & strSpecies & " LIKE '*" & strSearch & "*'"
+            
+        End If
+    Next
+    
+    'prep WHERE clause
+    If Len(Replace(strWHERE, "WHERE", "")) = 0 Then strWHERE = ""
+    
+    'build SQL statement
+    strSQL = "SELECT DISTINCT LU_Code, Master_Species, Utah_Species, CO_Species, WY_Species, " _
+            & "Master_Common_Name " _
+            & "FROM tlu_NCPN_Plants " _
+            & strWHERE & ";"
+               
+    'run search
+    Dim rs As DAO.Recordset
+      
+    'fetch data
+    Set rs = CurrentDb.OpenRecordset(strSQL) ', dbOpenSnapshot)
+
+    'set form results
+    Set Me.Recordset = rs
+    tbxResultCode.ControlSource = "LU_Code"
+    tbxMasterSpecies.ControlSource = "Master_Species"
+    tbxUTSpecies.ControlSource = "Utah_Species"
+    tbxCOSpecies.ControlSource = "CO_Species"
+    tbxWYSpecies.ControlSource = "WY_Species"
+    tbxCmnName.ControlSource = "Master_Common_Name"
+
+    'turn fields on (includes lblNoRecords, controls w/o & w/ * tags)
+    ShowControls Me, True, "", True
+    ShowControls Me, True, "*", True
+    
+    ' determine record count
+    Dim Count As Integer
+    If Not rs.EOF Then
+        rs.MoveLast
+        Count = rs.RecordCount
+        rs.MoveFirst
+        
+        'set # species found
+        lblSpeciesFound.Caption = Count & " species found"
+'        lblSpeciesFound.Visible = True
+        lblNoRecords.Visible = False
+    Else
+        lblSpeciesFound.Visible = False
+'        lblNoRecords.Visible = True
+    End If
+        
+    'set search for caption
+    lblSearchForValue.Caption = """" & strSearch & """"
+    
+    'set statusbar notice
+    Dim varReturn As Variant
+    varReturn = SysCmd(acSysCmdSetStatus, "Searching for " & strSearch & "...")
+    
+    'clear fields
+    ClearFields Me
+    
+    TempVars.item("speciestype") = ""
+
+Exit_Sub:
+    Exit Sub
+
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - btnSearch_Click[form_frmSpeciesSearch])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          btnSearch_Click
+' Description:  Search for the name or portion of a name in the species/common names listed & return a result list
+' Assumptions:
+' Note:         Returns all species/common names from tlu_NCPN_Plants that contain the search string.
+'               The string may be found at the beginning, middle or end of a name to be included.
+'               Special search strings like "*" (not including quotes) will return ALL species in the table.
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' http://codevba.com/msaccess/status_bar_and_progress_meter.htm#.VNb9X_lM4_4
+' Adapted:      Bonnie Campbell, February 7, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/7/2015  - initial version
+'   BLC - 2/20/2015 - added header highlighting
+'   BLC - 2/23/2015 - fixed duplicate results (SELECT DISTINCT...)
+' ---------------------------------
+Private Sub btnSearch_Enter()
+On Error GoTo Err_Handler
+
+    'search for species
+    'SpeciesSearch
+
+Exit_Sub:
+    Exit Sub
+
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - btnSearch_Click[form_frmSpeciesSearch])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          SpeciesSearch
+' Description:  Search for the name or portion of a name in the species/common names listed & return a result list
+' Assumptions:
+' Note:         Returns all species/common names from tlu_NCPN_Plants that contain the search string.
+'               The string may be found at the beginning, middle or end of a name to be included.
+'               Special search strings like "*" (not including quotes) will return ALL species in the table.
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' http://codevba.com/msaccess/status_bar_and_progress_meter.htm#.VNb9X_lM4_4
+' Adapted:      Bonnie Campbell, February 7, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/7/2015  - initial version
+'   BLC - 2/20/2015 - added header highlighting
+'   BLC - 2/23/2015 - fixed duplicate results (SELECT DISTINCT...)
+' ---------------------------------
+Public Sub SpeciesSearch()
 On Error GoTo Err_Handler
     
     Dim speciestype As Variant
