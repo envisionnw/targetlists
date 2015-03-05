@@ -58,6 +58,36 @@ Declare Function IsIconic Lib "User32" (ByVal hWnd As Long) As _
 '=================================================================
 
 ' ---------------------------------
+' SUB:          ChangeBackColor
+' Description:  change background color of control
+' Assumptions:  -
+' Parameters:   ctrl- control to change color
+'               lngColor = color (long)
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:  Bonnie Campbell, March 4, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/4/2015  - initial version
+' ---------------------------------
+Public Sub ChangeBackColor(ctrl As Control, lngColor As Long)
+On Error GoTo Err_Handler
+
+    ctrl.backcolor = lngColor
+    
+Exit_Sub:
+    Exit Sub
+
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - ChangeBackColor[mod_Forms])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
 ' SUB:          ClearFields
 ' Description:  initialize application values
 ' Assumptions:  -

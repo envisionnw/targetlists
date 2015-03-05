@@ -33,6 +33,9 @@ On Error GoTo Err_Handler
     Dim strItem As String
     Dim intColumnCount As Integer
     
+    'check for control type
+    If frm.Controls(strSourceControl).ControlType = acSubform Then MsgBox frm.Controls(strSourceControl).ControlType, vbOKOnly, "ctrltype"
+    
     'check for at *least* one selected item
     If frm.Controls(strSourceControl).ItemsSelected.Count = 0 Then
         MsgBox "Please select at least one item.", vbExclamation, "Oops!"

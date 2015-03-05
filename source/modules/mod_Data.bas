@@ -146,6 +146,7 @@ End Function
 Public Function SetParam(paramValue As Variant)
 
 On Error GoTo Err_Handler
+Dim param As Variant
     
     param = paramValue
     
@@ -177,7 +178,8 @@ End Function
 Public Function GetParam()
 
 On Error GoTo Err_Handler
-    
+Dim param As Variant
+
     GetParam = param
     
 Exit_Function:

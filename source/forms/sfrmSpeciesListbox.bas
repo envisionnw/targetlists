@@ -12,11 +12,9 @@ Begin Form
     GridY =24
     Width =9480
     DatasheetFontHeight =11
-    ItemSuffix =11
-    Left =420
-    Top =1080
-    Right =4116
-    Bottom =5100
+    ItemSuffix =15
+    Right =6036
+    Bottom =7392
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x37771cae5d89e440
@@ -168,11 +166,30 @@ Begin Form
                     LayoutCachedWidth =1620
                     LayoutCachedHeight =1319
                 End
+                Begin TextBox
+                    OverlapFlags =85
+                    IMESentenceMode =3
+                    Left =7200
+                    Top =960
+                    Width =1800
+                    Height =300
+                    ColumnOrder =0
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxCurrentRecord"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =7200
+                    LayoutCachedTop =960
+                    LayoutCachedWidth =9000
+                    LayoutCachedHeight =1260
+                End
             End
         End
         Begin Section
-            Height =300
+            Height =660
             Name ="Detail"
+            OnPaint ="[Event Procedure]"
             AlternateBackColor =15921906
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
@@ -181,6 +198,7 @@ Begin Form
                 Begin TextBox
                     OldBorderStyle =0
                     OverlapFlags =85
+                    BackStyle =0
                     IMESentenceMode =3
                     Left =120
                     Height =300
@@ -190,6 +208,8 @@ Begin Form
                     Name ="tbxCode"
                     ControlSource ="Code"
                     OnDblClick ="[Event Procedure]"
+                    OnGotFocus ="=ChangeBackColor([Me],[lngYelLime])"
+                    OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =120
@@ -210,6 +230,7 @@ Begin Form
                     Name ="tbxSpecies"
                     ControlSource ="Species"
                     OnDblClick ="[Event Procedure]"
+                    OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =1680
@@ -248,6 +269,39 @@ Begin Form
                     LayoutCachedWidth =9480
                     LayoutCachedHeight =300
                 End
+                Begin TextBox
+                    OverlapFlags =215
+                    IMESentenceMode =3
+                    Top =360
+                    Width =9480
+                    Height =300
+                    TabIndex =3
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxRecordBar"
+                    ControlSource ="Master_PLANT_Code"
+                    GridlineColor =10921638
+
+                    LayoutCachedTop =360
+                    LayoutCachedWidth =9480
+                    LayoutCachedHeight =660
+                    Begin
+                        Begin Label
+                            OverlapFlags =93
+                            Top =360
+                            Width =660
+                            Height =300
+                            BorderColor =8355711
+                            ForeColor =8355711
+                            Name ="Label12"
+                            Caption ="Text11"
+                            GridlineColor =10921638
+                            LayoutCachedTop =360
+                            LayoutCachedWidth =660
+                            LayoutCachedHeight =660
+                        End
+                    End
+                End
             End
         End
         Begin PageFooter
@@ -277,6 +331,11 @@ Option Explicit
 ' Source/date:  Bonnie Campbell, 2/18/2015
 ' Revisions:    BLC - 2/18/2015 - initial version
 ' =================================
+
+'=================================================================
+'  Declarations
+'=================================================================
+Dim curID As String 'Integer
 
 ' ---------------------------------
 ' SUB:          Form_Load
@@ -308,6 +367,140 @@ Err_Handler:
       Case Else
         MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
             "Error encountered (#" & Err.Number & " - Form_Load[Form_sfrmSpeciesListbox])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          Form_Current
+' Description:  Actions for current detail record
+' Assumptions:  -
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Rabbit July 11, 2011
+' http://bytes.com/topic/access/answers/914781-set-colour-current-record
+' March 6, 2010
+' http://www.upsizing.co.uk/Art53_Highlight.aspx
+' Adapted:      Bonnie Campbell, March 4, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/4/2015 - initial version
+' ---------------------------------
+Private Sub Form_Current()
+On Error GoTo Err_Handler
+
+    'set selected record ID
+    curID = Me.tbxMasterCode 'Nz(Me.tbxMasterCode, 0)
+    
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - Form_Current[Form_sfrmSpeciesListbox])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          Detail_Paint
+' Description:  Actions for clicking tbxCode
+' Assumptions:  -
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Rabbit July 11, 2011
+' http://bytes.com/topic/access/answers/914781-set-colour-current-record
+' Adapted:      Bonnie Campbell, March 4, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/4/2015 - initial version
+' ---------------------------------
+Private Sub Detail_Paint()
+On Error GoTo Err_Handler
+
+    'set selected record backcolor
+    If Me.tbxMasterCode = curID Then
+        Me.Detail.backcolor = lngYelLime
+    Else
+        Me.Detail.backcolor = lngWhite
+    End If
+    
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - Detail_Paint[Form_sfrmSpeciesListbox])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          tbxCode_Click
+' Description:  Actions for clicking tbxCode
+' Assumptions:  -
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, March 4, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/19/2015 - initial version
+' ---------------------------------
+Private Sub tbxCode_Click()
+On Error GoTo Err_Handler
+
+    'set selected record ID
+    curID = Me.tbxMasterCode
+    
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - tbxCode_Click[Form_sfrmSpeciesListbox])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          tbxSpecies_Click
+' Description:  Actions for clicking tbxSpecies
+' Assumptions:  -
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, March 4, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/4/2015 - initial version
+' ---------------------------------
+Private Sub tbxSpecies_Click()
+On Error GoTo Err_Handler
+
+    'set selected record ID
+    curID = Me.tbxMasterCode 'Nz(Me.tbxMasterCode, 0)
+    
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - tbxSpecies_Click[Form_sfrmSpeciesListbox])"
     End Select
     Resume Exit_Sub
 End Sub
