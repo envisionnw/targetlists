@@ -12,7 +12,7 @@ Begin Form
     Width =10935
     DatasheetFontHeight =11
     ItemSuffix =28
-    Right =15720
+    Right =15975
     Bottom =11760
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
@@ -24,6 +24,7 @@ Begin Form
         0x6801000068010000680100006801000000000000201c0000e010000001000000 ,
         0x010000006801000000000000a10700000100000001000000
     End
+    OnActivate ="[Event Procedure]"
     OnLoad ="[Event Procedure]"
     AllowDatasheetView =0
     AllowPivotTableView =0
@@ -116,35 +117,6 @@ Begin Form
             AlternateBackShade =95.0
             BackThemeColorIndex =1
             Begin
-                Begin Label
-                    BackStyle =1
-                    OverlapFlags =85
-                    TextAlign =2
-                    Left =8340
-                    Top =5220
-                    Width =1618
-                    Height =373
-                    FontWeight =600
-                    LeftMargin =29
-                    TopMargin =29
-                    RightMargin =29
-                    BottomMargin =29
-                    BackColor =6750105
-                    BorderColor =8355711
-                    ForeColor =16711680
-                    Name ="lblSaveList"
-                    Caption ="Save List"
-                    OnClick ="[Event Procedure]"
-                    ControlTipText ="Save list"
-                    GridlineColor =10921638
-                    LayoutCachedLeft =8340
-                    LayoutCachedTop =5220
-                    LayoutCachedWidth =9958
-                    LayoutCachedHeight =5593
-                    BackThemeColorIndex =-1
-                    ForeThemeColorIndex =-1
-                    ForeTint =100.0
-                End
                 Begin ListBox
                     ColumnHeads = NotDefault
                     RowSourceTypeInt =1
@@ -162,7 +134,11 @@ Begin Form
                     BorderColor =10921638
                     Name ="lbxTgtSpecies"
                     RowSourceType ="Value List"
-                    RowSource ="Code;Species;Master_PLANT_Code;''"
+                    RowSource ="Code;Species;'';'';ABIES;Abies sp.;'';'';ABILAS;Abies lasiocarpa;'';'';ABRNAN;Ab"
+                        "ronia nana;'';'';ABRONIA;Abronia sp.;'';'';ABUTHE;Abutilon theophrasti;'';'';ACA"
+                        "MPTOPAPPUS;Acamptopappus sp.;'';'';ARTARB;Artemisia arbuscula;'';'';BROTEC;Bromu"
+                        "s tectorum;'';'';ELEPARISHII;Eleocharis parishii;'';'';LUPPAR;Lupinus parvifloru"
+                        "s;'';'';STIARI;Achnatherum aridum;'';''"
                     ColumnWidths ="1440;2520;720;14"
                     OnDblClick ="[Event Procedure]"
                     OnKeyUp ="[Event Procedure]"
@@ -194,180 +170,6 @@ Begin Form
                     End
                 End
                 Begin Label
-                    BackStyle =1
-                    OverlapFlags =85
-                    TextAlign =2
-                    Left =4757
-                    Top =3780
-                    Width =493
-                    Height =463
-                    FontWeight =600
-                    LeftMargin =29
-                    TopMargin =101
-                    RightMargin =29
-                    BottomMargin =29
-                    BackColor =13882323
-                    BorderColor =8355711
-                    ForeColor =8224125
-                    Name ="lblRemove"
-                    Caption ="<"
-                    OnClick ="[Event Procedure]"
-                    ControlTipText ="Remove selected"
-                    GridlineColor =10921638
-                    LayoutCachedLeft =4757
-                    LayoutCachedTop =3780
-                    LayoutCachedWidth =5250
-                    LayoutCachedHeight =4243
-                    BackThemeColorIndex =-1
-                    ForeThemeColorIndex =-1
-                    ForeTint =100.0
-                End
-                Begin Label
-                    BackStyle =1
-                    OverlapFlags =85
-                    TextAlign =2
-                    Left =4757
-                    Top =1200
-                    Width =493
-                    Height =463
-                    FontWeight =600
-                    LeftMargin =29
-                    TopMargin =101
-                    RightMargin =29
-                    BottomMargin =29
-                    BackColor =6750105
-                    BorderColor =8355711
-                    ForeColor =16711680
-                    Name ="lblAddAll"
-                    Caption =">>"
-                    OnClick ="[Event Procedure]"
-                    ControlTipText ="Add all"
-                    GridlineColor =10921638
-                    LayoutCachedLeft =4757
-                    LayoutCachedTop =1200
-                    LayoutCachedWidth =5250
-                    LayoutCachedHeight =1663
-                    BackThemeColorIndex =-1
-                    ForeThemeColorIndex =-1
-                    ForeTint =100.0
-                End
-                Begin Label
-                    BackStyle =1
-                    OverlapFlags =85
-                    TextAlign =2
-                    Left =4757
-                    Top =4560
-                    Width =493
-                    Height =463
-                    FontWeight =600
-                    LeftMargin =29
-                    TopMargin =101
-                    RightMargin =29
-                    BottomMargin =29
-                    BackColor =52479
-                    BorderColor =8355711
-                    ForeColor =16711680
-                    Name ="lblRemoveAll"
-                    Caption ="<<"
-                    OnClick ="[Event Procedure]"
-                    ControlTipText ="Remove all"
-                    GridlineColor =10921638
-                    LayoutCachedLeft =4757
-                    LayoutCachedTop =4560
-                    LayoutCachedWidth =5250
-                    LayoutCachedHeight =5023
-                    BackThemeColorIndex =-1
-                    ForeThemeColorIndex =-1
-                    ForeTint =100.0
-                End
-                Begin Label
-                    BackStyle =1
-                    OverlapFlags =85
-                    TextAlign =2
-                    Left =4757
-                    Top =2040
-                    Width =493
-                    Height =463
-                    FontWeight =600
-                    LeftMargin =29
-                    TopMargin =101
-                    RightMargin =29
-                    BottomMargin =29
-                    BackColor =13882323
-                    BorderColor =8355711
-                    ForeColor =8224125
-                    Name ="lblAdd"
-                    Caption =">"
-                    OnClick ="[Event Procedure]"
-                    ControlTipText ="Add selected"
-                    GridlineColor =10921638
-                    LayoutCachedLeft =4757
-                    LayoutCachedTop =2040
-                    LayoutCachedWidth =5250
-                    LayoutCachedHeight =2503
-                    BackThemeColorIndex =-1
-                    ForeThemeColorIndex =-1
-                    ForeTint =100.0
-                End
-                Begin Label
-                    BackStyle =1
-                    OverlapFlags =85
-                    TextAlign =2
-                    Left =4410
-                    Top =5220
-                    Width =1264
-                    Height =358
-                    FontWeight =600
-                    LeftMargin =29
-                    TopMargin =29
-                    RightMargin =29
-                    BottomMargin =29
-                    BackColor =6750105
-                    BorderColor =8355711
-                    ForeColor =16711680
-                    Name ="lblReset"
-                    Caption ="Reset Lists"
-                    OnClick ="[Event Procedure]"
-                    ControlTipText ="Reset lists to their original state"
-                    GridlineColor =10921638
-                    LayoutCachedLeft =4410
-                    LayoutCachedTop =5220
-                    LayoutCachedWidth =5674
-                    LayoutCachedHeight =5578
-                    BackThemeColorIndex =-1
-                    ForeThemeColorIndex =-1
-                    ForeTint =100.0
-                End
-                Begin Label
-                    BackStyle =1
-                    OverlapFlags =85
-                    TextAlign =2
-                    Left =1425
-                    Top =5220
-                    Width =1468
-                    Height =373
-                    FontWeight =600
-                    LeftMargin =29
-                    TopMargin =29
-                    RightMargin =29
-                    BottomMargin =29
-                    BackColor =6750105
-                    BorderColor =8355711
-                    ForeColor =16711680
-                    Name ="lblSearch"
-                    Caption ="Find Species"
-                    OnClick ="[Event Procedure]"
-                    ControlTipText ="Find a species..."
-                    GridlineColor =10921638
-                    LayoutCachedLeft =1425
-                    LayoutCachedTop =5220
-                    LayoutCachedWidth =2893
-                    LayoutCachedHeight =5593
-                    BackThemeColorIndex =-1
-                    ForeThemeColorIndex =-1
-                    ForeTint =100.0
-                End
-                Begin Label
                     OverlapFlags =85
                     Left =60
                     Top =60
@@ -377,7 +179,7 @@ Begin Form
                     BorderColor =8355711
                     ForeColor =8355711
                     Name ="lblParkHdr"
-                    Caption ="ARCH"
+                    Caption ="BLCA"
                     GridlineColor =10921638
                     LayoutCachedLeft =60
                     LayoutCachedTop =60
@@ -410,7 +212,7 @@ Begin Form
                             BorderColor =8355711
                             ForeColor =8355711
                             Name ="lblSpeciesListbox"
-                            Caption ="Species"
+                            Caption ="CO Species"
                             GridlineColor =10921638
                             LayoutCachedLeft =180
                             LayoutCachedTop =660
@@ -431,7 +233,7 @@ Begin Form
                     BorderColor =8355711
                     ForeColor =8355711
                     Name ="lblTgtSpeciesCount"
-                    Caption ="0 species"
+                    Caption ="11 species"
                     ControlTipText ="Number of species in the current list"
                     GridlineColor =10921638
                     LayoutCachedLeft =8340
@@ -471,7 +273,7 @@ Begin Form
                     BorderColor =8355711
                     ForeColor =8355711
                     Name ="lblYear"
-                    Caption =" "
+                    Caption ="Target Species List for "
                     GridlineColor =10921638
                     LayoutCachedLeft =2880
                     LayoutCachedTop =120
@@ -489,6 +291,7 @@ Begin Form
                     Name ="btnLoad"
                     Caption ="Load List"
                     StatusBarText ="Continue to choose activities"
+                    OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =7560
@@ -520,11 +323,12 @@ Begin Form
                     WebImagePaddingTop =2
                     WebImagePaddingRight =1
                     WebImagePaddingBottom =1
+                    Overlaps =1
                 End
                 Begin CommandButton
                     OverlapFlags =85
                     Left =8400
-                    Top =5640
+                    Top =5220
                     Width =1560
                     Height =405
                     TabIndex =3
@@ -536,9 +340,9 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =8400
-                    LayoutCachedTop =5640
+                    LayoutCachedTop =5220
                     LayoutCachedWidth =9960
-                    LayoutCachedHeight =6045
+                    LayoutCachedHeight =5625
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Gradient =0
@@ -564,11 +368,12 @@ Begin Form
                     WebImagePaddingTop =2
                     WebImagePaddingRight =1
                     WebImagePaddingBottom =1
+                    Overlaps =1
                 End
                 Begin CommandButton
                     OverlapFlags =85
                     Left =1380
-                    Top =5640
+                    Top =5220
                     Width =1560
                     Height =405
                     TabIndex =4
@@ -580,9 +385,9 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =1380
-                    LayoutCachedTop =5640
+                    LayoutCachedTop =5220
                     LayoutCachedWidth =2940
-                    LayoutCachedHeight =6045
+                    LayoutCachedHeight =5625
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Gradient =0
@@ -608,11 +413,12 @@ Begin Form
                     WebImagePaddingTop =2
                     WebImagePaddingRight =1
                     WebImagePaddingBottom =1
+                    Overlaps =1
                 End
                 Begin CommandButton
                     OverlapFlags =85
                     Left =4380
-                    Top =5640
+                    Top =5220
                     Width =1320
                     Height =405
                     TabIndex =5
@@ -624,9 +430,9 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =4380
-                    LayoutCachedTop =5640
+                    LayoutCachedTop =5220
                     LayoutCachedWidth =5700
-                    LayoutCachedHeight =6045
+                    LayoutCachedHeight =5625
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Gradient =0
@@ -652,11 +458,12 @@ Begin Form
                     WebImagePaddingTop =2
                     WebImagePaddingRight =1
                     WebImagePaddingBottom =1
+                    Overlaps =1
                 End
                 Begin CommandButton
                     OverlapFlags =85
                     Left =4740
-                    Top =600
+                    Top =1200
                     Width =540
                     Height =480
                     FontWeight =600
@@ -669,9 +476,9 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =4740
-                    LayoutCachedTop =600
+                    LayoutCachedTop =1200
                     LayoutCachedWidth =5280
-                    LayoutCachedHeight =1080
+                    LayoutCachedHeight =1680
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Gradient =0
@@ -697,11 +504,12 @@ Begin Form
                     WebImagePaddingTop =2
                     WebImagePaddingRight =1
                     WebImagePaddingBottom =1
+                    Overlaps =1
                 End
                 Begin CommandButton
                     OverlapFlags =85
-                    Left =6300
-                    Top =5220
+                    Left =4740
+                    Top =4560
                     Width =540
                     Height =480
                     FontWeight =600
@@ -713,10 +521,10 @@ Begin Form
                     OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =6300
-                    LayoutCachedTop =5220
-                    LayoutCachedWidth =6840
-                    LayoutCachedHeight =5700
+                    LayoutCachedLeft =4740
+                    LayoutCachedTop =4560
+                    LayoutCachedWidth =5280
+                    LayoutCachedHeight =5040
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Gradient =0
@@ -742,16 +550,17 @@ Begin Form
                     WebImagePaddingTop =2
                     WebImagePaddingRight =1
                     WebImagePaddingBottom =1
+                    Overlaps =1
                 End
                 Begin CommandButton
                     OverlapFlags =85
                     Left =4740
-                    Top =3180
+                    Top =3960
                     Width =540
                     Height =480
                     FontWeight =600
                     TabIndex =8
-                    ForeColor =8224125
+                    ForeColor =16711680
                     Name ="btnRemove"
                     Caption ="<"
                     StatusBarText ="Remove all"
@@ -760,17 +569,17 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =4740
-                    LayoutCachedTop =3180
+                    LayoutCachedTop =3960
                     LayoutCachedWidth =5280
-                    LayoutCachedHeight =3660
+                    LayoutCachedHeight =4440
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Gradient =0
-                    BackColor =13882323
+                    BackColor =52479
                     BackThemeColorIndex =-1
                     BackTint =100.0
                     OldBorderStyle =0
-                    BorderColor =52377
+                    BorderColor =0
                     BorderThemeColorIndex =-1
                     BorderTint =100.0
                     HoverColor =3407769
@@ -789,11 +598,12 @@ Begin Form
                     WebImagePaddingTop =2
                     WebImagePaddingRight =2
                     WebImagePaddingBottom =2
+                    Overlaps =1
                 End
                 Begin CommandButton
                     OverlapFlags =85
                     Left =4740
-                    Top =2580
+                    Top =1860
                     Width =540
                     Height =480
                     FontWeight =600
@@ -807,9 +617,9 @@ Begin Form
                     GridlineColor =10921638
 
                     LayoutCachedLeft =4740
-                    LayoutCachedTop =2580
+                    LayoutCachedTop =1860
                     LayoutCachedWidth =5280
-                    LayoutCachedHeight =3060
+                    LayoutCachedHeight =2340
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Gradient =0
@@ -836,6 +646,7 @@ Begin Form
                     WebImagePaddingTop =2
                     WebImagePaddingRight =2
                     WebImagePaddingBottom =2
+                    Overlaps =1
                 End
             End
         End
@@ -856,6 +667,105 @@ Option Explicit
 ' Source/date:  Bonnie Campbell, 2/9/2015
 ' Revisions:    BLC - 2/9/2015 - initial version
 ' =================================
+
+'=================================================================
+'  Properties
+'=================================================================
+' ---------------------------------
+' PROPERTY:     Maximized
+' Description:  Indicates if form is maximized or not by checking IsZoomed()
+' Assumptions:  none
+' Parameters:   N/A
+' Returns:      True(1) - form is maximized
+'               False(0) - form is not maximized
+' Throws:       none
+' References:   none
+' Source/date:
+' http://support2.microsoft.com/?kbid=210190
+' Adapted:      Bonnie Campbell, February 23, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/23/2015  - initial version
+' ---------------------------------
+Public Property Get Maximized() As Boolean
+     Maximized = IsZoomed(Me.hWnd) * 1
+End Property
+
+' ---------------------------------
+' PROPERTY:     Minimized
+' Description:  Indicates if form is minimized or not by checking IsIconic()
+' Assumptions:  none
+' Parameters:   N/A
+' Returns:      True(1) - form is minimized
+'               False(0) - form is not minimized
+' Throws:       none
+' References:   none
+' Source/date:
+' http://support2.microsoft.com/?kbid=210190
+' Adapted:      Bonnie Campbell, February 23, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/23/2015  - initial version
+' ---------------------------------
+Public Property Get Minimized() As Boolean
+     Minimized = IsIconic(Me.hWnd) * 1
+End Property
+
+' ---------------------------------
+' PROPERTY LET: Maximized
+' Description:  Sets custom form property 'Maximized'
+' Assumptions:
+' Note:         The IsMax argument must be defined as the same data type
+'               returned by the corresponding Property Get procedure for
+'               the same custom property.
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' http://support2.microsoft.com/?kbid=210190
+' Adapted:      Bonnie Campbell, February 23, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/23/2015  - initial version
+' ---------------------------------
+Public Property Let Maximized(IsMax As Boolean)
+     If IsMax Then
+         Me.SetFocus
+         DoCmd.Maximize
+     Else
+         Me.SetFocus
+         DoCmd.Restore
+     End If
+End Property
+
+' ---------------------------------
+' PROPERTY LET: Minimized
+' Description:  Sets custom form property 'Minimized'
+' Assumptions:
+' Note:         The IsMin argument must be defined as the same data type
+'               returned by the corresponding Property Get procedure for
+'               the same custom property.
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' http://support2.microsoft.com/?kbid=210190
+' Adapted:      Bonnie Campbell, February 23, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 2/23/2015  - initial version
+' ---------------------------------
+Public Property Let Minimized(IsMin As Boolean)
+     If IsMin Then
+         Me.SetFocus
+         DoCmd.Minimize
+     Else
+         Me.SetFocus
+         DoCmd.Restore
+     End If
+End Property
+
+'=================================================================
+'  Subroutines & Functions
+'=================================================================
 
 ' ---------------------------------
 ' SUB:          Form_Load
@@ -887,7 +797,6 @@ On Error GoTo Err_Handler
     
     'prep headers
     lblParkHdr.Caption = TempVars.item("park")
-    'lblSpecies.Caption = TempVars.item("state") & " Species"
     lblYear.Caption = "Target Species List for " & Form.OpenArgs
     lblSpeciesListbox.Caption = TempVars.item("state") & " Species"
     
@@ -895,22 +804,15 @@ On Error GoTo Err_Handler
     lbxTgtSpecies.RowSource = ""
     
     'initial listbox fill
-'    fillList Me, lbxSpecies, lbxTgtSpecies  '.RowSourceType = "Value List"
      fillList Me, lbxTgtSpecies
 
     'Enable move items lbls (or not)
-    'If lbxSpecies.ListCount > 0 Then
-        lblAddAll.Visible = True
-        lblRemoveAll.Visible = True
-    'End If
     
     'Set counts
-    'lblSpeciesCount.Caption = lbxSpecies.ListCount & " species"
     lblTgtSpeciesCount.Caption = lbxTgtSpecies.ListCount - 1 & " species"
-'    lblLbxSpeciesCount.Caption = Count(sfrm.ListCount) & " species"
     
-    DisableControl lblAdd
-    DisableControl lblRemove
+    DisableControl btnAdd
+    DisableControl btnRemove
     
 Exit_Sub:
     Exit Sub
@@ -920,6 +822,70 @@ Err_Handler:
       Case Else
         MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
             "Error encountered (#" & Err.Number & " - Form_Load[Form_frmTgtSpecies])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          Form_Activate
+' Description:  Sets tbxTgtSpecies value
+' Assumptions:  -
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, March 5, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/5/2015 - initial version
+' ---------------------------------
+Private Sub Form_Activate()
+
+On Error GoTo Err_Handler
+
+    'set species count
+    lblTgtSpeciesCount.Caption = lbxTgtSpecies.ListCount - 1 & " species"
+    
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - Form_Activate[Form_frmTgtSpecies])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          btnLoad_Click
+' Description:  XX
+' Assumptions:  -
+' Parameters:   XX - XX
+' Returns:      XX - XX
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, March 5, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/5/2015 - initial version
+' ---------------------------------
+Private Sub btnLoad_Click()
+
+On Error GoTo Err_Handler
+
+    'open tgt species list form
+    DoCmd.OpenForm "frmSelectList", acNormal, , , , acWindowNormal, Me.name
+
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - btnLoad_Click[Form_frmTgtSpecies])"
     End Select
     Resume Exit_Sub
 End Sub
@@ -975,18 +941,13 @@ On Error GoTo Err_Handler
     
     Dim varItem As Variant
     
-    'deselect items in source control (lbxSpecies)
-    'For Each varItem In lbxSpecies.ItemsSelected
-    '    lbxSpecies.Selected(varItem) = False
-    'Next
-
-    'check for selected items --> if present, enable lblRemove
-    If lbxTgtSpecies.ItemsSelected.Count > 0 Then
-        If lblRemove.backcolor <> TempVars.item("ctrlRemoveEnabled") Then
-            EnableControl lblRemove, TempVars.item("ctrlRemoveEnabled"), TempVars.item("textEnabled")
+   'check for selected items --> if present, enable btnRemove
+    If lbxTgtSpecies.ItemsSelected.count > 0 Then
+        If btnRemove.backcolor <> TempVars.item("ctrlRemoveEnabled") Then
+            EnableControl btnRemove, TempVars.item("ctrlRemoveEnabled"), TempVars.item("textEnabled")
         End If
     Else
-        DisableControl lblRemove
+        DisableControl btnRemove
     End If
     
 Exit_Sub:
@@ -1018,8 +979,10 @@ Private Sub lbxTgtSpecies_DblClick(Cancel As Integer)
     
 On Error GoTo Err_Handler
 
-    MoveSingleItem Me, "lbxTgtSpecies", "lbxSpecies"
-
+    'MoveSingleItem Me, "lbxTgtSpecies", "lbxSpecies"
+    'MoveSingleItem Me, "sfrmSpeciesListbox", "lbxSpecies"
+    MoveSingleItem Me, "lbxTgtSpecies", "lbxTgtSpecies"
+    
 Exit_Sub:
     Exit Sub
 
@@ -1049,8 +1012,8 @@ Private Sub lbxTgtSpecies_KeyUp(KeyCode As Integer, Shift As Integer)
 On Error GoTo Err_Handler
 
 '    If lbxSpecies.ItemsSelected.Count > 0 And lblRemove.backcolor <> TempVars.item("ctrlRemoveEnabled") Then
-    If lblRemove.backcolor <> TempVars.item("ctrlRemoveEnabled") Then
-        EnableControl lblRemove, TempVars.item("ctrlRemoveEnabled"), TempVars.item("textEnabled")
+    If btnRemove.backcolor <> TempVars.item("ctrlRemoveEnabled") Then
+        EnableControl btnRemove, TempVars.item("ctrlRemoveEnabled"), TempVars.item("textEnabled")
     End If
     
 Exit_Sub:
@@ -1082,9 +1045,11 @@ Private Sub btnAdd_Click()
 On Error GoTo Err_Handler
     
     'ignore if 'disabled'
-    If lblAdd.backcolor = lngGray Then GoTo Exit_Sub
+    'If lblAdd.backcolor = lngGray Then GoTo Exit_Sub
+    If btnAdd.backcolor = lngGray Then GoTo Exit_Sub
     
-    MoveSingleItem Me, "lbxSpecies", "lbxTgtSpecies"
+    'MoveSingleItem Me, "lbxSpecies", "lbxTgtSpecies"
+    MoveSingleItem Me, "sfrmSpeciesListbox", "lbxTgtSpecies"
 
 Exit_Sub:
     Exit Sub
@@ -1115,9 +1080,10 @@ Private Sub btnRemove_Click()
 On Error GoTo Err_Handler
     
     'ignore if 'disabled'
-    If lblRemove.backcolor = TempVars.item("ctrlDisabled") Then GoTo Exit_Sub
+    If btnRemove.backcolor = TempVars.item("ctrlDisabled") Then GoTo Exit_Sub
     
-    MoveSingleItem Me, "lbxTgtSpecies", "lbxSpecies"
+    'MoveSingleItem Me, "lbxTgtSpecies", "lbxSpecies"
+    MoveSingleItem Me, "lbxTgtSpecies", "sfrmSpeciesListbox"
     
 Exit_Sub:
     Exit Sub
@@ -1154,7 +1120,8 @@ On Error GoTo Err_Handler
     Set db = CurrentDb
     Set rs = db.OpenRecordset(TempVars.item("strSQL"))
     
-    MoveAllItems Me, "lbxSpecies", "lbxTgtSpecies"
+    'MoveAllItems Me, "lbxSpecies", "lbxTgtSpecies"
+    MoveAllItems Me, "", "lbxTgtSpecies"
 
 Exit_Sub:
     Exit Sub
@@ -1190,7 +1157,8 @@ On Error GoTo Err_Handler
     Set db = CurrentDb
     Set rs = db.OpenRecordset(TempVars.item("strSQL"))
     
-    MoveAllItems Me, "lbxTgtSpecies", "lbxSpecies"
+    'MoveAllItems Me, "lbxTgtSpecies", "lbxSpecies"
+    MoveAllItems Me, "lbxTgtSpecies", "sfrmSpeciesListbox"
 
 Exit_Sub:
     Exit Sub
@@ -1272,7 +1240,6 @@ On Error GoTo Err_Handler
         End If
         
     Next
-    
 
         'clear temp QueryDef
         CurrentDb.QueryDefs.Delete "tempTgtSpecies"
@@ -1379,6 +1346,7 @@ End Sub
 ' Adapted:      Bonnie Campbell, February 23, 2015 - for NCPN tools
 ' Revisions:
 '   BLC - 2/23/2015 - initial version
+'   BLC - 3/4/2015  - closed species search form
 ' ---------------------------------
 Private Sub Form_Close()
 On Error GoTo Err_Handler
@@ -1386,6 +1354,9 @@ On Error GoTo Err_Handler
     'clear tempvars
     TempVars.Remove ("park")
     TempVars.Remove ("state")
+
+    'close frmSpeciesSearch if open
+    DoCmd.Close acForm, "frmSpeciesSearch"
 
 Exit_Sub:
     Exit Sub
@@ -1395,354 +1366,6 @@ Err_Handler:
       Case Else
         MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
             "Error encountered (#" & Err.Number & " - Form_Close[Form_frmTgtSpecies])"
-    End Select
-    Resume Exit_Sub
-End Sub
-
-'***************************************************************************************
-' Labels As Buttons
-'***************************************************************************************
-
-' ---------------------------------
-' SUB:          lblReset_Click
-' Description:  XX
-' Assumptions:  -
-' Parameters:   XX - XX
-' Returns:      XX - XX
-' Throws:       none
-' References:   none
-' Source/date:
-' Adapted:      Bonnie Campbell, February 6, 2015 - for NCPN tools
-' Revisions:
-'   BLC - 2/6/2015 - initial version
-' ---------------------------------
-Private Sub lblReset_Click()
-On Error GoTo Err_Handler
-
-    'go back to initial state
-    Form_Load
-
-Exit_Sub:
-    Exit Sub
-
-Err_Handler:
-    Select Case Err.Number
-      Case Else
-        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - lblReset_Click[Form_frmTgtSpecies])"
-    End Select
-    Resume Exit_Sub
-End Sub
-
-' ---------------------------------
-' SUB:          lblAdd_Click
-' Description:  XX
-' Assumptions:  -
-' Parameters:   XX - XX
-' Returns:      XX - XX
-' Throws:       none
-' References:   none
-' Source/date:
-' Adapted:      Bonnie Campbell, February 9, 2015 - for NCPN tools
-' Revisions:
-'   BLC - 2/9/2015 - initial version
-' ---------------------------------
-Private Sub lblAdd_Click()
-On Error GoTo Err_Handler
-    
-    'ignore if 'disabled'
-    If lblAdd.backcolor = lngGray Then GoTo Exit_Sub
-    
-    MoveSingleItem Me, "lbxSpecies", "lbxTgtSpecies"
-
-Exit_Sub:
-    Exit Sub
-    
-Err_Handler:
-    Select Case Err.Number
-      Case Else
-        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - lblAdd_Click[Form_frmTgtSpecies])"
-    End Select
-    Resume Exit_Sub
-End Sub
-
-' ---------------------------------
-' SUB:          lblRemove_Click
-' Description:  XX
-' Assumptions:  -
-' Parameters:   XX - XX
-' Returns:      XX - XX
-' Throws:       none
-' References:   none
-' Source/date:
-' Adapted:      Bonnie Campbell, February 9, 2015 - for NCPN tools
-' Revisions:
-'   BLC - 2/9/2015 - initial version
-' ---------------------------------
-Private Sub lblRemove_Click()
-On Error GoTo Err_Handler
-    
-    'ignore if 'disabled'
-    If lblRemove.backcolor = TempVars.item("ctrlDisabled") Then GoTo Exit_Sub
-    
-    MoveSingleItem Me, "lbxTgtSpecies", "lbxSpecies"
-    
-Exit_Sub:
-    Exit Sub
-    
-Err_Handler:
-    Select Case Err.Number
-      Case Else
-        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - lblRemove_Click[Form_frmTgtSpecies])"
-    End Select
-    Resume Exit_Sub
-End Sub
-
-' ---------------------------------
-' SUB:          lblAddAll_Click
-' Description:  XX
-' Assumptions:  -
-' Parameters:   XX - XX
-' Returns:      XX - XX
-' Throws:       none
-' References:   none
-' Source/date:
-' Adapted:      Bonnie Campbell, February 9, 2015 - for NCPN tools
-' Revisions:
-'   BLC - 2/9/2015 - initial version
-' ---------------------------------
-Private Sub lblAddAll_Click()
-On Error GoTo Err_Handler
-    
-    Dim db As DAO.Database
-    Dim rs As DAO.Recordset
-    
-    'fetch recordset
-    Set db = CurrentDb
-    Set rs = db.OpenRecordset(TempVars.item("strSQL"))
-    
-    MoveAllItems Me, "lbxSpecies", "lbxTgtSpecies"
-
-Exit_Sub:
-    Exit Sub
-    
-Err_Handler:
-    Select Case Err.Number
-      Case Else
-        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - lblAddAll_Click[Form_frmTgtSpecies])"
-    End Select
-    Resume Exit_Sub
-End Sub
-
-' ---------------------------------
-' SUB:          lblRemoveAll_Click
-' Description:  Remove all selected items from a list
-' Assumptions:  -
-' Parameters:   XX - XX
-' Returns:      XX - XX
-' Throws:       none
-' References:   none
-' Source/date:
-' Adapted:      Bonnie Campbell, February 9, 2015 - for NCPN tools
-' Revisions:
-'   BLC - 2/9/2015 - initial version
-' ---------------------------------
-Private Sub lblRemoveAll_Click()
-On Error GoTo Err_Handler
-    Dim db As DAO.Database
-    Dim rs As DAO.Recordset
-    
-    'fetch recordset
-    Set db = CurrentDb
-    Set rs = db.OpenRecordset(TempVars.item("strSQL"))
-    
-    MoveAllItems Me, "lbxTgtSpecies", "lbxSpecies"
-
-Exit_Sub:
-    Exit Sub
-    
-Err_Handler:
-    Select Case Err.Number
-      Case Else
-        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - lblRemoveAll_Click[Form_frmTgtSpecies])"
-    End Select
-    Resume Exit_Sub
-End Sub
-
-Exit_Sub:
-    Exit Sub
-    
-Err_Handler:
-    Select Case Err.Number
-      Case Else
-        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - lblAdd_Click[Form_frmTgtSpecies])"
-    End Select
-    Resume Exit_Sub
-End Sub
-
-' ---------------------------------
-' SUB:          lblSaveList_Click
-' Description:  Save list items
-' Assumptions:  -
-' Parameters:   XX - XX
-' Returns:      XX - XX
-' Throws:       none
-' References:   none
-' Source/date:
-' Adapted:      Bonnie Campbell, February 7, 2015 - for NCPN tools
-' Revisions:
-'   BLC - 2/7/2015 - initial version
-' ---------------------------------
-Private Sub lblSaveList_Click()
-On Error GoTo Err_Handler
-
-    Dim iRow As Integer, i As Integer
-    Dim strMasterCode As String, strSpecies As String, strSQL As String, strInsert As String
-    Dim varReturn As Variant
-    
-    'start @ row 1 (headers = row 0)
-    For iRow = 1 To lbxTgtSpecies.ListCount - 1
-       
-       ' ---------------------------------------------------
-       '  NOTE: listbox column MUST have a non-zero width to retrieve its value
-       ' ---------------------------------------------------
-        strMasterCode = lbxTgtSpecies.Column(0, iRow) 'column 0 = Master_PLANT_Code
-        strSpecies = lbxTgtSpecies.Column(1, iRow) 'column 1 = Species name
-        
-       ' ---------------------------------------------------
-       '  Check if item exists in tbl_TgtSpecies for Park, Year, Species combo
-       ' ---------------------------------------------------
-        strSQL = "SELECT * FROM tbl_Target_Species " & _
-                 "WHERE Master_PLANT_Code_FK = '" & strMasterCode & _
-                 " ' AND Park_Code = '" & TempVars.item("park") & _
-                 " ' AND Target_Year = " & TempVars.item("TgtYear") & ";"
-        
-        Dim db As DAO.Database
-        Dim rs As DAO.Recordset
-
-        Set rs = CurrentDb.OpenRecordset(strSQL) 'CurrentDb.Execute(strSQL, dbFailOnError) >> doesn't compile expected function or variable
-        
-        'check if there are no records (rs.BOF & rs.EOF are both true)
-        If rs.BOF And rs.EOF Then
-            
-            'set statusbar notice
-            varReturn = SysCmd(acSysCmdSetStatus, "Saving " & strSpecies & "...")
-            
-            'prepare SQL
-            strSQL = "INSERT INTO tbl_Target_Species" _
-                    & "(Master_Plant_Code_FK, Park_Code, Target_Year, Species_Name)" _
-                    & "VALUES "
-    
-            'prepare insert value
-            strInsert = "('" & strMasterCode & "','" & TempVars.item("park") & "'," & TempVars.item("tgtYear") & ",'" & strSpecies & "');"
-            
-            'add comma if more than one row to insert
-            'If (lbxTgtSpecies.ListCount - 1) > 1 And iRow < (lbxTgtSpecies.ListCount - 1) Then strInsert = strInsert & ","
-            
-            'finalize SQL
-            strSQL = strSQL & strInsert
-            
-            'save full target list (insert value) [NOTE: MS Access does not support multiple insert statements, must go 1 @ a time]
-            CurrentDb.Execute strSQL, dbFailOnError
-            
-        End If
-        
-    Next
-    
-
-        'clear temp QueryDef
-        CurrentDb.QueryDefs.Delete "tempTgtSpecies"
-
-        'open target list
-        Dim qdf As QueryDef
-        
-        Set qdf = CurrentDb.QueryDefs("qryTgtSpeciesList")
-        
-        'qdf.Parameters("park") = TempVars.item("park")
-        'qdf.Parameters("tgtYear") = CInt(TempVars.item("tgtYear"))
-        
-        strSQL = qdf.sql
-        
-        'Call SetValue
-        'Set rs = qdf.OpenRecordset
-        
-        strSQL = "SELECT tbl_Target_Species.Park_Code AS Park, " & _
-                 "tbl_Target_Species.Target_Year AS TgtYear, " & _
-                 "Master_Plant_Code_FK, Species_Name, Priority, Transect_Only, Target_Area_ID " & _
-                 "FROM tbl_Target_Species " & _
-                 "WHERE (((tbl_Target_Species.Target_Year) = CInt(tgtYear)) " & _
-                 "And ((LCase([tbl_Target_Species].[Park_Code])) = LCase(park))) " & _
-                 "ORDER BY tbl_Target_Species.Species_Name;"
-        
-        'replace values
-        strSQL = Replace(strSQL, "(park)", "('" & TempVars.item("park") & "')")
-        strSQL = Replace(strSQL, "(tgtYear)", "(" & TempVars.item("tgtYear") & ")")
-        
-        'DoCmd.OpenQuery "qryTgtSpeciesList", acViewNormal, acReadOnly
-        'DoCmd.RunSQL strSQL <=== NO! not on a SELECT...
-        
-        CurrentDb.CreateQueryDef("tempTgtSpecies").sql = strSQL
-        DoCmd.OpenQuery "tempTgtSpecies"
-    
-    'set statusbar notice
-    varReturn = SysCmd(acSysCmdSetStatus, "Targetlist save complete.")
-    
-    'pause to view status bar
-    For i = 0 To 10000
-        i = i
-    Next i
-    
-    'reset status bar
-    varReturn = SysCmd(acSysCmdSetStatus, " ")
-
-Exit_Sub:
-    Exit Sub
-
-Err_Handler:
-    Select Case Err.Number
-      Case Else
-        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - lblSaveList_Click[Form_frmTgtSpecies])"
-    End Select
-    Resume Exit_Sub
-End Sub
-
-' ---------------------------------
-' SUB:          lblSearch_Click
-' Description:  Opens species search to find species for populating target list
-' Assumptions:  -
-' Parameters:   N/A
-' Returns:      N/A
-' Throws:       none
-' References:   none
-' Source/date:
-' Adapted:      Bonnie Campbell, February 23, 2015 - for NCPN tools
-' Revisions:
-'   BLC - 2/23/2015 - initial version
-' ---------------------------------
-Private Sub lblSearch_Click()
-On Error GoTo Err_Handler
-    Dim originForm As String
-    
-    originForm = Me.name
-    
-    'open species search form
-    DoCmd.OpenForm "frmSpeciesSearch", acNormal, , , , acWindowNormal, originForm
-    If Forms("frmSpeciesSearch").Minimized Then DoCmd.Restore
-
-Exit_Sub:
-    Exit Sub
-    
-Err_Handler:
-    Select Case Err.Number
-      Case Else
-        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - lblSearch_Click[Form_frmTgtSpecies])"
     End Select
     Resume Exit_Sub
 End Sub

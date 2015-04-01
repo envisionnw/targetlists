@@ -5,6 +5,7 @@ Begin Form
     RecordSelectors = NotDefault
     NavigationButtons = NotDefault
     DividingLines = NotDefault
+    SubdatasheetExpanded = NotDefault
     ScrollBars =2
     PictureAlignment =2
     DatasheetGridlinesBehavior =3
@@ -15,8 +16,8 @@ Begin Form
     ItemSuffix =63
     Left =3225
     Top =2415
-    Right =16815
-    Bottom =12300
+    Right =18945
+    Bottom =14175
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x72574db34b86e440
@@ -1398,7 +1399,6 @@ Err_Handler:
     Resume Exit_Sub
 End Sub
 
-
 ' ---------------------------------
 ' SUB:          tbxResultCode_DblClick
 ' Description:  Add an item to the listbox if it is not a duplicate of items already listed
@@ -1582,22 +1582,22 @@ On Error GoTo Err_Handler
     'turn fields on (includes lblNoRecords, controls w/o & w/ * tags)
     ShowControls Me, True, "", True
     ShowControls Me, True, "*", True
-    
+        
     ' determine record count
-    Dim Count As Integer
+    Dim count As Integer
     If Not rs.EOF Then
         rs.MoveLast
-        Count = rs.RecordCount
+        count = rs.RecordCount
         rs.MoveFirst
         
-        'set # species found
-        lblSpeciesFound.Caption = Count & " species found"
-'        lblSpeciesFound.Visible = True
+        'hide no records
         lblNoRecords.Visible = False
     Else
-        lblSpeciesFound.Visible = False
-'        lblNoRecords.Visible = True
+        lblNoRecords.Visible = True
     End If
+        
+    'set # species found
+    lblSpeciesFound.Caption = count & " species found"
         
     'set search for caption
     lblSearchForValue.Caption = """" & strSearch & """"
@@ -1778,16 +1778,19 @@ On Error GoTo Err_Handler
     ShowControls Me, True, "*", True
     
     ' determine record count
-    Dim Count As Integer
+    Dim count As Integer
     If Not rs.EOF Then
         rs.MoveLast
-        Count = rs.RecordCount
+        count = rs.RecordCount
         rs.MoveFirst
         
         'set # species found
-        lblSpeciesFound.Caption = Count & " species found"
+        lblSpeciesFound.Caption = count & " species found"
 '        lblSpeciesFound.Visible = True
         lblNoRecords.Visible = False
+        
+        'resize form (height only)
+        
     Else
         lblSpeciesFound.Visible = False
 '        lblNoRecords.Visible = True

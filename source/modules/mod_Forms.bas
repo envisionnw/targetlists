@@ -58,6 +58,37 @@ Declare Function IsIconic Lib "User32" (ByVal hWnd As Long) As _
 '=================================================================
 
 ' ---------------------------------
+' FUNCTION:     ChangeBackColor
+' Description:  change background color of control
+' Assumptions:  -
+' Parameters:   ctrl- control to change color
+'               lngColor = color (long)
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Note:         MUST be a function vs. sub to be called w/in form event ( =ChangeBackColor(Me,lngYelLime) )
+' Source/date:  Bonnie Campbell, March 4, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/4/2015  - initial version
+' ---------------------------------
+Public Function ChangeBackColor(ctrl As Control, lngColor As Long)
+On Error GoTo Err_Handler
+
+    ctrl.backcolor = lngColor
+    
+Exit_Function:
+    Exit Function
+
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - ChangeBackColor[mod_Forms])"
+    End Select
+    Resume Exit_Function
+End Function
+
+' ---------------------------------
 ' SUB:          ClearFields
 ' Description:  initialize application values
 ' Assumptions:  -
@@ -288,3 +319,121 @@ Err_Handler:
     End Select
     Resume Exit_Sub
 End Sub
+
+' ---------------------------------
+' SUB:          ContinuousUpDown
+' Description:  Respond to Up/Down in a continuous form by moving to next record
+' Assumptions:  Active control's EnterKeyBehaviro is OFF
+' Usage:        Call ContinuousUpDown(Me, KeyCode)
+' Parameters:   frm - form for key behavior
+'               KeyCode - code for key being pressed (integer)
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Allen Browne via Jeanette Cunningham, Apr 13, 2010
+' http://www.pcreview.co.uk/threads/need-to-get-the-up-down-arrow-keys-working.3995845/
+' Adapted:      Bonnie Campbell, March 5, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/5/2015  - initial version
+' ---------------------------------
+Public Sub ContinuousUpDown(frm As Form, KeyCode As Integer)
+On Error GoTo Err_Handler
+
+    Dim strForm As String
+    
+    strForm = frm.name
+    
+    'determine key being used
+    Select Case KeyCode
+        Case vbKeyUp
+            If ContinuousUpDownOk Then
+                
+                'Save any edits
+                If frm.Dirty Then
+                    RunCommand acCmdSaveRecord
+                End If
+                
+                'Go previous: error if already there.
+                    RunCommand acCmdRecordsGoToPrevious
+                KeyCode = 0 'Destroy the keystroke
+            End If
+    
+    Case vbKeyDown
+        If ContinuousUpDownOk Then
+            
+            'Save any edits
+            If frm.Dirty Then
+                frm.Dirty = False
+            End If
+            
+            'Go to the next record, unless at a new record.
+            If Not frm.NewRecord Then
+                RunCommand acCmdRecordsGoToNext
+            End If
+            KeyCode = 0 'Destroy the keystroke
+        End If
+    End Select
+
+Exit_Sub:
+    Exit Sub
+
+Err_Handler:
+    Select Case Err.Number
+        Case 2046, 2101, 2113, 3022, 2465 'Already at first record, or save
+            'failed, or The value you entered isn't valid for this field.
+            KeyCode = 0
+        Case Else
+            MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+                "Error encountered (#" & Err.Number & " - ContinuousUpDown[mod_Forms])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' FUNCTION:     ContinuousUpDownOk
+' Description:  Suppress moving up/down a record in a continuous form if:
+'                - control is not in the Detail section
+'                - multi-line text box (vertical scrollbar or EnterKeyBehavior true)
+' Assumptions:  Active control's EnterKeyBehaviro is OFF
+' Usage:        Called by ContinuousUpDown SUB
+' Parameters:   N/A
+' Returns:      XX - XX
+' Throws:       none
+' References:   none
+' Source/date:
+' Allen Browne via Jeanette Cunningham, Apr 13, 2010
+' http://www.pcreview.co.uk/threads/need-to-get-the-up-down-arrow-keys-working.3995845/
+' Adapted:      Bonnie Campbell, March 5, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/5/2015  - initial version
+' ---------------------------------
+Private Function ContinuousUpDownOk() As Boolean
+On Error GoTo Err_Handler
+    Dim blnDontDoIt As Boolean
+    Dim ctl As Control
+    
+    Set ctl = Screen.ActiveControl
+    If ctl.Section = acDetail Then
+        If TypeOf ctl Is TextBox Then
+            blnDontDoIt = ((ctl.EnterKeyBehavior) Or (ctl.ScrollBars > 1))
+        End If
+    Else
+        blnDontDoIt = True
+    End If
+
+Exit_Function:
+    ContinuousUpDownOk = Not blnDontDoIt
+    Set ctl = Nothing
+
+Exit Function
+
+Err_Handler:
+    Select Case Err.Number
+        Case 2474 'No active control
+        Case Else
+            MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+                "Error encountered (#" & Err.Number & " - ContinuousUpDownOk[mod_Forms])"
+    End Select
+    Resume Exit_Function
+End Function

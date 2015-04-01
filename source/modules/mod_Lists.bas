@@ -25,6 +25,7 @@ Option Explicit
 ' Adapted:      Bonnie Campbell, February 6, 2015 - for NCPN tools
 ' Revisions:
 '   BLC - 2/6/2015 - initial version
+'   BLC - 3/5/2015 - added ability to remove from list w/o adding to target if strSourceControl = strTargetControl
 ' ---------------------------------
 Public Sub MoveSingleItem(frm As Form, strSourceControl As String, strTargetControl As String)
     
@@ -33,13 +34,22 @@ On Error GoTo Err_Handler
     Dim strItem As String
     Dim intColumnCount As Integer
     
+    'if source = target, just remove the item
+    If strSourceControl = strTargetControl Then
+        RemoveSelectedItems frm.Controls(strSourceControl)
+        GoTo Exit_Sub
+    End If
+    
+    'check for control type
+    If frm.Controls(strSourceControl).ControlType = acSubform Then MsgBox frm.Controls(strSourceControl).ControlType, vbOKOnly, "ctrltype"
+    
     'check for at *least* one selected item
-    If frm.Controls(strSourceControl).ItemsSelected.Count = 0 Then
+    If frm.Controls(strSourceControl).ItemsSelected.count = 0 Then
         MsgBox "Please select at least one item.", vbExclamation, "Oops!"
         GoTo Exit_Sub
     End If
     
-    If frm.Controls(strSourceControl).ItemsSelected.Count > 1 Then
+    If frm.Controls(strSourceControl).ItemsSelected.count > 1 Then
         MoveSelectedItems frm, strSourceControl, strTargetControl
         GoTo Exit_Sub
     End If
@@ -87,6 +97,7 @@ End Sub
 ' Adapted:      Bonnie Campbell, February 6, 2015 - for NCPN tools
 ' Revisions:
 '   BLC - 2/6/2015 - initial version
+'   BLC - 3/5/2015 - added ability to remove from list w/o adding to target if strSourceControl = strTargetControl
 ' ---------------------------------
 Public Sub MoveAllItems(frm As Form, strSourceControl As String, strTargetControl As String)
     
@@ -96,6 +107,12 @@ On Error GoTo Err_Handler
     Dim intColumnCount As Integer, startRow As Integer
     Dim lngRowCount As Long
     
+    'if source = target, just remove the items
+    If strSourceControl = strTargetControl Then
+        RemoveSelectedItems (frm.Controls(strSourceControl))
+        GoTo Exit_Sub
+    End If
+        
     'check for at *least* one item
     If frm.Controls(strSourceControl).ListCount = 0 Then
         MsgBox "Your list needs at least one item to move.", vbExclamation, "Oops!"
@@ -154,6 +171,7 @@ End Sub
 ' Adapted:      Bonnie Campbell, February 6, 2015 - for NCPN tools
 ' Revisions:
 '   BLC - 2/6/2015 - initial version
+'   BLC - 3/5/2015 - added ability to remove from list w/o adding to target if strSourceControl = strTargetControl
 ' ---------------------------------
 Public Sub MoveSelectedItems(frm As Form, strSourceControl As String, strTargetControl As String)
     
@@ -164,8 +182,14 @@ On Error GoTo Err_Handler
     Dim blnDimensioned As Boolean
     Dim strItem As String
     
+    'if source = target, just remove the items
+    If strSourceControl = strTargetControl Then
+        RemoveSelectedItems (frm.Controls(strSourceControl))
+        GoTo Exit_Sub
+    End If
+    
     'check for at *least* one selected item
-    If frm.Controls(strSourceControl).ItemsSelected.Count = 0 Then
+    If frm.Controls(strSourceControl).ItemsSelected.count = 0 Then
         MsgBox "Please select at least one item.", vbExclamation, "Oops!"
         GoTo Exit_Sub
     End If
@@ -286,7 +310,7 @@ On Error GoTo Err_Handler
     Set frm = ctrl.Parent
     
     rows = rs.RecordCount
-    cols = rs.Fields.Count
+    cols = rs.Fields.count
     
     If Nz(rows, 0) = 0 Then
         MsgBox "Sorry, no records found..."
@@ -348,7 +372,7 @@ On Error GoTo Err_Handler
     Set frm = ctrlSource.Parent
     
     rows = rs.RecordCount
-    cols = rs.Fields.Count
+    cols = rs.Fields.count
     
     'address no records
     If Nz(rows, 0) = 0 Then
@@ -358,16 +382,8 @@ On Error GoTo Err_Handler
     
     'handle sfrm controls (acSubform = 112)
     If ctrlSource.ControlType = acSubform Then
-        'ctrlSource.Form.Section("detail").Properties("Record Source") = rs
-        'ctrlSource.Parent.Forms(ctrlSource).Form.Recordset = rs 'sfrmSpeciesListbox
-        'ctrlSource.Parent.Controls(ctrlSource).Form.Recordset = rs 'sfrmSpeciesListbox
         Set ctrlSource.Form.Recordset = rs
-        'Set ctrlSource.Form.Controls("tbxCode") = rs.Fields("Code")
-        'Set ctrlSource.Form.Controls("tbxSpecies") = rs.Fields("Species")
-        'Set ctrlSource.Form.Controls("tbxCode").RowSource = rs.Fields("Code")
-        'Set ctrlSource.Form.Controls("tbxSpecies").RowSource = rs.Fields("Species")
-        'Set ctrlSource.Form.Controls("tbxCode").ControlSource = rs.Fields("Code")
-        'Set ctrlSource.Form.Controls("tbxSpecies").ControlSource = rs.Fields("Species")
+        
         ctrlSource.Form.Controls("tbxCode").ControlSource = "Code"
         ctrlSource.Form.Controls("tbxSpecies").ControlSource = "Species"
         ctrlSource.Form.Controls("tbxMasterCode").ControlSource = "Master_PLANT_Code"
@@ -385,12 +401,7 @@ On Error GoTo Err_Handler
     
     'count number of 0 width elements
     iZeroes = CountArrayValues(aryColWidths, "0")
-    
-'    If Nz(rows, 0) = 0 Then
-'        MsgBox "Sorry, no records found..."
-'        GoTo Exit_Sub
-'    End If
-    
+        
     'clear out existing values
     ClearList ctrlSource
     
@@ -465,104 +476,46 @@ Err_Handler:
 End Sub
 
 ' ---------------------------------
-' SUB:          XPopulateList
-' Description:  XX
+' SUB:          RemoveListDupes
+' Description:  Remove listbox duplicate values
 ' Assumptions:  -
 ' Parameters:   XX - XX
 ' Returns:      XX - XX
 ' Throws:       none
 ' References:   none
 ' Source/date:
-' krish KM, Aug. 27, 2014
-' http://stackoverflow.com/questions/25526904/populate-listbox-using-ado-recordset
-' Adapted:      Bonnie Campbell, February 6, 2015 - for NCPN tools
+' matsushita, September 27, 2006
+' https://social.msdn.microsoft.com/Forums/vstudio/en-US/0799668c-36dd-42d9-9599-3085a6c0581f/how-to-remove-duplicate-values-in-listbox-
+' Adapted:      Bonnie Campbell, March 5, 2015 - for NCPN tools
 ' Revisions:
-'   BLC - 2/6/2015 - initial version
+'   BLC - 3/5/2015 - initial version
 ' ---------------------------------
-Public Sub XPopulateList(lbx As ListBox, rs As Recordset, lbxDest As ListBox)
+Public Sub RemoveListDupes(lbx As ListBox)
 
 On Error GoTo Err_Handler
 
-    Dim frm As Form
-    Dim rows As Integer, cols As Integer, i As Integer, j As Integer, matches As Integer, iZeroes As Integer
-    Dim strItem As String, strColHeads As String, aryColWidths() As String
+    Dim index As Integer, count As Integer
+    Dim lastItem As String
+    
+    'sort listbox
+    SortList lbx
+    
+    count = lbx.ListCount
 
-    Set frm = lbx.Parent
+    'check sorted listbox for duplicates & remove
+    If count > 1 Then
     
-    rows = rs.RecordCount
-    cols = rs.Fields.Count
-    
-    'fetch column widths array
-    aryColWidths = Split(lbx.ColumnWidths, ";")
-    
-    'count number of 0 width elements
-    iZeroes = CountArrayValues(aryColWidths, "0")
-    
-    If Nz(rows, 0) = 0 Then
-        MsgBox "Sorry, no records found..."
-        GoTo Exit_Sub
-    End If
-    
-    'clear out existing values
-    ClearList lbx
-    
-    'populate column names (if desired)
-    If lbx.ColumnHeads = True Then
-        PopulateListHeaders lbx, rs
-        
-        'populate second listbox headers if present
-        If lbxDest.ColumnHeads = True Then
-            ClearList lbxDest
-            PopulateListHeaders lbxDest, rs
-        End If
-    End If
-    
-    'populate data
-    Select Case lbx.RowSourceType
-        Case "Table/Query"
-            Set lbx.Recordset = rs
-        Case "Value List"
-            
-            'initialize
-            i = 0
-            
-            Do Until rs.EOF
-            
-                'initialize item
-                strItem = ""
-                    
-                'generate item
-                For j = 0 To cols - 1
-                    'check if column is displayed width > 0
-                    If CInt(aryColWidths(j)) > 0 Then
-                    
-                        strItem = strItem & rs.Fields(j).Value & ";"
-                    
-                        'determine how many separators there are (";") --> should equal # cols
-                        matches = (Len(strItem) - Len(Replace$(strItem, ";", ""))) / Len(";")
-                        
-                        'add item if not already in list --> # of ; should equal cols - 1
-                        'but # in list should only be # of non-zero columns --> cols - iZeroes
-                        If matches = cols - iZeroes Then
-                            lbx.AddItem strItem
-                            'reset the string
-                            strItem = ""
-                        End If
-                    
-                    End If
-                
-                Next
-                
-                i = i + 1
-                
-                rs.MoveNext
-            Loop
-        Case "Field List"
-    End Select
+        lastItem = lbx.ItemData(count - 1)
 
-     MsgBox lbx.ListCount & " in list" & vbCrLf & rs.RecordCount & " in rs", vbOKOnly, "Num in list"
-    'refresh control
-    'lbx.Requery
+        For index = count - 2 To 0 Step -1
+            If lbx.ItemData(index) = lastItem And Len(lbx.ItemData(index)) > 0 Then
+                'duplicate
+                lbx.RemoveItem (index)
+            Else
+                lastItem = lbx.ItemData(index)
+            End If
+        Next
+    End If
 
 Exit_Sub:
     Exit Sub
@@ -585,62 +538,80 @@ End Sub
 ' Throws:       none
 ' References:   none
 ' Source/date:
-' Adapted:      Bonnie Campbell, February 6, 2015 - for NCPN tools
+' MajP, March 22, 2012
+' http://www.tek-tips.com/viewthread.cfm?qid=1677888
+' Adapted:      Bonnie Campbell, March 5, 2015 - for NCPN tools
 ' Revisions:
-'   BLC - 2/6/2015 - initial version
+'   BLC - 3/5/2015 - initial version
 ' ---------------------------------
-Public Sub SortList(lbx As ListBox, rs As Recordset, orderCol As Integer)
+Public Sub SortList(lbx As ListBox) ', orderCol As Integer)
 
 On Error GoTo Err_Handler
-    
-    Dim propValues As Property
-    Dim rows As Integer, cols As Integer, i As Integer, j As Integer
-    Dim frm As Form
-    Dim strItem As String
+  
+  Dim strTemp As String
+  Dim i As Integer
+  Dim j As Integer
+  
+  For i = 0 To lbx.ListCount - 1
+    For j = i + 1 To lbx.ListCount - 1
+      If lbx.ItemData(i) > lbx.ItemData(j) Then
+        strTemp = lbx.ItemData(i)
+        lbx.RemoveItem (i)
+        lbx.AddItem lbx.ItemData(j - 1), i
+        lbx.RemoveItem (j)
+        lbx.AddItem strTemp, j - 1
+       End If
+     Next j
+   Next i
 
-    Set frm = lbx.Parent
+Exit_Sub:
+    Exit Sub
     
-    'sort data
-    Dim aryValues As Variant
-    
-    Set propValues = frm.Controls(lbx).Properties("RowSource")
-    aryValues = Split(propValues, ";")
-    
-    'iterate
-    Dim a As Integer
-    For a = LBound(aryValues) To UBound(aryValues) - 1
-        
-    
-    Next
-'----
-Dim prp As Property, Ary, hld As String, Pak As String
-Dim x As Integer, y As Integer
-   
-   Set prp = lbx.Properties("RowSource") 'Me!ListBoxName.Properties("RowSource")
-   Ary = Split(prp, ";")
-   
-   For x = LBound(Ary) To UBound(Ary) - 1
-      For y = x + 1 To UBound(Ary)
-         If Ary(y) < Ary(x) Then
-            hld = Ary(x)
-            Ary(x) = Ary(y)
-            Ary(y) = hld
-         End If
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - SortList[mod_Lists])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          RemoveSelectedItems
+' Description:  Removes selected items from a listbox by re-creating rowsource
+' Assumptions:  lbx is a listbox control (not a continuous subform which may act as a listbox control)
+' Parameters:   lbx - Listbox to remove selected items from
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' ADezii, April 13, 2010
+' http://bytes.com/topic/access/answers/885569-remove-selected-items-list-box-microsoft-access
+' Adapted:      Bonnie Campbell, March 5, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/5/2015 - initial version
+' ---------------------------------
+Public Sub RemoveSelectedItems(lbx As ListBox)
+On Error GoTo Err_Handler
+  
+    Dim intRow As Integer, iCol As Integer
+    Dim strBuild As String
+     
+    With lbx
+      If .ItemsSelected.count = 0 Then Exit Sub
+     
+      For intRow = 0 To .ListCount - 1
+        If Not .Selected(intRow) Then
+            For iCol = 0 To .ColumnCount
+                strBuild = strBuild & .Column(iCol, intRow) & ";"
+            Next
+        End If
       Next
-   Next
-
-   For x = LBound(Ary) To UBound(Ary)
-      If Pak <> "" Then
-         Pak = Pak & ";" & Ary(x)
-      Else
-         Pak = Ary(x)
-      End If
-   Next
-
-   prp = Pak
-   
-   Set prp = Nothing
-'----
+     
+      strBuild = Left$(strBuild, Len(strBuild) - 1)
+     
+      .RowSource = strBuild
+    End With
 
 Exit_Sub:
     Exit Sub

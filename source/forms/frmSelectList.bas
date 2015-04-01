@@ -11,8 +11,8 @@ Begin Form
     GridX =24
     GridY =24
     DatasheetFontHeight =11
-    ItemSuffix =14
-    Right =15720
+    ItemSuffix =22
+    Right =15975
     Bottom =11760
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
@@ -118,6 +118,22 @@ Begin Form
             GridlineThemeColorIndex =1
             GridlineShade =65.0
         End
+        Begin ListBox
+            BorderLineStyle =0
+            LabelX =-1800
+            FontSize =11
+            FontName ="Calibri"
+            AllowValueListEdits =1
+            InheritValueList =1
+            ThemeFontIndex =1
+            BackThemeColorIndex =1
+            BorderThemeColorIndex =1
+            BorderShade =65.0
+            ForeThemeColorIndex =0
+            ForeTint =75.0
+            GridlineThemeColorIndex =1
+            GridlineShade =65.0
+        End
         Begin ComboBox
             AddColon = NotDefault
             BorderLineStyle =0
@@ -136,7 +152,8 @@ Begin Form
             GridlineShade =65.0
         End
         Begin FormHeader
-            Height =2460
+            CanGrow = NotDefault
+            Height =4140
             Name ="FormHeader"
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
@@ -146,35 +163,35 @@ Begin Form
                     OverlapFlags =85
                     Left =60
                     Top =60
-                    Width =1632
-                    Height =372
+                    Width =2355
+                    Height =375
                     FontSize =14
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="lblParkSelectionHdr"
-                    Caption ="Park Selection"
+                    Name ="lblListSelectionHdr"
+                    Caption ="Target List Selection"
                     GridlineColor =10921638
                     LayoutCachedLeft =60
                     LayoutCachedTop =60
-                    LayoutCachedWidth =1692
-                    LayoutCachedHeight =432
+                    LayoutCachedWidth =2415
+                    LayoutCachedHeight =435
                 End
                 Begin CommandButton
                     OverlapFlags =85
                     Left =4380
-                    Top =1740
+                    Top =3600
                     Width =2220
                     ForeColor =16711680
-                    Name ="btnContinue"
-                    Caption ="Continue >>"
+                    Name ="btnLoadList"
+                    Caption ="Load List >>"
                     StatusBarText ="Continue to choose activities"
                     OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =4380
-                    LayoutCachedTop =1740
+                    LayoutCachedTop =3600
                     LayoutCachedWidth =6600
-                    LayoutCachedHeight =2100
+                    LayoutCachedHeight =3960
                     ForeThemeColorIndex =-1
                     ForeTint =100.0
                     Gradient =0
@@ -202,52 +219,69 @@ Begin Form
                     WebImagePaddingBottom =1
                     Overlaps =1
                 End
-                Begin ComboBox
-                    ColumnHeads = NotDefault
+                Begin ListBox
                     OverlapFlags =85
+                    MultiSelect =2
                     IMESentenceMode =3
-                    ColumnCount =2
-                    ListWidth =5040
-                    Left =1140
+                    Left =1320
                     Top =1260
-                    Width =3480
-                    Height =300
+                    Width =1320
+                    Height =2100
                     ColumnOrder =0
                     TabIndex =1
+                    ForeColor =4210752
                     BorderColor =10921638
-                    ForeColor =4138256
-                    ColumnInfo ="\"\";\"\";\"\";\"\";\"10\";\"8\""
-                    Name ="cbxPark"
+                    Name ="lbxParks"
                     RowSourceType ="Table/Query"
-                    RowSource ="SELECT [tlu_Parks].[ParkCode], [tlu_Parks].[ParkName] FROM tlu_Parks ORDER BY [P"
-                        "arkName]; "
-                    ColumnWidths ="1080;3960"
-                    OnChange ="[Event Procedure]"
-                    ControlTipText ="Choose a park."
+                    RowSource ="SELECT DISTINCT tbl_Target_Species.Park_Code FROM tbl_Target_Species ORDER BY tb"
+                        "l_Target_Species.Park_Code; "
+                    OnClick ="[Event Procedure]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =1140
+                    LayoutCachedLeft =1320
                     LayoutCachedTop =1260
-                    LayoutCachedWidth =4620
-                    LayoutCachedHeight =1560
-                    Begin
-                        Begin Label
-                            OverlapFlags =85
-                            Left =600
-                            Top =720
-                            Width =3468
-                            Height =300
-                            BorderColor =8355711
-                            ForeColor =8355711
-                            Name ="lblPark"
-                            Caption ="Choose the park you wish to work on."
-                            GridlineColor =10921638
-                            LayoutCachedLeft =600
-                            LayoutCachedTop =720
-                            LayoutCachedWidth =4068
-                            LayoutCachedHeight =1020
-                        End
-                    End
+                    LayoutCachedWidth =2640
+                    LayoutCachedHeight =3360
+                End
+                Begin Label
+                    OverlapFlags =85
+                    Left =600
+                    Top =720
+                    Width =4875
+                    Height =315
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblInstructions"
+                    Caption ="Choose the park(s) and year(s) you'd like to include."
+                    GridlineColor =10921638
+                    LayoutCachedLeft =600
+                    LayoutCachedTop =720
+                    LayoutCachedWidth =5475
+                    LayoutCachedHeight =1035
+                End
+                Begin ListBox
+                    OverlapFlags =85
+                    MultiSelect =2
+                    IMESentenceMode =3
+                    Left =3540
+                    Top =1260
+                    Width =1320
+                    Height =2100
+                    ColumnOrder =1
+                    TabIndex =2
+                    ForeColor =4210752
+                    BorderColor =10921638
+                    Name ="lbxYears"
+                    RowSourceType ="Table/Query"
+                    RowSource ="SELECT DISTINCT tbl_Target_Species.Target_Year FROM tbl_Target_Species ORDER BY "
+                        "tbl_Target_Species.Target_Year; "
+                    OnClick ="[Event Procedure]"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =3540
+                    LayoutCachedTop =1260
+                    LayoutCachedWidth =4860
+                    LayoutCachedHeight =3360
                 End
             End
         End
@@ -260,9 +294,8 @@ Begin Form
             BackThemeColorIndex =1
         End
         Begin FormFooter
-            Height =492
+            Height =0
             Name ="FormFooter"
-            AutoHeight =1
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
             BackThemeColorIndex =1
@@ -278,11 +311,11 @@ Option Compare Database
 Option Explicit
 
 ' =================================
-' MODULE:       Form_frmTgtSpeciesList
-' Description:  Target species functions & procedures
+' MODULE:       Form_frmLoadList
+' Description:  Load species list to target species list functions and routines
 '
-' Source/date:  Bonnie Campbell, 2/11/2015
-' Revisions:    BLC - 2/11/2015 - initial version
+' Source/date:  Bonnie Campbell, 3/5/2015
+' Revisions:    BLC - 3/5/2015 - initial version
 ' =================================
 
 ' ---------------------------------
@@ -294,16 +327,21 @@ Option Explicit
 ' Throws:       none
 ' References:   none
 ' Source/date:
-' Adapted:      Bonnie Campbell, February 12, 2015 - for NCPN tools
+' Adapted:      Bonnie Campbell, March 5, 2015 - for NCPN tools
 ' Revisions:
-'   BLC - 2/12/2015 - initial version
+'   BLC - 3/5/2015 - initial version
 ' ---------------------------------
 Private Sub Form_Load()
 
 On Error GoTo Err_Handler
-    
-    Initialize
 
+    'minimize the opening form
+    Forms(Form.OpenArgs).SetFocus
+    DoCmd.Minimize
+    Me.SetFocus
+    
+    'save the form reference
+    TempVars.Add "originForm", Form.OpenArgs
     
 Exit_Sub:
     Exit Sub
@@ -312,82 +350,87 @@ Err_Handler:
     Select Case Err.Number
       Case Else
         MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - Form_Load[form_frmTgtAreas])"
+            "Error encountered (#" & Err.Number & " - Form_Load[form_frmLoadList])"
     End Select
     Resume Exit_Sub
 End Sub
 
 ' ---------------------------------
-' SUB:          cbxPark_Change
-' Description:  Actions to take when a park is selected
+' SUB:          lbxParks_Click
+' Description:  Determine selected parks
 ' Assumptions:  -
 ' Parameters:   N/A
 ' Returns:      N/A
 ' Throws:       none
 ' References:   none
 ' Source/date:
-' Adapted:      Bonnie Campbell, February 12, 2015 - for NCPN tools
+' Seth Schrock, March 12, 2013
+' http://bytes.com/topic/access/answers/947721-taking-last-comma-off-text-string
+' Adapted:      Bonnie Campbell, March 5, 2015 - for NCPN tools
 ' Revisions:
-'   BLC - 2/12/2015 - initial version
+'   BLC - 3/5/2015 - initial version
 ' ---------------------------------
-Private Sub cbxPark_Change()
+Private Sub lbxParks_Click()
 On Error GoTo Err_Handler
+Dim strParks As String, strComma As String
+Dim item As Variant
 
-    If cbxPark.ItemsSelected.count > 0 Then
-        'set park
-        TempVars.item("park") = cbxPark.ItemsSelected.item(0)
+    'determine the selected park(s)
+    For Each item In lbxParks.ItemsSelected
         
-        'enable the continue button
-        EnableControl btnContinue, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
-        btnContinue.Enabled = True
-    'Else
-        'disable the continue button"
-     '   btnContinue.Enabled = False
-     '   DisableControl btnContinue
-    End If
+        strParks = strParks & "'" & lbxParks.ItemData(item) & "',"
+
+    Next
     
-    If Len(cbxPark.Value) > 0 Then
-        'set park
-        TempVars.item("park") = cbxPark.Value
-        'enable the continue button
-        EnableControl btnContinue, TempVars.item("ctrlAddEnabled"), TempVars.item("textEnabled")
-        btnContinue.Enabled = True
-    Else
-        'disable the continue button"
-        btnContinue.Enabled = False
-        DisableControl btnContinue
-    End If
+    'trim last comma
+    strParks = IIf(Right(strParks, 1) = ",", Left(strParks, Len(strParks) - 1), strParks)
+    
+    TempVars.Add "parks", strParks
+    
 Exit_Sub:
     Exit Sub
-
+    
 Err_Handler:
     Select Case Err.Number
       Case Else
         MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - cbxPark_Change[Form_frmSelectPark])"
+            "Error encountered (#" & Err.Number & " - lbxParks_Click[Form_frmSelectList])"
     End Select
     Resume Exit_Sub
 End Sub
 
 ' ---------------------------------
-' SUB:          btnContinue_Click
-' Description:  Continue to park actions
+' SUB:          lbxYears_Click
+' Description:  Determine selected Years
 ' Assumptions:  -
 ' Parameters:   N/A
 ' Returns:      N/A
 ' Throws:       none
 ' References:   none
 ' Source/date:
-' Adapted:      Bonnie Campbell, February 12, 2015 - for NCPN tools
+' Seth Schrock, March 12, 2013
+' http://bytes.com/topic/access/answers/947721-taking-last-comma-off-text-string
+' Adapted:      Bonnie Campbell, March 5, 2015 - for NCPN tools
 ' Revisions:
-'   BLC - 2/12/2015 - initial version
+'   BLC - 3/5/2015 - initial version
 ' ---------------------------------
-Private Sub btnContinue_Click()
+Private Sub lbxYears_Click()
 On Error GoTo Err_Handler
-    
-    'open activity list
-    DoCmd.OpenForm "frmActions", acNormal
+Dim strYears As String, strComma As String
+Dim item As Variant
+
+    'determine the selected year(s)
+    For Each item In lbxYears.ItemsSelected
         
+        strYears = strYears & lbxYears.ItemData(item) & ","
+        
+    Next
+        
+    'trim last comma
+    strYears = IIf(Right(strYears, 1) = ",", Left(strYears, Len(strYears) - 1), strYears)
+    
+    TempVars.Add "years", strYears
+    
 Exit_Sub:
     Exit Sub
     
@@ -395,7 +438,82 @@ Err_Handler:
     Select Case Err.Number
       Case Else
         MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - btnContinue_Click[Form_frmSelectPark])"
+            "Error encountered (#" & Err.Number & " - lbxYears_Click[Form_frmSelectList])"
+    End Select
+    Resume Exit_Sub
+End Sub
+
+' ---------------------------------
+' SUB:          btnLoadList_Click
+' Description:  Load the target list species into frmTgtSpecies.lbxTgtSpecies
+' Assumptions:  -
+' Parameters:   N/A
+' Returns:      N/A
+' Throws:       none
+' References:   none
+' Source/date:
+' Adapted:      Bonnie Campbell, March 5, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 3/5/2015 - initial version
+' ---------------------------------
+Private Sub btnLoadList_Click()
+On Error GoTo Err_Handler
+    
+    Dim strSQL As String, strWHERE As String
+    
+    'determine the selected park(s) & year(s)
+    If Len(TempVars.item("parks")) > 0 And Len(TempVars.item("years")) > 0 Then
+        strWHERE = "WHERE Park_Code IN (" & TempVars.item("parks") & ") " _
+                 & "AND Target_Year IN (" & TempVars.item("years") & ")"
+    End If
+    
+    'prep WHERE clause
+    If Len(Replace(strWHERE, "WHERE", "")) = 0 Then strWHERE = ""
+    
+    'build SQL statement
+    strSQL = "SELECT DISTINCT Master_Plant_Code_FK AS Code, Species_Name AS Species " _
+            & "FROM tbl_Target_Species " _
+            & strWHERE & ";"
+    
+    'run search
+    Dim rs As DAO.Recordset
+    Dim rsNew As DAO.Recordset
+      
+    'fetch data
+    Set rs = CurrentDb.OpenRecordset(strSQL)
+
+    'merge existing listbox recordset w/ new SQL recordset
+    Set rsNew = MergeRecordsets(Forms("frmTgtSpecies").lbxTgtSpecies.Recordset, rs)
+
+    'load listbox
+    PopulateList Forms("frmTgtSpecies").lbxTgtSpecies, rsNew, Forms("frmTgtSpecies").lbxTgtSpecies
+    
+    'remove dupes
+    RemoveListDupes Forms("frmTgtSpecies").lbxTgtSpecies
+    
+    'cleanup
+    TempVars.Remove ("parks")
+    TempVars.Remove ("years")
+    
+    'return to species form
+    Dim originForm As String
+    
+    originForm = Me.name
+    
+    'open species search form
+    DoCmd.OpenForm "frmTgtSpecies", acNormal, , , , acWindowNormal, originForm
+    
+    'close & return to frmTgtSpecies
+    If Forms("frmTgtSpecies").Minimized Then DoCmd.Restore
+    
+Exit_Sub:
+    Exit Sub
+    
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - btnLoadList_Click[Form_frmSelectList])"
     End Select
     Resume Exit_Sub
 End Sub

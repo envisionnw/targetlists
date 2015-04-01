@@ -201,7 +201,7 @@ On Error GoTo Err_Handler
 
     Dim intfile As Long
     Dim fileName As String
-    For i = 0 To dbs.QueryDefs.Count - 1
+    For i = 0 To dbs.QueryDefs.count - 1
          Application.SaveAsText acQuery, dbs.QueryDefs(i).name, Path & "\Queries\" & dbs.QueryDefs(i).name & ".txt"
          fileName = Path & "\Queries(SQL)\" & dbs.QueryDefs(i).name & ".txt"
          intfile = FreeFile()
