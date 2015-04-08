@@ -459,28 +459,28 @@ End Sub
 Private Sub btnLoadList_Click()
 On Error GoTo Err_Handler
     
-    Dim strSQL As String, strWHERE As String
+    Dim strSql As String, strWhere As String
     
     'determine the selected park(s) & year(s)
     If Len(TempVars.item("parks")) > 0 And Len(TempVars.item("years")) > 0 Then
-        strWHERE = "WHERE Park_Code IN (" & TempVars.item("parks") & ") " _
+        strWhere = "WHERE Park_Code IN (" & TempVars.item("parks") & ") " _
                  & "AND Target_Year IN (" & TempVars.item("years") & ")"
     End If
     
     'prep WHERE clause
-    If Len(Replace(strWHERE, "WHERE", "")) = 0 Then strWHERE = ""
+    If Len(Replace(strWhere, "WHERE", "")) = 0 Then strWhere = ""
     
     'build SQL statement
-    strSQL = "SELECT DISTINCT Master_Plant_Code_FK AS Code, Species_Name AS Species " _
+    strSql = "SELECT DISTINCT Master_Plant_Code_FK AS Code, Species_Name AS Species " _
             & "FROM tbl_Target_Species " _
-            & strWHERE & ";"
+            & strWhere & ";"
     
     'run search
     Dim rs As DAO.Recordset
     Dim rsNew As DAO.Recordset
       
     'fetch data
-    Set rs = CurrentDb.OpenRecordset(strSQL)
+    Set rs = CurrentDb.OpenRecordset(strSql)
 
     'merge existing listbox recordset w/ new SQL recordset
     Set rsNew = MergeRecordsets(Forms("frmTgtSpecies").lbxTgtSpecies.Recordset, rs)

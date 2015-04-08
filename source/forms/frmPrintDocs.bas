@@ -469,22 +469,22 @@ On Error GoTo Err_Handler
     
     Dim db As DAO.Database
     Dim rs As DAO.Recordset
-    Dim strQuery As String, strSQL As String
+    Dim strQuery As String, strSql As String
     Dim lbxDest As ListBox
 
     Select Case lbx.name
         Case "lbxDataSheets"
             strQuery = "qryActiveDatasheets"
-            strSQL = CurrentDb.QueryDefs(strQuery).sql
+            strSql = CurrentDb.QueryDefs(strQuery).sql
             Set lbxDest = frm.Controls("lbxPrintSheets")
     End Select
 
     'fetch data
     Set db = CurrentDb
-    Set rs = db.OpenRecordset(strSQL)
+    Set rs = db.OpenRecordset(strSql)
 
     'set TempVars
-    TempVars.Add "strSQL", strSQL
+    TempVars.Add "strSQL", strSql
 
     'PopulateList frm.Controls(lbx), rs
     PopulateList lbx, rs, lbxDest

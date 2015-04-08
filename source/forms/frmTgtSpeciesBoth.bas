@@ -1020,9 +1020,9 @@ Private Sub lblSaveList_Click()
 On Error GoTo Err_Handler
 
     Dim iRow As Integer
-    Dim strSpecies As String, strSQL As String
+    Dim strSpecies As String, strSql As String
     
-    strSQL = "INSERT INTO tbl_Target_Species" _
+    strSql = "INSERT INTO tbl_Target_Species" _
             & "(Master_Plant_Code_FK, Park_Code, Target_Year, Species_Name)" _
             & "VALUES "
     

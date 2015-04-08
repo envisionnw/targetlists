@@ -11,12 +11,12 @@ Begin Report
     GridY =24
     Width =11400
     DatasheetFontHeight =11
-    ItemSuffix =31
-    Right =15600
-    Bottom =7248
+    ItemSuffix =35
+    Right =15630
+    Bottom =11760
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
-        0x6a70aa97b48ee440
+        0xbf59acd5ff8de440
     End
     RecordSource ="qryParkTgtSpeciesLists"
     Caption ="INVASIVE LIST"
@@ -84,6 +84,16 @@ Begin Report
             ForeTint =75.0
             GridlineThemeColorIndex =1
             GridlineShade =65.0
+        End
+        Begin BreakLevel
+            GroupHeader = NotDefault
+            ControlSource ="Park"
+        End
+        Begin BreakLevel
+            ControlSource ="Park"
+        End
+        Begin BreakLevel
+            ControlSource ="TgtYear"
         End
         Begin BreakLevel
             ControlSource ="Species_Name"
@@ -330,9 +340,64 @@ Begin Report
                 End
             End
         End
+        Begin BreakHeader
+            KeepTogether = NotDefault
+            CanGrow = NotDefault
+            CanShrink = NotDefault
+            Height =480
+            BackColor =12835293
+            Name ="ParkGroupHeader"
+            AlternateBackColor =12835293
+            AlternateBackThemeColorIndex =3
+            AlternateBackShade =90.0
+            BackThemeColorIndex =3
+            BackShade =90.0
+            Begin
+                Begin TextBox
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =120
+                    Width =1800
+                    Height =435
+                    FontSize =16
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxPark"
+                    ControlSource ="Park"
+                    StatusBarText ="Target Species name (ITIS species name from tlu_NCPN_Plants.Master_Species)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =120
+                    LayoutCachedWidth =1920
+                    LayoutCachedHeight =435
+                End
+                Begin TextBox
+                    OldBorderStyle =0
+                    TextAlign =3
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =9360
+                    Width =1800
+                    Height =435
+                    FontSize =16
+                    TabIndex =1
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxYears"
+                    ControlSource ="=[TgtYear]"
+                    StatusBarText ="Target Species name (ITIS species name from tlu_NCPN_Plants.Master_Species)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =9360
+                    LayoutCachedWidth =11160
+                    LayoutCachedHeight =435
+                End
+            End
+        End
         Begin Section
             KeepTogether = NotDefault
-            Height =418
+            Height =420
             Name ="Detail"
             AlternateBackColor =15921906
             AlternateBackThemeColorIndex =1
@@ -653,6 +718,7 @@ On Error GoTo Err_Handler
     'use conditional formatting for tbxDetail:
     '   [tbxPriority] = "Transect Only"  >>  ltLime
     '   (Not IsNumeric[tbxPriority])) And ([tbxPriority] <> "Transect Only") >> ltYellow
+        
     
 Exit_Sub:
     Exit Sub

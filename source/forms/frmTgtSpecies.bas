@@ -1189,7 +1189,7 @@ Private Sub btnSaveList_Click()
 On Error GoTo Err_Handler
 
     Dim iRow As Integer, i As Integer
-    Dim strMasterCode As String, strSpecies As String, strSQL As String, strInsert As String
+    Dim strMasterCode As String, strSpecies As String, strSql As String, strInsert As String
     Dim varReturn As Variant
     
     'start @ row 1 (headers = row 0)
@@ -1204,7 +1204,7 @@ On Error GoTo Err_Handler
        ' ---------------------------------------------------
        '  Check if item exists in tbl_TgtSpecies for Park, Year, Species combo
        ' ---------------------------------------------------
-        strSQL = "SELECT * FROM tbl_Target_Species " & _
+        strSql = "SELECT * FROM tbl_Target_Species " & _
                  "WHERE Master_PLANT_Code_FK = '" & strMasterCode & _
                  " ' AND Park_Code = '" & TempVars.item("park") & _
                  " ' AND Target_Year = " & TempVars.item("TgtYear") & ";"
@@ -1212,7 +1212,7 @@ On Error GoTo Err_Handler
         Dim db As DAO.Database
         Dim rs As DAO.Recordset
 
-        Set rs = CurrentDb.OpenRecordset(strSQL) 'CurrentDb.Execute(strSQL, dbFailOnError) >> doesn't compile expected function or variable
+        Set rs = CurrentDb.OpenRecordset(strSql) 'CurrentDb.Execute(strSQL, dbFailOnError) >> doesn't compile expected function or variable
         
         'check if there are no records (rs.BOF & rs.EOF are both true)
         If rs.BOF And rs.EOF Then
@@ -1221,7 +1221,7 @@ On Error GoTo Err_Handler
             varReturn = SysCmd(acSysCmdSetStatus, "Saving " & strSpecies & "...")
             
             'prepare SQL
-            strSQL = "INSERT INTO tbl_Target_Species" _
+            strSql = "INSERT INTO tbl_Target_Species" _
                     & "(Master_Plant_Code_FK, Park_Code, Target_Year, Species_Name)" _
                     & "VALUES "
     
@@ -1232,10 +1232,10 @@ On Error GoTo Err_Handler
             'If (lbxTgtSpecies.ListCount - 1) > 1 And iRow < (lbxTgtSpecies.ListCount - 1) Then strInsert = strInsert & ","
             
             'finalize SQL
-            strSQL = strSQL & strInsert
+            strSql = strSql & strInsert
             
             'save full target list (insert value) [NOTE: MS Access does not support multiple insert statements, must go 1 @ a time]
-            CurrentDb.Execute strSQL, dbFailOnError
+            CurrentDb.Execute strSql, dbFailOnError
             
         End If
         
@@ -1252,12 +1252,12 @@ On Error GoTo Err_Handler
         'qdf.Parameters("park") = TempVars.item("park")
         'qdf.Parameters("tgtYear") = CInt(TempVars.item("tgtYear"))
         
-        strSQL = qdf.sql
+        strSql = qdf.sql
         
         'Call SetValue
         'Set rs = qdf.OpenRecordset
         
-        strSQL = "SELECT tbl_Target_Species.Park_Code AS Park, " & _
+        strSql = "SELECT tbl_Target_Species.Park_Code AS Park, " & _
                  "tbl_Target_Species.Target_Year AS TgtYear, " & _
                  "Master_Plant_Code_FK, Species_Name, Priority, Transect_Only, Target_Area_ID " & _
                  "FROM tbl_Target_Species " & _
@@ -1266,13 +1266,13 @@ On Error GoTo Err_Handler
                  "ORDER BY tbl_Target_Species.Species_Name;"
         
         'replace values
-        strSQL = Replace(strSQL, "(park)", "('" & TempVars.item("park") & "')")
-        strSQL = Replace(strSQL, "(tgtYear)", "(" & TempVars.item("tgtYear") & ")")
+        strSql = Replace(strSql, "(park)", "('" & TempVars.item("park") & "')")
+        strSql = Replace(strSql, "(tgtYear)", "(" & TempVars.item("tgtYear") & ")")
         
         'DoCmd.OpenQuery "qryTgtSpeciesList", acViewNormal, acReadOnly
         'DoCmd.RunSQL strSQL <=== NO! not on a SELECT...
         
-        CurrentDb.CreateQueryDef("tempTgtSpecies").sql = strSQL
+        CurrentDb.CreateQueryDef("tempTgtSpecies").sql = strSql
         DoCmd.OpenQuery "tempTgtSpecies"
     
     'set statusbar notice

@@ -1489,7 +1489,7 @@ Private Sub btnSearch_Click()
 On Error GoTo Err_Handler
     
     Dim speciestype As Variant
-    Dim strSearch As String, strSpecies As String, strWHERE As String, strSQL As String
+    Dim strSearch As String, strSpecies As String, strWhere As String, strSql As String
     Dim i As Integer
 
     'ignore if disabled
@@ -1510,7 +1510,7 @@ On Error GoTo Err_Handler
     End If
     
     'determine which species names are to be searched (ITIS, UT, CO, WY, Common)
-    strWHERE = " WHERE "
+    strWhere = " WHERE "
         
     'reset headers
     ResetHeaders Me, True, "*", False, 0, 8355711 ', vbWhite '#7F7F7F rgb(127,127,127)
@@ -1526,7 +1526,7 @@ On Error GoTo Err_Handler
             'If CountInString(speciestype, ";") > 1 Then
             i = i + 1
             If i > 1 Then
-                strWHERE = strWHERE & " OR "
+                strWhere = strWhere & " OR "
             
             End If
         
@@ -1550,25 +1550,25 @@ On Error GoTo Err_Handler
                     ResetHeaders Me, False, "*", True, 1, 16737792, 15788753, lblCommonHdr
             End Select
                     
-            strWHERE = strWHERE & " " & strSpecies & " LIKE '*" & strSearch & "*'"
+            strWhere = strWhere & " " & strSpecies & " LIKE '*" & strSearch & "*'"
             
         End If
     Next
     
     'prep WHERE clause
-    If Len(Replace(strWHERE, "WHERE", "")) = 0 Then strWHERE = ""
+    If Len(Replace(strWhere, "WHERE", "")) = 0 Then strWhere = ""
     
     'build SQL statement
-    strSQL = "SELECT DISTINCT LU_Code, Master_Species, Utah_Species, CO_Species, WY_Species, " _
+    strSql = "SELECT DISTINCT LU_Code, Master_Species, Utah_Species, CO_Species, WY_Species, " _
             & "Master_Common_Name " _
             & "FROM tlu_NCPN_Plants " _
-            & strWHERE & ";"
+            & strWhere & ";"
                
     'run search
     Dim rs As DAO.Recordset
       
     'fetch data
-    Set rs = CurrentDb.OpenRecordset(strSQL) ', dbOpenSnapshot)
+    Set rs = CurrentDb.OpenRecordset(strSql) ', dbOpenSnapshot)
 
     'set form results
     Set Me.Recordset = rs
@@ -1683,7 +1683,7 @@ Public Sub SpeciesSearch()
 On Error GoTo Err_Handler
     
     Dim speciestype As Variant
-    Dim strSearch As String, strSpecies As String, strWHERE As String, strSQL As String
+    Dim strSearch As String, strSpecies As String, strWhere As String, strSql As String
     Dim i As Integer
 
     'ignore if disabled
@@ -1704,7 +1704,7 @@ On Error GoTo Err_Handler
     End If
     
     'determine which species names are to be searched (ITIS, UT, CO, WY, Common)
-    strWHERE = " WHERE "
+    strWhere = " WHERE "
         
     'reset headers
     ResetHeaders Me, True, "*", False, 0, 8355711 ', vbWhite '#7F7F7F rgb(127,127,127)
@@ -1720,7 +1720,7 @@ On Error GoTo Err_Handler
             'If CountInString(speciestype, ";") > 1 Then
             i = i + 1
             If i > 1 Then
-                strWHERE = strWHERE & " OR "
+                strWhere = strWhere & " OR "
             
             End If
         
@@ -1744,25 +1744,25 @@ On Error GoTo Err_Handler
                     ResetHeaders Me, False, "*", True, 1, 16737792, 15788753, lblCommonHdr
             End Select
                     
-            strWHERE = strWHERE & " " & strSpecies & " LIKE '*" & strSearch & "*'"
+            strWhere = strWhere & " " & strSpecies & " LIKE '*" & strSearch & "*'"
             
         End If
     Next
     
     'prep WHERE clause
-    If Len(Replace(strWHERE, "WHERE", "")) = 0 Then strWHERE = ""
+    If Len(Replace(strWhere, "WHERE", "")) = 0 Then strWhere = ""
     
     'build SQL statement
-    strSQL = "SELECT DISTINCT LU_Code, Master_Species, Utah_Species, CO_Species, WY_Species, " _
+    strSql = "SELECT DISTINCT LU_Code, Master_Species, Utah_Species, CO_Species, WY_Species, " _
             & "Master_Common_Name " _
             & "FROM tlu_NCPN_Plants " _
-            & strWHERE & ";"
+            & strWhere & ";"
                
     'run search
     Dim rs As DAO.Recordset
       
     'fetch data
-    Set rs = CurrentDb.OpenRecordset(strSQL) ', dbOpenSnapshot)
+    Set rs = CurrentDb.OpenRecordset(strSql) ', dbOpenSnapshot)
 
     'set form results
     Set Me.Recordset = rs

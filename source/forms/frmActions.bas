@@ -12,8 +12,8 @@ Begin Form
     GridY =24
     DatasheetFontHeight =11
     ItemSuffix =16
-    Right =15720
-    Bottom =11760
+    Right =15975
+    Bottom =12015
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0xc1f3db6ed487e440
@@ -377,6 +377,14 @@ On Error GoTo Err_Handler
             Case "TGT"  'Target Species Lists (get year first)
                 'reference via AllForms to include closed forms
                 frm = "frmSelectYear"
+
+            Case "EXP"  'Export Target Species Lists (get list first)
+                'reference via AllForms to include closed forms
+                frm = "frmExportLists"
+                
+            Case "PRT"  'Print Target Species Lists (get year first)
+                'reference via AllForms to include closed forms
+                frm = "frmPrintLists"
         
         End Select
         

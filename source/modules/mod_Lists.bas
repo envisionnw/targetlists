@@ -31,7 +31,7 @@ Public Sub MoveSingleItem(frm As Form, strSourceControl As String, strTargetCont
     
 On Error GoTo Err_Handler
     
-    Dim strItem As String
+    Dim stritem As String
     Dim intColumnCount As Integer
     
     'if source = target, just remove the item
@@ -55,18 +55,18 @@ On Error GoTo Err_Handler
     End If
     
     For intColumnCount = 0 To frm.Controls(strSourceControl).ColumnCount - 1
-        strItem = strItem & frm.Controls(strSourceControl).Column(intColumnCount) & ";"
+        stritem = stritem & frm.Controls(strSourceControl).Column(intColumnCount) & ";"
     Next
     
     'remove extra semi-colon (;)
-    strItem = Left(strItem, Len(strItem) - 1)
+    stritem = Left(stritem, Len(stritem) - 1)
 
     'Check the length to make sure something is selected
     ' -------------------------------------------------------------------------
     '  NOTE: ListIndex is zero based, so add 1 to remove proper item
     ' -------------------------------------------------------------------------
-    If Len(strItem) > 0 Then
-        frm.Controls(strTargetControl).AddItem strItem
+    If Len(stritem) > 0 Then
+        frm.Controls(strTargetControl).AddItem stritem
         frm.Controls(strSourceControl).RemoveItem frm.Controls(strSourceControl).ListIndex + 1
     Else
         MsgBox "Please select an item to move."
@@ -103,7 +103,7 @@ Public Sub MoveAllItems(frm As Form, strSourceControl As String, strTargetContro
     
 On Error GoTo Err_Handler
     
-    Dim strItem As String
+    Dim stritem As String
     Dim intColumnCount As Integer, startRow As Integer
     Dim lngRowCount As Long
     
@@ -127,11 +127,11 @@ On Error GoTo Err_Handler
     
     For lngRowCount = startRow To frm.Controls(strSourceControl).ListCount - 1
         For intColumnCount = 0 To frm.Controls(strSourceControl).ColumnCount - 1
-            strItem = strItem & frm.Controls(strSourceControl).Column(intColumnCount, lngRowCount) & ";"
+            stritem = stritem & frm.Controls(strSourceControl).Column(intColumnCount, lngRowCount) & ";"
         Next
-        strItem = Left(strItem, Len(strItem) - 1)
-        frm.Controls(strTargetControl).AddItem strItem
-        strItem = ""
+        stritem = Left(stritem, Len(stritem) - 1)
+        frm.Controls(strTargetControl).AddItem stritem
+        stritem = ""
     Next
         
     'clear the list
@@ -180,7 +180,7 @@ On Error GoTo Err_Handler
     Dim iRow As Integer, startRow As Integer, i As Integer, x As Integer, iRemovedItems As Integer
     Dim arySelectedItems() As Integer
     Dim blnDimensioned As Boolean
-    Dim strItem As String
+    Dim stritem As String
     
     'if source = target, just remove the items
     If strSourceControl = strTargetControl Then
@@ -202,8 +202,8 @@ On Error GoTo Err_Handler
     
     'add back the header if it doesn't exist
     If frm.Controls(strTargetControl).ColumnHeads = True And frm.Controls(strTargetControl).ListCount = 0 Then
-       strItem = TempVars.item("lbxHdr") & strItem
-       frm.Controls(strTargetControl).AddItem strItem
+       stritem = TempVars.item("lbxHdr") & stritem
+       frm.Controls(strTargetControl).AddItem stritem
     End If
     
     'generate array of selected items
@@ -246,15 +246,15 @@ On Error GoTo Err_Handler
         iRow = arySelectedItems(x) - iRemovedItems
             
         'clear string
-        strItem = ""
+        stritem = ""
         
         'add all columns
         For i = 0 To frm.Controls(strSourceControl).ColumnCount
-            strItem = strItem & frm.Controls(strSourceControl).Column(i, iRow) & ";"
+            stritem = stritem & frm.Controls(strSourceControl).Column(i, iRow) & ";"
         Next i
         
         'add to target
-        frm.Controls(strTargetControl).AddItem strItem
+        frm.Controls(strTargetControl).AddItem stritem
         
         'remove from source
         frm.Controls(strSourceControl).RemoveItem iRow
@@ -300,7 +300,7 @@ On Error GoTo Err_Handler
 
     Dim rows As Integer, cols As Integer, i As Integer, j As Integer, matches As Integer
     Dim frm As Form
-    Dim strItem As String, strColHeads As String, aryColWidths() As String
+    Dim stritem As String, strColHeads As String, aryColWidths() As String
 
     'exit if subform control (hdrs are static & present on sfrm)
     If ctrl.ControlType = 112 Then
@@ -367,7 +367,7 @@ On Error GoTo Err_Handler
 
     Dim frm As Form
     Dim rows As Integer, cols As Integer, i As Integer, j As Integer, matches As Integer, iZeroes As Integer
-    Dim strItem As String, strColHeads As String, aryColWidths() As String
+    Dim stritem As String, strColHeads As String, aryColWidths() As String
 
     Set frm = ctrlSource.Parent
     
@@ -428,24 +428,24 @@ On Error GoTo Err_Handler
             Do Until rs.EOF
             
                 'initialize item
-                strItem = ""
+                stritem = ""
                     
                 'generate item
                 For j = 0 To cols - 1
                     'check if column is displayed width > 0
                     If CInt(aryColWidths(j)) > 0 Then
                     
-                        strItem = strItem & rs.Fields(j).Value & ";"
+                        stritem = stritem & rs.Fields(j).Value & ";"
                     
                         'determine how many separators there are (";") --> should equal # cols
-                        matches = (Len(strItem) - Len(Replace$(strItem, ";", ""))) / Len(";")
+                        matches = (Len(stritem) - Len(Replace$(stritem, ";", ""))) / Len(";")
                         
                         'add item if not already in list --> # of ; should equal cols - 1
                         'but # in list should only be # of non-zero columns --> cols - iZeroes
                         If matches = cols - iZeroes Then
-                            ctrlSource.AddItem strItem
+                            ctrlSource.AddItem stritem
                             'reset the string
-                            strItem = ""
+                            stritem = ""
                         End If
                     
                     End If
@@ -810,10 +810,10 @@ Public Sub SaveListToTable(ctrl As Control, tbl As String, tblFields As Variant,
 
 On Error GoTo Err_Handler
     
-    Dim strSQL As String, strFields As String
+    Dim strSql As String, strFields As String
     Dim i As Integer, iRow As Integer, jCol As Integer
     
-    strSQL = "INSERT INTO " & tbl & " " & tblFields & "VALUES ("
+    strSql = "INSERT INTO " & tbl & " " & tblFields & "VALUES ("
     
     ' prepare fields
     strFields = ""
@@ -832,9 +832,9 @@ On Error GoTo Err_Handler
     
             For jCol = 0 To ctrl.ColumnCount - 1
             
-            strSQL = strSQL & "'" & ctrl.Column(jCol, iRow) & "'"
+            strSql = strSql & "'" & ctrl.Column(jCol, iRow) & "'"
              
-            CurrentDb.Execute strSQL, dbFailOnError
+            CurrentDb.Execute strSql, dbFailOnError
             
             Next
     Next 'iRow

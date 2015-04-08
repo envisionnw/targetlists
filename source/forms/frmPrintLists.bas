@@ -459,17 +459,17 @@ End Sub
 Private Sub btnPrintList_Click()
 On Error GoTo Err_Handler
     
-    Dim strSQL As String, strWHERE As String, strOrderBy As String
+    Dim strSql As String, strWhere As String, strOrderBy As String
     'Dim qdf As DAO.QueryDef
     
     'determine the selected park(s) & year(s)
     If Len(TempVars.item("parks")) > 0 And Len(TempVars.item("years")) > 0 Then
-        strWHERE = "WHERE Park_Code IN (" & TempVars.item("parks") & ") " _
+        strWhere = "WHERE Park_Code IN (" & TempVars.item("parks") & ") " _
                  & "AND Target_Year IN (" & TempVars.item("years") & ")"
     End If
     
     'prep WHERE clause
-    If Len(Replace(strWHERE, "WHERE", "")) = 0 Then strWHERE = ""
+    If Len(Replace(strWhere, "WHERE", "")) = 0 Then strWhere = ""
     
     'build SQL statement
     'Set qdf = CurrentDb.QueryDefs("qryParkTgtSpeciesLists")
@@ -497,7 +497,7 @@ On Error GoTo Err_Handler
     TempVars.Remove ("years")
     
     'open species search form
-    DoCmd.OpenReport "rptTgtSpeciesList", acViewNormal, , strWHERE, , strOrderBy
+    DoCmd.OpenReport "rptTgtSpeciesList", acViewNormal, , strWhere, , strOrderBy
     
     'close & return to frmTgtSpecies
     'If Forms("frmTgtSpecies").Minimized Then DoCmd.Restore

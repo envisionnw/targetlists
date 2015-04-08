@@ -40,7 +40,9 @@ Public Const lngBlack As Long = 0           '?RGB(0,0,0) #000000
 Public Const lngYellow As Long = 65535      '?RGB(255,255,0) #FFFF00
 Public Const lngLtYellow As Long = 14745599 '?RGB(255,255,224) #FFFFE0
 
-
+' ---------------------------------
+'  Subroutines & Functions
+' ---------------------------------
 
 ' ---------------------------------
 ' SUB:          ConvertLongToRGB
