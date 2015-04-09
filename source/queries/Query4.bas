@@ -11,7 +11,6 @@ Begin OutputColumns
     Alias ="TgtYear"
     Expression ="tbl_Target_Species.Target_Year"
     Expression ="tbl_Target_Species.Master_Plant_Code_FK"
-    Expression ="tlu_NCPN_Plants.LU_Code"
     Expression ="tbl_Target_Species.Species_Name"
     Expression ="tbl_Target_Species.Priority"
     Expression ="tbl_Target_Species.Transect_Only"
@@ -29,6 +28,9 @@ Begin OutputColumns
         "get_Species.Transect_Only>0,\"Transect\",tbl_Target_Species.Priority))"
     Alias ="ParkPriority"
     Expression ="(tbl_Target_Species.Park_Code+\"-\"+PriorityTarget)"
+    Alias ="ParkPriorities"
+    Expression ="ConcatRelated(\"ParkPriority\",\"qryAnnualCompleteTgtSpeciesLists\",\"Species_Na"
+        "me='\"+Species_Name+\"'\",'',\"|\")"
 End
 Begin Joins
     LeftTable ="tbl_Target_Species"
@@ -50,133 +52,122 @@ dbByte "RecordsetType" ="0"
 dbBoolean "OrderByOn" ="0"
 dbByte "Orientation" ="0"
 dbByte "DefaultView" ="2"
+dbBinary "GUID" = Begin
+    0x19d197985a33c041b57aeaf0580ad701
+End
 dbBoolean "FilterOnLoad" ="0"
 dbBoolean "OrderByOnLoad" ="-1"
 dbBoolean "TotalsRow" ="0"
-dbBinary "GUID" = Begin
-    0xca06387a43dbbc4e834a71a23181584e
-End
 Begin
-    Begin
-        dbText "Name" ="tlu_NCPN_Plants.Co_Species"
-        dbLong "AggregateType" ="-1"
-        dbBinary "GUID" = Begin
-            0x640ed8196c68c54f9a7c743f22ce8780
-        End
-    End
-    Begin
-        dbText "Name" ="tlu_NCPN_Plants.Wy_Species"
-        dbLong "AggregateType" ="-1"
-        dbBinary "GUID" = Begin
-            0x329ae115eb7c774d9a76093144a0fff0
-        End
-    End
-    Begin
-        dbText "Name" ="tlu_NCPN_Plants.utah_species"
-        dbLong "AggregateType" ="-1"
-        dbBinary "GUID" = Begin
-            0x111986e05779da419826e014adaa7dcb
-        End
-    End
     Begin
         dbText "Name" ="Park"
         dbLong "AggregateType" ="-1"
         dbBinary "GUID" = Begin
-            0x708a1aedb2467c42b189b5fb31b2f2db
+            0xf219e27b13528d4dadbc2cc40e167601
         End
     End
     Begin
         dbText "Name" ="TgtYear"
         dbLong "AggregateType" ="-1"
         dbBinary "GUID" = Begin
-            0xc2858dba0326f14385c4bef8b3cae300
+            0xa0046641a09dbb4c93902bc14ca3b338
         End
+    End
+    Begin
+        dbText "Name" ="tbl_Target_Species.Master_Plant_Code_FK"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="tbl_Target_Species.Species_Name"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="tbl_Target_Species.Priority"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="tbl_Target_Species.Transect_Only"
+        dbLong "AggregateType" ="-1"
     End
     Begin
         dbText "Name" ="tbl_Target_Species.Target_Area_ID"
         dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="Tgt_Area"
+        dbLong "AggregateType" ="-1"
         dbBinary "GUID" = Begin
-            0x9edc1f27fa94a44b86fbf4808ba68c0c
+            0x230c8a0ee16f1f4692af28ee4e703ae7
         End
     End
     Begin
         dbText "Name" ="Family"
         dbLong "AggregateType" ="-1"
         dbBinary "GUID" = Begin
-            0xe043677f6a6fda4cae0c1ca189be4dba
-        End
-    End
-    Begin
-        dbText "Name" ="tbl_Target_Species.Master_Plant_Code_FK"
-        dbLong "AggregateType" ="-1"
-        dbBinary "GUID" = Begin
-            0x430b7b36751bf946aea7cb3ebf49f154
-        End
-    End
-    Begin
-        dbText "Name" ="tbl_Target_Species.Species_Name"
-        dbLong "AggregateType" ="-1"
-        dbBinary "GUID" = Begin
-            0xa5b83c2eec2e9a43ac5c9a48b23ad750
-        End
-    End
-    Begin
-        dbText "Name" ="tbl_Target_Species.Priority"
-        dbLong "AggregateType" ="-1"
-        dbBinary "GUID" = Begin
-            0x22730abafa393842b97152c594b52b90
-        End
-    End
-    Begin
-        dbText "Name" ="tbl_Target_Species.Transect_Only"
-        dbLong "AggregateType" ="-1"
-        dbBinary "GUID" = Begin
-            0x625706e520ed394c9c40ff23350280c0
-        End
-    End
-    Begin
-        dbText "Name" ="Tgt_Area"
-        dbLong "AggregateType" ="-1"
-        dbBinary "GUID" = Begin
-            0x96a55420d4a01344ad51cd89f5fc5426
+            0x3ec37b94c8738949bf0acb32ce65bd76
         End
     End
     Begin
         dbText "Name" ="tlu_NCPN_Plants.Master_Common_Name"
         dbLong "AggregateType" ="-1"
-        dbBinary "GUID" = Begin
-            0x8cec9c3064f2544d87b6cf301d0487c7
-        End
+    End
+    Begin
+        dbText "Name" ="tlu_NCPN_Plants.utah_species"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="tlu_NCPN_Plants.Co_Species"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="tlu_NCPN_Plants.Wy_Species"
+        dbLong "AggregateType" ="-1"
     End
     Begin
         dbText "Name" ="PriorityTarget"
         dbLong "AggregateType" ="-1"
         dbBinary "GUID" = Begin
-            0xc72926b730f46b408df0e1f6bf6e67f5
+            0xd8044312a1365247acdbc98c3db57d9e
         End
     End
     Begin
         dbText "Name" ="ParkPriority"
+        dbInteger "ColumnWidth" ="1695"
+        dbBoolean "ColumnHidden" ="0"
         dbLong "AggregateType" ="-1"
         dbBinary "GUID" = Begin
-            0xf38e7f541e6a234daa9759d57010db2f
+            0x820e3fc05454f24d9f8503c794b3ac29
         End
     End
     Begin
-        dbText "Name" ="tlu_NCPN_Plants.LU_Code"
+        dbText "Name" ="ParkPriorities2"
+        dbInteger "ColumnWidth" ="15195"
+        dbBoolean "ColumnHidden" ="0"
         dbLong "AggregateType" ="-1"
+        dbBinary "GUID" = Begin
+            0x07f557305f8de14c8b157454532e7658
+        End
+    End
+    Begin
+        dbText "Name" ="ParkPriorities"
+        dbInteger "ColumnWidth" ="6135"
+        dbBoolean "ColumnHidden" ="0"
+        dbLong "AggregateType" ="-1"
+        dbBinary "GUID" = Begin
+            0x0aac388512b32648b956da6868d2f571
+        End
     End
 End
 Begin
     State =0
     Left =0
     Top =0
-    Right =800
+    Right =789
     Bottom =801
     Left =-1
     Top =-1
-    Right =784
-    Bottom =279
+    Right =773
+    Bottom =539
     Left =0
     Top =0
     ColumnsShown =539

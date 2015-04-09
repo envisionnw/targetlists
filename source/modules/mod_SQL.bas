@@ -109,14 +109,12 @@ Err_Handler:
     Resume Exit_Function
 End Function
 
-
-
 ' ---------------------------------
-' SUB:          ConcatRelated
+' SUB:          Coalesce
 ' Description:  Used in SQL queries to generate concatenated string of related records
 ' Assumptions:  used in Access SQL or control
 ' Parameters:   strSQL - field to retrieve results from & concatenate (string)
-'               NameList() - limiting WHERE clause (string)
+'               NameList() - list of items to concatenate (string)
 '               strDelim - character to use between concatenated values (string)
 ' Returns:      SQL (string, variant, or NULL if no matches)
 ' Usage:        SQL string:

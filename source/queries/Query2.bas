@@ -1,20 +1,12 @@
-﻿Operation =1
-Option =2
-Begin InputTables
-    Name ="qryAnnualCompleteTgtSpeciesLists"
-End
-Begin OutputColumns
-    Expression ="qryAnnualCompleteTgtSpeciesLists.Master_Plant_Code_FK"
-    Expression ="qryAnnualCompleteTgtSpeciesLists.Family"
-    Expression ="qryAnnualCompleteTgtSpeciesLists.Species_Name"
-    Expression ="qryAnnualCompleteTgtSpeciesLists.utah_species"
-    Expression ="qryAnnualCompleteTgtSpeciesLists.Co_Species"
-    Expression ="qryAnnualCompleteTgtSpeciesLists.Wy_Species"
-    Expression ="qryAnnualCompleteTgtSpeciesLists.Master_Common_Name"
-    Alias ="ParkPriorities"
-    Expression ="ConcatRelated(\"PriorityTarget\",\"qryAnnualCompleteTgtSpeciesLists\",\"Species_"
-        "Name\",'',\"|\")"
-End
+﻿dbMemo "SQL" ="SELECT DISTINCT qryAnnualCompleteTgtSpeciesLists.Master_Plant_Code_FK, qryAnnual"
+    "CompleteTgtSpeciesLists.LU_Code, qryAnnualCompleteTgtSpeciesLists.Family, qryAnn"
+    "ualCompleteTgtSpeciesLists.Species_Name, qryAnnualCompleteTgtSpeciesLists.utah_s"
+    "pecies, qryAnnualCompleteTgtSpeciesLists.Co_Species, qryAnnualCompleteTgtSpecies"
+    "Lists.Wy_Species, qryAnnualCompleteTgtSpeciesLists.Master_Common_Name, ConcatRel"
+    "ated(\"ParkPriority\",\"qryAnnualCompleteTgtSpeciesLists\",\"Species_Name='\"+Sp"
+    "ecies_Name+\"'\",'',\"|\") AS ParkPriorities\015\012FROM qryAnnualCompleteTgtSpe"
+    "ciesLists;\015\012"
+dbMemo "Connect" =""
 dbBoolean "ReturnsRecords" ="-1"
 dbInteger "ODBCTimeout" ="60"
 dbBoolean "OrderByOn" ="0"
@@ -54,7 +46,7 @@ Begin
     End
     Begin
         dbText "Name" ="ParkPriorities"
-        dbInteger "ColumnWidth" ="4440"
+        dbInteger "ColumnWidth" ="5625"
         dbBoolean "ColumnHidden" ="0"
         dbLong "AggregateType" ="-1"
         dbBinary "GUID" = Begin
@@ -65,27 +57,8 @@ Begin
         dbText "Name" ="qryAnnualCompleteTgtSpeciesLists.Master_Plant_Code_FK"
         dbLong "AggregateType" ="-1"
     End
-End
-Begin
-    State =0
-    Left =0
-    Top =0
-    Right =1699
-    Bottom =805
-    Left =-1
-    Top =-1
-    Right =1301
-    Bottom =456
-    Left =0
-    Top =0
-    ColumnsShown =539
     Begin
-        Left =60
-        Top =15
-        Right =354
-        Bottom =399
-        Top =0
-        Name ="qryAnnualCompleteTgtSpeciesLists"
-        Name =""
+        dbText "Name" ="qryAnnualCompleteTgtSpeciesLists.LU_Code"
+        dbLong "AggregateType" ="-1"
     End
 End

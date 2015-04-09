@@ -9,21 +9,21 @@ Begin Report
     DatasheetGridlinesBehavior =3
     GridX =24
     GridY =24
-    Width =15660
+    Width =25860
     DatasheetFontHeight =11
-    ItemSuffix =82
-    Right =15600
+    ItemSuffix =119
+    Right =20268
     Bottom =9408
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
-        0x41aa626fb98ee440
+        0x0f001b43ee8ee440
     End
     RecordSource ="Query2"
     Caption ="INVASIVE LIST"
     OnOpen ="[Event Procedure]"
     DatasheetFontName ="Calibri"
     PrtMip = Begin
-        0x6a01000068010000680100006801000000000000fe2c0000b001000001000000 ,
+        0x6a0100006801000068010000680100000000000060450000a201000001000000 ,
         0x010000006801000000000000a10700000100000001000000
     End
     OnLoad ="[Event Procedure]"
@@ -119,7 +119,7 @@ Begin Report
             End
         End
         Begin PageHeader
-            Height =1560
+            Height =1380
             Name ="PageHeaderSection"
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
@@ -140,7 +140,7 @@ Begin Report
                 End
                 Begin Label
                     TextAlign =2
-                    Left =2100
+                    Left =1620
                     Top =960
                     Width =1800
                     Height =300
@@ -151,14 +151,14 @@ Begin Report
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
-                    LayoutCachedLeft =2100
+                    LayoutCachedLeft =1620
                     LayoutCachedTop =960
-                    LayoutCachedWidth =3900
+                    LayoutCachedWidth =3420
                     LayoutCachedHeight =1260
                 End
                 Begin Label
                     TextAlign =2
-                    Left =4140
+                    Left =3660
                     Top =960
                     Width =1980
                     Height =300
@@ -169,14 +169,14 @@ Begin Report
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
-                    LayoutCachedLeft =4140
+                    LayoutCachedLeft =3660
                     LayoutCachedTop =960
-                    LayoutCachedWidth =6120
+                    LayoutCachedWidth =5640
                     LayoutCachedHeight =1260
                 End
                 Begin Label
                     TextAlign =1
-                    Left =6300
+                    Left =5880
                     Top =960
                     Width =1380
                     Height =300
@@ -187,16 +187,16 @@ Begin Report
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
-                    LayoutCachedLeft =6300
+                    LayoutCachedLeft =5880
                     LayoutCachedTop =960
-                    LayoutCachedWidth =7680
+                    LayoutCachedWidth =7260
                     LayoutCachedHeight =1260
                 End
                 Begin Label
                     TextAlign =1
                     Left =240
                     Top =960
-                    Width =1800
+                    Width =1200
                     Height =300
                     BorderColor =8355711
                     ForeColor =8355711
@@ -207,12 +207,12 @@ Begin Report
                     GridlineColor =10921638
                     LayoutCachedLeft =240
                     LayoutCachedTop =960
-                    LayoutCachedWidth =2040
+                    LayoutCachedWidth =1440
                     LayoutCachedHeight =1260
                 End
                 Begin Label
                     TextAlign =1
-                    Left =8040
+                    Left =7560
                     Top =960
                     Width =1680
                     Height =300
@@ -223,14 +223,14 @@ Begin Report
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
-                    LayoutCachedLeft =8040
+                    LayoutCachedLeft =7560
                     LayoutCachedTop =960
-                    LayoutCachedWidth =9720
+                    LayoutCachedWidth =9240
                     LayoutCachedHeight =1260
                 End
                 Begin Label
                     TextAlign =2
-                    Left =2100
+                    Left =1620
                     Top =600
                     Width =3720
                     Height =300
@@ -241,20 +241,20 @@ Begin Report
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
-                    LayoutCachedLeft =2100
+                    LayoutCachedLeft =1620
                     LayoutCachedTop =600
-                    LayoutCachedWidth =5820
+                    LayoutCachedWidth =5340
                     LayoutCachedHeight =900
                 End
                 Begin Line
-                    Left =2100
+                    Left =1620
                     Top =924
                     Width =3720
                     Name ="lnSpecies"
                     GridlineColor =10921638
-                    LayoutCachedLeft =2100
+                    LayoutCachedLeft =1620
                     LayoutCachedTop =924
-                    LayoutCachedWidth =5820
+                    LayoutCachedWidth =5340
                     LayoutCachedHeight =924
                 End
                 Begin Line
@@ -314,7 +314,7 @@ Begin Report
                 Begin Label
                     Vertical = NotDefault
                     TextAlign =3
-                    Left =9840
+                    Left =9480
                     Top =600
                     Width =300
                     Height =660
@@ -322,6 +322,25 @@ Begin Report
                     ForeColor =8355711
                     Name ="lblArch"
                     Caption ="ARCH"
+                    Tag ="DetachedLabel"
+                    GridlineStyleBottom =1
+                    GridlineColor =10921638
+                    LayoutCachedLeft =9480
+                    LayoutCachedTop =600
+                    LayoutCachedWidth =9780
+                    LayoutCachedHeight =1260
+                End
+                Begin Label
+                    Vertical = NotDefault
+                    TextAlign =3
+                    Left =9840
+                    Top =600
+                    Width =300
+                    Height =660
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblBLCA"
+                    Caption ="BLCA"
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
@@ -339,8 +358,8 @@ Begin Report
                     Height =660
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="lblBLCA"
-                    Caption ="BLCA"
+                    Name ="lblBRCA"
+                    Caption ="BRCA"
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
@@ -358,8 +377,8 @@ Begin Report
                     Height =660
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="lblBRCA"
-                    Caption ="BRCA"
+                    Name ="lblCANY"
+                    Caption ="CANY"
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
@@ -377,8 +396,8 @@ Begin Report
                     Height =660
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="lblCANY"
-                    Caption ="CANY"
+                    Name ="lblCARE"
+                    Caption ="CARE"
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
@@ -396,8 +415,8 @@ Begin Report
                     Height =660
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="lblCARE"
-                    Caption ="CARE"
+                    Name ="lblCEBR"
+                    Caption ="CEBR"
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
@@ -415,8 +434,8 @@ Begin Report
                     Height =660
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="lblCEBR"
-                    Caption ="CEBR"
+                    Name ="lblCOLM"
+                    Caption ="COLM"
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
@@ -434,8 +453,8 @@ Begin Report
                     Height =660
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="lblCOLM"
-                    Caption ="COLM"
+                    Name ="lblCURE"
+                    Caption ="CURE"
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
@@ -453,8 +472,8 @@ Begin Report
                     Height =660
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="lblCURE"
-                    Caption ="CURE"
+                    Name ="lblDINO"
+                    Caption ="DINO"
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
@@ -472,8 +491,8 @@ Begin Report
                     Height =660
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="lblDINO"
-                    Caption ="DINO"
+                    Name ="lblFOBU"
+                    Caption ="FOBU"
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
@@ -491,8 +510,8 @@ Begin Report
                     Height =660
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="lblFOBU"
-                    Caption ="FOBU"
+                    Name ="lblGOSP"
+                    Caption ="GOSP"
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
@@ -510,8 +529,8 @@ Begin Report
                     Height =660
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="lblGOSP"
-                    Caption ="GOSP"
+                    Name ="lblHOVE"
+                    Caption ="HOVE"
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
@@ -529,8 +548,8 @@ Begin Report
                     Height =660
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="lblHOVE"
-                    Caption ="HOVE"
+                    Name ="lblNABR"
+                    Caption ="NABR"
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
@@ -548,8 +567,8 @@ Begin Report
                     Height =660
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="lblNABR"
-                    Caption ="NABR"
+                    Name ="lblPISP"
+                    Caption ="PISP"
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
@@ -567,8 +586,8 @@ Begin Report
                     Height =660
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="lblPISP"
-                    Caption ="PISP"
+                    Name ="lblTICA"
+                    Caption ="TICA"
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
@@ -586,8 +605,8 @@ Begin Report
                     Height =660
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="lblTICA"
-                    Caption ="TICA"
+                    Name ="lblZION"
+                    Caption ="ZION"
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
@@ -597,29 +616,28 @@ Begin Report
                     LayoutCachedHeight =1260
                 End
                 Begin Label
-                    Vertical = NotDefault
-                    TextAlign =3
+                    TextAlign =2
                     Left =15240
                     Top =600
-                    Width =300
+                    Width =1380
                     Height =660
                     BorderColor =8355711
                     ForeColor =8355711
-                    Name ="lblZION"
-                    Caption ="ZION"
+                    Name ="Label84"
+                    Caption ="# Parks Where Priority 1"
                     Tag ="DetachedLabel"
                     GridlineStyleBottom =1
                     GridlineColor =10921638
                     LayoutCachedLeft =15240
                     LayoutCachedTop =600
-                    LayoutCachedWidth =15540
+                    LayoutCachedWidth =16620
                     LayoutCachedHeight =1260
                 End
             End
         End
         Begin Section
             KeepTogether = NotDefault
-            Height =780
+            Height =418
             OnFormat ="[Event Procedure]"
             Name ="Detail"
             AlternateBackColor =15921906
@@ -628,11 +646,34 @@ Begin Report
             BackThemeColorIndex =1
             Begin
                 Begin TextBox
+                    Visible = NotDefault
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =8520
+                    Top =60
+                    Width =5280
+                    Height =300
+                    FontSize =9
+                    TabIndex =21
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxAll"
+                    ControlSource ="ParkPriorities"
+                    StatusBarText ="FK to plant master code (tlu_NCPN_Plants.Master_Species)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =8520
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =13800
+                    LayoutCachedHeight =360
+                End
+                Begin TextBox
                     OldBorderStyle =0
                     IMESentenceMode =3
                     Width =15660
                     Height =418
-                    TabIndex =5
+                    TabIndex =4
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxDetail"
@@ -681,7 +722,7 @@ Begin Report
                     OldBorderStyle =0
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =2100
+                    Left =1740
                     Top =60
                     Width =1800
                     Height =312
@@ -694,16 +735,16 @@ Begin Report
                     EventProcPrefix ="tbl_Target_Species_Target_Year"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =2100
+                    LayoutCachedLeft =1740
                     LayoutCachedTop =60
-                    LayoutCachedWidth =3900
+                    LayoutCachedWidth =3540
                     LayoutCachedHeight =372
                 End
                 Begin TextBox
                     OldBorderStyle =0
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =4140
+                    Left =3780
                     Top =60
                     Width =1980
                     Height =312
@@ -718,16 +759,16 @@ Begin Report
                     EventProcPrefix ="tbl_Target_Species_Park_Code"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =4140
+                    LayoutCachedLeft =3780
                     LayoutCachedTop =60
-                    LayoutCachedWidth =6120
+                    LayoutCachedWidth =5760
                     LayoutCachedHeight =372
                 End
                 Begin TextBox
                     OldBorderStyle =0
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =6240
+                    Left =5880
                     Top =60
                     Width =1380
                     Height =312
@@ -741,18 +782,18 @@ Begin Report
                     StatusBarText ="Target Species name (ITIS species name from tlu_NCPN_Plants.Master_Species)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =6240
+                    LayoutCachedLeft =5880
                     LayoutCachedTop =60
-                    LayoutCachedWidth =7620
+                    LayoutCachedWidth =7260
                     LayoutCachedHeight =372
                 End
                 Begin TextBox
                     OldBorderStyle =0
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =7980
+                    Left =7500
                     Top =60
-                    Width =1680
+                    Width =1800
                     Height =312
                     ColumnWidth =2400
                     FontSize =9
@@ -764,9 +805,9 @@ Begin Report
                     StatusBarText ="FK to plant master code (tlu_NCPN_Plants.Master_Species)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =7980
+                    LayoutCachedLeft =7500
                     LayoutCachedTop =60
-                    LayoutCachedWidth =9660
+                    LayoutCachedWidth =9300
                     LayoutCachedHeight =372
                 End
                 Begin TextBox
@@ -775,10 +816,10 @@ Begin Report
                     IMESentenceMode =3
                     Left =240
                     Top =60
-                    Width =1800
+                    Width =1320
                     Height =312
                     FontSize =9
-                    TabIndex =4
+                    TabIndex =5
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxFamily"
@@ -788,15 +829,16 @@ Begin Report
 
                     LayoutCachedLeft =240
                     LayoutCachedTop =60
-                    LayoutCachedWidth =2040
+                    LayoutCachedWidth =1560
                     LayoutCachedHeight =372
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    BackStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     IMESentenceMode =3
-                    Left =9840
+                    Left =9480
                     Top =60
                     Width =300
                     Height =300
@@ -805,20 +847,43 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxARCHPriority"
+                    ControlSource ="=PopulateSpeciesPriorities(\"ARCH\",[tbxAll])"
                     StatusBarText ="Park priority"
+                    ConditionalFormat = Begin
+                        0x010000001a010000010000000100000000000000000000005c00000001000000 ,
+                        0x00000000ccffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x280043006f0075006e00740049006e0053007400720069006e00670028005b00 ,
+                        0x5000610072006b005000720069006f007200690074006900650073005d002c00 ,
+                        0x220041005200430048002d003100220029002b00490049006600280043006f00 ,
+                        0x75006e00740049006e0053007400720069006e00670028005b00500061007200 ,
+                        0x6b005000720069006f007200690074006900650073005d002c0022007c002200 ,
+                        0x29003e0030002c0032002c003000290029003d00310000000000
+                    End
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =9840
+                    LayoutCachedLeft =9480
                     LayoutCachedTop =60
-                    LayoutCachedWidth =10140
+                    LayoutCachedWidth =9780
                     LayoutCachedHeight =360
+                    ConditionalFormat14 = Begin
+                        0x01000100000001000000000000000100000000000000ccffff005b0000002800 ,
+                        0x43006f0075006e00740049006e0053007400720069006e00670028005b005000 ,
+                        0x610072006b005000720069006f007200690074006900650073005d002c002200 ,
+                        0x41005200430048002d003100220029002b00490049006600280043006f007500 ,
+                        0x6e00740049006e0053007400720069006e00670028005b005000610072006b00 ,
+                        0x5000720069006f007200690074006900650073005d002c0022007c0022002900 ,
+                        0x3e0030002c0032002c003000290029003d003100000000000000000000000000 ,
+                        0x000000000000000000
+                    End
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    BackStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     IMESentenceMode =3
-                    Left =10200
+                    Left =9840
                     Top =60
                     Width =300
                     Height =300
@@ -827,20 +892,43 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxBLCAPriority"
+                    ControlSource ="=PopulateSpeciesPriorities(\"BLCA\",[tbxAll])"
                     StatusBarText ="Park priority"
+                    ConditionalFormat = Begin
+                        0x010000001a010000010000000100000000000000000000005c00000001000000 ,
+                        0x00000000ccffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x280043006f0075006e00740049006e0053007400720069006e00670028005b00 ,
+                        0x5000610072006b005000720069006f007200690074006900650073005d002c00 ,
+                        0x220042004c00430041002d003100220029002b00490049006600280043006f00 ,
+                        0x75006e00740049006e0053007400720069006e00670028005b00500061007200 ,
+                        0x6b005000720069006f007200690074006900650073005d002c0022007c002200 ,
+                        0x29003e0030002c0032002c003000290029003d00310000000000
+                    End
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =10200
+                    LayoutCachedLeft =9840
                     LayoutCachedTop =60
-                    LayoutCachedWidth =10500
+                    LayoutCachedWidth =10140
                     LayoutCachedHeight =360
+                    ConditionalFormat14 = Begin
+                        0x01000100000001000000000000000100000000000000ccffff005b0000002800 ,
+                        0x43006f0075006e00740049006e0053007400720069006e00670028005b005000 ,
+                        0x610072006b005000720069006f007200690074006900650073005d002c002200 ,
+                        0x42004c00430041002d003100220029002b00490049006600280043006f007500 ,
+                        0x6e00740049006e0053007400720069006e00670028005b005000610072006b00 ,
+                        0x5000720069006f007200690074006900650073005d002c0022007c0022002900 ,
+                        0x3e0030002c0032002c003000290029003d003100000000000000000000000000 ,
+                        0x000000000000000000
+                    End
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    BackStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     IMESentenceMode =3
-                    Left =10560
+                    Left =10200
                     Top =60
                     Width =300
                     Height =300
@@ -849,20 +937,43 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxBRCAPriority"
+                    ControlSource ="=PopulateSpeciesPriorities(\"BRCA\",[tbxAll])"
                     StatusBarText ="Park priority"
+                    ConditionalFormat = Begin
+                        0x010000001a010000010000000100000000000000000000005c00000001000000 ,
+                        0x00000000ccffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x280043006f0075006e00740049006e0053007400720069006e00670028005b00 ,
+                        0x5000610072006b005000720069006f007200690074006900650073005d002c00 ,
+                        0x220042005200430041002d003100220029002b00490049006600280043006f00 ,
+                        0x75006e00740049006e0053007400720069006e00670028005b00500061007200 ,
+                        0x6b005000720069006f007200690074006900650073005d002c0022007c002200 ,
+                        0x29003e0030002c0032002c003000290029003d00310000000000
+                    End
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =10560
+                    LayoutCachedLeft =10200
                     LayoutCachedTop =60
-                    LayoutCachedWidth =10860
+                    LayoutCachedWidth =10500
                     LayoutCachedHeight =360
+                    ConditionalFormat14 = Begin
+                        0x01000100000001000000000000000100000000000000ccffff005b0000002800 ,
+                        0x43006f0075006e00740049006e0053007400720069006e00670028005b005000 ,
+                        0x610072006b005000720069006f007200690074006900650073005d002c002200 ,
+                        0x42005200430041002d003100220029002b00490049006600280043006f007500 ,
+                        0x6e00740049006e0053007400720069006e00670028005b005000610072006b00 ,
+                        0x5000720069006f007200690074006900650073005d002c0022007c0022002900 ,
+                        0x3e0030002c0032002c003000290029003d003100000000000000000000000000 ,
+                        0x000000000000000000
+                    End
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    BackStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     IMESentenceMode =3
-                    Left =10920
+                    Left =10560
                     Top =60
                     Width =300
                     Height =300
@@ -871,20 +982,43 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxCANYPriority"
+                    ControlSource ="=PopulateSpeciesPriorities(\"CANY\",[tbxAll])"
                     StatusBarText ="Park priority"
+                    ConditionalFormat = Begin
+                        0x010000001a010000010000000100000000000000000000005c00000001000000 ,
+                        0x00000000ccffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x280043006f0075006e00740049006e0053007400720069006e00670028005b00 ,
+                        0x5000610072006b005000720069006f007200690074006900650073005d002c00 ,
+                        0x2200430041004e0059002d003100220029002b00490049006600280043006f00 ,
+                        0x75006e00740049006e0053007400720069006e00670028005b00500061007200 ,
+                        0x6b005000720069006f007200690074006900650073005d002c0022007c002200 ,
+                        0x29003e0030002c0032002c003000290029003d00310000000000
+                    End
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =10920
+                    LayoutCachedLeft =10560
                     LayoutCachedTop =60
-                    LayoutCachedWidth =11220
+                    LayoutCachedWidth =10860
                     LayoutCachedHeight =360
+                    ConditionalFormat14 = Begin
+                        0x01000100000001000000000000000100000000000000ccffff005b0000002800 ,
+                        0x43006f0075006e00740049006e0053007400720069006e00670028005b005000 ,
+                        0x610072006b005000720069006f007200690074006900650073005d002c002200 ,
+                        0x430041004e0059002d003100220029002b00490049006600280043006f007500 ,
+                        0x6e00740049006e0053007400720069006e00670028005b005000610072006b00 ,
+                        0x5000720069006f007200690074006900650073005d002c0022007c0022002900 ,
+                        0x3e0030002c0032002c003000290029003d003100000000000000000000000000 ,
+                        0x000000000000000000
+                    End
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    BackStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     IMESentenceMode =3
-                    Left =11280
+                    Left =10920
                     Top =60
                     Width =300
                     Height =300
@@ -893,20 +1027,43 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxCAREPriority"
+                    ControlSource ="=PopulateSpeciesPriorities(\"CARE\",[tbxAll])"
                     StatusBarText ="Park priority"
+                    ConditionalFormat = Begin
+                        0x010000001a010000010000000100000000000000000000005c00000001000000 ,
+                        0x00000000ccffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x280043006f0075006e00740049006e0053007400720069006e00670028005b00 ,
+                        0x5000610072006b005000720069006f007200690074006900650073005d002c00 ,
+                        0x220043004100520045002d003100220029002b00490049006600280043006f00 ,
+                        0x75006e00740049006e0053007400720069006e00670028005b00500061007200 ,
+                        0x6b005000720069006f007200690074006900650073005d002c0022007c002200 ,
+                        0x29003e0030002c0032002c003000290029003d00310000000000
+                    End
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =11280
+                    LayoutCachedLeft =10920
                     LayoutCachedTop =60
-                    LayoutCachedWidth =11580
+                    LayoutCachedWidth =11220
                     LayoutCachedHeight =360
+                    ConditionalFormat14 = Begin
+                        0x01000100000001000000000000000100000000000000ccffff005b0000002800 ,
+                        0x43006f0075006e00740049006e0053007400720069006e00670028005b005000 ,
+                        0x610072006b005000720069006f007200690074006900650073005d002c002200 ,
+                        0x43004100520045002d003100220029002b00490049006600280043006f007500 ,
+                        0x6e00740049006e0053007400720069006e00670028005b005000610072006b00 ,
+                        0x5000720069006f007200690074006900650073005d002c0022007c0022002900 ,
+                        0x3e0030002c0032002c003000290029003d003100000000000000000000000000 ,
+                        0x000000000000000000
+                    End
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    BackStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     IMESentenceMode =3
-                    Left =11640
+                    Left =11280
                     Top =60
                     Width =300
                     Height =300
@@ -915,20 +1072,43 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxCEBRPriority"
+                    ControlSource ="=PopulateSpeciesPriorities(\"CEBR\",[tbxAll])"
                     StatusBarText ="Park priority"
+                    ConditionalFormat = Begin
+                        0x010000001a010000010000000100000000000000000000005c00000001000000 ,
+                        0x00000000ccffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x280043006f0075006e00740049006e0053007400720069006e00670028005b00 ,
+                        0x5000610072006b005000720069006f007200690074006900650073005d002c00 ,
+                        0x220043004500420052002d003100220029002b00490049006600280043006f00 ,
+                        0x75006e00740049006e0053007400720069006e00670028005b00500061007200 ,
+                        0x6b005000720069006f007200690074006900650073005d002c0022007c002200 ,
+                        0x29003e0030002c0032002c003000290029003d00310000000000
+                    End
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =11640
+                    LayoutCachedLeft =11280
                     LayoutCachedTop =60
-                    LayoutCachedWidth =11940
+                    LayoutCachedWidth =11580
                     LayoutCachedHeight =360
+                    ConditionalFormat14 = Begin
+                        0x01000100000001000000000000000100000000000000ccffff005b0000002800 ,
+                        0x43006f0075006e00740049006e0053007400720069006e00670028005b005000 ,
+                        0x610072006b005000720069006f007200690074006900650073005d002c002200 ,
+                        0x43004500420052002d003100220029002b00490049006600280043006f007500 ,
+                        0x6e00740049006e0053007400720069006e00670028005b005000610072006b00 ,
+                        0x5000720069006f007200690074006900650073005d002c0022007c0022002900 ,
+                        0x3e0030002c0032002c003000290029003d003100000000000000000000000000 ,
+                        0x000000000000000000
+                    End
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    BackStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     IMESentenceMode =3
-                    Left =12000
+                    Left =11640
                     Top =60
                     Width =300
                     Height =300
@@ -937,20 +1117,43 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxCOLMPriority"
+                    ControlSource ="=PopulateSpeciesPriorities(\"COLM\",[tbxAll])"
                     StatusBarText ="Park priority"
+                    ConditionalFormat = Begin
+                        0x010000001a010000010000000100000000000000000000005c00000001000000 ,
+                        0x00000000ccffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x280043006f0075006e00740049006e0053007400720069006e00670028005b00 ,
+                        0x5000610072006b005000720069006f007200690074006900650073005d002c00 ,
+                        0x220043004f004c004d002d003100220029002b00490049006600280043006f00 ,
+                        0x75006e00740049006e0053007400720069006e00670028005b00500061007200 ,
+                        0x6b005000720069006f007200690074006900650073005d002c0022007c002200 ,
+                        0x29003e0030002c0032002c003000290029003d00310000000000
+                    End
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =12000
+                    LayoutCachedLeft =11640
                     LayoutCachedTop =60
-                    LayoutCachedWidth =12300
+                    LayoutCachedWidth =11940
                     LayoutCachedHeight =360
+                    ConditionalFormat14 = Begin
+                        0x01000100000001000000000000000100000000000000ccffff005b0000002800 ,
+                        0x43006f0075006e00740049006e0053007400720069006e00670028005b005000 ,
+                        0x610072006b005000720069006f007200690074006900650073005d002c002200 ,
+                        0x43004f004c004d002d003100220029002b00490049006600280043006f007500 ,
+                        0x6e00740049006e0053007400720069006e00670028005b005000610072006b00 ,
+                        0x5000720069006f007200690074006900650073005d002c0022007c0022002900 ,
+                        0x3e0030002c0032002c003000290029003d003100000000000000000000000000 ,
+                        0x000000000000000000
+                    End
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    BackStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     IMESentenceMode =3
-                    Left =12360
+                    Left =12000
                     Top =60
                     Width =300
                     Height =300
@@ -959,20 +1162,43 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxCUREPriority"
+                    ControlSource ="=PopulateSpeciesPriorities(\"CURE\",[tbxAll])"
                     StatusBarText ="Park priority"
+                    ConditionalFormat = Begin
+                        0x010000001a010000010000000100000000000000000000005c00000001000000 ,
+                        0x00000000ccffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x280043006f0075006e00740049006e0053007400720069006e00670028005b00 ,
+                        0x5000610072006b005000720069006f007200690074006900650073005d002c00 ,
+                        0x220043005500520045002d003100220029002b00490049006600280043006f00 ,
+                        0x75006e00740049006e0053007400720069006e00670028005b00500061007200 ,
+                        0x6b005000720069006f007200690074006900650073005d002c0022007c002200 ,
+                        0x29003e0030002c0032002c003000290029003d00310000000000
+                    End
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =12360
+                    LayoutCachedLeft =12000
                     LayoutCachedTop =60
-                    LayoutCachedWidth =12660
+                    LayoutCachedWidth =12300
                     LayoutCachedHeight =360
+                    ConditionalFormat14 = Begin
+                        0x01000100000001000000000000000100000000000000ccffff005b0000002800 ,
+                        0x43006f0075006e00740049006e0053007400720069006e00670028005b005000 ,
+                        0x610072006b005000720069006f007200690074006900650073005d002c002200 ,
+                        0x43005500520045002d003100220029002b00490049006600280043006f007500 ,
+                        0x6e00740049006e0053007400720069006e00670028005b005000610072006b00 ,
+                        0x5000720069006f007200690074006900650073005d002c0022007c0022002900 ,
+                        0x3e0030002c0032002c003000290029003d003100000000000000000000000000 ,
+                        0x000000000000000000
+                    End
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    BackStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     IMESentenceMode =3
-                    Left =12720
+                    Left =12360
                     Top =60
                     Width =300
                     Height =300
@@ -981,20 +1207,43 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxDINOPriority"
+                    ControlSource ="=PopulateSpeciesPriorities(\"DINO\",[tbxAll])"
                     StatusBarText ="Park priority"
+                    ConditionalFormat = Begin
+                        0x010000001a010000010000000100000000000000000000005c00000001000000 ,
+                        0x00000000ccffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x280043006f0075006e00740049006e0053007400720069006e00670028005b00 ,
+                        0x5000610072006b005000720069006f007200690074006900650073005d002c00 ,
+                        0x2200440049004e004f002d003100220029002b00490049006600280043006f00 ,
+                        0x75006e00740049006e0053007400720069006e00670028005b00500061007200 ,
+                        0x6b005000720069006f007200690074006900650073005d002c0022007c002200 ,
+                        0x29003e0030002c0032002c003000290029003d00310000000000
+                    End
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =12720
+                    LayoutCachedLeft =12360
                     LayoutCachedTop =60
-                    LayoutCachedWidth =13020
+                    LayoutCachedWidth =12660
                     LayoutCachedHeight =360
+                    ConditionalFormat14 = Begin
+                        0x01000100000001000000000000000100000000000000ccffff005b0000002800 ,
+                        0x43006f0075006e00740049006e0053007400720069006e00670028005b005000 ,
+                        0x610072006b005000720069006f007200690074006900650073005d002c002200 ,
+                        0x440049004e004f002d003100220029002b00490049006600280043006f007500 ,
+                        0x6e00740049006e0053007400720069006e00670028005b005000610072006b00 ,
+                        0x5000720069006f007200690074006900650073005d002c0022007c0022002900 ,
+                        0x3e0030002c0032002c003000290029003d003100000000000000000000000000 ,
+                        0x000000000000000000
+                    End
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    BackStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     IMESentenceMode =3
-                    Left =13080
+                    Left =12720
                     Top =60
                     Width =300
                     Height =300
@@ -1003,20 +1252,43 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxFOBUPriority"
+                    ControlSource ="=PopulateSpeciesPriorities(\"FOBU\",[tbxAll])"
                     StatusBarText ="Park priority"
+                    ConditionalFormat = Begin
+                        0x010000001a010000010000000100000000000000000000005c00000001000000 ,
+                        0x00000000ccffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x280043006f0075006e00740049006e0053007400720069006e00670028005b00 ,
+                        0x5000610072006b005000720069006f007200690074006900650073005d002c00 ,
+                        0x220046004f00420055002d003100220029002b00490049006600280043006f00 ,
+                        0x75006e00740049006e0053007400720069006e00670028005b00500061007200 ,
+                        0x6b005000720069006f007200690074006900650073005d002c0022007c002200 ,
+                        0x29003e0030002c0032002c003000290029003d00310000000000
+                    End
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =13080
+                    LayoutCachedLeft =12720
                     LayoutCachedTop =60
-                    LayoutCachedWidth =13380
+                    LayoutCachedWidth =13020
                     LayoutCachedHeight =360
+                    ConditionalFormat14 = Begin
+                        0x01000100000001000000000000000100000000000000ccffff005b0000002800 ,
+                        0x43006f0075006e00740049006e0053007400720069006e00670028005b005000 ,
+                        0x610072006b005000720069006f007200690074006900650073005d002c002200 ,
+                        0x46004f00420055002d003100220029002b00490049006600280043006f007500 ,
+                        0x6e00740049006e0053007400720069006e00670028005b005000610072006b00 ,
+                        0x5000720069006f007200690074006900650073005d002c0022007c0022002900 ,
+                        0x3e0030002c0032002c003000290029003d003100000000000000000000000000 ,
+                        0x000000000000000000
+                    End
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    BackStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     IMESentenceMode =3
-                    Left =13440
+                    Left =13080
                     Top =60
                     Width =300
                     Height =300
@@ -1025,20 +1297,43 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxGOSPPriority"
+                    ControlSource ="=PopulateSpeciesPriorities(\"GOSP\",[tbxAll])"
                     StatusBarText ="Park priority"
+                    ConditionalFormat = Begin
+                        0x010000001a010000010000000100000000000000000000005c00000001000000 ,
+                        0x00000000ccffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x280043006f0075006e00740049006e0053007400720069006e00670028005b00 ,
+                        0x5000610072006b005000720069006f007200690074006900650073005d002c00 ,
+                        0x220047004f00530050002d003100220029002b00490049006600280043006f00 ,
+                        0x75006e00740049006e0053007400720069006e00670028005b00500061007200 ,
+                        0x6b005000720069006f007200690074006900650073005d002c0022007c002200 ,
+                        0x29003e0030002c0032002c003000290029003d00310000000000
+                    End
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =13440
+                    LayoutCachedLeft =13080
                     LayoutCachedTop =60
-                    LayoutCachedWidth =13740
+                    LayoutCachedWidth =13380
                     LayoutCachedHeight =360
+                    ConditionalFormat14 = Begin
+                        0x01000100000001000000000000000100000000000000ccffff005b0000002800 ,
+                        0x43006f0075006e00740049006e0053007400720069006e00670028005b005000 ,
+                        0x610072006b005000720069006f007200690074006900650073005d002c002200 ,
+                        0x47004f00530050002d003100220029002b00490049006600280043006f007500 ,
+                        0x6e00740049006e0053007400720069006e00670028005b005000610072006b00 ,
+                        0x5000720069006f007200690074006900650073005d002c0022007c0022002900 ,
+                        0x3e0030002c0032002c003000290029003d003100000000000000000000000000 ,
+                        0x000000000000000000
+                    End
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    BackStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     IMESentenceMode =3
-                    Left =13800
+                    Left =13440
                     Top =60
                     Width =300
                     Height =300
@@ -1047,20 +1342,43 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxHOVEPriority"
+                    ControlSource ="=PopulateSpeciesPriorities(\"HOVE\",[tbxAll])"
                     StatusBarText ="Park priority"
+                    ConditionalFormat = Begin
+                        0x010000001a010000010000000100000000000000000000005c00000001000000 ,
+                        0x00000000ccffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x280043006f0075006e00740049006e0053007400720069006e00670028005b00 ,
+                        0x5000610072006b005000720069006f007200690074006900650073005d002c00 ,
+                        0x220048004f00560045002d003100220029002b00490049006600280043006f00 ,
+                        0x75006e00740049006e0053007400720069006e00670028005b00500061007200 ,
+                        0x6b005000720069006f007200690074006900650073005d002c0022007c002200 ,
+                        0x29003e0030002c0032002c003000290029003d00310000000000
+                    End
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =13800
+                    LayoutCachedLeft =13440
                     LayoutCachedTop =60
-                    LayoutCachedWidth =14100
+                    LayoutCachedWidth =13740
                     LayoutCachedHeight =360
+                    ConditionalFormat14 = Begin
+                        0x01000100000001000000000000000100000000000000ccffff005b0000002800 ,
+                        0x43006f0075006e00740049006e0053007400720069006e00670028005b005000 ,
+                        0x610072006b005000720069006f007200690074006900650073005d002c002200 ,
+                        0x48004f00560045002d003100220029002b00490049006600280043006f007500 ,
+                        0x6e00740049006e0053007400720069006e00670028005b005000610072006b00 ,
+                        0x5000720069006f007200690074006900650073005d002c0022007c0022002900 ,
+                        0x3e0030002c0032002c003000290029003d003100000000000000000000000000 ,
+                        0x000000000000000000
+                    End
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    BackStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     IMESentenceMode =3
-                    Left =14160
+                    Left =13800
                     Top =60
                     Width =300
                     Height =300
@@ -1069,20 +1387,43 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxNABRPriority"
+                    ControlSource ="=PopulateSpeciesPriorities(\"NABR\",[tbxAll])"
                     StatusBarText ="Park priority"
+                    ConditionalFormat = Begin
+                        0x010000001a010000010000000100000000000000000000005c00000001000000 ,
+                        0x00000000ccffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x280043006f0075006e00740049006e0053007400720069006e00670028005b00 ,
+                        0x5000610072006b005000720069006f007200690074006900650073005d002c00 ,
+                        0x22004e004100420052002d003100220029002b00490049006600280043006f00 ,
+                        0x75006e00740049006e0053007400720069006e00670028005b00500061007200 ,
+                        0x6b005000720069006f007200690074006900650073005d002c0022007c002200 ,
+                        0x29003e0030002c0032002c003000290029003d00310000000000
+                    End
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =14160
+                    LayoutCachedLeft =13800
                     LayoutCachedTop =60
-                    LayoutCachedWidth =14460
+                    LayoutCachedWidth =14100
                     LayoutCachedHeight =360
+                    ConditionalFormat14 = Begin
+                        0x01000100000001000000000000000100000000000000ccffff005b0000002800 ,
+                        0x43006f0075006e00740049006e0053007400720069006e00670028005b005000 ,
+                        0x610072006b005000720069006f007200690074006900650073005d002c002200 ,
+                        0x4e004100420052002d003100220029002b00490049006600280043006f007500 ,
+                        0x6e00740049006e0053007400720069006e00670028005b005000610072006b00 ,
+                        0x5000720069006f007200690074006900650073005d002c0022007c0022002900 ,
+                        0x3e0030002c0032002c003000290029003d003100000000000000000000000000 ,
+                        0x000000000000000000
+                    End
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    BackStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     IMESentenceMode =3
-                    Left =14520
+                    Left =14160
                     Top =60
                     Width =300
                     Height =300
@@ -1091,20 +1432,43 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxPISPPriority"
+                    ControlSource ="=PopulateSpeciesPriorities(\"PISP\",[tbxAll])"
                     StatusBarText ="Park priority"
+                    ConditionalFormat = Begin
+                        0x010000001a010000010000000100000000000000000000005c00000001000000 ,
+                        0x00000000ccffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x280043006f0075006e00740049006e0053007400720069006e00670028005b00 ,
+                        0x5000610072006b005000720069006f007200690074006900650073005d002c00 ,
+                        0x220050004900530050002d003100220029002b00490049006600280043006f00 ,
+                        0x75006e00740049006e0053007400720069006e00670028005b00500061007200 ,
+                        0x6b005000720069006f007200690074006900650073005d002c0022007c002200 ,
+                        0x29003e0030002c0032002c003000290029003d00310000000000
+                    End
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =14520
+                    LayoutCachedLeft =14160
                     LayoutCachedTop =60
-                    LayoutCachedWidth =14820
+                    LayoutCachedWidth =14460
                     LayoutCachedHeight =360
+                    ConditionalFormat14 = Begin
+                        0x01000100000001000000000000000100000000000000ccffff005b0000002800 ,
+                        0x43006f0075006e00740049006e0053007400720069006e00670028005b005000 ,
+                        0x610072006b005000720069006f007200690074006900650073005d002c002200 ,
+                        0x50004900530050002d003100220029002b00490049006600280043006f007500 ,
+                        0x6e00740049006e0053007400720069006e00670028005b005000610072006b00 ,
+                        0x5000720069006f007200690074006900650073005d002c0022007c0022002900 ,
+                        0x3e0030002c0032002c003000290029003d003100000000000000000000000000 ,
+                        0x000000000000000000
+                    End
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    BackStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     IMESentenceMode =3
-                    Left =14880
+                    Left =14520
                     Top =60
                     Width =300
                     Height =300
@@ -1113,12 +1477,104 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxTICAPriority"
+                    ControlSource ="=PopulateSpeciesPriorities(\"TICA\",[tbxAll])"
                     StatusBarText ="Park priority"
+                    ConditionalFormat = Begin
+                        0x010000001a010000010000000100000000000000000000005c00000001000000 ,
+                        0x00000000ccffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x280043006f0075006e00740049006e0053007400720069006e00670028005b00 ,
+                        0x5000610072006b005000720069006f007200690074006900650073005d002c00 ,
+                        0x220054004900430041002d003100220029002b00490049006600280043006f00 ,
+                        0x75006e00740049006e0053007400720069006e00670028005b00500061007200 ,
+                        0x6b005000720069006f007200690074006900650073005d002c0022007c002200 ,
+                        0x29003e0030002c0032002c003000290029003d00310000000000
+                    End
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =14520
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =14820
+                    LayoutCachedHeight =360
+                    ConditionalFormat14 = Begin
+                        0x01000100000001000000000000000100000000000000ccffff005b0000002800 ,
+                        0x43006f0075006e00740049006e0053007400720069006e00670028005b005000 ,
+                        0x610072006b005000720069006f007200690074006900650073005d002c002200 ,
+                        0x54004900430041002d003100220029002b00490049006600280043006f007500 ,
+                        0x6e00740049006e0053007400720069006e00670028005b005000610072006b00 ,
+                        0x5000720069006f007200690074006900650073005d002c0022007c0022002900 ,
+                        0x3e0030002c0032002c003000290029003d003100000000000000000000000000 ,
+                        0x000000000000000000
+                    End
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    IMESentenceMode =3
+                    Left =14880
+                    Top =60
+                    Width =300
+                    Height =300
+                    FontSize =9
+                    TabIndex =22
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxZIONPriority"
+                    ControlSource ="=PopulateSpeciesPriorities(\"ZION\",[tbxAll])"
+                    StatusBarText ="Park priority"
+                    ConditionalFormat = Begin
+                        0x010000001a010000010000000100000000000000000000005c00000001000000 ,
+                        0x00000000ccffff00000000000000000000000000000000000000000000000000 ,
+                        0x0000000000000000000000000000000000000000000000000000000000000000 ,
+                        0x280043006f0075006e00740049006e0053007400720069006e00670028005b00 ,
+                        0x5000610072006b005000720069006f007200690074006900650073005d002c00 ,
+                        0x22005a0049004f004e002d003100220029002b00490049006600280043006f00 ,
+                        0x75006e00740049006e0053007400720069006e00670028005b00500061007200 ,
+                        0x6b005000720069006f007200690074006900650073005d002c0022007c002200 ,
+                        0x29003e0030002c0032002c003000290029003d00310000000000
+                    End
                     GridlineColor =10921638
 
                     LayoutCachedLeft =14880
                     LayoutCachedTop =60
                     LayoutCachedWidth =15180
+                    LayoutCachedHeight =360
+                    ConditionalFormat14 = Begin
+                        0x01000100000001000000000000000100000000000000ccffff005b0000002800 ,
+                        0x43006f0075006e00740049006e0053007400720069006e00670028005b005000 ,
+                        0x610072006b005000720069006f007200690074006900650073005d002c002200 ,
+                        0x5a0049004f004e002d003100220029002b00490049006600280043006f007500 ,
+                        0x6e00740049006e0053007400720069006e00670028005b005000610072006b00 ,
+                        0x5000720069006f007200690074006900650073005d002c0022007c0022002900 ,
+                        0x3e0030002c0032002c003000290029003d003100000000000000000000000000 ,
+                        0x000000000000000000
+                    End
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =16500
+                    Top =60
+                    Width =660
+                    Height =300
+                    FontSize =9
+                    TabIndex =23
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxRunSumPri1"
+                    ControlSource ="=CountInString([ParkPriorities],1)"
+                    StatusBarText ="Park priority"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =16500
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =17160
                     LayoutCachedHeight =360
                 End
                 Begin TextBox
@@ -1126,67 +1582,391 @@ Begin Report
                     OldBorderStyle =0
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =15240
+                    Left =15480
                     Top =60
-                    Width =300
+                    Width =660
                     Height =300
                     FontSize =9
-                    TabIndex =21
+                    TabIndex =24
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="tbxZIONPriority"
+                    Name ="tbxSumSpeciesPri1"
+                    ControlSource ="=CountInString([ParkPriorities],1)"
                     StatusBarText ="Park priority"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =15240
+                    LayoutCachedLeft =15480
                     LayoutCachedTop =60
-                    LayoutCachedWidth =15540
+                    LayoutCachedWidth =16140
                     LayoutCachedHeight =360
                 End
                 Begin TextBox
                     Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
                     OldBorderStyle =0
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =7320
-                    Top =60
-                    Width =600
+                    Left =17880
+                    Width =240
                     Height =300
                     FontSize =9
-                    TabIndex =22
+                    TabIndex =25
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="tbxPriority"
-                    ControlSource ="ParkPriorities"
-                    StatusBarText ="FK to plant master code (tlu_NCPN_Plants.Master_Species)"
+                    Name ="tbxARCH"
+                    ControlSource ="=CountInString([ParkPriorities],\"ARCH-1\")"
+                    StatusBarText ="Park priority"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =7320
-                    LayoutCachedTop =60
-                    LayoutCachedWidth =7920
-                    LayoutCachedHeight =360
+                    LayoutCachedLeft =17880
+                    LayoutCachedWidth =18120
+                    LayoutCachedHeight =300
                 End
                 Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
                     OldBorderStyle =0
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =9960
-                    Top =480
-                    Width =5280
+                    Left =18180
+                    Width =240
                     Height =300
                     FontSize =9
-                    TabIndex =23
+                    TabIndex =26
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="tbxAll"
-                    ControlSource ="ParkPriorities"
-                    StatusBarText ="FK to plant master code (tlu_NCPN_Plants.Master_Species)"
+                    Name ="tbxBLCA"
+                    ControlSource ="=CountInString([ParkPriorities],\"BLCA-1\")"
+                    StatusBarText ="Park priority"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =9960
-                    LayoutCachedTop =480
-                    LayoutCachedWidth =15240
-                    LayoutCachedHeight =780
+                    LayoutCachedLeft =18180
+                    LayoutCachedWidth =18420
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =18480
+                    Width =240
+                    Height =300
+                    FontSize =9
+                    TabIndex =27
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxBRCA"
+                    ControlSource ="=CountInString([ParkPriorities],\"BRCA-1\")"
+                    StatusBarText ="Park priority"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =18480
+                    LayoutCachedWidth =18720
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =18780
+                    Width =240
+                    Height =300
+                    FontSize =9
+                    TabIndex =28
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxCANY"
+                    ControlSource ="=CountInString([ParkPriorities],\"CANY-1\")"
+                    StatusBarText ="Park priority"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =18780
+                    LayoutCachedWidth =19020
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =19080
+                    Width =240
+                    Height =300
+                    FontSize =9
+                    TabIndex =29
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxCARE"
+                    ControlSource ="=CountInString([ParkPriorities],\"CARE-1\")"
+                    StatusBarText ="Park priority"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =19080
+                    LayoutCachedWidth =19320
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =19380
+                    Width =240
+                    Height =300
+                    FontSize =9
+                    TabIndex =30
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxCEBR"
+                    ControlSource ="=CountInString([ParkPriorities],\"CEBR-1\")"
+                    StatusBarText ="Park priority"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =19380
+                    LayoutCachedWidth =19620
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =19680
+                    Width =240
+                    Height =300
+                    FontSize =9
+                    TabIndex =31
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxCOLM"
+                    ControlSource ="=CountInString([ParkPriorities],\"COLM-1\")"
+                    StatusBarText ="Park priority"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =19680
+                    LayoutCachedWidth =19920
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =19980
+                    Width =240
+                    Height =300
+                    FontSize =9
+                    TabIndex =32
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxCURE"
+                    ControlSource ="=CountInString([ParkPriorities],\"CURE-1\")"
+                    StatusBarText ="Park priority"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =19980
+                    LayoutCachedWidth =20220
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =20280
+                    Width =240
+                    Height =300
+                    FontSize =9
+                    TabIndex =33
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxDINO"
+                    ControlSource ="=CountInString([ParkPriorities],\"DINO-1\")"
+                    StatusBarText ="Park priority"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =20280
+                    LayoutCachedWidth =20520
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =20580
+                    Width =240
+                    Height =300
+                    FontSize =9
+                    TabIndex =34
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxFOBU"
+                    ControlSource ="=CountInString([ParkPriorities],\"FOBU-1\")"
+                    StatusBarText ="Park priority"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =20580
+                    LayoutCachedWidth =20820
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =20880
+                    Width =240
+                    Height =300
+                    FontSize =9
+                    TabIndex =35
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxGOSP"
+                    ControlSource ="=CountInString([ParkPriorities],\"GOSP-1\")"
+                    StatusBarText ="Park priority"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =20880
+                    LayoutCachedWidth =21120
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =21180
+                    Width =240
+                    Height =300
+                    FontSize =9
+                    TabIndex =36
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxHOVE"
+                    ControlSource ="=CountInString([ParkPriorities],\"HOVE-1\")"
+                    StatusBarText ="Park priority"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =21180
+                    LayoutCachedWidth =21420
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =21480
+                    Width =240
+                    Height =300
+                    FontSize =9
+                    TabIndex =37
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxNABR"
+                    ControlSource ="=CountInString([ParkPriorities],\"NABR-1\")"
+                    StatusBarText ="Park priority"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =21480
+                    LayoutCachedWidth =21720
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =21780
+                    Width =240
+                    Height =300
+                    FontSize =9
+                    TabIndex =38
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxPISP"
+                    ControlSource ="=CountInString([ParkPriorities],\"PISP-1\")"
+                    StatusBarText ="Park priority"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =21780
+                    LayoutCachedWidth =22020
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =22080
+                    Width =240
+                    Height =300
+                    FontSize =9
+                    TabIndex =39
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxTICA"
+                    ControlSource ="=CountInString([ParkPriorities],\"TICA-1\")"
+                    StatusBarText ="Park priority"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =22080
+                    LayoutCachedWidth =22320
+                    LayoutCachedHeight =300
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =22380
+                    Width =240
+                    Height =300
+                    FontSize =9
+                    TabIndex =40
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxZION"
+                    ControlSource ="=CountInString([ParkPriorities],\"ZION-1\")"
+                    StatusBarText ="Park priority"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =22380
+                    LayoutCachedWidth =22620
+                    LayoutCachedHeight =300
                 End
             End
         End
@@ -1199,7 +1979,6 @@ Begin Report
         End
         Begin FormFooter
             KeepTogether = NotDefault
-            Height =1320
             Name ="ReportFooter"
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
@@ -1212,26 +1991,26 @@ Begin Report
                     BackStyle =0
                     IMESentenceMode =3
                     Left =10020
-                    Top =720
+                    Top =960
                     Width =1140
                     Height =312
                     FontSize =12
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumPriority1"
-                    ControlSource ="=CDbl(Nz(Count([Priority]),0))"
+                    ControlSource ="=[tbxRunSumPri1]"
                     StatusBarText ="Standard park code (CANY, FOBU, etc.)"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =10020
-                    LayoutCachedTop =720
+                    LayoutCachedTop =960
                     LayoutCachedWidth =11160
-                    LayoutCachedHeight =1032
+                    LayoutCachedHeight =1272
                 End
                 Begin Label
                     TextAlign =3
                     Left =7200
-                    Top =720
+                    Top =960
                     Width =2700
                     Height =324
                     FontSize =12
@@ -1243,9 +2022,9 @@ Begin Report
                     GridlineStyleBottom =1
                     GridlineColor =10921638
                     LayoutCachedLeft =7200
-                    LayoutCachedTop =720
+                    LayoutCachedTop =960
                     LayoutCachedWidth =9900
-                    LayoutCachedHeight =1044
+                    LayoutCachedHeight =1284
                 End
                 Begin Line
                     BorderWidth =2
@@ -1259,10 +2038,12 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =9840
-                    Top =120
+                    Left =9480
+                    Top =60
                     Width =300
                     Height =300
                     FontSize =9
@@ -1270,22 +2051,24 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumARCH"
-                    ControlSource ="=Sum([tbxARCHPriority])"
+                    ControlSource ="=[tbxARCH]"
                     StatusBarText ="Total # priority 1 (ARCH)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =9840
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =10140
-                    LayoutCachedHeight =420
+                    LayoutCachedLeft =9480
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =9780
+                    LayoutCachedHeight =360
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =10200
-                    Top =120
+                    Left =9840
+                    Top =60
                     Width =300
                     Height =300
                     FontSize =9
@@ -1293,22 +2076,24 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumBLCA"
-                    ControlSource ="=Sum([tbxBLCAPriority])"
+                    ControlSource ="=[tbxBLCA]"
                     StatusBarText ="Total # priority 1 (BLCA)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =10200
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =10500
-                    LayoutCachedHeight =420
+                    LayoutCachedLeft =9840
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =10140
+                    LayoutCachedHeight =360
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =10560
-                    Top =120
+                    Left =10200
+                    Top =60
                     Width =300
                     Height =300
                     FontSize =9
@@ -1316,22 +2101,24 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumBRCA"
-                    ControlSource ="=Sum([tbxBRCAPriority])"
+                    ControlSource ="=[tbxBRCA]"
                     StatusBarText ="Total # priority 1 (BRCA)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =10560
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =10860
-                    LayoutCachedHeight =420
+                    LayoutCachedLeft =10200
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =10500
+                    LayoutCachedHeight =360
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =10920
-                    Top =120
+                    Left =10560
+                    Top =60
                     Width =300
                     Height =300
                     FontSize =9
@@ -1339,22 +2126,24 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumCANY"
-                    ControlSource ="=Sum([tbxCANYPriority])"
+                    ControlSource ="=[tbxCANY]"
                     StatusBarText ="Total # priority 1 (CANY)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =10920
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =11220
-                    LayoutCachedHeight =420
+                    LayoutCachedLeft =10560
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =10860
+                    LayoutCachedHeight =360
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =11280
-                    Top =120
+                    Left =10920
+                    Top =60
                     Width =300
                     Height =300
                     FontSize =9
@@ -1362,22 +2151,24 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumCARE"
-                    ControlSource ="=Sum([tbxCAREPriority])"
+                    ControlSource ="=[tbxCARE]"
                     StatusBarText ="Total # priority 1 (CARE)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =11280
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =11580
-                    LayoutCachedHeight =420
+                    LayoutCachedLeft =10920
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =11220
+                    LayoutCachedHeight =360
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =11640
-                    Top =120
+                    Left =11280
+                    Top =60
                     Width =300
                     Height =300
                     FontSize =9
@@ -1385,22 +2176,24 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumCEBR"
-                    ControlSource ="=Sum([tbxCEBRPriority])"
+                    ControlSource ="=[tbxCEBR]"
                     StatusBarText ="Total # priority 1 (CEBR)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =11640
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =11940
-                    LayoutCachedHeight =420
+                    LayoutCachedLeft =11280
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =11580
+                    LayoutCachedHeight =360
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =12000
-                    Top =120
+                    Left =11640
+                    Top =60
                     Width =300
                     Height =300
                     FontSize =9
@@ -1408,22 +2201,24 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumCOLM"
-                    ControlSource ="=Sum([tbxCOLMPriority])"
+                    ControlSource ="=[tbxCOLM]"
                     StatusBarText ="Total # priority 1 (COLM)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =12000
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =12300
-                    LayoutCachedHeight =420
+                    LayoutCachedLeft =11640
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =11940
+                    LayoutCachedHeight =360
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =12360
-                    Top =120
+                    Left =12000
+                    Top =60
                     Width =300
                     Height =300
                     FontSize =9
@@ -1431,22 +2226,24 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumCURE"
-                    ControlSource ="=Sum([tbxCUREPriority])"
+                    ControlSource ="=[tbxCURE]"
                     StatusBarText ="Total # priority 1 (CURE)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =12360
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =12660
-                    LayoutCachedHeight =420
+                    LayoutCachedLeft =12000
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =12300
+                    LayoutCachedHeight =360
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =12720
-                    Top =120
+                    Left =12360
+                    Top =60
                     Width =300
                     Height =300
                     FontSize =9
@@ -1454,22 +2251,24 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumDINO"
-                    ControlSource ="=Sum([tbxDINOPriority])"
+                    ControlSource ="=[tbxDINO]"
                     StatusBarText ="Total # priority 1 (DINO)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =12720
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =13020
-                    LayoutCachedHeight =420
+                    LayoutCachedLeft =12360
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =12660
+                    LayoutCachedHeight =360
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =13080
-                    Top =120
+                    Left =12720
+                    Top =60
                     Width =300
                     Height =300
                     FontSize =9
@@ -1477,22 +2276,24 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumFOBU"
-                    ControlSource ="=Sum([tbxFOBUPriority])"
+                    ControlSource ="=[tbxFOBU]"
                     StatusBarText ="Total # priority 1 (FOBU)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =13080
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =13380
-                    LayoutCachedHeight =420
+                    LayoutCachedLeft =12720
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =13020
+                    LayoutCachedHeight =360
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =13440
-                    Top =120
+                    Left =13080
+                    Top =60
                     Width =300
                     Height =300
                     FontSize =9
@@ -1500,22 +2301,24 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumGOSP"
-                    ControlSource ="=Sum([tbxGOSPPriority])"
+                    ControlSource ="=[tbxGOSP]"
                     StatusBarText ="Total # priority 1 (GOSP)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =13440
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =13740
-                    LayoutCachedHeight =420
+                    LayoutCachedLeft =13080
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =13380
+                    LayoutCachedHeight =360
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =13800
-                    Top =120
+                    Left =13440
+                    Top =60
                     Width =300
                     Height =300
                     FontSize =9
@@ -1523,22 +2326,24 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumHOVE"
-                    ControlSource ="=Sum([tbxHOVEPriority])"
+                    ControlSource ="=[tbxHOVE]"
                     StatusBarText ="Total # priority 1 (HOVE)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =13800
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =14100
-                    LayoutCachedHeight =420
+                    LayoutCachedLeft =13440
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =13740
+                    LayoutCachedHeight =360
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =14160
-                    Top =120
+                    Left =13800
+                    Top =60
                     Width =300
                     Height =300
                     FontSize =9
@@ -1546,22 +2351,24 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumNABR"
-                    ControlSource ="=Sum([tbxNABRPriority])"
+                    ControlSource ="=[tbxNABR]"
                     StatusBarText ="Total # priority 1 (NABR)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =14160
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =14460
-                    LayoutCachedHeight =420
+                    LayoutCachedLeft =13800
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =14100
+                    LayoutCachedHeight =360
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =14520
-                    Top =120
+                    Left =14160
+                    Top =60
                     Width =300
                     Height =300
                     FontSize =9
@@ -1569,22 +2376,24 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumPISP"
-                    ControlSource ="=Sum([tbxPISPPriority])"
+                    ControlSource ="=[tbxPISP]"
                     StatusBarText ="Total # priority 1 (PISP)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =14520
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =14820
-                    LayoutCachedHeight =420
+                    LayoutCachedLeft =14160
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =14460
+                    LayoutCachedHeight =360
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =14880
-                    Top =120
+                    Left =14520
+                    Top =60
                     Width =300
                     Height =300
                     FontSize =9
@@ -1592,22 +2401,24 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumTICA"
-                    ControlSource ="=Sum([tbxTICAPriority])"
+                    ControlSource ="=[tbxTICA]"
                     StatusBarText ="Total # priority 1 (TICA)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =14880
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =15180
-                    LayoutCachedHeight =420
+                    LayoutCachedLeft =14520
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =14820
+                    LayoutCachedHeight =360
                 End
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =15240
-                    Top =120
+                    Left =14880
+                    Top =60
                     Width =300
                     Height =270
                     FontSize =9
@@ -1615,14 +2426,470 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumZION"
-                    ControlSource ="=Sum([tbxZIONPriority])"
+                    ControlSource ="=[tbxZION]"
                     StatusBarText ="Total # priority 1 (ZION)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =15240
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =15540
-                    LayoutCachedHeight =390
+                    LayoutCachedLeft =14880
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =15180
+                    LayoutCachedHeight =330
+                End
+                Begin Label
+                    TextAlign =3
+                    Left =5880
+                    Top =60
+                    Width =3480
+                    Height =324
+                    FontSize =10
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblParkPriorities"
+                    Caption ="Total # Priority 1 Species by Park ="
+                    Tag ="DetachedLabel"
+                    GridlineStyleBottom =1
+                    GridlineColor =10921638
+                    LayoutCachedLeft =5880
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =9360
+                    LayoutCachedHeight =384
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =9480
+                    Top =420
+                    Width =300
+                    Height =300
+                    FontSize =9
+                    TabIndex =17
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUniqueARCH"
+                    ControlSource ="=Sum(IIf(CountInString([ParkPriorities],\"1\")=1,CountInString([ParkPriorities],"
+                        "\"ARCH-1\"),0))"
+                    StatusBarText ="Total # unique priority 1 (ARCH)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =9480
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =9780
+                    LayoutCachedHeight =720
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =9840
+                    Top =420
+                    Width =300
+                    Height =300
+                    FontSize =9
+                    TabIndex =18
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUniqueBLCA"
+                    ControlSource ="=Sum(IIf(CountInString([ParkPriorities],\"1\")=1,CountInString([ParkPriorities],"
+                        "\"BLCA-1\"),0))"
+                    StatusBarText ="Total # unique priority 1 (BLCA)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =9840
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =10140
+                    LayoutCachedHeight =720
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =10200
+                    Top =420
+                    Width =300
+                    Height =300
+                    FontSize =9
+                    TabIndex =19
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUniqueBRCA"
+                    ControlSource ="=Sum(IIf(CountInString([ParkPriorities],\"1\")=1,CountInString([ParkPriorities],"
+                        "\"BRCA-1\"),0))"
+                    StatusBarText ="Total # unique priority 1 (BRCA)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =10200
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =10500
+                    LayoutCachedHeight =720
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =10560
+                    Top =420
+                    Width =300
+                    Height =300
+                    FontSize =9
+                    TabIndex =20
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUniqueCANY"
+                    ControlSource ="=Sum(IIf(CountInString([ParkPriorities],\"1\")=1,CountInString([ParkPriorities],"
+                        "\"CANY-1\"),0))"
+                    StatusBarText ="Total # unique priority 1 (CANY)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =10560
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =10860
+                    LayoutCachedHeight =720
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =10920
+                    Top =420
+                    Width =300
+                    Height =300
+                    FontSize =9
+                    TabIndex =21
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUniqueCARE"
+                    ControlSource ="=Sum(IIf(CountInString([ParkPriorities],\"1\")=1,CountInString([ParkPriorities],"
+                        "\"CARE-1\"),0))"
+                    StatusBarText ="Total # unique priority 1 (CARE)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =10920
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =11220
+                    LayoutCachedHeight =720
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =11280
+                    Top =420
+                    Width =300
+                    Height =300
+                    FontSize =9
+                    TabIndex =22
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUniqueCEBR"
+                    ControlSource ="=Sum(IIf(CountInString([ParkPriorities],\"1\")=1,CountInString([ParkPriorities],"
+                        "\"CEBR-1\"),0))"
+                    StatusBarText ="Total # unique priority 1 (CEBR)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =11280
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =11580
+                    LayoutCachedHeight =720
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =11640
+                    Top =420
+                    Width =300
+                    Height =300
+                    FontSize =9
+                    TabIndex =23
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUniqueCOLM"
+                    ControlSource ="=Sum(IIf(CountInString([ParkPriorities],\"1\")=1,CountInString([ParkPriorities],"
+                        "\"COLM-1\"),0))"
+                    StatusBarText ="Total # unique priority 1 (COLM)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =11640
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =11940
+                    LayoutCachedHeight =720
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =12000
+                    Top =420
+                    Width =300
+                    Height =300
+                    FontSize =9
+                    TabIndex =24
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUniqueCURE"
+                    ControlSource ="=Sum(IIf(CountInString([ParkPriorities],\"1\")=1,CountInString([ParkPriorities],"
+                        "\"CURE-1\"),0))"
+                    StatusBarText ="Total # unique priority 1 (CURE)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =12000
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =12300
+                    LayoutCachedHeight =720
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =12360
+                    Top =420
+                    Width =300
+                    Height =300
+                    FontSize =9
+                    TabIndex =25
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUniqueDINO"
+                    ControlSource ="=Sum(IIf(CountInString([ParkPriorities],\"1\")=1,CountInString([ParkPriorities],"
+                        "\"DINO-1\"),0))"
+                    StatusBarText ="Total # unique priority 1 (DINO)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =12360
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =12660
+                    LayoutCachedHeight =720
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =12720
+                    Top =420
+                    Width =300
+                    Height =300
+                    FontSize =9
+                    TabIndex =26
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUniqueFOBU"
+                    ControlSource ="=Sum(IIf(CountInString([ParkPriorities],\"1\")=1,CountInString([ParkPriorities],"
+                        "\"FOBU-1\"),0))"
+                    StatusBarText ="Total # unique priority 1 (FOBU)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =12720
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =13020
+                    LayoutCachedHeight =720
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =13080
+                    Top =420
+                    Width =300
+                    Height =300
+                    FontSize =9
+                    TabIndex =27
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUniqueGOSP"
+                    ControlSource ="=Sum(IIf(CountInString([ParkPriorities],\"1\")=1,CountInString([ParkPriorities],"
+                        "\"GOSP-1\"),0))"
+                    StatusBarText ="Total # unique priority 1 (GOSP)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =13080
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =13380
+                    LayoutCachedHeight =720
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =13440
+                    Top =420
+                    Width =300
+                    Height =300
+                    FontSize =9
+                    TabIndex =28
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUniqueHOVE"
+                    ControlSource ="=Sum(IIf(CountInString([ParkPriorities],\"1\")=1,CountInString([ParkPriorities],"
+                        "\"HOVE-1\"),0))"
+                    StatusBarText ="Total # unique priority 1 (HOVE)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =13440
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =13740
+                    LayoutCachedHeight =720
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =13800
+                    Top =420
+                    Width =300
+                    Height =300
+                    FontSize =9
+                    TabIndex =29
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUniqueNABR"
+                    ControlSource ="=Sum(IIf(CountInString([ParkPriorities],\"1\")=1,CountInString([ParkPriorities],"
+                        "\"NABR-1\"),0))"
+                    StatusBarText ="Total # unique priority 1 (NABR)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =13800
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =14100
+                    LayoutCachedHeight =720
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =14160
+                    Top =420
+                    Width =300
+                    Height =300
+                    FontSize =9
+                    TabIndex =30
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUniquePISP"
+                    ControlSource ="=Sum(IIf(CountInString([ParkPriorities],\"1\")=1,CountInString([ParkPriorities],"
+                        "\"PISP-1\"),0))"
+                    StatusBarText ="Total # unique priority 1 (PISP)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =14160
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =14460
+                    LayoutCachedHeight =720
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =14520
+                    Top =420
+                    Width =300
+                    Height =300
+                    FontSize =9
+                    TabIndex =31
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUniqueTICA"
+                    ControlSource ="=Sum(IIf(CountInString([ParkPriorities],\"1\")=1,CountInString([ParkPriorities],"
+                        "\"TICA-1\"),0))"
+                    StatusBarText ="Total # unqiue priority 1 (TICA)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =14520
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =14820
+                    LayoutCachedHeight =720
+                End
+                Begin TextBox
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    OverlapFlags =4
+                    TextAlign =2
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =14880
+                    Top =420
+                    Width =300
+                    Height =270
+                    FontSize =9
+                    TabIndex =32
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxUniqueZION"
+                    ControlSource ="=Sum(IIf(CountInString([ParkPriorities],\"1\")=1,CountInString([ParkPriorities],"
+                        "\"ZION-1\"),0))"
+                    StatusBarText ="Total # unique priority 1 (ZION)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =14880
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =15180
+                    LayoutCachedHeight =690
+                End
+                Begin Label
+                    TextAlign =3
+                    Left =5880
+                    Top =420
+                    Width =3480
+                    Height =324
+                    FontSize =10
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="Label118"
+                    Caption ="Unique Priority 1 Species ="
+                    Tag ="DetachedLabel"
+                    GridlineStyleBottom =1
+                    GridlineColor =10921638
+                    LayoutCachedLeft =5880
+                    LayoutCachedTop =420
+                    LayoutCachedWidth =9360
+                    LayoutCachedHeight =744
                 End
             End
         End
@@ -1680,13 +2947,6 @@ On Error GoTo Err_Handler
         Me.OrderBy = Me.OpenArgs
     End If
     
-    'set the background color if tbxPriority = "Transect Only" or a Target_Area vs. Priority #
-    'use conditional formatting for tbxDetail:
-    '   [tbxPriority] = "Transect Only"  >>  ltLime
-    '   (Not IsNumeric[tbxPriority])) And ([tbxPriority] <> "Transect Only") >> ltYellow
-    
-    'prepare the Park Priority values
-    'ParkPriorities = Split(tbxPriority, "|")
     
 Exit_Sub:
     Exit Sub
@@ -1717,20 +2977,6 @@ Private Sub Report_Load()
 
 On Error GoTo Err_Handler
 
-Dim ParkPriorities As Variant
-Dim tbx As Variant
-Dim i As Integer
-
-    'prepare the Park Priority values
-    ParkPriorities = Split(tbxPriority, "|")
-    
-    'textboxes
-    tbx = Array("ARCH", "BLCA", "BRCA", "CANY", "CARE", "CEBR", "COLM", "CURE", "DINO", "FOBU", "GOSP", "HOVE", "NABR", "PISP", "TICA", "ZION")
-        
-    'set park priority values
-    For i = 0 To UBound(ParkPriorities) - 1
-        Me.Controls("tbx" + tbx(i) + "Priority") = ParkPriorities(i)
-    Next
     
 Exit_Sub:
     Exit Sub
@@ -1761,10 +3007,6 @@ Private Sub Detail_Format(Cancel As Integer, FormatCount As Integer)
 
 On Error GoTo Err_Handler
 
-Dim ParkPriorities As Variant
-
-    'prepare the Park Priority values
-    ParkPriorities = Split(tbxPriority, "|")
     
 Exit_Sub:
     Exit Sub
