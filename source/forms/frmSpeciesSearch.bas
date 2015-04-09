@@ -1489,7 +1489,7 @@ Private Sub btnSearch_Click()
 On Error GoTo Err_Handler
     
     Dim speciestype As Variant
-    Dim strSearch As String, strSpecies As String, strWhere As String, strSql As String
+    Dim strSearch As String, strSpecies As String, strWhere As String, strSQL As String
     Dim i As Integer
 
     'ignore if disabled
@@ -1559,7 +1559,7 @@ On Error GoTo Err_Handler
     If Len(Replace(strWhere, "WHERE", "")) = 0 Then strWhere = ""
     
     'build SQL statement
-    strSql = "SELECT DISTINCT LU_Code, Master_Species, Utah_Species, CO_Species, WY_Species, " _
+    strSQL = "SELECT DISTINCT LU_Code, Master_Species, Utah_Species, CO_Species, WY_Species, " _
             & "Master_Common_Name " _
             & "FROM tlu_NCPN_Plants " _
             & strWhere & ";"
@@ -1568,7 +1568,7 @@ On Error GoTo Err_Handler
     Dim rs As DAO.Recordset
       
     'fetch data
-    Set rs = CurrentDb.OpenRecordset(strSql) ', dbOpenSnapshot)
+    Set rs = CurrentDb.OpenRecordset(strSQL) ', dbOpenSnapshot)
 
     'set form results
     Set Me.Recordset = rs
@@ -1683,7 +1683,7 @@ Public Sub SpeciesSearch()
 On Error GoTo Err_Handler
     
     Dim speciestype As Variant
-    Dim strSearch As String, strSpecies As String, strWhere As String, strSql As String
+    Dim strSearch As String, strSpecies As String, strWhere As String, strSQL As String
     Dim i As Integer
 
     'ignore if disabled
@@ -1753,7 +1753,7 @@ On Error GoTo Err_Handler
     If Len(Replace(strWhere, "WHERE", "")) = 0 Then strWhere = ""
     
     'build SQL statement
-    strSql = "SELECT DISTINCT LU_Code, Master_Species, Utah_Species, CO_Species, WY_Species, " _
+    strSQL = "SELECT DISTINCT LU_Code, Master_Species, Utah_Species, CO_Species, WY_Species, " _
             & "Master_Common_Name " _
             & "FROM tlu_NCPN_Plants " _
             & strWhere & ";"
@@ -1762,7 +1762,7 @@ On Error GoTo Err_Handler
     Dim rs As DAO.Recordset
       
     'fetch data
-    Set rs = CurrentDb.OpenRecordset(strSql) ', dbOpenSnapshot)
+    Set rs = CurrentDb.OpenRecordset(strSQL) ', dbOpenSnapshot)
 
     'set form results
     Set Me.Recordset = rs

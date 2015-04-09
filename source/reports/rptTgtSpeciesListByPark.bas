@@ -11,7 +11,7 @@ Begin Report
     GridY =24
     Width =11400
     DatasheetFontHeight =11
-    ItemSuffix =35
+    ItemSuffix =39
     Right =15630
     Bottom =11760
     DatasheetGridlinesColor =14806254
@@ -377,8 +377,8 @@ Begin Report
                     TextAlign =3
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =9360
-                    Width =1800
+                    Left =9780
+                    Width =1380
                     Height =435
                     FontSize =16
                     TabIndex =1
@@ -389,9 +389,53 @@ Begin Report
                     StatusBarText ="Target Species name (ITIS species name from tlu_NCPN_Plants.Master_Species)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =9360
+                    LayoutCachedLeft =9780
                     LayoutCachedWidth =11160
                     LayoutCachedHeight =435
+                End
+                Begin TextBox
+                    FontItalic = NotDefault
+                    OldBorderStyle =0
+                    TextAlign =1
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =9300
+                    Top =90
+                    Width =540
+                    Height =345
+                    FontSize =12
+                    TabIndex =2
+                    BorderColor =10921638
+                    ForeColor =8355711
+                    Name ="tbxSumParkPriority"
+                    ControlSource ="=Sum([Priority])"
+                    StatusBarText ="Target Species name (ITIS species name from tlu_NCPN_Plants.Master_Species)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =9300
+                    LayoutCachedTop =90
+                    LayoutCachedWidth =9840
+                    LayoutCachedHeight =435
+                    ForeTint =50.0
+                End
+                Begin Label
+                    FontItalic = NotDefault
+                    TextAlign =3
+                    Left =7500
+                    Top =120
+                    Width =1680
+                    Height =300
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblPriority1Species"
+                    Caption ="Priority 1 Species:"
+                    Tag ="DetachedLabel"
+                    GridlineStyleBottom =1
+                    GridlineColor =10921638
+                    LayoutCachedLeft =7500
+                    LayoutCachedTop =120
+                    LayoutCachedWidth =9180
+                    LayoutCachedHeight =420
                 End
             End
         End
@@ -590,6 +634,29 @@ Begin Report
                     LayoutCachedLeft =240
                     LayoutCachedTop =60
                     LayoutCachedWidth =2040
+                    LayoutCachedHeight =372
+                End
+                Begin TextBox
+                    Visible = NotDefault
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =9600
+                    Top =60
+                    Width =660
+                    Height =312
+                    FontSize =9
+                    TabIndex =7
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxPriorityNum"
+                    ControlSource ="Priority"
+                    StatusBarText ="FK to plant master code (tlu_NCPN_Plants.Master_Species)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =9600
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =10260
                     LayoutCachedHeight =372
                 End
             End

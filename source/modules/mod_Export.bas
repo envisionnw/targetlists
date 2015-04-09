@@ -31,10 +31,12 @@ Public Sub OutputPDF(rpt As Report, strFilter As String, strWhere As String, str
                         strPDFName As String, strPath As String)
 
 On Error GoTo Err_Handler
+    
+    Dim strReportName As String
 
     DoCmd.OpenReport rpt, acViewPreview, strFilter, strWhere, acHidden, strOrderBy
 
-    strReportName = strPath & strReportName & ".pdf"
+    strReportName = strPath & rpt.name & ".pdf"
 
     DoCmd.OutputTo acOutputReport, "", acFormatPDF, strReportName, False
 

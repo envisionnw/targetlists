@@ -1,32 +1,24 @@
-﻿Operation =1
-Option =2
-Begin InputTables
-    Name ="qryAnnualCompleteTgtSpeciesLists"
-End
-Begin OutputColumns
-    Expression ="qryAnnualCompleteTgtSpeciesLists.Master_Plant_Code_FK"
-    Expression ="qryAnnualCompleteTgtSpeciesLists.Family"
-    Expression ="qryAnnualCompleteTgtSpeciesLists.Species_Name"
-    Expression ="qryAnnualCompleteTgtSpeciesLists.utah_species"
-    Expression ="qryAnnualCompleteTgtSpeciesLists.Co_Species"
-    Expression ="qryAnnualCompleteTgtSpeciesLists.Wy_Species"
-    Expression ="qryAnnualCompleteTgtSpeciesLists.Master_Common_Name"
-    Alias ="ParkPriorities"
-    Expression ="ConcatRelated(\"PriorityTarget\",\"qryAnnualCompleteTgtSpeciesLists\",\"Species_"
-        "Name\",'',\"|\")"
-End
+﻿dbMemo "SQL" ="SELECT DISTINCT qryAnnualCompleteTgtSpeciesLists.Master_Plant_Code_FK, qryAnnual"
+    "CompleteTgtSpeciesLists.Family, qryAnnualCompleteTgtSpeciesLists.Species_Name, q"
+    "ryAnnualCompleteTgtSpeciesLists.utah_species, qryAnnualCompleteTgtSpeciesLists.C"
+    "o_Species, qryAnnualCompleteTgtSpeciesLists.Wy_Species, qryAnnualCompleteTgtSpec"
+    "iesLists.Master_Common_Name, ConcatRelated(\"PriorityTarget\",\"qryAnnualComplet"
+    "eTgtSpeciesLists\",\"Species_Name=\"\"\" & [Species_Name] & \"\"\" and Park=\"\""
+    "\" & [Park] & \"\"\"\",'',\"|\") AS ParkPriorities\015\012FROM qryAnnualComplete"
+    "TgtSpeciesLists;\015\012"
+dbMemo "Connect" =""
 dbBoolean "ReturnsRecords" ="-1"
 dbInteger "ODBCTimeout" ="60"
 dbBoolean "OrderByOn" ="0"
 dbByte "Orientation" ="0"
 dbByte "DefaultView" ="2"
-dbBinary "GUID" = Begin
-    0x67580735b574924785e273813ad36afb
-End
 dbBoolean "FilterOnLoad" ="0"
 dbBoolean "OrderByOnLoad" ="-1"
 dbByte "RecordsetType" ="0"
 dbBoolean "TotalsRow" ="0"
+dbBinary "GUID" = Begin
+    0x168d07f52a87864bb9feae2549a3b03d
+End
 Begin
     Begin
         dbText "Name" ="qryAnnualCompleteTgtSpeciesLists.Family"
@@ -65,27 +57,12 @@ Begin
         dbText "Name" ="qryAnnualCompleteTgtSpeciesLists.Master_Plant_Code_FK"
         dbLong "AggregateType" ="-1"
     End
-End
-Begin
-    State =0
-    Left =0
-    Top =0
-    Right =1699
-    Bottom =805
-    Left =-1
-    Top =-1
-    Right =1301
-    Bottom =456
-    Left =0
-    Top =0
-    ColumnsShown =539
     Begin
-        Left =60
-        Top =15
-        Right =354
-        Bottom =399
-        Top =0
-        Name ="qryAnnualCompleteTgtSpeciesLists"
-        Name =""
+        dbText "Name" ="qryAnnualCompleteTgtSpeciesLists.Park"
+        dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="Expr1000"
+        dbLong "AggregateType" ="-1"
     End
 End

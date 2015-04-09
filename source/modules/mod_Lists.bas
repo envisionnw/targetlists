@@ -810,10 +810,10 @@ Public Sub SaveListToTable(ctrl As Control, tbl As String, tblFields As Variant,
 
 On Error GoTo Err_Handler
     
-    Dim strSql As String, strFields As String
+    Dim strSQL As String, strFields As String
     Dim i As Integer, iRow As Integer, jCol As Integer
     
-    strSql = "INSERT INTO " & tbl & " " & tblFields & "VALUES ("
+    strSQL = "INSERT INTO " & tbl & " " & tblFields & "VALUES ("
     
     ' prepare fields
     strFields = ""
@@ -832,9 +832,9 @@ On Error GoTo Err_Handler
     
             For jCol = 0 To ctrl.ColumnCount - 1
             
-            strSql = strSql & "'" & ctrl.Column(jCol, iRow) & "'"
+            strSQL = strSQL & "'" & ctrl.Column(jCol, iRow) & "'"
              
-            CurrentDb.Execute strSql, dbFailOnError
+            CurrentDb.Execute strSQL, dbFailOnError
             
             Next
     Next 'iRow

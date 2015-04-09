@@ -49,7 +49,7 @@ Public Function ConcatRelated(strField As String, _
 On Error GoTo Err_Handler
     Dim rs As DAO.Recordset         'Related records
     Dim rsMV As DAO.Recordset       'Multi-valued field recordset
-    Dim strSql As String            'SQL statement
+    Dim strSQL As String            'SQL statement
     Dim strOut As String            'Output string to concatenate to.
     Dim lngLen As Long              'Length of string.
     Dim bIsMultiValue As Boolean    'Flag if strField is a multi-valued field.
@@ -58,14 +58,14 @@ On Error GoTo Err_Handler
     ConcatRelated = Null
     
     'Build SQL string, and get the records.
-    strSql = "SELECT " & strField & " FROM " & strTable
+    strSQL = "SELECT " & strField & " FROM " & strTable
     If strWhere <> vbNullString Then
-        strSql = strSql & " WHERE " & strWhere
+        strSQL = strSQL & " WHERE " & strWhere
     End If
     If strOrderBy <> vbNullString Then
-        strSql = strSql & " ORDER BY " & strOrderBy
+        strSQL = strSQL & " ORDER BY " & strOrderBy
     End If
-    Set rs = DBEngine(0)(0).OpenRecordset(strSql, dbOpenDynaset)
+    Set rs = DBEngine(0)(0).OpenRecordset(strSQL, dbOpenDynaset)
     'Determine if the requested field is multi-valued (Type is above 100.)
     bIsMultiValue = (rs(0).Type > 100)
     
@@ -104,7 +104,66 @@ Err_Handler:
     Select Case Err.Number
       Case Else
         MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
-            "Error encountered (#" & Err.Number & " - XX[mod_SQL])"
+            "Error encountered (#" & Err.Number & " - ConcatRelated[mod_SQL])"
+    End Select
+    Resume Exit_Function
+End Function
+
+
+
+' ---------------------------------
+' SUB:          ConcatRelated
+' Description:  Used in SQL queries to generate concatenated string of related records
+' Assumptions:  used in Access SQL or control
+' Parameters:   strSQL - field to retrieve results from & concatenate (string)
+'               NameList() - limiting WHERE clause (string)
+'               strDelim - character to use between concatenated values (string)
+' Returns:      SQL (string, variant, or NULL if no matches)
+' Usage:        SQL string:
+'               SELECT documents.MembersOnly, Coalsce("SELECT FName From Persons WHERE Member=True",":") AS Who,
+'               Coalsce("", ":", "Mary", "Joe", "Pat?") As Others FROM documents;
+' Throws:       none
+' References:   none
+' Source/date:
+' Fionuala, September 18, 2008
+' http://stackoverflow.com/questions/92698/combine-rows-concatenate-rows?lq=1
+' Adapted:      Bonnie Campbell, April 8, 2015 - for NCPN tools
+' Revisions:
+'   BLC - 4/8/2015  - initial version
+' ---------------------------------
+Function Coalsce(strSQL As String, strDelim, ParamArray NameList() As Variant)
+Dim db As Database
+Dim rs As DAO.Recordset
+Dim strList As String
+
+    Set db = CurrentDb
+
+    If strSQL <> "" Then
+        Set rs = db.OpenRecordset(strSQL)
+
+        Do While Not rs.EOF
+            strList = strList & strDelim & rs.Fields(0)
+            rs.MoveNext
+        Loop
+
+        strList = Mid(strList, Len(strDelim))
+    Else
+
+        strList = Join(NameList, strDelim)
+    End If
+
+    Coalsce = strList
+
+Exit_Function:
+    'Clean up
+    Set rs = Nothing
+    Exit Function
+
+Err_Handler:
+    Select Case Err.Number
+      Case Else
+        MsgBox "Error #" & Err.Number & ": " & Err.Description, vbCritical, _
+            "Error encountered (#" & Err.Number & " - Coalesce[mod_SQL])"
     End Select
     Resume Exit_Function
 End Function

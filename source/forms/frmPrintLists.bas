@@ -459,7 +459,7 @@ End Sub
 Private Sub btnPrintList_Click()
 On Error GoTo Err_Handler
     
-    Dim strSql As String, strWhere As String, strOrderBy As String
+    Dim strSQL As String, strWhere As String, strOrderBy As String
     'Dim qdf As DAO.QueryDef
     
     'determine the selected park(s) & year(s)

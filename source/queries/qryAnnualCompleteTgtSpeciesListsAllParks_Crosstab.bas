@@ -4,18 +4,18 @@ Begin InputTables
     Name ="qryAnnualCompleteTgtSpeciesListsAllParks"
 End
 Begin OutputColumns
-    Expression ="qryAnnualCompleteTgtSpeciesListsAllParks.[Species_Name]"
+    Expression ="qryAnnualCompleteTgtSpeciesListsAllParks.Species_Name"
     GroupLevel =2
-    Expression ="qryAnnualCompleteTgtSpeciesListsAllParks.[ARCHPriority]"
+    Expression ="qryAnnualCompleteTgtSpeciesListsAllParks.ARCHPriority"
     GroupLevel =1
     Alias ="CountOfFamily"
-    Expression ="Count(qryAnnualCompleteTgtSpeciesListsAllParks.[Family])"
+    Expression ="Count(qryAnnualCompleteTgtSpeciesListsAllParks.Family)"
     Alias ="Total Of Family"
-    Expression ="Count(qryAnnualCompleteTgtSpeciesListsAllParks.[Family])"
+    Expression ="Count(qryAnnualCompleteTgtSpeciesListsAllParks.Family)"
     GroupLevel =2
 End
 Begin Groups
-    Expression ="qryAnnualCompleteTgtSpeciesListsAllParks.[Species_Name]"
+    Expression ="qryAnnualCompleteTgtSpeciesListsAllParks.Species_Name"
     GroupLevel =2
     Expression ="qryAnnualCompleteTgtSpeciesListsAllParks.Family"
     GroupLevel =2
@@ -29,7 +29,7 @@ Begin Groups
     GroupLevel =2
     Expression ="qryAnnualCompleteTgtSpeciesListsAllParks.Master_Plant_Code_FK"
     GroupLevel =2
-    Expression ="qryAnnualCompleteTgtSpeciesListsAllParks.[ARCHPriority]"
+    Expression ="qryAnnualCompleteTgtSpeciesListsAllParks.ARCHPriority"
     GroupLevel =1
 End
 dbBoolean "ReturnsRecords" ="-1"
@@ -111,12 +111,12 @@ Begin
     State =0
     Left =0
     Top =0
-    Right =1321
+    Right =1699
     Bottom =805
     Left =-1
     Top =-1
-    Right =1301
-    Bottom =345
+    Right =1679
+    Bottom =324
     Left =0
     Top =0
     ColumnsShown =559

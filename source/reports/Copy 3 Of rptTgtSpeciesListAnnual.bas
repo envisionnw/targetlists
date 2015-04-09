@@ -13,7 +13,7 @@ Begin Report
     DatasheetFontHeight =11
     ItemSuffix =82
     Right =15600
-    Bottom =9408
+    Bottom =7248
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x41aa626fb98ee440
@@ -619,7 +619,7 @@ Begin Report
         End
         Begin Section
             KeepTogether = NotDefault
-            Height =780
+            Height =1500
             OnFormat ="[Event Procedure]"
             Name ="Detail"
             AlternateBackColor =15921906
@@ -871,6 +871,7 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxCANYPriority"
+                    ControlSource ="=[ParkPriorities](3)"
                     StatusBarText ="Park priority"
                     GridlineColor =10921638
 
@@ -893,6 +894,7 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxCAREPriority"
+                    ControlSource ="=[ParkPriorities](4)"
                     StatusBarText ="Park priority"
                     GridlineColor =10921638
 
@@ -915,6 +917,7 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxCEBRPriority"
+                    ControlSource ="=[ParkPriorities](5)"
                     StatusBarText ="Park priority"
                     GridlineColor =10921638
 
@@ -937,6 +940,7 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxCOLMPriority"
+                    ControlSource ="=[ParkPriorities](6)"
                     StatusBarText ="Park priority"
                     GridlineColor =10921638
 
@@ -959,6 +963,7 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxCUREPriority"
+                    ControlSource ="=[ParkPriorities](7)"
                     StatusBarText ="Park priority"
                     GridlineColor =10921638
 
@@ -981,6 +986,7 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxDINOPriority"
+                    ControlSource ="=[ParkPriorities](8)"
                     StatusBarText ="Park priority"
                     GridlineColor =10921638
 
@@ -1003,6 +1009,7 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxFOBUPriority"
+                    ControlSource ="=[ParkPriorities](9)"
                     StatusBarText ="Park priority"
                     GridlineColor =10921638
 
@@ -1025,6 +1032,7 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxGOSPPriority"
+                    ControlSource ="=[ParkPriorities](10)"
                     StatusBarText ="Park priority"
                     GridlineColor =10921638
 
@@ -1047,6 +1055,7 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxHOVEPriority"
+                    ControlSource ="=[ParkPriorities](11)"
                     StatusBarText ="Park priority"
                     GridlineColor =10921638
 
@@ -1069,6 +1078,7 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxNABRPriority"
+                    ControlSource ="=[ParkPriorities](12)"
                     StatusBarText ="Park priority"
                     GridlineColor =10921638
 
@@ -1091,6 +1101,7 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxPISPPriority"
+                    ControlSource ="=[ParkPriorities](13)"
                     StatusBarText ="Park priority"
                     GridlineColor =10921638
 
@@ -1113,6 +1124,7 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxTICAPriority"
+                    ControlSource ="=[ParkPriorities](14)"
                     StatusBarText ="Park priority"
                     GridlineColor =10921638
 
@@ -1135,6 +1147,7 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxZIONPriority"
+                    ControlSource ="=[ParkPriorities](15)"
                     StatusBarText ="Park priority"
                     GridlineColor =10921638
 
@@ -1170,23 +1183,23 @@ Begin Report
                     OldBorderStyle =0
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =9960
-                    Top =480
+                    Left =3180
+                    Top =780
                     Width =5280
                     Height =300
                     FontSize =9
                     TabIndex =23
                     BorderColor =10921638
                     ForeColor =4210752
-                    Name ="tbxAll"
+                    Name ="tbxX"
                     ControlSource ="ParkPriorities"
                     StatusBarText ="FK to plant master code (tlu_NCPN_Plants.Master_Species)"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =9960
-                    LayoutCachedTop =480
-                    LayoutCachedWidth =15240
-                    LayoutCachedHeight =780
+                    LayoutCachedLeft =3180
+                    LayoutCachedTop =780
+                    LayoutCachedWidth =8460
+                    LayoutCachedHeight =1080
                 End
             End
         End
@@ -1270,7 +1283,7 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumARCH"
-                    ControlSource ="=Sum([tbxARCHPriority])"
+                    ControlSource ="=Sum([tbxArchPriority])"
                     StatusBarText ="Total # priority 1 (ARCH)"
                     GridlineColor =10921638
 
@@ -1725,11 +1738,17 @@ Dim i As Integer
     ParkPriorities = Split(tbxPriority, "|")
     
     'textboxes
-    tbx = Array("ARCH", "BLCA", "BRCA", "CANY", "CARE", "CEBR", "COLM", "CURE", "DINO", "FOBU", "GOSP", "HOVE", "NABR", "PISP", "TICA", "ZION")
-        
+    tbx = Array(tbxArchPriority, tbxBLCAPriority, tbxBRCAPriority, tbxCANYPriority, _
+                tbxCAREPriority, tbxCEBRPriority, tbxCOLMPriority, tbxCUREPriority, _
+                tbxDINOPriority, tbxFOBUPriority, tbxGOSPPriority, tbxHOVEPriority, _
+                tbxNABRPriority, tbxPISPPriority, tbxTICAPriority, tbxZIONPriority)
+    
+    tbxArchPriority = ParkPriorities(0)
+    tbxBLCAPriority = ParkPriorities(1)
+    
     'set park priority values
-    For i = 0 To UBound(ParkPriorities) - 1
-        Me.Controls("tbx" + tbx(i) + "Priority") = ParkPriorities(i)
+    For i = 0 To UBound(ParkPriorities)
+        Me.Controls(tbx(i)) = ParkPriorities(i)
     Next
     
 Exit_Sub:

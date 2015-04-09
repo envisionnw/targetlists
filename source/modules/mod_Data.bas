@@ -32,7 +32,7 @@ On Error GoTo Err_Handler
     
     Dim db As DAO.Database
     Dim rs As DAO.Recordset
-    Dim strQuery As String, strSql As String
+    Dim strQuery As String, strSQL As String
     
     'output to form or listbox control?
    
@@ -41,20 +41,20 @@ On Error GoTo Err_Handler
     
         Case "lbxDataSheets", "sfrmDatasheets" 'Datasheets
             strQuery = "qryActiveDatasheets"
-            strSql = CurrentDb.QueryDefs(strQuery).sql
+            strSQL = CurrentDb.QueryDefs(strQuery).sql
             
         Case "lbxSpecies", "lbxTgtSpecies", "sfrmSpeciesListbox" 'Species
             strQuery = "qryPlantSpecies"
-            strSql = CurrentDb.QueryDefs(strQuery).sql
+            strSQL = CurrentDb.QueryDefs(strQuery).sql
             
     End Select
 
     'fetch data
     Set db = CurrentDb
-    Set rs = db.OpenRecordset(strSql)
+    Set rs = db.OpenRecordset(strSQL)
 
     'set TempVars
-    TempVars.Add "strSQL", strSql
+    TempVars.Add "strSQL", strSQL
 
     If Not ctrlDest Is Nothing Then
         'populate list & headers
@@ -94,7 +94,7 @@ On Error GoTo Err_Handler
     
     Dim db As DAO.Database
     Dim rs As DAO.Recordset
-    Dim state As String, strSql As String
+    Dim state As String, strSQL As String
    
     'handle only appropriate park codes
     If Len(parkCode) <> 4 Then
@@ -102,11 +102,11 @@ On Error GoTo Err_Handler
     End If
     
     'generate SQL ==> NOTE: LIMIT 1; syntax not viable for Access, use SELECT TOP x instead
-    strSql = "SELECT TOP 1 ParkState FROM tlu_Parks WHERE ParkCode LIKE '" & parkCode & "';"
+    strSQL = "SELECT TOP 1 ParkState FROM tlu_Parks WHERE ParkCode LIKE '" & parkCode & "';"
             
     'fetch data
     Set db = CurrentDb
-    Set rs = db.OpenRecordset(strSql)
+    Set rs = db.OpenRecordset(strSQL)
     
     'assume only 1 record returned
     If rs.RecordCount > 0 Then

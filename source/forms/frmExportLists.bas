@@ -459,7 +459,7 @@ End Sub
 Private Sub btnLoadList_Click()
 On Error GoTo Err_Handler
     
-    Dim strSql As String, strWhere As String
+    Dim strSQL As String, strWhere As String
     
     'determine the selected park(s) & year(s)
     If Len(TempVars.item("parks")) > 0 And Len(TempVars.item("years")) > 0 Then
@@ -471,7 +471,7 @@ On Error GoTo Err_Handler
     If Len(Replace(strWhere, "WHERE", "")) = 0 Then strWhere = ""
     
     'build SQL statement
-    strSql = "SELECT DISTINCT Master_Plant_Code_FK AS Code, Species_Name AS Species " _
+    strSQL = "SELECT DISTINCT Master_Plant_Code_FK AS Code, Species_Name AS Species " _
             & "FROM tbl_Target_Species " _
             & strWhere & ";"
     
@@ -480,7 +480,7 @@ On Error GoTo Err_Handler
     Dim rsNew As DAO.Recordset
       
     'fetch data
-    Set rs = CurrentDb.OpenRecordset(strSql)
+    Set rs = CurrentDb.OpenRecordset(strSQL)
 
     'merge existing listbox recordset w/ new SQL recordset
     Set rsNew = MergeRecordsets(Forms("frmTgtSpecies").lbxTgtSpecies.Recordset, rs)
