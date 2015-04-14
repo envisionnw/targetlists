@@ -11,9 +11,9 @@ Begin Report
     GridY =24
     Width =11400
     DatasheetFontHeight =11
-    ItemSuffix =31
-    Right =15600
-    Bottom =7248
+    ItemSuffix =37
+    Right =12390
+    Bottom =9600
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x6a70aa97b48ee440
@@ -23,10 +23,10 @@ Begin Report
     OnOpen ="[Event Procedure]"
     DatasheetFontName ="Calibri"
     PrtMip = Begin
-        0x6a01000068010000680100006801000000000000fe2c0000b001000001000000 ,
+        0x6a01000068010000680100006801000000000000882c0000a201000001000000 ,
         0x010000006801000000000000a10700000100000001000000
     End
-    FilterOnLoad =0
+    FilterOnLoad =255
     FitToPage =1
     DisplayOnSharePointSite =1
     AllowLayoutView =0
@@ -90,10 +90,9 @@ Begin Report
         End
         Begin FormHeader
             KeepTogether = NotDefault
-            Height =948
+            Height =660
             BackColor =15849926
             Name ="ReportHeader"
-            AutoHeight =1
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
             BackThemeColorIndex =2
@@ -114,6 +113,28 @@ Begin Report
                     LayoutCachedTop =60
                     LayoutCachedWidth =2952
                     LayoutCachedHeight =588
+                End
+                Begin TextBox
+                    OldBorderStyle =0
+                    TextAlign =3
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =9000
+                    Width =2340
+                    Height =540
+                    ColumnOrder =0
+                    FontSize =20
+                    BorderColor =10921638
+                    ForeColor =8355711
+                    Name ="tbxParkYear"
+                    ControlSource ="=[Park] & \" - \" & [TgtYear]"
+                    StatusBarText ="Park and year for list"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =9000
+                    LayoutCachedWidth =11340
+                    LayoutCachedHeight =540
+                    ForeTint =50.0
                 End
             End
         End
@@ -293,8 +314,8 @@ Begin Report
                     IMESentenceMode =3
                     Left =120
                     Top =60
-                    Width =5040
-                    Height =312
+                    Width =2760
+                    Height =315
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxDate"
@@ -304,17 +325,17 @@ Begin Report
 
                     LayoutCachedLeft =120
                     LayoutCachedTop =60
-                    LayoutCachedWidth =5160
-                    LayoutCachedHeight =372
+                    LayoutCachedWidth =2880
+                    LayoutCachedHeight =375
                 End
                 Begin TextBox
                     OldBorderStyle =0
                     TextAlign =3
                     BackStyle =0
                     IMESentenceMode =3
-                    Left =6240
+                    Left =7200
                     Top =60
-                    Width =5040
+                    Width =4080
                     Height =312
                     TabIndex =1
                     BorderColor =10921638
@@ -323,9 +344,30 @@ Begin Report
                     ControlSource ="=\"Page \" & [Page] & \" of \" & [Pages]"
                     GridlineColor =10921638
 
-                    LayoutCachedLeft =6240
+                    LayoutCachedLeft =7200
                     LayoutCachedTop =60
                     LayoutCachedWidth =11280
+                    LayoutCachedHeight =372
+                End
+                Begin TextBox
+                    OldBorderStyle =0
+                    TextAlign =3
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =4320
+                    Top =60
+                    Width =2880
+                    Height =312
+                    TabIndex =2
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxListName"
+                    ControlSource ="=IIf([Page]>1,\"Invasives List for \" & [tbxParkYear],\"\")"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =4320
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =7200
                     LayoutCachedHeight =372
                 End
             End
@@ -344,7 +386,7 @@ Begin Report
                     IMESentenceMode =3
                     Width =11400
                     Height =418
-                    TabIndex =6
+                    TabIndex =5
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxDetail"
@@ -496,7 +538,7 @@ Begin Report
                     ForeColor =4210752
                     Name ="tbxPriority"
                     ControlSource ="=Switch([Transect_Only]=1,\"Transect Only\",Len([Tgt_Area])>0,[Tgt_Area],[Priori"
-                        "ty]>0,[Priority])"
+                        "ty]>-1,[Priority])"
                     StatusBarText ="Park priority (1 - , 2- , 3- , 4- , 5-)"
                     GridlineColor =10921638
 
@@ -514,7 +556,7 @@ Begin Report
                     Width =1800
                     Height =312
                     FontSize =9
-                    TabIndex =5
+                    TabIndex =6
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxFamily"
@@ -527,6 +569,31 @@ Begin Report
                     LayoutCachedWidth =2040
                     LayoutCachedHeight =372
                 End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =9120
+                    Top =60
+                    Width =1140
+                    Height =300
+                    FontSize =9
+                    TabIndex =7
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxPri1RunSum"
+                    ControlSource ="=CDbl(Nz(IIf(Switch([Transect_Only]=1,0,Len([Tgt_Area])>0,0,[Priority]>-1,[Prior"
+                        "ity])=1,1,0),0))"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =9120
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =10260
+                    LayoutCachedHeight =360
+                End
             End
         End
         Begin PageFooter
@@ -538,14 +605,13 @@ Begin Report
         End
         Begin FormFooter
             KeepTogether = NotDefault
-            Height =540
+            Height =960
             Name ="ReportFooter"
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
             BackThemeColorIndex =1
             Begin
                 Begin TextBox
-                    RunningSum =2
                     OldBorderStyle =0
                     TextAlign =1
                     BackStyle =0
@@ -558,8 +624,7 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =4210752
                     Name ="tbxSumPriority1"
-                    ControlSource ="=CDbl(Nz(Count([Priority]),0))"
-                    StatusBarText ="Standard park code (CANY, FOBU, etc.)"
+                    ControlSource ="=[tbxPri1RunSum]"
                     GridlineColor =10921638
 
                     LayoutCachedLeft =10020
@@ -594,6 +659,48 @@ Begin Report
                     GridlineColor =10921638
                     LayoutCachedLeft =60
                     LayoutCachedWidth =11160
+                End
+                Begin TextBox
+                    RunningSum =2
+                    OldBorderStyle =0
+                    TextAlign =1
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =10020
+                    Top =540
+                    Width =1140
+                    Height =312
+                    FontSize =12
+                    TabIndex =1
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxSumSpecies"
+                    ControlSource ="=CDbl(Count(*))"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =10020
+                    LayoutCachedTop =540
+                    LayoutCachedWidth =11160
+                    LayoutCachedHeight =852
+                End
+                Begin Label
+                    TextAlign =3
+                    Left =7200
+                    Top =540
+                    Width =2700
+                    Height =324
+                    FontSize =12
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="Label36"
+                    Caption ="Total # Species ="
+                    Tag ="DetachedLabel"
+                    GridlineStyleBottom =1
+                    GridlineColor =10921638
+                    LayoutCachedLeft =7200
+                    LayoutCachedTop =540
+                    LayoutCachedWidth =9900
+                    LayoutCachedHeight =864
                 End
             End
         End

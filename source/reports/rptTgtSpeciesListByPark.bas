@@ -11,9 +11,9 @@ Begin Report
     GridY =24
     Width =11400
     DatasheetFontHeight =11
-    ItemSuffix =39
-    Right =15630
-    Bottom =11760
+    ItemSuffix =43
+    Right =20268
+    Bottom =9408
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0xbf59acd5ff8de440
@@ -110,6 +110,7 @@ Begin Report
             BackTint =20.0
             Begin
                 Begin Label
+                    OverlapFlags =81
                     Left =60
                     Top =60
                     Width =2892
@@ -125,6 +126,31 @@ Begin Report
                     LayoutCachedWidth =2952
                     LayoutCachedHeight =588
                 End
+                Begin TextBox
+                    OldBorderStyle =0
+                    OverlapFlags =81
+                    TextAlign =3
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =9000
+                    Top =60
+                    Width =2340
+                    Height =540
+                    ColumnOrder =0
+                    FontSize =20
+                    BorderColor =10921638
+                    ForeColor =8355711
+                    Name ="tbxYear"
+                    ControlSource ="=[Park] & \" - \" & [TgtYear] & [tbxSumParkPriority]"
+                    StatusBarText ="Park and year for list"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =9000
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =11340
+                    LayoutCachedHeight =600
+                    ForeTint =50.0
+                End
             End
         End
         Begin PageHeader
@@ -136,6 +162,7 @@ Begin Report
             Begin
                 Begin Rectangle
                     OldBorderStyle =0
+                    OverlapFlags =81
                     Width =11400
                     Height =480
                     BackColor =15849926
@@ -148,6 +175,7 @@ Begin Report
                     BackTint =20.0
                 End
                 Begin Label
+                    OverlapFlags =81
                     TextAlign =2
                     Left =2160
                     Top =960
@@ -166,6 +194,7 @@ Begin Report
                     LayoutCachedHeight =1260
                 End
                 Begin Label
+                    OverlapFlags =81
                     TextAlign =2
                     Left =4200
                     Top =960
@@ -184,6 +213,7 @@ Begin Report
                     LayoutCachedHeight =1260
                 End
                 Begin Label
+                    OverlapFlags =81
                     TextAlign =1
                     Left =6360
                     Top =960
@@ -202,6 +232,7 @@ Begin Report
                     LayoutCachedHeight =1260
                 End
                 Begin Label
+                    OverlapFlags =81
                     TextAlign =1
                     Left =240
                     Top =960
@@ -220,6 +251,7 @@ Begin Report
                     LayoutCachedHeight =1260
                 End
                 Begin Label
+                    OverlapFlags =81
                     TextAlign =1
                     Left =8100
                     Top =960
@@ -238,6 +270,7 @@ Begin Report
                     LayoutCachedHeight =1260
                 End
                 Begin Label
+                    OverlapFlags =81
                     TextAlign =1
                     Left =10080
                     Top =960
@@ -256,6 +289,7 @@ Begin Report
                     LayoutCachedHeight =1260
                 End
                 Begin Label
+                    OverlapFlags =81
                     TextAlign =2
                     Left =2160
                     Top =600
@@ -274,6 +308,7 @@ Begin Report
                     LayoutCachedHeight =900
                 End
                 Begin Line
+                    OverlapFlags =81
                     Left =2160
                     Top =924
                     Width =3720
@@ -286,6 +321,7 @@ Begin Report
                 End
                 Begin Line
                     BorderWidth =2
+                    OverlapFlags =81
                     Left =180
                     Top =1320
                     Width =11100
@@ -298,6 +334,7 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
+                    OverlapFlags =211
                     TextAlign =1
                     BackStyle =0
                     IMESentenceMode =3
@@ -319,6 +356,7 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
+                    OverlapFlags =211
                     TextAlign =3
                     BackStyle =0
                     IMESentenceMode =3
@@ -355,6 +393,7 @@ Begin Report
             Begin
                 Begin TextBox
                     OldBorderStyle =0
+                    OverlapFlags =81
                     BackStyle =0
                     IMESentenceMode =3
                     Left =120
@@ -374,6 +413,7 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
+                    OverlapFlags =81
                     TextAlign =3
                     BackStyle =0
                     IMESentenceMode =3
@@ -396,6 +436,7 @@ Begin Report
                 Begin TextBox
                     FontItalic = NotDefault
                     OldBorderStyle =0
+                    OverlapFlags =243
                     TextAlign =1
                     BackStyle =0
                     IMESentenceMode =3
@@ -408,7 +449,8 @@ Begin Report
                     BorderColor =10921638
                     ForeColor =8355711
                     Name ="tbxSumParkPriority"
-                    ControlSource ="=Sum([Priority])"
+                    ControlSource ="=Sum(CDbl(Nz(IIf(Switch([Transect_Only]=1,0,Len([Tgt_Area])>0,0,[Priority]>-1,[P"
+                        "riority])=1,1,0),0)))"
                     StatusBarText ="Target Species name (ITIS species name from tlu_NCPN_Plants.Master_Species)"
                     GridlineColor =10921638
 
@@ -420,6 +462,7 @@ Begin Report
                 End
                 Begin Label
                     FontItalic = NotDefault
+                    OverlapFlags =81
                     TextAlign =3
                     Left =7500
                     Top =120
@@ -437,6 +480,52 @@ Begin Report
                     LayoutCachedWidth =9180
                     LayoutCachedHeight =420
                 End
+                Begin TextBox
+                    FontItalic = NotDefault
+                    OldBorderStyle =0
+                    OverlapFlags =81
+                    TextAlign =1
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =6780
+                    Top =90
+                    Width =540
+                    Height =345
+                    FontSize =12
+                    TabIndex =3
+                    BorderColor =10921638
+                    ForeColor =8355711
+                    Name ="tbxSumParkSpecies"
+                    ControlSource ="=Count(*)"
+                    StatusBarText ="Target Species name (ITIS species name from tlu_NCPN_Plants.Master_Species)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =6780
+                    LayoutCachedTop =90
+                    LayoutCachedWidth =7320
+                    LayoutCachedHeight =435
+                    ForeTint =50.0
+                End
+                Begin Label
+                    FontItalic = NotDefault
+                    OverlapFlags =81
+                    TextAlign =3
+                    Left =4980
+                    Top =120
+                    Width =1665
+                    Height =299
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblSumParkSpecies"
+                    Caption ="Total Species:"
+                    Tag ="DetachedLabel"
+                    GridlineStyleBottom =1
+                    GridlineColor =10921638
+                    LayoutCachedLeft =4980
+                    LayoutCachedTop =120
+                    LayoutCachedWidth =6645
+                    LayoutCachedHeight =419
+                End
             End
         End
         Begin Section
@@ -450,6 +539,7 @@ Begin Report
             Begin
                 Begin TextBox
                     OldBorderStyle =0
+                    OverlapFlags =211
                     IMESentenceMode =3
                     Width =11400
                     Height =418
@@ -486,6 +576,7 @@ Begin Report
                     End
                     Begin
                         Begin Label
+                            OverlapFlags =81
                             Width =705
                             Height =315
                             BorderColor =8355711
@@ -500,6 +591,7 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
+                    OverlapFlags =243
                     BackStyle =0
                     IMESentenceMode =3
                     Left =2220
@@ -522,6 +614,7 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
+                    OverlapFlags =243
                     BackStyle =0
                     IMESentenceMode =3
                     Left =4260
@@ -546,6 +639,7 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
+                    OverlapFlags =243
                     BackStyle =0
                     IMESentenceMode =3
                     Left =6360
@@ -569,6 +663,7 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
+                    OverlapFlags =243
                     BackStyle =0
                     IMESentenceMode =3
                     Left =8100
@@ -593,6 +688,7 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
+                    OverlapFlags =243
                     BackStyle =0
                     IMESentenceMode =3
                     Left =10080
@@ -605,7 +701,7 @@ Begin Report
                     ForeColor =4210752
                     Name ="tbxPriority"
                     ControlSource ="=Switch([Transect_Only]=1,\"Transect Only\",Len([Tgt_Area])>0,[Tgt_Area],[Priori"
-                        "ty]>0,[Priority])"
+                        "ty]>-1,[Priority])"
                     StatusBarText ="Park priority (1 - , 2- , 3- , 4- , 5-)"
                     GridlineColor =10921638
 
@@ -616,6 +712,7 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
+                    OverlapFlags =243
                     BackStyle =0
                     IMESentenceMode =3
                     Left =240
@@ -659,6 +756,31 @@ Begin Report
                     LayoutCachedWidth =10260
                     LayoutCachedHeight =372
                 End
+                Begin TextBox
+                    Visible = NotDefault
+                    DecimalPlaces =0
+                    RunningSum =2
+                    OldBorderStyle =0
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =7860
+                    Top =60
+                    Width =1140
+                    Height =300
+                    FontSize =9
+                    TabIndex =8
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxPri1RunSum"
+                    ControlSource ="=CDbl(Nz(IIf(Switch([Transect_Only]=1,0,Len([Tgt_Area])>0,0,[Priority]>-1,[Prior"
+                        "ity])=1,1,0),0))"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =7860
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =9000
+                    LayoutCachedHeight =360
+                End
             End
         End
         Begin PageFooter
@@ -670,54 +792,12 @@ Begin Report
         End
         Begin FormFooter
             KeepTogether = NotDefault
-            Height =540
+            Height =900
             Name ="ReportFooter"
             AlternateBackThemeColorIndex =1
             AlternateBackShade =95.0
             BackThemeColorIndex =1
             Begin
-                Begin TextBox
-                    RunningSum =2
-                    OldBorderStyle =0
-                    TextAlign =1
-                    BackStyle =0
-                    IMESentenceMode =3
-                    Left =10020
-                    Top =120
-                    Width =1140
-                    Height =312
-                    FontSize =12
-                    BorderColor =10921638
-                    ForeColor =4210752
-                    Name ="tbxSumPriority1"
-                    ControlSource ="=CDbl(Nz(Count([Priority]),0))"
-                    StatusBarText ="Standard park code (CANY, FOBU, etc.)"
-                    GridlineColor =10921638
-
-                    LayoutCachedLeft =10020
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =11160
-                    LayoutCachedHeight =432
-                End
-                Begin Label
-                    TextAlign =3
-                    Left =7200
-                    Top =120
-                    Width =2700
-                    Height =324
-                    FontSize =12
-                    BorderColor =8355711
-                    ForeColor =8355711
-                    Name ="lblTotalNum"
-                    Caption ="Total # Priority 1 Species ="
-                    Tag ="DetachedLabel"
-                    GridlineStyleBottom =1
-                    GridlineColor =10921638
-                    LayoutCachedLeft =7200
-                    LayoutCachedTop =120
-                    LayoutCachedWidth =9900
-                    LayoutCachedHeight =444
-                End
                 Begin Line
                     BorderWidth =2
                     Left =60
@@ -726,6 +806,89 @@ Begin Report
                     GridlineColor =10921638
                     LayoutCachedLeft =60
                     LayoutCachedWidth =11160
+                End
+                Begin TextBox
+                    OldBorderStyle =0
+                    TextAlign =1
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =10020
+                    Top =60
+                    Width =1140
+                    Height =312
+                    FontSize =12
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxSumPriority1"
+                    ControlSource ="=[tbxPri1RunSum]"
+                    StatusBarText ="Standard park code (CANY, FOBU, etc.)"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =10020
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =11160
+                    LayoutCachedHeight =372
+                End
+                Begin Label
+                    TextAlign =3
+                    Left =7200
+                    Top =60
+                    Width =2700
+                    Height =324
+                    FontSize =12
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblSumPriority1"
+                    Caption ="Total # Priority 1 Species ="
+                    Tag ="DetachedLabel"
+                    GridlineStyleBottom =1
+                    GridlineColor =10921638
+                    LayoutCachedLeft =7200
+                    LayoutCachedTop =60
+                    LayoutCachedWidth =9900
+                    LayoutCachedHeight =384
+                End
+                Begin TextBox
+                    RunningSum =2
+                    OldBorderStyle =0
+                    TextAlign =1
+                    BackStyle =0
+                    IMESentenceMode =3
+                    Left =10020
+                    Top =480
+                    Width =1140
+                    Height =312
+                    FontSize =12
+                    TabIndex =1
+                    BorderColor =10921638
+                    ForeColor =4210752
+                    Name ="tbxSumSpecies"
+                    ControlSource ="=CDbl(Count(*))"
+                    GridlineColor =10921638
+
+                    LayoutCachedLeft =10020
+                    LayoutCachedTop =480
+                    LayoutCachedWidth =11160
+                    LayoutCachedHeight =792
+                End
+                Begin Label
+                    TextAlign =3
+                    Left =7200
+                    Top =480
+                    Width =2700
+                    Height =324
+                    FontSize =12
+                    BorderColor =8355711
+                    ForeColor =8355711
+                    Name ="lblSumSpecies"
+                    Caption ="Total # Species ="
+                    Tag ="DetachedLabel"
+                    GridlineStyleBottom =1
+                    GridlineColor =10921638
+                    LayoutCachedLeft =7200
+                    LayoutCachedTop =480
+                    LayoutCachedWidth =9900
+                    LayoutCachedHeight =804
                 End
             End
         End

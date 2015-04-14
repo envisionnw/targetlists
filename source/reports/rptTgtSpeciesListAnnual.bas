@@ -12,8 +12,8 @@ Begin Report
     Width =25860
     DatasheetFontHeight =11
     ItemSuffix =119
-    Right =20268
-    Bottom =9408
+    Right =12390
+    Bottom =9600
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0x0f001b43ee8ee440
@@ -23,7 +23,7 @@ Begin Report
     OnOpen ="[Event Procedure]"
     DatasheetFontName ="Calibri"
     PrtMip = Begin
-        0x6a0100006801000068010000680100000000000060450000a201000001000000 ,
+        0x690100006801000068010000680100000000000004650000a201000001000000 ,
         0x010000006801000000000000a10700000100000001000000
     End
     OnLoad ="[Event Procedure]"
@@ -835,7 +835,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     IMESentenceMode =3
                     Left =9480
@@ -880,7 +879,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     IMESentenceMode =3
                     Left =9840
@@ -925,7 +923,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     IMESentenceMode =3
                     Left =10200
@@ -970,7 +967,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     IMESentenceMode =3
                     Left =10560
@@ -1015,7 +1011,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     IMESentenceMode =3
                     Left =10920
@@ -1060,7 +1055,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     IMESentenceMode =3
                     Left =11280
@@ -1105,7 +1099,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     IMESentenceMode =3
                     Left =11640
@@ -1150,7 +1143,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     IMESentenceMode =3
                     Left =12000
@@ -1195,7 +1187,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     IMESentenceMode =3
                     Left =12360
@@ -1240,7 +1231,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     IMESentenceMode =3
                     Left =12720
@@ -1285,7 +1275,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     IMESentenceMode =3
                     Left =13080
@@ -1330,7 +1319,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     IMESentenceMode =3
                     Left =13440
@@ -1375,7 +1363,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     IMESentenceMode =3
                     Left =13800
@@ -1420,7 +1407,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     IMESentenceMode =3
                     Left =14160
@@ -1465,7 +1451,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     IMESentenceMode =3
                     Left =14520
@@ -1510,7 +1495,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     IMESentenceMode =3
                     Left =14880
@@ -1578,6 +1562,7 @@ Begin Report
                     LayoutCachedHeight =360
                 End
                 Begin TextBox
+                    Visible = NotDefault
                     DecimalPlaces =0
                     OldBorderStyle =0
                     BackStyle =0
@@ -2038,7 +2023,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2063,7 +2047,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2088,7 +2071,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2113,7 +2095,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2138,7 +2119,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2163,7 +2143,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2188,7 +2167,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2213,7 +2191,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2238,7 +2215,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2263,7 +2239,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2288,7 +2263,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2313,7 +2287,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2338,7 +2311,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2363,7 +2335,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2388,7 +2359,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2413,7 +2383,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2457,7 +2426,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2483,7 +2451,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2509,7 +2476,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2535,7 +2501,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2561,7 +2526,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2587,7 +2551,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2613,7 +2576,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2639,7 +2601,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2665,7 +2626,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2691,7 +2651,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2717,7 +2676,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2743,7 +2701,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2769,7 +2726,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2795,7 +2751,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2822,7 +2777,6 @@ Begin Report
                     DecimalPlaces =0
                     RunningSum =2
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
@@ -2849,7 +2803,6 @@ Begin Report
                     DecimalPlaces =0
                     RunningSum =2
                     OldBorderStyle =0
-                    OverlapFlags =4
                     TextAlign =2
                     BackStyle =0
                     IMESentenceMode =3
