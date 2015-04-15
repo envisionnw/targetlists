@@ -60,14 +60,6 @@ Begin
         dbLong "AggregateType" ="-1"
     End
     Begin
-        dbText "Name" ="qryAnnualCompleteTgtSpeciesListsAllParks.ARCHPriority"
-        dbLong "AggregateType" ="-1"
-    End
-    Begin
-        dbText "Name" ="qryAnnualCompleteTgtSpeciesListsAllParks.BLCAPriority"
-        dbLong "AggregateType" ="-1"
-    End
-    Begin
         dbText "Name" ="ParkPriority"
         dbInteger "ColumnWidth" ="2940"
         dbBoolean "ColumnHidden" ="0"

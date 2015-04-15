@@ -222,7 +222,7 @@ End Sub
 
 ' ---------------------------------
 ' SUB:          ResetHeaders
-' Description:  reset header fields to their
+' Description:  reset header fields to their default
 ' Assumptions:  if only a subset of form controls are to be reset, these controls should have the same Tag property value
 ' Parameters:   frm - form to reset headers on
 '               allCtrls - if all form controls should be reset (boolean) (true = reset all controls,

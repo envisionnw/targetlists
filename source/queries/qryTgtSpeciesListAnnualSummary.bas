@@ -1,12 +1,22 @@
-﻿dbMemo "SQL" ="SELECT DISTINCT qryAnnualCompleteTgtSpeciesLists.Master_Plant_Code_FK, qryAnnual"
-    "CompleteTgtSpeciesLists.LU_Code, qryAnnualCompleteTgtSpeciesLists.Family, qryAnn"
-    "ualCompleteTgtSpeciesLists.Species_Name, qryAnnualCompleteTgtSpeciesLists.utah_s"
-    "pecies, qryAnnualCompleteTgtSpeciesLists.Co_Species, qryAnnualCompleteTgtSpecies"
-    "Lists.Wy_Species, qryAnnualCompleteTgtSpeciesLists.Master_Common_Name, ConcatRel"
-    "ated(\"ParkPriority\",\"qryAnnualCompleteTgtSpeciesLists\",\"Species_Name='\"+Sp"
-    "ecies_Name+\"'\",'',\"|\") AS ParkPriorities\015\012FROM qryAnnualCompleteTgtSpe"
-    "ciesLists;\015\012"
-dbMemo "Connect" =""
+﻿Operation =1
+Option =2
+Begin InputTables
+    Name ="qryAnnualCompleteTgtSpeciesLists"
+End
+Begin OutputColumns
+    Expression ="qryAnnualCompleteTgtSpeciesLists.TgtYear"
+    Expression ="qryAnnualCompleteTgtSpeciesLists.Master_Plant_Code_FK"
+    Expression ="qryAnnualCompleteTgtSpeciesLists.LU_Code"
+    Expression ="qryAnnualCompleteTgtSpeciesLists.Family"
+    Expression ="qryAnnualCompleteTgtSpeciesLists.Species_Name"
+    Expression ="qryAnnualCompleteTgtSpeciesLists.utah_species"
+    Expression ="qryAnnualCompleteTgtSpeciesLists.Co_Species"
+    Expression ="qryAnnualCompleteTgtSpeciesLists.Wy_Species"
+    Expression ="qryAnnualCompleteTgtSpeciesLists.Master_Common_Name"
+    Alias ="ParkPriorities"
+    Expression ="ConcatRelated(\"ParkPriority\",\"qryAnnualCompleteTgtSpeciesLists\",\"Species_Na"
+        "me='\"+Species_Name+\"'\",'',\"|\")"
+End
 dbBoolean "ReturnsRecords" ="-1"
 dbInteger "ODBCTimeout" ="60"
 dbBoolean "OrderByOn" ="0"
@@ -60,5 +70,32 @@ Begin
     Begin
         dbText "Name" ="qryAnnualCompleteTgtSpeciesLists.LU_Code"
         dbLong "AggregateType" ="-1"
+    End
+    Begin
+        dbText "Name" ="qryAnnualCompleteTgtSpeciesLists.TgtYear"
+        dbLong "AggregateType" ="-1"
+    End
+End
+Begin
+    State =0
+    Left =0
+    Top =0
+    Right =1332
+    Bottom =625
+    Left =-1
+    Top =-1
+    Right =1312
+    Bottom =401
+    Left =0
+    Top =0
+    ColumnsShown =539
+    Begin
+        Left =60
+        Top =15
+        Right =296
+        Bottom =402
+        Top =0
+        Name ="qryAnnualCompleteTgtSpeciesLists"
+        Name =""
     End
 End

@@ -12,8 +12,8 @@ Begin Report
     Width =11400
     DatasheetFontHeight =11
     ItemSuffix =43
-    Right =20268
-    Bottom =9408
+    Right =15732
+    Bottom =7248
     DatasheetGridlinesColor =14806254
     RecSrcDt = Begin
         0xbf59acd5ff8de440
@@ -110,7 +110,6 @@ Begin Report
             BackTint =20.0
             Begin
                 Begin Label
-                    OverlapFlags =81
                     Left =60
                     Top =60
                     Width =2892
@@ -128,7 +127,6 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
-                    OverlapFlags =81
                     TextAlign =3
                     BackStyle =0
                     IMESentenceMode =3
@@ -162,7 +160,6 @@ Begin Report
             Begin
                 Begin Rectangle
                     OldBorderStyle =0
-                    OverlapFlags =81
                     Width =11400
                     Height =480
                     BackColor =15849926
@@ -175,7 +172,6 @@ Begin Report
                     BackTint =20.0
                 End
                 Begin Label
-                    OverlapFlags =81
                     TextAlign =2
                     Left =2160
                     Top =960
@@ -194,7 +190,6 @@ Begin Report
                     LayoutCachedHeight =1260
                 End
                 Begin Label
-                    OverlapFlags =81
                     TextAlign =2
                     Left =4200
                     Top =960
@@ -213,7 +208,6 @@ Begin Report
                     LayoutCachedHeight =1260
                 End
                 Begin Label
-                    OverlapFlags =81
                     TextAlign =1
                     Left =6360
                     Top =960
@@ -232,7 +226,6 @@ Begin Report
                     LayoutCachedHeight =1260
                 End
                 Begin Label
-                    OverlapFlags =81
                     TextAlign =1
                     Left =240
                     Top =960
@@ -251,7 +244,6 @@ Begin Report
                     LayoutCachedHeight =1260
                 End
                 Begin Label
-                    OverlapFlags =81
                     TextAlign =1
                     Left =8100
                     Top =960
@@ -270,7 +262,6 @@ Begin Report
                     LayoutCachedHeight =1260
                 End
                 Begin Label
-                    OverlapFlags =81
                     TextAlign =1
                     Left =10080
                     Top =960
@@ -289,7 +280,6 @@ Begin Report
                     LayoutCachedHeight =1260
                 End
                 Begin Label
-                    OverlapFlags =81
                     TextAlign =2
                     Left =2160
                     Top =600
@@ -308,7 +298,6 @@ Begin Report
                     LayoutCachedHeight =900
                 End
                 Begin Line
-                    OverlapFlags =81
                     Left =2160
                     Top =924
                     Width =3720
@@ -321,7 +310,6 @@ Begin Report
                 End
                 Begin Line
                     BorderWidth =2
-                    OverlapFlags =81
                     Left =180
                     Top =1320
                     Width =11100
@@ -334,7 +322,6 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
-                    OverlapFlags =211
                     TextAlign =1
                     BackStyle =0
                     IMESentenceMode =3
@@ -356,7 +343,6 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
-                    OverlapFlags =211
                     TextAlign =3
                     BackStyle =0
                     IMESentenceMode =3
@@ -393,7 +379,6 @@ Begin Report
             Begin
                 Begin TextBox
                     OldBorderStyle =0
-                    OverlapFlags =81
                     BackStyle =0
                     IMESentenceMode =3
                     Left =120
@@ -413,7 +398,6 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
-                    OverlapFlags =81
                     TextAlign =3
                     BackStyle =0
                     IMESentenceMode =3
@@ -436,7 +420,6 @@ Begin Report
                 Begin TextBox
                     FontItalic = NotDefault
                     OldBorderStyle =0
-                    OverlapFlags =243
                     TextAlign =1
                     BackStyle =0
                     IMESentenceMode =3
@@ -462,7 +445,6 @@ Begin Report
                 End
                 Begin Label
                     FontItalic = NotDefault
-                    OverlapFlags =81
                     TextAlign =3
                     Left =7500
                     Top =120
@@ -483,7 +465,6 @@ Begin Report
                 Begin TextBox
                     FontItalic = NotDefault
                     OldBorderStyle =0
-                    OverlapFlags =81
                     TextAlign =1
                     BackStyle =0
                     IMESentenceMode =3
@@ -508,7 +489,6 @@ Begin Report
                 End
                 Begin Label
                     FontItalic = NotDefault
-                    OverlapFlags =81
                     TextAlign =3
                     Left =4980
                     Top =120
@@ -539,7 +519,6 @@ Begin Report
             Begin
                 Begin TextBox
                     OldBorderStyle =0
-                    OverlapFlags =211
                     IMESentenceMode =3
                     Width =11400
                     Height =418
@@ -576,7 +555,6 @@ Begin Report
                     End
                     Begin
                         Begin Label
-                            OverlapFlags =81
                             Width =705
                             Height =315
                             BorderColor =8355711
@@ -591,7 +569,6 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
-                    OverlapFlags =243
                     BackStyle =0
                     IMESentenceMode =3
                     Left =2220
@@ -614,7 +591,6 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
-                    OverlapFlags =243
                     BackStyle =0
                     IMESentenceMode =3
                     Left =4260
@@ -639,7 +615,6 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
-                    OverlapFlags =243
                     BackStyle =0
                     IMESentenceMode =3
                     Left =6360
@@ -663,7 +638,6 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
-                    OverlapFlags =243
                     BackStyle =0
                     IMESentenceMode =3
                     Left =8100
@@ -688,7 +662,6 @@ Begin Report
                 Begin TextBox
                     DecimalPlaces =0
                     OldBorderStyle =0
-                    OverlapFlags =243
                     BackStyle =0
                     IMESentenceMode =3
                     Left =10080
@@ -712,7 +685,6 @@ Begin Report
                 End
                 Begin TextBox
                     OldBorderStyle =0
-                    OverlapFlags =243
                     BackStyle =0
                     IMESentenceMode =3
                     Left =240
